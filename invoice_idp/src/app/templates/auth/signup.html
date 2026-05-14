@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Załóż konto — Faktomat{% endblock %}
+{% block content %}
+<div class="min-h-screen bg-stone-50/60 flex flex-col">
+  <main class="flex-1 flex items-center justify-center px-4 py-16">
+    <div class="w-full max-w-md">
+
+      <a href="/" class="flex items-center justify-center gap-2.5 mb-10 group">
+        <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-gradient-to-br from-brand-600 to-brand-800 text-white font-bold text-base shadow-sm">F</span>
+        <span class="font-serif-display italic text-[26px] leading-none text-stone-900 group-hover:text-brand-800 transition-colors">Faktomat</span>
+      </a>
+
+      <h1 class="font-serif-display italic text-3xl text-stone-900 mb-1 text-center">Załóż konto.</h1>
+      <p class="text-sm text-stone-500 text-center mb-8">Pierwsza ekstrakcja gratis — bez karty na start.</p>
+
+      {% if error %}
+      <div class="mb-5 rounded-xl border border-rose-200 bg-rose-50/60 px-4 py-3 text-sm text-rose-900 flex items-start gap-3">
+        <span class="inline-block w-1 self-stretch bg-rose-500 rounded-full"></span>
+        <span>{{ error }}</span>
+      </div>
+      {% endif %}
+
+      <form method="post" action="/signup" class="space-y-5 rounded-2xl bg-white ring-1 ring-stone-200 p-7 shadow-sm">
+        <div>
+          <label for="email" class="block text-[11px] font-mono-tabular uppercase tracking-[0.16em] text-stone-500 mb-1.5">Email</label>
+          <input id="email" name="email" type="email" required autofocus value="{{ email or '' }}"
+                 class="block w-full rounded-lg border border-stone-300 bg-white px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 focus:outline-none transition">
+        </div>
+        <div>
+          <label for="password" class="block text-[11px] font-mono-tabular uppercase tracking-[0.16em] text-stone-500 mb-1.5">Hasło</label>
+          <input id="password" name="password" type="password" required minlength="8" maxlength="128"
+                 class="block w-full rounded-lg border border-stone-300 bg-white px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 focus:outline-none transition">
+          <p class="mt-1.5 text-xs text-stone-500">Minimum 8 znaków.</p>
+        </div>
+        <button type="submit"
+                class="w-full inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg bg-brand-700 text-white font-medium text-sm shadow-sm hover:bg-brand-800 transition">
+          Załóż konto
+        </button>
+        <p class="text-xs text-stone-500 text-center">
+          Klikając „Załóż konto", akceptujesz warunki przetwarzania danych zgodnie z RODO.
+        </p>
+      </form>
+
+      <p class="mt-5 text-sm text-center text-stone-600">
+        Masz już konto? <a href="/login" class="text-brand-700 hover:text-brand-900 transition-colors">Zaloguj się</a>
+      </p>
+
+    </div>
+  </main>
+</div>
+{% endblock %}

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ewwe Solutions — niszowy AI dla polskich problemów</title>
+
+  <meta name="description" content="Solo studio AI budujące niszowe narzędzia dla polskich problemów branżowych: księgowość (Faktomat), farmacja medyczna (Fiszkomat), zamówienia publiczne (Tender Agent). Tam, gdzie generyczny LLM kapituluje.">
+  <meta name="author" content="Ewwe Solutions">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title" content="Ewwe Solutions — niszowy AI dla polskich problemów">
+  <meta property="og:description" content="Solo studio AI dla polskich problemów branżowych — księgowość, farmacja medyczna, zamówienia publiczne.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ewwesolutions.work/">
+  <meta property="og:locale" content="pl_PL">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%231c1917'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-style='italic' font-size='40' font-weight='600' text-anchor='middle' fill='%23ffffff'%3Ee%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Fraunces (variable, characterful display serif) + Inter (UI) +
+     JetBrains Mono (numbers, captions). Each carries Polish diacritics. -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Fraunces"', 'Georgia', 'serif'],
+            sans:    ['"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            mono:    ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+          },
+          colors: {
+            ink:    { 50: '#fafaf7', 100: '#f5f4ee', 200: '#e8e5d9', 700: '#3c3a32', 800: '#26241e', 900: '#15140f' },
+            violet: { 50: '#f5f3ff', 200: '#ddd6fe', 400: '#a78bfa', 600: '#7c3aed', 700: '#6d28d9', 800: '#5b21b6', 900: '#4c1d95' },
+            cream:  { DEFAULT: '#f6f3ea', deeper: '#efeadc', edge: '#e6dfc7' },
+          },
+          keyframes: {
+            'rise':   { '0%': { opacity: '0', transform: 'translateY(14px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+            'tick':   { '0%, 100%': { opacity: '0.4' }, '50%': { opacity: '1' } },
+            'drift':  { '0%': { transform: 'translateX(-30%)' }, '100%': { transform: 'translateX(0%)' } },
+          },
+          animation: {
+            'rise':  'rise 0.7s ease-out both',
+            'tick':  'tick 1.8s ease-in-out infinite',
+            'drift': 'drift 60s linear infinite',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+      font-feature-settings: "ss01", "cv11";
+      background: #f6f3ea;
+      color: #15140f;
+      letter-spacing: -0.005em;
+    }
+
+    /* Editorial display style — Fraunces with personality */
+    .display {
+      font-family: 'Fraunces', Georgia, serif;
+      font-optical-sizing: auto;
+      font-variation-settings: "opsz" 144, "SOFT" 50, "WONK" 0;
+      line-height: 1.02;
+      letter-spacing: -0.025em;
+    }
+    .display-italic {
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic;
+      font-optical-sizing: auto;
+      font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+      line-height: 1.02;
+      letter-spacing: -0.025em;
+    }
+
+    /* Subtle paper grain overlay using SVG noise */
+    .grain::before {
+      content: "";
+      position: fixed; inset: 0;
+      pointer-events: none;
+      opacity: 0.035;
+      mix-blend-mode: multiply;
+      z-index: 1;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* Drawn red underline accent (for inline highlights) */
+    .underline-mark {
+      background-image: linear-gradient(120deg, rgba(124, 58, 237, 0.28) 0%, rgba(124, 58, 237, 0.28) 100%);
+      background-repeat: no-repeat;
+      background-size: 100% 0.32em;
+      background-position: 0 88%;
+      padding: 0 0.05em;
+    }
+
+    /* Hairline rule */
+    .rule { height: 1px; background: linear-gradient(90deg, transparent, #c5beaa 12%, #c5beaa 88%, transparent); }
+
+    /* Marquee */
+    .marquee-track { animation: drift 60s linear infinite; will-change: transform; }
+  </style>
+</head>
+<body class="grain">
+
+  <!-- ════════════════════════════════════════════════════════════════════
+     NAV — minimal, almost not there
+     ════════════════════════════════════════════════════════════════════ -->
+  <header class="sticky top-0 z-30 backdrop-blur-md bg-cream/70 border-b border-ink-200/60">
+    <div class="max-w-[1280px] mx-auto px-8 py-5 flex items-center justify-between">
+      <a href="/" class="flex items-baseline gap-1.5 group">
+        <span class="display-italic text-[26px] leading-none text-ink-900 group-hover:text-violet-800 transition-colors">ewwe</span>
+        <span class="text-[10px] font-mono uppercase tracking-[0.24em] text-ink-700">solutions</span>
+      </a>
+      <nav class="flex items-center gap-7 text-[13px]">
+        <a href="#prace"      class="text-ink-700 hover:text-ink-900 transition-colors">Prace</a>
+        <a href="#metoda"     class="text-ink-700 hover:text-ink-900 transition-colors">Metoda</a>
+        <a href="#kontakt"    class="text-ink-700 hover:text-ink-900 transition-colors">Kontakt</a>
+        <a href="#kontakt"
+           class="ml-2 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-ink-900 text-cream text-[12px] font-medium hover:bg-violet-800 transition-colors">
+          Napisz
+          <svg class="w-3 h-3" viewBox="0 0 20 20" fill="currentColor"><path d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"/></svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ════════════════════════════════════════════════════════════════════
+     HERO — manifesto-style opener
+     ════════════════════════════════════════════════════════════════════ -->
+  <section class="relative">
+    <div class="max-w-[1280px] mx-auto px-8 pt-20 pb-28 lg:pt-32 lg:pb-40">
+
+      <p class="text-[11px] font-mono uppercase tracking-[0.24em] text-ink-700 animate-rise">
+        <span class="inline-block w-1.5 h-1.5 rounded-full bg-violet-700 align-middle mr-2 animate-tick"></span>
+        Solo&nbsp;studio · Warszawa · pracuje od&nbsp;2025
+      </p>
+
+      <h1 class="mt-10 display text-[clamp(56px,9vw,128px)] text-ink-900 animate-rise" style="animation-delay: 80ms">
+        Niszowy <span class="display-italic underline-mark">AI</span>
+        <br>
+        dla <span class="display-italic">polskich</span>
+        <br>
+        problemów.
+      </h1>
+
+      <div class="mt-12 lg:mt-16 grid lg:grid-cols-12 gap-8 items-start">
+        <div class="lg:col-span-7 animate-rise" style="animation-delay: 200ms">
+          <p class="text-[19px] sm:text-[21px] leading-[1.55] text-ink-800 max-w-xl">
+            Budujemy oprogramowanie dla tych branż, w których generyczny LLM kapituluje na pierwszej polskiej fakturze, na pierwszym kolokwium z farmakologii, na pierwszym ogłoszeniu w&nbsp;BZP.
+          </p>
+          <p class="mt-5 text-[15px] leading-[1.7] text-ink-700 max-w-xl">
+            Polska księgowość, polska medycyna, polskie zamówienia publiczne — trzy wertykały, w&nbsp;których język i&nbsp;biurokracja są częścią problemu, nie tylko opakowaniem.
+          </p>
+        </div>
+
+        <aside class="lg:col-span-5 lg:pl-12 animate-rise" style="animation-delay: 320ms">
+          <div class="border-l-2 border-violet-700 pl-5 py-1">
+            <p class="text-[11px] font-mono uppercase tracking-[0.18em] text-ink-700">Co znajdziesz niżej</p>
+            <ol class="mt-3 space-y-1.5 text-[14px] text-ink-800">
+              <li class="flex items-baseline gap-3"><span class="font-mono text-[11px] text-violet-700">01</span><span>Trzy wysłane produkty — działają w&nbsp;produkcji.</span></li>
+              <li class="flex items-baseline gap-3"><span class="font-mono text-[11px] text-violet-700">02</span><span>Sposób pracy — jak wygląda projekt.</span></li>
+              <li class="flex items-baseline gap-3"><span class="font-mono text-[11px] text-violet-700">03</span><span>Krótki kontakt — bez formularza.</span></li>
+            </ol>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Bottom thin marquee — names of niches we work in -->
+      <div class="mt-24 overflow-hidden border-y border-ink-200/60 py-3.5">
+        <div class="marquee-track flex gap-12 whitespace-nowrap text-[12px] font-mono uppercase tracking-[0.18em] text-ink-700 select-none">
+          <span>JPK_FA(4)</span><span class="text-violet-600">·</span>
+          <span>Farmakologia kliniczna</span><span class="text-violet-600">·</span>
+          <span>BZP / Tenders Electronic Daily</span><span class="text-violet-600">·</span>
+          <span>KSeF FA(3)</span><span class="text-violet-600">·</span>
+          <span>Anki / SM-2</span><span class="text-violet-600">·</span>
+          <span>JEDZ / ESPD</span><span class="text-violet-600">·</span>
+          <span>Subiekt GT</span><span class="text-violet-600">·</span>
+          <span>Skrypty WMS / WUM</span><span class="text-violet-600">·</span>
+          <span>JPK_FA(4)</span><span class="text-violet-600">·</span>
+          <span>Farmakologia kliniczna</span><span class="text-violet-600">·</span>
+          <span>BZP / Tenders Electronic Daily</span><span class="text-violet-600">·</span>
+          <span>KSeF FA(3)</span><span class="text-violet-600">·</span>
+          <span>Anki / SM-2</span><span class="text-violet-600">·</span>
+          <span>JEDZ / ESPD</span><span class="text-violet-600">·</span>
+          <span>Subiekt GT</span><span class="text-violet-600">·</span>
+          <span>Skrypty WMS / WUM</span><span class="text-violet-600">·</span>
+          <span>JPK_FA(4)</span><span class="text-violet-600">·</span>
+          <span>Farmakologia kliniczna</span><span class="text-violet-600">·</span>
+          <span>BZP / Tenders Electronic Daily</span><span class="text-violet-600">·</span>
+          <span>KSeF FA(3)</span><span class="text-violet-600">·</span>
+          <span>Anki / SM-2</span><span class="text-violet-600">·</span>
+          <span>JEDZ / ESPD</span><span class="text-violet-600">·</span>
+          <span>Subiekt GT</span><span class="text-violet-600">·</span>
+          <span>Skrypty WMS / WUM</span><span class="text-violet-600">·</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Decorative big italic e watermark, very faint, behind hero -->
+    <div class="hidden lg:block absolute right-0 top-20 -z-0 select-none pointer-events-none">
+      <span class="display-italic text-[420px] leading-none text-violet-700/[0.045]">e</span>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════
+     PRACE / WORK — 3 projects, big numbered cards
+     ════════════════════════════════════════════════════════════════════ -->
+  <section id="prace" class="bg-cream-deeper border-y border-ink-200/60">
+    <div class="max-w-[1280px] mx-auto px-8 py-24 lg:py-32">
+
+      <div class="flex items-end justify-between flex-wrap gap-4 mb-14">
+        <div>
+          <p class="text-[11px] font-mono uppercase tracking-[0.24em] text-ink-700">§ 01 — Prace</p>
+          <h2 class="mt-3 display text-[clamp(40px,6vw,76px)] text-ink-900">
+            Co <span class="display-italic">wysłaliśmy</span>.
+          </h2>
+        </div>
+        <p class="text-[14px] text-ink-700 max-w-md">
+          Trzy produkty w&nbsp;produkcji. Każdy adresuje konkretną niszę, w&nbsp;której uniwersalne narzędzia AI zawodzą na języku, na kontekście prawnym albo na specyfice dokumentu.
+        </p>
+      </div>
+
+      <div class="space-y-14 lg:space-y-20">
+
+        <!-- ─────── 01 Faktomat ─────── -->
+        <article class="grid lg:grid-cols-12 gap-8 items-start group">
+          <div class="lg:col-span-2 flex lg:block items-baseline gap-3">
+            <span class="display-italic text-[88px] lg:text-[120px] leading-none text-violet-700 select-none">01</span>
+            <div class="lg:mt-4 flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-[0.18em] text-ink-700">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-tick"></span>
+              w&nbsp;produkcji
+            </div>
+          </div>
+
+          <div class="lg:col-span-7">
+            <h3 class="display text-[40px] sm:text-[48px] text-ink-900">Faktomat</h3>
+            <p class="mt-1 text-[14px] font-mono uppercase tracking-[0.16em] text-violet-800">Polska&nbsp;księgowość · JPK_FA(4)</p>
+            <p class="mt-5 text-[17px] leading-[1.65] text-ink-800 max-w-xl">
+              Wrzucasz polską fakturę PDF — w&nbsp;30 sekund masz plik JPK_FA(4) walidowany pod schemat XSD Ministerstwa Finansów. Plus eksport do JSON i&nbsp;CSV do importu w&nbsp;programie księgowym.
+            </p>
+            <p class="mt-3 text-[15px] leading-[1.65] text-ink-700 max-w-xl">
+              Dla biur rachunkowych i&nbsp;solo-księgowych prowadzących klientów na JDG. Pay-as-you-go, 0,50 PLN za fakturę, bez abonamentu, dane w&nbsp;UE.
+            </p>
+            <div class="mt-7 flex items-center gap-5">
+              <a href="https://faktomat.pl" class="inline-flex items-center gap-1.5 text-[14px] font-medium text-ink-900 hover:text-violet-800 transition-colors">
+                faktomat.pl
+                <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M11 3a1 1 0 100 2h2.586l-7.293 7.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/><path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/></svg>
+              </a>
+              <span class="text-[12px] font-mono uppercase tracking-wider text-ink-700">2026 — beta paid</span>
+            </div>
+          </div>
+
+          <div class="lg:col-span-3">
+            <div class="rounded-xl bg-cream ring-1 ring-ink-200/70 p-5">
+              <p class="text-[10px] font-mono uppercase tracking-[0.16em] text-ink-700">Liczby</p>
+              <dl class="mt-3 space-y-2.5">
+                <div class="flex items-baseline justify-between gap-3 border-b border-ink-200/60 pb-2">
+                  <dt class="text-[12px] text-ink-700">Dokładność header/totals</dt>
+                  <dd class="font-mono text-[14px] text-ink-900">84,6%</dd>
+                </div>
+                <div class="flex items-baseline justify-between gap-3 border-b border-ink-200/60 pb-2">
+                  <dt class="text-[12px] text-ink-700">Koszt jednej ekstrakcji</dt>
+                  <dd class="font-mono text-[14px] text-ink-900">$0,004</dd>
+                </div>
+                <div class="flex items-baseline justify-between gap-3">
+                  <dt class="text-[12px] text-ink-700">Eksport</dt>
+                  <dd class="font-mono text-[12px] text-ink-900">JPK_FA · JSON · CSV</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </article>
+
+        <div class="rule"></div>
+
+        <!-- ─────── 02 Fiszkomat ─────── -->
+        <article class="grid lg:grid-cols-12 gap-8 items-start group">
+          <div class="lg:col-span-2 flex lg:block items-baseline gap-3">
+            <span class="display-italic text-[88px] lg:text-[120px] leading-none text-violet-700 select-none">02</span>
+            <div class="lg:mt-4 flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-[0.18em] text-ink-700">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-tick"></span>
+              w&nbsp;produkcji
+            </div>
+          </div>
+
+          <div class="lg:col-span-7">
+            <h3 class="display text-[40px] sm:text-[48px] text-ink-900">Fiszkomat</h3>
+            <p class="mt-1 text-[14px] font-mono uppercase tracking-[0.16em] text-violet-800">Farmakologia · skrypt → Anki</p>
+            <p class="mt-5 text-[17px] leading-[1.65] text-ink-800 max-w-xl">
+              Wrzucasz długi skrypt PDF z&nbsp;farmakologii (lub każdej innej dziedziny medycznej) — dostajesz talię Anki gotową do nauki przed kolokwium. Po polsku, z&nbsp;diakrytami, bez głupienia po dziesiątej stronie.
+            </p>
+            <p class="mt-3 text-[15px] leading-[1.65] text-ink-700 max-w-xl">
+              Dla polskich studentów medycyny i&nbsp;farmacji. Płacisz tylko za to, co wygenerujesz — od 5 PLN za talię. Chunked attention zamiast jednego ogromnego prompta — to&nbsp;dlatego nie traci kontekstu w&nbsp;środku.
+            </p>
+            <div class="mt-7 flex items-center gap-5">
+              <a href="https://fiszkomat.pl" class="inline-flex items-center gap-1.5 text-[14px] font-medium text-ink-900 hover:text-violet-800 transition-colors">
+                fiszkomat.pl
+                <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path d="M11 3a1 1 0 100 2h2.586l-7.293 7.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/><path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/></svg>
+              </a>
+              <span class="text-[12px] font-mono uppercase tracking-wider text-ink-700">2026 — Phase 1</span>
+            </div>
+          </div>
+
+          <div class="lg:col-span-3">
+            <div class="rounded-xl bg-cream ring-1 ring-ink-200/70 p-5">
+              <p class="text-[10px] font-mono uppercase tracking-[0.16em] text-ink-700">Liczby</p>
+              <dl class="mt-3 space-y-2.5">
+                <div class="flex items-baseline justify-between gap-3 border-b border-ink-200/60 pb-2">
+                  <dt class="text-[12px] text-ink-700">Akceptacja kart (cull&nbsp;test)</dt>
+                  <dd class="font-mono text-[14px] text-ink-900">100%</dd>
+                </div>
+                <div class="flex items-baseline justify-between gap-3 border-b border-ink-200/60 pb-2">
+                  <dt class="text-[12px] text-ink-700">Koszt 38-stronicowego skryptu</dt>
+                  <dd class="font-mono text-[14px] text-ink-900">$0,18</dd>
+                </div>
+                <div class="flex items-baseline justify-between gap-3">
+                  <dt class="text-[12px] text-ink-700">Eksport</dt>
+                  <dd class="font-mono text-[12px] text-ink-900">.apkg · HTML reviewer</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </article>
+
+        <div class="rule"></div>
+
+        <!-- ─────── 03 Tender Agent ─────── -->
+        <article class="grid lg:grid-cols-12 gap-8 items-start group">
+          <div class="lg:col-span-2 flex lg:block items-baseline gap-3">
+            <span class="display-italic text-[88px] lg:text-[120px] leading-none text-violet-700 select-none">03</span>
+            <div class="lg:mt-4 flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-[0.18em] text-ink-700">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-tick"></span>
+              w&nbsp;projektowaniu · 2026
+            </div>
+          </div>
+
+          <div class="lg:col-span-7">
+            <h3 class="display text-[40px] sm:text-[48px] text-ink-900">Tender Agent</h3>
+            <p class="mt-1 text-[14px] font-mono uppercase tracking-[0.16em] text-violet-800">Zamówienia&nbsp;publiczne · BZP &amp; TED</p>
+            <p class="mt-5 text-[17px] leading-[1.65] text-ink-800 max-w-xl">
+              Agent czytający ogłoszenia w&nbsp;BZP i&nbsp;TED, układający draft listu, JEDZ-a i&nbsp;załączników pod profil Twojej firmy z&nbsp;KRS/REGON-u. Bo polskie zamówienia publiczne to dział, w&nbsp;którym 80% pracy to bezbłędne wypełnianie formularzy w&nbsp;biurokratycznej polszczyźnie.
+            </p>
+            <p class="mt-3 text-[15px] leading-[1.65] text-ink-700 max-w-xl">
+              W&nbsp;przygotowaniu, z&nbsp;jednym design-partnerem z&nbsp;branży IT-procurement. Premiera Q3 2026.
+            </p>
+            <div class="mt-7 flex items-center gap-5">
+              <span class="inline-flex items-center gap-1.5 text-[14px] font-medium text-ink-700">
+                wkrótce
+              </span>
+              <span class="text-[12px] font-mono uppercase tracking-wider text-ink-700">design&nbsp;partner — IT&nbsp;procurement</span>
+            </div>
+          </div>
+
+          <div class="lg:col-span-3">
+            <div class="rounded-xl bg-cream ring-1 ring-ink-200/70 p-5">
+              <p class="text-[10px] font-mono uppercase tracking-[0.16em] text-ink-700">Skala niszy</p>
+              <dl class="mt-3 space-y-2.5">
+                <div class="flex items-baseline justify-between gap-3 border-b border-ink-200/60 pb-2">
+                  <dt class="text-[12px] text-ink-700">Ogłoszenia w&nbsp;BZP rocznie</dt>
+                  <dd class="font-mono text-[14px] text-ink-900">~140&nbsp;tys.</dd>
+                </div>
+                <div class="flex items-baseline justify-between gap-3 border-b border-ink-200/60 pb-2">
+                  <dt class="text-[12px] text-ink-700">Wartość rynku PL</dt>
+                  <dd class="font-mono text-[14px] text-ink-900">~190&nbsp;mld&nbsp;PLN</dd>
+                </div>
+                <div class="flex items-baseline justify-between gap-3">
+                  <dt class="text-[12px] text-ink-700">Średni czas złożenia oferty</dt>
+                  <dd class="font-mono text-[12px] text-ink-900">8–14&nbsp;dni</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════
+     METODA / HOW WE WORK
+     ════════════════════════════════════════════════════════════════════ -->
+  <section id="metoda" class="relative">
+    <div class="max-w-[1280px] mx-auto px-8 py-24 lg:py-32">
+
+      <div class="grid lg:grid-cols-12 gap-8">
+        <div class="lg:col-span-5">
+          <p class="text-[11px] font-mono uppercase tracking-[0.24em] text-ink-700">§ 02 — Metoda</p>
+          <h2 class="mt-3 display text-[clamp(40px,6vw,76px)] text-ink-900">
+            Jak <span class="display-italic">pracujemy</span>.
+          </h2>
+          <p class="mt-6 text-[16px] leading-[1.65] text-ink-700 max-w-md">
+            Każdy projekt zaczyna się od&nbsp;niszowego problemu, który ma konkretną nazwę po polsku i&nbsp;który ktoś próbował już rozwiązać generycznym ChatGPT-em — i&nbsp;poległ.
+          </p>
+        </div>
+
+        <div class="lg:col-span-7 space-y-10">
+
+          <div class="grid sm:grid-cols-[80px,1fr] gap-5 sm:gap-8 items-start">
+            <div class="display-italic text-[64px] text-violet-700 leading-none">a.</div>
+            <div>
+              <h3 class="display text-[26px] text-ink-900 leading-tight">Najpierw warm signal.</h3>
+              <p class="mt-2 text-[15px] leading-[1.7] text-ink-700">
+                Nie budujemy „dla rynku w&nbsp;ogóle". Zaczynamy od&nbsp;jednej osoby, której coś konkretnego boli — i&nbsp;która jest skłonna pierwsza dotknąć produktu. To filtruje 90% pomysłów już w&nbsp;tygodniu pierwszym.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-[80px,1fr] gap-5 sm:gap-8 items-start">
+            <div class="display-italic text-[64px] text-violet-700 leading-none">b.</div>
+            <div>
+              <h3 class="display text-[26px] text-ink-900 leading-tight">Phase 0 zanim wiersz kodu.</h3>
+              <p class="mt-2 text-[15px] leading-[1.7] text-ink-700">
+                Skrypt CLI dla&nbsp;jednego użytkownika &gt; piękne&nbsp;UI bez użytkowników. Każdy produkt przechodzi przez fazę „działa u&nbsp;mnie" zanim dostanie URL, billing, account system. Walidacja przed inwestycją.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-[80px,1fr] gap-5 sm:gap-8 items-start">
+            <div class="display-italic text-[64px] text-violet-700 leading-none">c.</div>
+            <div>
+              <h3 class="display text-[26px] text-ink-900 leading-tight">Polski-pierwszy, nie polski-tylko.</h3>
+              <p class="mt-2 text-[15px] leading-[1.7] text-ink-700">
+                Język to początek, nie koniec. Polski JPK, polska farmakologia, polski JEDZ — każdy z&nbsp;tych obszarów ma swoją gramatykę, swoje skróty, swój kontekst prawny. Generyczny LLM ich nie zna. My&nbsp;tak.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-[80px,1fr] gap-5 sm:gap-8 items-start">
+            <div class="display-italic text-[64px] text-violet-700 leading-none">d.</div>
+            <div>
+              <h3 class="display text-[26px] text-ink-900 leading-tight">Pay-as-you-go, nie pricing&nbsp;page&nbsp;theater.</h3>
+              <p class="mt-2 text-[15px] leading-[1.7] text-ink-700">
+                Nasi klienci to księgowi, studenci, dwuosobowe firmy. Płacą za to, co przetworzyli — nie&nbsp;za&nbsp;abonament „pro" obok abonamentu „premium" obok abonamentu „enterprise". Cena na ekranie pasuje do&nbsp;liczby w&nbsp;rachunku.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════
+     KONTAKT — short, direct, no form theater
+     ════════════════════════════════════════════════════════════════════ -->
+  <section id="kontakt" class="bg-ink-900 text-cream relative overflow-hidden">
+    <div class="max-w-[1280px] mx-auto px-8 py-24 lg:py-32 relative">
+
+      <!-- decorative italic e watermark -->
+      <span class="hidden lg:block absolute -right-6 -top-10 select-none pointer-events-none display-italic text-[440px] leading-none text-violet-400/[0.08]">e</span>
+
+      <p class="text-[11px] font-mono uppercase tracking-[0.24em] text-violet-200/80">§ 03 — Kontakt</p>
+      <h2 class="mt-3 display text-[clamp(48px,8vw,104px)] text-cream leading-[1]">
+        Masz polski <span class="display-italic">problem</span>?
+        <br>
+        Napisz.
+      </h2>
+
+      <div class="mt-12 grid lg:grid-cols-12 gap-8 items-end">
+
+        <div class="lg:col-span-7">
+          <p class="text-[18px] leading-[1.6] text-cream/85 max-w-xl">
+            Wertykał, w&nbsp;którym potrzebujesz konkretnego narzędzia — księgowość, farmacja, BZP, KSeF, coś jeszcze — opowiedz jednym akapitem. Odpowiadamy w&nbsp;jeden dzień roboczy. Jeśli pasujemy — wracamy z&nbsp;Phase&nbsp;0 zarysem w&nbsp;tydzień.
+          </p>
+
+          <div class="mt-10 flex flex-wrap items-center gap-6">
+            <a href="mailto:kontakt@ewwesolutions.work"
+               class="group inline-flex items-center gap-3 text-[28px] sm:text-[36px] display-italic text-cream hover:text-violet-300 transition-colors">
+              kontakt@ewwesolutions.work
+              <svg class="w-6 h-6 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor"><path d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <aside class="lg:col-span-5 lg:pl-12">
+          <div class="border-l-2 border-violet-400/60 pl-6 space-y-5">
+            <div>
+              <p class="text-[11px] font-mono uppercase tracking-[0.18em] text-violet-200/70">Czas reakcji</p>
+              <p class="mt-1 text-[16px] text-cream/90">1 dzień roboczy</p>
+            </div>
+            <div>
+              <p class="text-[11px] font-mono uppercase tracking-[0.18em] text-violet-200/70">Język</p>
+              <p class="mt-1 text-[16px] text-cream/90">Polski · English · 한국어 (basic)</p>
+            </div>
+            <div>
+              <p class="text-[11px] font-mono uppercase tracking-[0.18em] text-violet-200/70">Lokalizacja</p>
+              <p class="mt-1 text-[16px] text-cream/90">Warszawa · zdalnie</p>
+            </div>
+            <div>
+              <p class="text-[11px] font-mono uppercase tracking-[0.18em] text-violet-200/70">Format</p>
+              <p class="mt-1 text-[16px] text-cream/90">Mail. Bez formularzy, bez Calendly.</p>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════════════ -->
+  <footer class="bg-ink-900 text-cream/60 border-t border-violet-400/10">
+    <div class="max-w-[1280px] mx-auto px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-[12px]">
+      <div class="flex items-center gap-3">
+        <span class="display-italic text-[18px] text-cream">ewwe</span>
+        <span class="font-mono uppercase tracking-[0.22em] text-cream/60">solutions · 2026</span>
+      </div>
+      <div class="flex items-center gap-5 font-mono uppercase tracking-wider text-[11px]">
+        <a href="https://faktomat.pl" class="hover:text-cream transition-colors">Faktomat</a>
+        <a href="https://fiszkomat.pl" class="hover:text-cream transition-colors">Fiszkomat</a>
+        <a href="mailto:kontakt@ewwesolutions.work" class="hover:text-cream transition-colors">Kontakt</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

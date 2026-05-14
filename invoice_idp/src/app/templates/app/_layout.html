@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{# ──────────────────────────────────────────────────────────────────────
+   App shell — calm, document-feel chrome around the post-login surface.
+
+   - Warm off-white background (stone-50) instead of pure white — sits
+     easier in long sessions for accountants.
+   - Wordmark in Cormorant Garamond italic (paired with the violet F mark
+     from the landing) so the app reads as "a ledger" rather than "yet
+     another SaaS dashboard". UI text stays Inter.
+   - Nav items render a thin violet underline only on the active route
+     via the `active_nav` variable each page sets. No active-state guess
+     work from `request.url.path`.
+   - Email-verification banner uses a hairline amber accent. The
+     phone-verification banner was removed when phone-verify was
+     deferred to Phase 7+ (see invoice_idp/HANDOFF.md "Twilio:
+     deferred"); restore the {% elif user.phone_verified_at is none %}
+     branch alongside an SMS provider when bringing it back.
+   ────────────────────────────────────────────────────────────────────── #}
+{% set _ = active_nav or '' %}
+{% block content %}
+<style>
+  /* .font-serif-display + .font-mono-tabular are defined in base.html. */
+  .app-bg {
+    background:
+      radial-gradient(70% 50% at 0% 0%, rgba(124, 58, 237, 0.04) 0%, transparent 60%),
+      linear-gradient(180deg, #faf9f7 0%, #f8f7f4 100%);
+    min-height: 100vh;
+  }
+  .nav-link {
+    position: relative;
+    padding: 0.375rem 0.5rem;
+    color: rgb(87, 83, 78);
+    font-size: 0.875rem;
+    transition: color .15s ease;
+  }
+  .nav-link:hover { color: rgb(28, 25, 23); }
+  .nav-link.is-active { color: rgb(28, 25, 23); font-weight: 500; }
+  .nav-link.is-active::after {
+    content: "";
+    position: absolute;
+    left: 0.5rem; right: 0.5rem; bottom: -13px;
+    height: 2px;
+    background: rgb(109, 40, 217); /* brand-700 */
+  }
+</style>
+
+<div class="app-bg text-stone-900 antialiased">
+
+  <header class="sticky top-0 z-40 bg-white/85 backdrop-blur border-b border-stone-200">
+    <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between gap-6">
+
+      {# Wordmark #}
+      <a href="/app" class="flex items-center gap-2.5 shrink-0 group">
+        <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-brand-600 to-brand-800 text-white font-bold text-sm shadow-sm">F</span>
+        <span class="font-serif-display italic text-[22px] leading-none text-stone-900 group-hover:text-brand-800 transition-colors">Faktomat</span>
+        <span class="hidden md:inline-block ml-1 text-[10px] font-mono-tabular uppercase tracking-[0.18em] text-stone-400">beta</span>
+      </a>
+
+      {# Primary nav — centered #}
+      <nav class="flex items-center gap-1 sm:gap-2">
+        <a href="/app"            class="nav-link {{ 'is-active' if active_nav == 'pulpit' }}">Pulpit</a>
+        <a href="/app/faktury"    class="nav-link {{ 'is-active' if active_nav == 'faktury' }}">Faktury</a>
+        <a href="/app/wgraj"      class="nav-link {{ 'is-active' if active_nav == 'wgraj' }}">Wgraj</a>
+        <a href="/app/ustawienia" class="nav-link {{ 'is-active' if active_nav == 'ustawienia' }}">Ustawienia</a>
+        <a href="/app/billing"    class="nav-link {{ 'is-active' if active_nav == 'billing' }}">Doładowanie</a>
+      </nav>
+
+      {# Identity #}
+      <div class="flex items-center gap-3 text-sm shrink-0">
+        <span class="hidden sm:inline text-stone-500 max-w-[200px] truncate font-mono-tabular text-xs" title="{{ user.email }}">{{ user.email }}</span>
+        <form method="post" action="/logout" class="inline">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+          <button type="submit"
+                  class="text-xs uppercase tracking-wider text-stone-500 hover:text-stone-900 transition-colors px-2 py-1">
+            Wyloguj
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </header>
+
+  {# ── Verification banner — hairline accent only, no loud boxes ── #}
+  {% if not user.email_verified %}
+  <div class="bg-amber-50/60 border-b border-amber-200/70">
+    <div class="max-w-6xl mx-auto px-6 py-2.5 flex items-start gap-3 text-sm">
+      <span class="inline-block w-1 self-stretch bg-amber-500/80 rounded-full"></span>
+      <span class="text-amber-900">
+        Email <span class="font-medium">{{ user.email }}</span> nie jest jeszcze zweryfikowany —
+        kliknij link w wiadomości aktywacyjnej. Bez weryfikacji wgrywanie faktur jest zablokowane.
+      </span>
+    </div>
+  </div>
+  {% endif %}
+
+  <main class="max-w-6xl mx-auto px-6 py-10">
+    {% block main %}{% endblock %}
+  </main>
+
+  <footer class="border-t border-stone-200 mt-16">
+    <div class="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-stone-500">
+      <div class="flex items-center gap-3">
+        <span class="font-serif-display italic text-[14px] text-stone-700">Faktomat</span>
+        <span class="font-mono-tabular">v0.1 beta</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="/" class="hover:text-stone-700">Strona główna</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+{% endblock %}

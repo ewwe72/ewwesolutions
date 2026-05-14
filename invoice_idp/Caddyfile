@@ -1,0 +1,36 @@
+# Faktomat production — Caddy reverse proxy with auto-HTTPS.
+#
+# $DOMAIN and $ADMIN_EMAIL come from `.env` via docker-compose.prod.yml.
+# Caddy obtains and renews Let's Encrypt certs automatically.
+
+{
+    email {$ADMIN_EMAIL}
+    # Set ACME_DIRECTORY=https://acme-staging-v02.api.letsencrypt.org/directory
+    # in .env while iterating to avoid LE rate-limits.
+}
+
+{$DOMAIN} {
+    encode zstd gzip
+
+    # The Stripe webhook MUST get the raw body for signature verification.
+    # Caddy already proxies bodies untouched; no special handling needed
+    # beyond making sure no buffering tier in front of Caddy strips it.
+    reverse_proxy app:8000 {
+        header_up Host {host}
+        header_up X-Real-IP {remote_host}
+        header_up X-Forwarded-For {remote_host}
+        header_up X-Forwarded-Proto {scheme}
+    }
+
+    # Bigger upload cap than Caddy's default 32 MiB request body cap —
+    # the app enforces 20 MB per `Settings.max_upload_mb`, give some
+    # multipart-form headroom.
+    request_body {
+        max_size 25MB
+    }
+
+    log {
+        output stdout
+        format json
+    }
+}

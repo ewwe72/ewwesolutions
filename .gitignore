@@ -1,0 +1,68 @@
+# Secrets — never commit these
+**/.env
+**/.env.local
+**/.env.*.local
+!**/.env.example
+!**/.env.sample
+!**/.env.template
+**/credentials.json
+**/secret.txt
+**/secrets.json
+**/secrets.yaml
+**/secrets.yml
+**/secrets.toml
+**/*.pem
+**/*.p12
+**/*.pfx
+**/id_rsa
+**/id_rsa.pub
+**/.aws/credentials
+
+# fiszkomat web app working dir (uploaded PDFs + generated decks — ephemeral)
+**/_work/
+
+# Third-party PII — real invoice PDFs from Gmail
+invoice_idp/eval_set/
+
+# Live trading state — paper account holdings, peak equity
+**/state/*.json
+**/state/*.bak
+
+# Runtime logs
+**/logs/
+**/*.log
+
+# Python caches
+**/__pycache__/
+**/.mypy_cache/
+**/.pytest_cache/
+**/.ruff_cache/
+*.pyc
+*.pyo
+
+# Virtual environments
+**/.venv/
+**/venv/
+**/env/
+
+# Node
+**/node_modules/
+**/dist/
+**/build/
+**/.vite/
+
+# IDE / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Claude Code tooling
+.claude/
+.agents/
+skills-lock.json
+
+# Local DB volumes
+**/pgdata/
+**/postgres-data/

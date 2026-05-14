@@ -1,0 +1,68 @@
+# Configuration for the cross-sectional CRYPTO momentum strategy.
+# This bot is the crypto sibling of the stocks momentum bot. Different
+# asset class, different cadence, different parameters — same architecture.
+
+strategy:
+  # Crypto momentum signal. Academic crypto-momentum literature (Liu &
+  # Tsyvinski 2021, Hubrich 2022) consistently finds the strongest
+  # momentum on 1-4 week horizons, NOT the 12-month horizon used for
+  # equities. Crypto reversal at short horizons is also weaker, so the
+  # skip-1-month adjustment from Jegadeesh & Titman is dropped.
+  momentum_lookback: 30          # trailing 30 calendar days
+  momentum_skip: 0               # no skip — crypto has weaker short-term reversal
+
+  # Eligibility filter (applied at every rebalance)
+  min_days_history: 30           # required for valid momentum signal
+  min_price: 0.01                # excludes broken / dead pairs
+  min_adv_dollars: 5000000       # $5M ADV — Alpaca's crypto venues only support
+                                 # so much depth; tighter than stocks' $10M
+  adv_lookback: 14               # shorter window matches the faster signal
+
+  # Portfolio construction
+  n_positions: 7                 # top-N by momentum score (universe is only ~15 pairs)
+  position_cap_pct: 0.18         # max 18% per name (looser than stocks: smaller
+                                 # universe means equal-weighted slot is ~14%; cap
+                                 # gives a little headroom)
+  cash_reserve_pct: 0.05         # 5% in cash for slippage/partial fills (wider
+                                 # than stocks because crypto execution is noisier)
+
+  # Rebalance cadence: weekly on Mondays. Daily run loop still happens
+  # (for daily DD sampling) but the actual rebalance only fires once a week.
+  rebalance_weekday: 0           # 0=Monday, 6=Sunday (ISO weekday)
+
+risk:
+  # Drawdown circuit breaker. Crypto historically has 70-80% peak-to-trough
+  # drawdowns even on broad-basket strategies; if we set the halt at -35%
+  # (the stocks value) it would essentially live in "halt active" mode
+  # through every winter. Loosen to -50% / -25% to make it a genuine
+  # catastrophe backstop rather than a normal-cycle throttle.
+  drawdown_halt_threshold: -0.50
+  drawdown_resume_threshold: -0.25
+
+backtest:
+  # Crypto data on yfinance only goes back to ~2014-2015 reliably for the
+  # major majors, and the universe expanded substantially over 2017-2021.
+  # Start in 2019 when the universe is meaningfully tradeable.
+  start_date: "2019-01-01"
+  end_date: "2024-12-31"
+  initial_cash: 100000
+
+  # Slippage in basis points (per side). Crypto execution on retail
+  # platforms is materially worse than stocks: 25 bps is a reasonable
+  # all-in estimate for Alpaca's crypto venue across the majors.
+  slippage_bps: 25.0
+
+  is_end_date: "2022-12-31"
+  oos_start_date: "2023-01-01"
+
+live:
+  # Data-feed sanity gate. Mirrors the stocks bot's gate but tuned for
+  # the crypto universe (smaller, so a single missing pair is a bigger pct).
+  min_universe_fresh_pct: 0.80
+  staleness_window_days: 3
+  canary_symbols: ["BTC/USD", "ETH/USD", "SOL/USD"]
+
+logging:
+  log_dir: "logs"
+  rotate_bytes: 10485760
+  rotate_backups: 7

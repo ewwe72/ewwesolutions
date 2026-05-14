@@ -1,0 +1,479 @@
+[
+  {
+    "z": 15,
+    "t": "7. Środki odkażające — alkohole i fenole",
+    "d": "Alkohol etylowy, Fenol",
+    "m": "Alkohol etylowy w stężeniu 70% denaturuje białka osłonkowe drobnoustrojów oraz wymywa lipidy z błon, działa bakteriobójczo, grzybobójczo i wirusobójczo (przeciw wirusom otoczkowym); skuteczność spada przy wyższych stężeniach (np. 96%) z powodu szybkiego krzepnięcia białek na powierzchni. Fenol denaturuje białka i uszkadza błony, ma działanie bakteriobójcze.",
+    "i": "Odkażanie skóry, błon śluzowych i powierzchni; alkohol etylowy 70% standardowo do dezynfekcji skóry przed iniekcją.",
+    "c": "Działanie drażniące skórę i błony śluzowe; fenol toksyczny ogólnoustrojowo przy wchłonięciu.",
+    "n": "70% alkohol działa silniej niż 96% — wyższe stężenie zbyt szybko ścina białka powierzchowne i nie penetruje."
+  },
+  {
+    "z": 15,
+    "t": "7. Środki odkażające — chlor i chloropochodne",
+    "d": "Chloraminy, Chlorheksydyna",
+    "m": "Chloraminy w środowisku wodnym uwalniają stopniowo aktywny chlor, który utlenia grupy -SH i denaturuje białka drobnoustrojów. Chlorheksydyna jest kationową bisbiguanidem o działaniu bakteriobójczym poprzez uszkodzenie błony cytoplazmatycznej (zwłaszcza Gram-dodatnich).",
+    "i": "Chloraminy do dezynfekcji wody, narzędzi, powierzchni. Chlorheksydyna do odkażania skóry przed zabiegami, jamy ustnej, do mycia rąk chirurgicznego.",
+    "c": "Drażniące, mogą powodować odczyny alergiczne; chlorheksydyna ma ograniczoną aktywność wobec prątków i grzybów.",
+    "n": ""
+  },
+  {
+    "z": 15,
+    "t": "7. Środki odkażające — jod i jodofory",
+    "d": "Jodyna, Płyn Lugola, Jodofory (np. Powidon-jod)",
+    "m": "Jod molekularny utlenia grupy -SH białek drobnoustrojów i denaturuje strukturalne białka komórki, działa szybko bakteriobójczo, grzybobójczo i wirusobójczo. Jodofory to kompleksy jodu z nośnikiem (np. powidonem) uwalniające jod stopniowo, mniej drażniące.",
+    "i": "Odkażanie skóry przed zabiegami, ran, narzędzi; płyn Lugola w jodoterapii tarczycy.",
+    "c": "Reakcje alergiczne, podrażnienie skóry, plamy; nadczynność tarczycy przy długotrwałym stosowaniu, niewskazany u noworodków.",
+    "n": "Skóra zabarwia się na żółto-brązowo — zwykła reakcja, nie reakcja alergiczna."
+  },
+  {
+    "z": 15,
+    "t": "7. Środki odkażające — związki utleniające (tlen aktywny)",
+    "d": "Nadtlenek wodoru (woda utleniona), Nadtlenek benzoilu, Nadmanganian potasu, Kwas salicylowy, Kwas benzoesowy",
+    "m": "Nadtlenek wodoru i nadmanganian potasu uwalniają tlen atomowy/cząsteczkowy, który utlenia grupy -SH w enzymach i białkach drobnoustrojów. Kwasy organiczne (salicylowy, benzoesowy) zaburzają metabolizm komórki i pH cytoplazmy.",
+    "i": "Oczyszczanie ran (nadtlenek wodoru), kąpiele w roztworze nadmanganianu potasu, dezynfekcja skóry i błon śluzowych; kwasy keratolityczne i konserwujące.",
+    "c": "Słabe działanie w obecności materii organicznej (nadtlenek wodoru), drażnienie tkanek; kwas salicylowy nie u niemowląt.",
+    "n": ""
+  },
+  {
+    "z": 15,
+    "t": "7. Środki odkażające — aldehydy",
+    "d": "Formaldehyd, Aldehyd glutarowy, Tauroliydyna",
+    "m": "Aldehydy reagują z grupami aminowymi i tiolowymi białek drobnoustrojów, sieciują białka i kwasy nukleinowe powodując ich denaturację — działają silnie bakteriobójczo (w tym wobec prątków), wirusobójczo, grzybobójczo i sporobójczo. Tauroliydyna uwalnia formaldehyd in situ.",
+    "i": "Dezynfekcja sprzętu medycznego, narzędzi chirurgicznych, sterylizacja gazowa; tauroliydyna jako lek wewnątrznaczyniowy (blokady cewników).",
+    "c": "Silne działanie drażniące, toksyczne ogólnoustrojowo, kontaktowe zapalenie skóry, kancerogenny (formaldehyd).",
+    "n": "Formaldehyd jest klasyfikowany jako kancerogen — stosować w wyciągach."
+  },
+  {
+    "z": 15,
+    "t": "7. Środki odkażające — metale ciężkie",
+    "d": "Związki srebra, Związki rtęci (Tiomersal)",
+    "m": "Jony metali ciężkich (Ag+, Hg2+) wiążą się z grupami -SH białek drobnoustrojów, blokują enzymy i powodują denaturację białek strukturalnych.",
+    "i": "Sole srebra do odkażania błon śluzowych (jamy nosowej, spojówek noworodków przeciw rzeżączce wg dawnej procedury Credégo); tiomersal jako konserwant w szczepionkach i lekach okulistycznych.",
+    "c": "Sole srebra: trwałe przebarwienia skóry (argyria) przy długim stosowaniu; rtęć: neurotoksyczność, alergie kontaktowe.",
+    "n": ""
+  },
+  {
+    "z": 15,
+    "t": "7. Środki odkażające — detergenty kationowe i anionowe",
+    "d": "Chlorek benzalkoniowy, Chlorek cetylpirydyniowy, Mleczan etakrydyny, Mydła sodowe i potasowe",
+    "m": "Detergenty kationowe (czwartorzędowe sole amoniowe) i anionowe uszkadzają błonę cytoplazmatyczną drobnoustrojów poprzez interakcję z fosfolipidami, dezorganizują dwuwarstwę i powodują wyciek zawartości komórkowej.",
+    "i": "Odkażanie skóry i błon śluzowych, mycie i odkażanie rąk i powierzchni, środki antyseptyczne w stomatologii i ginekologii.",
+    "c": "Działanie inaktywowane przez materię organiczną i mydła; podrażnienia skóry.",
+    "n": ""
+  },
+  {
+    "z": 15,
+    "t": "7. Środki odkażające — barwniki",
+    "d": "Etakrydyna (Rivanol), Fiolet krystaliczny (gencjanowy), Błękit metylenowy",
+    "m": "Barwniki wiążą się z białkami komórkowymi i kwasami nukleinowymi drobnoustrojów, zaburzają oddychanie i metabolizm — działanie bakteriostatyczne (głównie wobec Gram-dodatnich) i grzybostatyczne.",
+    "i": "Miejscowo odkażanie ran, jamy ustnej, błon śluzowych; fiolet krystaliczny w grzybicach skóry; błękit metylenowy w methemoglobinemii i jako antidotum.",
+    "c": "Trwałe przebarwienia tkanek, łagodne reakcje skórne.",
+    "n": ""
+  },
+  {
+    "z": 15,
+    "t": "8.2. Pochodne chinoliny (chloroksyna, kliochinol)",
+    "d": "Chloroksyna, Kliochinol",
+    "m": "Chemioterapeutyki o budowie 8-chlorochinolinowej — działają przeciwbakteryjnie i przeciwgrzybiczo, prawdopodobnie poprzez chelatowanie metali niezbędnych do funkcjonowania enzymów drobnoustrojów (zwłaszcza Fe i Cu) oraz przez bezpośrednie hamowanie syntezy DNA.",
+    "i": "Miejscowo w zakażeniach skóry, pochwy, jamy ustnej; objawowe leczenie biegunek bakteryjnych (rzadko obecnie).",
+    "c": "Podrażnienie skóry, nadwrażliwość; przy stosowaniu ogólnoustrojowym opisywano SMON (subacute myelo-optic neuropathy).",
+    "n": ""
+  },
+  {
+    "z": 15,
+    "t": "8.2. Pochodne nitrofuranu",
+    "d": "Nitrofurantoina, Furazydyna (Furagina), Nifuroksazyd, Nifurtimoks",
+    "m": "Pochodne nitrofuranu są wewnątrz komórki bakteryjnej redukowane przez bakteryjne nitroreduktazy do reaktywnych metabolitów, które uszkadzają DNA, rybosomy i enzymy oddechowe bakterii. Nitrofurantoina i furazydyna osiągają wysokie stężenia jedynie w moczu (działanie ograniczone do dróg moczowych), nifuroksazyd działa miejscowo w przewodzie pokarmowym.",
+    "i": "Nitrofurantoina, furazydyna — niepowikłane zakażenia dolnych dróg moczowych (głównie u kobiet). Nifuroksazyd — biegunki bakteryjne. Nifurtimoks — choroba Chagasa (trypanosomoza).",
+    "c": "Nudności, wymioty, ostre i przewlekłe powikłania płucne (zwłóknienie), reakcje hematologiczne (agranulocytoza, niedokrwistość hemolityczna u osób z niedoborem G6PD), neuropatia. Przeciwwskazane w III trymestrze ciąży i u noworodków.",
+    "n": "Nitrofurantoina PRZECIWWSKAZANA w III trymestrze ciąży — ryzyko zaburzeń hematologicznych u noworodka (niedobór G6PD)."
+  },
+  {
+    "z": 15,
+    "t": "8.3. Pochodne nitroimidazolu",
+    "d": "Metronidazol, Tynidazol, Nimorazol, Ornidazol, Seknidazol",
+    "m": "Pochodne nitroimidazolu są w komórkach mikroorganizmów beztlenowych redukowane do reaktywnych rodników wolnych, które wiążą się z DNA i powodują pęknięcia podwójnej helisy oraz zahamowanie syntezy kwasów nukleinowych. Aktywne wyłącznie wobec bakterii beztlenowych i pierwotniaków beztlenowych (jamy ustnej, jelit, pochwy).",
+    "i": "Zakażenia bakteriami beztlenowymi (Bacteroides, Clostridium), rzęsistkowica (Trichomonas vaginalis), lamblioza (Giardia), pełzakowica (Entamoeba histolytica), bakteryjne zapalenie pochwy, eradykacja Helicobacter pylori, rzekomobłoniaste zapalenie jelit (po klindamycynie/antybiotykach).",
+    "c": "Nudności, metaliczny smak w ustach, ciemne zabarwienie moczu, neuropatia obwodowa, leukopenia. Przeciwwskazany w I trymestrze ciąży. Reakcja disulfiramowa po spożyciu alkoholu — silne nudności, wymioty, tachykardia.",
+    "n": "REAKCJA DISULFIRAMOWA z alkoholem — bezwzględny zakaz spożywania alkoholu w trakcie i 48 h po leczeniu."
+  },
+  {
+    "z": 15,
+    "t": "8.4.1. Sulfonamidy",
+    "d": "Sulfizoksazol, Sulfafurazol, Sulfametizol, Sulfakarbamid, Sulfadymidyna, Sulfametoksazol, Sulfadiazyna, Sulfadoksyna, Sulfasalazyna, Sulfacetamid, Ftalilosulfatiazol, Sukcynylosulfatiazol",
+    "m": "Sulfonamidy są strukturalnymi analogami kwasu para-aminobenzoesowego (PABA) — kompetycyjnie hamują syntazę dihydropteroinianową bakterii, blokując syntezę kwasu dihydrofoliowego (etap wcześniejszy niż reduktaza dihydrofolianowa). Wynikiem jest zahamowanie syntezy puryn i DNA bakterii. Działają bakteriostatycznie.",
+    "i": "Zakażenia układu moczowego (sulfizoksazol), nokardioza, toksoplazmoza (sulfadiazyna), malaria (sulfadoksyna), wrzodziejące zapalenie jelita grubego (sulfasalazyna), zakażenia spojówek (sulfacetamid), zakażenia przewodu pokarmowego (ftalilosulfatiazol, sukcynylosulfatiazol — niewchłaniane).",
+    "c": "Reakcje alergiczne (wysypka, gorączka, zespół Stevensa-Johnsona, ok. 1% pacjentów), kryształki w moczu (krystaluria), niedokrwistość hemolityczna u osób z niedoborem G6PD, kernikterus u noworodków (przeciwwskazane w ciąży i u noworodków), zmiany skórne fototoksyczne, działanie tyreostatyczne.",
+    "n": "PRZECIWWSKAZANE u noworodków i w ciąży — ryzyko kernikterus (wypierają bilirubinę z połączeń z albuminami)."
+  },
+  {
+    "z": 15,
+    "t": "8.4.2. Inhibitory reduktazy dihydrofolianu i ich połączenie z sulfonamidami",
+    "d": "Trimetoprim, Pirymetamina, Kotrimoksazol (Sulfametoksazol + Trimetoprim)",
+    "m": "Trimetoprim i pirymetamina blokują reduktazę dihydrofolianową (DHFR) bakterii — hamują przejście kwasu dihydrofoliowego w tetrahydrofoliowy, niezbędny do syntezy puryn i tymidyny. W połączeniu z sulfonamidem (kotrimoksazol = sulfametoksazol + trimetoprim w stosunku 5:1) blokują dwa kolejne etapy szlaku folianowego, dając działanie synergiczne bakteriobójcze.",
+    "i": "Kotrimoksazol: zakażenia dróg moczowych, oddechowych, biegunki bakteryjne, profilaktyka i leczenie pneumocystozy (Pneumocystis jirovecii), nokardioza, toksoplazmoza. Pirymetamina + sulfadiazyna w toksoplazmozie i malarii.",
+    "c": "Reakcje alergiczne, krystaluria, niedokrwistość megaloblastyczna (niedobór folianów), agranulocytoza, hiperkaliemia. Przeciwwskazany w I trymestrze ciąży, u noworodków, w ciężkiej niewydolności nerek/wątroby.",
+    "n": "KOTRIMOKSAZOL = stosunek 5:1 sulfametoksazol/trimetoprim — to składa się na maksymalny efekt synergii."
+  },
+  {
+    "z": 15,
+    "t": "8.5. Inhibitory gyrazy — Fluorochinolony I generacji",
+    "d": "Kwas nalidyksowy, Kwas pipemidowy, Cynoksacyna, Enoksacyna, Norfloksacyna",
+    "m": "Pochodne chinolonu hamują podjednostkę A bakteryjnej gyrazy DNA (topoizomerazy II) — blokują superhelikalne skręcenie DNA, hamują replikację i transkrypcję, działają bakteriobójczo. I generacja działa głównie na pałeczki Gram-ujemne, słabo penetruje poza drogi moczowe.",
+    "i": "Niepowikłane zakażenia dolnych dróg moczowych wywołane przez pałeczki Gram-ujemne (E. coli, Klebsiella, Proteus); zapobieganie biegunce podróżnych.",
+    "c": "Nudności, wymioty, bóle głowy, fotouczulenia, krystaluria; przeciwwskazane u dzieci (uszkadzanie chrząstki wzrostowej) i w ciąży.",
+    "n": "PRZECIWWSKAZANE u dzieci i w ciąży — uszkadzają chrząstki stawowe."
+  },
+  {
+    "z": 15,
+    "t": "8.5. Inhibitory gyrazy — Fluorochinolony II generacji",
+    "d": "Cyprofloksacyna, Pefloksacyna, Ofloksacyna",
+    "m": "Fluorochinolony rozszerzonego spektrum, działające jednocześnie na gyrazę DNA i topoizomerazę IV bakterii — silne działanie bakteriobójcze wobec pałeczek Gram-ujemnych (w tym Pseudomonas aeruginosa), pewne działanie na ziarniaki Gram-dodatnie, lekarki atypowe (Mycoplasma, Chlamydia, Legionella).",
+    "i": "Zakażenia układu moczowego (w tym powikłane), zapalenie gruczołu krokowego, zakażenia kostno-stawowe i miękkich, biegunki bakteryjne, dur brzuszny, zakażenia dróg oddechowych, rzeżączka (ciprofloksacyna), wąglik (cyprofloksacyna).",
+    "c": "Zaburzenia żołądkowo-jelitowe, wysypka, fotouczulenia, neurotoksyczność (drgawki), uszkodzenia ścięgna Achillesa (zwłaszcza z glikokortykosteroidami), wydłużenie QT, działanie chondrotoksyczne. Przeciwwskazane u dzieci, w ciąży, karmieniu piersią.",
+    "n": "Zerwanie ścięgna Achillesa — szczególnie ostrożnie ze GKS i u pacjentów >60 r.ż."
+  },
+  {
+    "z": 15,
+    "t": "8.5. Inhibitory gyrazy — Fluorochinolony III i IV generacji",
+    "d": "Lewofloksacyna, Moksyfloksacyna, Gemifloksacyna, Sparfloksacyna, Prulifloksacyna, Pruflinacyna, Bezyfloksacyna, Sitafloksacyna, Delafloksacyna, Ozenoksacyna",
+    "m": "Fluorochinolony rozszerzonego spektrum o silnym działaniu zarówno na podjednostkę A gyrazy, jak i topoizomerazę IV; pełne pokrycie ziarniaków Gram-dodatnich (w tym pneumokoki oporne na penicylinę), bakterii atypowych i beztlenowców (zwłaszcza moksyfloksacyna).",
+    "i": "Bezpieczne stosowanie głównie w pozaszpitalnym zapaleniu płuc, zapaleniu zatok, ropniach, zakażeniach skóry i tkanek miękkich; moksyfloksacyna w zakażeniach jamy brzusznej (beztlenowce); delafloksacyna w zakażeniach skóry; gemifloksacyna w zaostrzeniach POChP.",
+    "c": "Jak II generacja + wyraźniejsze wydłużenie QTc (moksyfloksacyna, sparfloksacyna), hepatotoksyczność, ciężkie odczyny skórne, hipoglikemia. Przeciwwskazane u dzieci i w ciąży.",
+    "n": "WYDŁUŻENIE QTc — istotne zwłaszcza dla moksyfloksacyny; ostrożnie z innymi lekami przedłużającymi QT."
+  },
+  {
+    "z": 15,
+    "t": "8.6.3. Penicyliny naturalne",
+    "d": "Penicylina G (Benzylopenicylina), Penicylina V (Fenoksymetylopenicylina), Benzylopenicylina prokainowa, Benzylopenicylina benzatynowa",
+    "m": "Β-laktamy hamujące transpeptydazy (PBP — penicillin binding proteins) odpowiedzialne za sieciowanie peptydoglikanu ściany bakteryjnej; powodują autolizę bakterii poprzez aktywację bakteryjnych autolizyn. Działanie bakteriobójcze, wąski zakres działania (głównie ziarniaki Gram-dodatnie i Gram-ujemne, krętki). Penicylina G doustnie nieaktywna (degradacja przez kwas żołądkowy), prokainowa i benzatynowa to formy depot do podania domięśniowego.",
+    "i": "Zakażenia paciorkowcowe (Streptococcus pyogenes), pneumokokowe (Streptococcus pneumoniae wrażliwy), meningokokowe (Neisseria meningitidis), gronkowce nieprodukujące β-laktamazy (rzadko), zapalenie wsierdzia, kiła (penicylina benzatynowa), promienica, wąglik, błonica, tężec, ropnie tkanek miękkich.",
+    "c": "Reakcje alergiczne (do 10%, w tym anafilaksja, pokrzywka, obrzęk Quinckego), drgawki przy dużych dawkach dożylnych, hiperkaliemia (sole potasowe), reakcja Jarischa-Herxheimera w leczeniu kiły, zespół Hoignégo po podaniu prokainowej (lęk, omamy), zaburzenia żołądkowo-jelitowe.",
+    "n": "Reakcja Jarischa-Herxheimera w leczeniu kiły — masowe uwalnianie endotoksyn z rozpadających się krętków, NIE jest alergią."
+  },
+  {
+    "z": 15,
+    "t": "8.6.3. Penicyliny izoksazolilowe (przeciwgronkowcowe)",
+    "d": "Metycylina, Oksacylina, Kloksacylina, Dikloksacylina, Flukloksacylina, Nafcylina",
+    "m": "Penicyliny półsyntetyczne oporne na działanie β-laktamaz gronkowcowych dzięki dużej grupie izoksazolilowej blokującej dostęp enzymu do pierścienia β-laktamowego. Mechanizm działania jak penicylin naturalnych — inhibicja PBP i sieciowania peptydoglikanu.",
+    "i": "Zakażenia gronkowcami wrażliwymi na metycylinę (MSSA) — Staphylococcus aureus i koagulazo-ujemne; zapalenie wsierdzia, kości, skóry i tkanek miękkich.",
+    "c": "Reakcje alergiczne (krzyżowe z penicylinami), nefritis śródmiąższowy (zwłaszcza metycylina, dziś niestosowana), zaburzenia żołądkowo-jelitowe; metycylina została wycofana.",
+    "n": "MRSA = Staphylococcus aureus oporny na metycylinę — wrażliwość rozszerzona na całą grupę penicylin izoksazolilowych jest utracona."
+  },
+  {
+    "z": 15,
+    "t": "8.6.3. Aminopenicyliny",
+    "d": "Ampicylina, Amoksycylina",
+    "m": "Półsyntetyczne penicyliny z grupą aminową w pozycji para pierścienia fenolowego, co rozszerza spektrum o niektóre bakterie Gram-ujemne (E. coli, Proteus mirabilis, Haemophilus, Salmonella, Shigella, Listeria, Enterococcus). Wrażliwe na β-laktamazy. Amoksycylina ma lepszą biodostępność doustną (>75% vs ~40% ampicyliny).",
+    "i": "Zakażenia dróg oddechowych, ucha środkowego (amoksycylina), dróg żółciowych, układu moczowego, listerioza (ampicylina), eradykacja H. pylori (amoksycylina + klarytromycyna + IPP), zapalenie wsierdzia enterokokowego, zapalenie opon mózgowo-rdzeniowych u noworodków.",
+    "c": "Reakcje alergiczne (jak inne penicyliny), wysypka odropodobna u pacjentów z mononukleozą zakaźną (EBV), biegunka (pseudobłoniaste zapalenie jelit po klostridiozie), kandydoza pochwy.",
+    "n": "Wysypka po ampicylinie u pacjentów z MONONUKLEOZĄ (EBV) — niemal 100% przypadków; nie jest to alergia na penicyliny."
+  },
+  {
+    "z": 15,
+    "t": "8.6.3. Ureidopenicyliny i karboksypenicyliny (penicyliny o rozszerzonym spektrum)",
+    "d": "Mezlocylina, Azlocylina, Piperacylina, Karbenicylina, Tikarcylina",
+    "m": "Penicyliny półsyntetyczne ze spektrum rozszerzonym na Pseudomonas aeruginosa i wielooporne pałeczki Gram-ujemne (Klebsiella, Enterobacter, Serratia). Mechanizm jak innych β-laktamów — inhibicja PBP. Wrażliwe na β-laktamazy, dlatego zwykle stosowane w połączeniu z inhibitorem β-laktamaz (np. piperacylina + tazobaktam).",
+    "i": "Ciężkie zakażenia szpitalne, sepsa, zakażenia układu moczowego, zakażenia jamy brzusznej, dolnych dróg oddechowych, gorączka neutropeniczna; zwłaszcza zakażenia wywołane przez Pseudomonas aeruginosa.",
+    "c": "Reakcje alergiczne, zaburzenia krzepnięcia (karbenicylina, tikarcylina — wpływ na płytki krwi), hipernatremia (duża zawartość Na w preparatach), hipokaliemia, zespół Stevensa-Johnsona.",
+    "n": "Karbenicylina i tikarcylina zaburzają funkcję płytek — kontrolować krzepnięcie."
+  },
+  {
+    "z": 15,
+    "t": "8.6.3. Inhibitory β-laktamaz",
+    "d": "Kwas klawulanowy, Sulbaktam, Tazobaktam, Awibaktam, Waborbaktam, Durlobaktam, Tanioborbaktam, Relebaktam",
+    "m": "Inhibitory β-laktamaz nieodwracalnie (lub odwracalnie — awibaktam) wiążą i blokują bakteryjne β-laktamazy, chroniąc przed degradacją łączony z nimi antybiotyk β-laktamowy. Same wykazują niewielką aktywność przeciwbakteryjną. Spektrum hamowanych enzymów różne dla każdego inhibitora (klasy A, C, D wg klasyfikacji Amblera).",
+    "i": "Stosowane wyłącznie w połączeniach: amoksycylina + kwas klawulanowy, ampicylina + sulbaktam, piperacylina + tazobaktam, ceftazydym + awibaktam, meropenem + waborbaktam (zakażenia ESBL- i KPC-dodatnimi pałeczkami), imipenem + relebaktam.",
+    "c": "Reakcje alergiczne, biegunka (zwłaszcza preparaty z kwasem klawulanowym), wzrost prób wątrobowych (amoksyklawu), pseudobłoniaste zapalenie jelit.",
+    "n": "Same inhibitory mają minimalną aktywność przeciwbakteryjną — działają wyłącznie chroniąc partnerski β-laktam."
+  },
+  {
+    "z": 15,
+    "t": "8.6.4. Cefalosporyny I generacji",
+    "d": "Cefazolina, Cefadroksyl, Cefaleksyna, Cefalotyna, Cefradyna, Cefapiryna",
+    "m": "Β-laktamy hamujące transpeptydazy (PBP) bakteryjne — blokują końcowe sieciowanie peptydoglikanu i aktywują autolizyny. I generacja działa głównie na ziarniaki Gram-dodatnie (paciorkowce, MSSA, Staphylococcus saprophyticus) i niektóre pałeczki Gram-ujemne (Proteus mirabilis, E. coli, Klebsiella — PEK). Cefazolina iv, cefadroksyl/cefaleksyna po (doustnie).",
+    "i": "Zakażenia skóry i tkanek miękkich, kości (cefazolina), zakażenia układu moczowego, profilaktyka okołooperacyjna (cefazolina iv jednorazowo przed nacięciem skóry).",
+    "c": "Reakcje alergiczne (krzyżowe z penicylinami w ~10%), zaburzenia żołądkowo-jelitowe, biegunka, kandydoza, nefrotoksyczność (cefalotyna), reakcje hematologiczne.",
+    "n": "Cefazolina — antybiotyk z wyboru w profilaktyce okołooperacyjnej (>90% zabiegów)."
+  },
+  {
+    "z": 15,
+    "t": "8.6.4. Cefalosporyny II generacji",
+    "d": "Cefaklor, Cefuroksym, Cefamandol, Cefprozil, Cefoksytyna, Cefotetan, Cefonicyd",
+    "m": "Β-laktamy hamujące PBP z poszerzonym spektrum na pałeczki Gram-ujemne (Haemophilus influenzae, Neisseria, Enterobacter, niektóre Proteus), zachowaną aktywność na ziarniaki Gram-dodatnie (paciorkowce, gronkowce); cefoksytyna i cefotetan dodatkowo działają na bakterie beztlenowe (Bacteroides fragilis). Cefuroksym aksetyl doustnie.",
+    "i": "Pozaszpitalne zapalenie płuc, zapalenie zatok, ucha środkowego, oskrzeli; cefuroksym w zapaleniu opon mózgowo-rdzeniowych jako II rzut; cefoksytyna w profilaktyce okołooperacyjnej zabiegów jelitowych; zakażenia układu moczowego.",
+    "c": "Reakcje alergiczne, biegunka, zaburzenia żołądkowo-jelitowe, reakcja disulfiramowa po alkoholu (cefamandol, cefotetan — łańcuch metylotetrazoltiolowy), hipoprotrombinemia i krwawienia (cefamandol, cefotetan).",
+    "n": "Cefamandol i cefotetan mają łańcuch MTT — REAKCJA DISULFIRAMOWA z alkoholem i hipoprotrombinemia."
+  },
+  {
+    "z": 15,
+    "t": "8.6.4. Cefalosporyny III generacji",
+    "d": "Cefotaksym, Ceftriakson, Ceftazydym, Cefoperazon, Cefiksym, Ceftybuten, Cefpodoksym, Cefdinir, Cefditoren, Ceftizoksym",
+    "m": "Β-laktamy z dużą stabilnością wobec większości β-laktamaz pałeczek Gram-ujemnych i szerokim spektrum działania na pałeczki Gram-ujemne (Enterobacteriaceae); ceftazydym i cefoperazon dodatkowo aktywne wobec Pseudomonas aeruginosa. Aktywność na bakterie Gram-dodatnie słabsza niż w I generacji. Większość iv; cefiksym, ceftybuten, cefdinir, cefpodoksym, cefditoren — doustne. Ceftriakson z bardzo długim t½ (raz dziennie).",
+    "i": "Ciężkie zakażenia szpitalne, sepsa, zapalenie opon mózgowo-rdzeniowych (cefotaksym, ceftriakson), rzeżączka (ceftriakson IM jednorazowo), borelioza (neuroborelioza — ceftriakson), zakażenia kostno-stawowe, dur brzuszny (cefiksym, ceftriakson), zakażenia P. aeruginosa (ceftazydym).",
+    "c": "Reakcje alergiczne, biegunka, biegunka C. difficile, dyzbioza, hipoprotrombinemia (cefoperazon — łańcuch MTT, reakcja disulfiramowa), kamica żółciowa pseudokamicza (ceftriakson), reakcje hematologiczne, nefrotoksyczność.",
+    "n": "Ceftriakson + roztwory zawierające Ca = WYTRĄCANIE w płucach/nerkach noworodków, PRZECIWWSKAZANE u noworodków."
+  },
+  {
+    "z": 15,
+    "t": "8.6.4. Cefalosporyny IV generacji",
+    "d": "Cefepim, Cefpirom",
+    "m": "Β-laktamy o spektrum szerszym niż III generacja — łączą aktywność na ziarniaki Gram-dodatnie (jak I generacja) z aktywnością na pałeczki Gram-ujemne (jak III generacja), w tym Pseudomonas aeruginosa, Enterobacter, AmpC. Większa stabilność wobec β-laktamaz indukowalnych. Lepsza penetracja do OUN.",
+    "i": "Ciężkie zakażenia szpitalne, sepsa, gorączka neutropeniczna, zakażenia P. aeruginosa, Enterobacter, zapalenie opon mózgowo-rdzeniowych szpitalne, zakażenia układu moczowego powikłane.",
+    "c": "Reakcje alergiczne, biegunka, neurotoksyczność (drgawki przy niewydolności nerek z niedostosowaniem dawek), zaburzenia żołądkowo-jelitowe.",
+    "n": "Cefepim wymaga obniżenia dawki w niewydolności nerek — w przeciwnym razie ryzyko drgawek i encefalopatii."
+  },
+  {
+    "z": 15,
+    "t": "8.6.4. Cefalosporyny V generacji",
+    "d": "Ceftarolina, Ceftobiprol",
+    "m": "Β-laktamy o spektrum obejmującym MRSA (powinowactwo do zmienionej PBP2a gronkowcowej), VRSA, oporne pneumokoki, Enterococcus faecalis oraz pałeczki Gram-ujemne (bez Pseudomonas dla ceftaroliny; ceftobiprol działa na Pseudomonas).",
+    "i": "Pozaszpitalne i szpitalne zapalenie płuc, zakażenia skóry i tkanek miękkich wywołane przez MRSA, sepsa.",
+    "c": "Reakcje alergiczne, biegunka, dodatni odczyn Coombsa, zaburzenia żołądkowo-jelitowe, leukopenia.",
+    "n": "Ceftarolina to jedyny β-laktam aktywny wobec MRSA poza ceftobiprolem."
+  },
+  {
+    "z": 15,
+    "t": "8.6.5. Karbapenemy",
+    "d": "Imipenem, Meropenem, Ertapenem, Faropenem, Doripenem, Relebaktam (jako składnik z imipenemem)",
+    "m": "Β-laktamy o najszerszym spektrum przeciwbakteryjnym ze wszystkich antybiotyków — działają na bakterie Gram-dodatnie, Gram-ujemne (w tym ESBL+ i AmpC+), beztlenowce; meropenem, imipenem, doripenem także na Pseudomonas aeruginosa. Mechanizm jak innych β-laktamów — inhibicja PBP. Oporne na większość β-laktamaz; karbapenemazy (KPC, NDM, OXA-48) są głównym mechanizmem oporności. Imipenem podawany z cylastatyną (inhibitor dehydropeptydazy nerkowej DHP-1).",
+    "i": "Ciężkie zakażenia szpitalne, sepsa, gorączka neutropeniczna, zakażenia jamy brzusznej, zakażenia mieszane tlenowo-beztlenowe, zapalenie opon mózgowo-rdzeniowych (meropenem), zakażenia wywołane przez bakterie ESBL- i AmpC-dodatnie.",
+    "c": "Reakcje alergiczne (krzyżowe z penicylinami w ~5%), drgawki (zwłaszcza imipenem przy niewydolności nerek), zaburzenia żołądkowo-jelitowe, biegunka C. difficile, dodatni Coombs.",
+    "n": "Imipenem — drgawki, zwłaszcza u pacjentów z niewydolnością nerek; preferować meropenem w OUN."
+  },
+  {
+    "z": 15,
+    "t": "8.6.6. Monobaktamy",
+    "d": "Aztreonam",
+    "m": "Monocykliczny β-laktam o budowie pojedynczego pierścienia β-laktamowego (bez kondensacji z drugim pierścieniem). Hamuje PBP3 wyłącznie pałeczek Gram-ujemnych tlenowych (w tym Pseudomonas aeruginosa). Nie ma aktywności na bakterie Gram-dodatnie ani beztlenowce. Oporny na większość β-laktamaz (z wyjątkiem ESBL).",
+    "i": "Zakażenia Gram-ujemne (Enterobacteriaceae, Pseudomonas) u pacjentów uczulonych na penicyliny (krzyżowa alergia bardzo rzadka), zapalenia płuc, układu moczowego, sepsy.",
+    "c": "Wysypki skórne, przejściowe zwiększenie stężenia aminotransferaz, nudności i wymioty; przeciwskazania niewielkie ze względu na bardzo wąskie spektrum.",
+    "n": "Aztreonam to JEDYNY β-laktam praktycznie bez krzyżowej alergii z penicylinami — bezpieczny u pacjentów uczulonych."
+  },
+  {
+    "z": 15,
+    "t": "8.7. Antybiotyki glikopeptydowe i glikolipopeptydowe",
+    "d": "Wankomycyna, Teikoplanina, Telawancyna, Dalbawancyna, Orytawancyna",
+    "m": "Antybiotyki wiążące się z końcowymi resztami D-Ala-D-Ala w pentapeptydzie prekursora peptydoglikanu i blokujące transglikozydację (sieciowanie ściany komórkowej). Działają wyłącznie na bakterie Gram-dodatnie (Gram-ujemne mają zbyt grubą zewnętrzną błonę). Telawancyna, dalbawancyna i orytawancyna mają dodatkowo lipofilowy łańcuch zakotwiczający lek w błonie i prowadzący do depolaryzacji. Oporność: VanA (zamiana D-Ala-D-Ala na D-Ala-D-Lac w enterokokach VRE).",
+    "i": "Ciężkie zakażenia MRSA (sepsa, zapalenie wsierdzia, kości, płuc), zakażenia gronkowcowe u pacjentów uczulonych na β-laktamy, rzekomobłoniaste zapalenie jelit (wankomycyna doustnie, niewchłaniana z przewodu pokarmowego), zakażenia Clostridium difficile (wankomycyna doustnie).",
+    "c": "Nefrotoksyczność (zwłaszcza w skojarzeniu z aminoglikozydami), ototoksyczność (uszkodzenie nerwu VIII), red-man syndrome (zaczerwienienie, świąd, hipotonia przy zbyt szybkim wlewie iv — wynik degranulacji mastocytów, NIE alergia), tromboflebit, neutropenia, zespół DRESS.",
+    "n": "RED-MAN SYNDROME — NIE jest reakcją alergiczną, lecz nieswoistym uwolnieniem histaminy; spowolnić wlew. Monitorowanie stężenia wankomycyny obowiązkowe."
+  },
+  {
+    "z": 15,
+    "t": "8.7. Lipopeptydy — daptomycyna",
+    "d": "Daptomycyna",
+    "m": "Cykliczny lipopeptyd wbudowujący się w błonę komórkową bakterii Gram-dodatnich w sposób zależny od jonów wapnia, tworzący kanały jonowe powodujące depolaryzację błony i wyciek jonów potasu — szybkie działanie bakteriobójcze (zależne od stężenia). Aktywna wobec MRSA, VRE, Enterococcus, gronkowców.",
+    "i": "Powikłane zakażenia skóry i tkanek miękkich, bakteriemia gronkowcowa, zapalenie wsierdzia prawej strony serca, zakażenia wywołane przez Enterococcus i MRSA.",
+    "c": "Miopatia (wzrost CPK — kontrolować co tydzień), eozynofilowe zapalenie płuc, neuropatia. NIE STOSOWAĆ w zakażeniach płuc — inaktywowana przez surfaktant pęcherzykowy.",
+    "n": "DAPTOMYCYNA NIEAKTYWNA w zakażeniach PŁUC — surfaktant ją inaktywuje. Monitorować CPK co tydzień."
+  },
+  {
+    "z": 15,
+    "t": "8.8. Antybiotyki aminoglikozydowe",
+    "d": "Streptomycyna, Gentamycyna, Neomycyna, Kanamycyna, Paromomycyna, Framycetyna, Tobramycyna, Netylmycyna, Amikacyna, Plazomycyna",
+    "m": "Aminoglikozydy wiążą się z podjednostką 30S rybosomu bakteryjnego, zaburzają inicjację translacji oraz powodują błędne odczytywanie kodonu mRNA (powstają wadliwe białka, w tym uszkadzające błonę bakterii). Transport do wnętrza komórki zależny od potencjału błony — działanie ograniczone do tlenowców (nieaktywne w warunkach beztlenowych). Synergizm z β-laktamami (β-laktam ułatwia wnikanie do komórki).",
+    "i": "Ciężkie zakażenia szpitalne pałeczkami Gram-ujemnymi (z β-laktamem — synergizm), gruźlica (streptomycyna — leki II rzutu), zapalenie wsierdzia enterokokowe (ampicylina + gentamycyna), bruceloza, dżuma, tularemia, dekontaminacja jelita przed zabiegami (neomycyna doustnie — niewchłaniana), miejscowo w zakażeniach skóry i oczu, amebiaza jelitowa (paromomycyna).",
+    "c": "OTOTOKSYCZNOŚĆ (uszkodzenie VIII nerwu — głuchota i zaburzenia równowagi, nieodwracalne, kumulacyjne), NEFROTOKSYCZNOŚĆ (martwica cewek nerkowych, odwracalna), blok nerwowo-mięśniowy (z miastenią, środkami zwiotczającymi), reakcje alergiczne, działanie teratogenne.",
+    "n": "OTOTOKSYCZNOŚĆ i NEFROTOKSYCZNOŚĆ — kumulacyjne, NIEODWRACALNA głuchota. Monitorowanie stężenia obowiązkowe."
+  },
+  {
+    "z": 15,
+    "t": "8.9. Tetracykliny i glicylcykliny",
+    "d": "Tetracyklina, Chlorotetracyklina, Oksytetracyklina, Demeklocyklina, Minocyklina, Metacyklina, Doksycyklina, Limecyklina, Tigecyklina, Eravacyklina, Omadacyklina, Sarecyklina",
+    "m": "Łączą się odwracalnie z podjednostką 30S rybosomu bakteryjnego, blokując dołączanie aminoacylo-tRNA do miejsca A (akceptorowego) — hamują wydłużanie łańcucha białkowego, działanie bakteriostatyczne. Tigecyklina (glicylcyklina) ma szersze spektrum i jest oporna na typowe mechanizmy oporności tetracyklin (efluks, ochrona rybosomu). Transport aktywny do komórki.",
+    "i": "Zakażenia bakteriami atypowymi (Chlamydia, Mycoplasma, Rickettsia, Borrelia, Ureaplasma), trądzik pospolity (doksycyklina, sarecyklina, minocyklina), borelioza, dżuma, cholera, bruceloza, eradykacja H. pylori, malaria (doksycyklina w profilaktyce), powikłane zakażenia skóry i jamy brzusznej (tigecyklina), zespół niewłaściwego wydzielania ADH (demeklocyklina off-label).",
+    "c": "Zaburzenia żołądkowo-jelitowe, fototoksyczność, ŻÓŁTE PRZEBARWIENIE ZĘBÓW i upośledzenie wzrostu kości u dzieci <8 r.ż. i u płodu, zaburzenia czynności wątroby (ciąża), hepatotoksyczność, hipoplazja szkliwa, zespół rzekomego guza mózgu (idiopatyczne nadciśnienie wewnątrzczaszkowe), nadwrażliwość na zepsute tetracykliny (zespół Fanconiego).",
+    "n": "PRZECIWWSKAZANE U DZIECI <8 r.ż., w ciąży i karmieniu piersią — żółte przebarwienia zębów i hipoplazja szkliwa. Chelacja z wapniem (mleko) zmniejsza wchłanianie."
+  },
+  {
+    "z": 15,
+    "t": "8.10.1. Antybiotyki makrolidowe",
+    "d": "Erytromycyna, Roksytromycyna, Klarytromycyna, Spiramycyna, Midekamycyna, Telitromycyna",
+    "m": "Łączą się odwracalnie z podjednostką 50S rybosomu bakteryjnego (centrum peptydylotransferazy, miejsce P), blokując translokację peptydylo-tRNA z miejsca A do P — hamują wydłużanie łańcucha białkowego. Działanie głównie bakteriostatyczne, w wyższych stężeniach bakteriobójcze.",
+    "i": "Zakażenia Gram-dodatnie u pacjentów uczulonych na penicyliny, zakażenia bakteriami atypowymi (Chlamydia, Mycoplasma, Legionella), krztusiec (Bordetella pertussis), błonica, eradykacja H. pylori (klarytromycyna), trądzik (erytromycyna miejscowo), toksoplazmoza w ciąży (spiramycyna).",
+    "c": "Zaburzenia żołądkowo-jelitowe (stymulacja receptora motylinowego — szczególnie erytromycyna), WYDŁUŻENIE QT (zaburzenia rytmu, torsade de pointes), hepatotoksyczność (cholestaza), interakcje z lekami metabolizowanymi przez CYP3A4 (warfaryna, teofilina, karbamazepina, statyny), ototoksyczność (przy dużych dawkach iv).",
+    "n": "WYDŁUŻENIE QT — szczególnie erytromycyna i klarytromycyna; ostrożnie ze statynami i innymi lekami QT. Klarytromycyna hamuje CYP3A4."
+  },
+  {
+    "z": 15,
+    "t": "8.10.2. Azalidy",
+    "d": "Azytromycyna",
+    "m": "15-członowy makrolid z atomem azotu w pierścieniu (azalid) — łączy się z podjednostką 50S rybosomu bakteryjnego, hamuje syntezę białek. Ma znacznie lepszą stabilność w środowisku kwaśnym, dłuższy okres półtrwania (do 68 h) i większą akumulację w tkankach niż erytromycyna; spektrum poszerzone o niektóre bakterie Gram-ujemne (Haemophilus influenzae) i atypowe.",
+    "i": "Zakażenia dróg oddechowych (zapalenie ucha, gardła, zatok, oskrzeli), bakterie atypowe (Chlamydia, Mycoplasma, Legionella), zakażenia narządów płciowych (Chlamydia trachomatis — rzeżączka jednorazowa dawka), profilaktyka MAC w AIDS, biegunki bakteryjne (Salmonella, Shigella, Campylobacter).",
+    "c": "Mniejsze wydłużenie QT niż erytromycyna, łagodne objawy żołądkowo-jelitowe, hepatotoksyczność rzadko, mniejsze interakcje z CYP3A4 niż klarytromycyna.",
+    "n": "Krótszy schemat dawkowania niż klasyczne makrolidy (np. 1 dawka w rzeżączce) — wynik długiego t½."
+  },
+  {
+    "z": 15,
+    "t": "8.10.3. Ketolidy",
+    "d": "Telitromycyna, Cetromycyna",
+    "m": "Półsyntetyczne pochodne erytromycyny z grupą ketonową w pozycji 3 — łączą się z dwoma miejscami podjednostki 50S rybosomu (domenami II i V 23S rRNA), są aktywne wobec pneumokoków opornych na makrolidy (mechanizm MLSB).",
+    "i": "Pozaszpitalne zapalenie płuc wywołane przez szczepy oporne na makrolidy, w tym Streptococcus pneumoniae.",
+    "c": "Hepatotoksyczność (rzadkie ostre uszkodzenie wątroby — telitromycyna mocno ograniczona), zaostrzenie miastenii, zaburzenia widzenia, biegunka, wydłużenie QT.",
+    "n": "Telitromycyna OGRANICZONA z powodu ciężkiej hepatotoksyczności — śmiertelne uszkodzenia wątroby."
+  },
+  {
+    "z": 15,
+    "t": "8.10.4. Linkozamidy",
+    "d": "Linkomycyna, Klindamycyna",
+    "m": "Wiążą się z podjednostką 50S rybosomu bakteryjnego (to samo miejsce co makrolidy), hamują syntezę białek. Działanie bakteriostatyczne. Spektrum: bakterie Gram-dodatnie tlenowe (paciorkowce, gronkowce — w tym CA-MRSA) i bakterie beztlenowe (Bacteroides, Peptostreptococcus, Clostridium).",
+    "i": "Zakażenia bakteriami beztlenowymi, zakażenia kości i stawów (klindamycyna dobrze penetruje do kości), zakażenia ginekologiczne, ciężkie zakażenia jamy brzusznej, trądzik (miejscowo), profilaktyka po ekspozycji w endokarditis u pacjentów uczulonych na penicyliny, toksoplazmoza w skojarzeniu z pirymetaminą.",
+    "c": "Biegunka, rzekomobłoniaste zapalenie jelit (Clostridioides difficile — KLASYCZNY winowajca), zapalenie wątroby, neutropenia, reakcje alergiczne.",
+    "n": "RZEKOMOBŁONIASTE ZAPALENIE JELIT (C. difficile) — klindamycyna jest podręcznikowym sprawcą."
+  },
+  {
+    "z": 15,
+    "t": "8.11. Oksazolidynony",
+    "d": "Linezolid, Tedizolid",
+    "m": "Syntetyczne związki hamujące syntezę białek bakteryjnych — wiążą się z 23S rRNA w podjednostce 50S rybosomu i blokują tworzenie kompleksu inicjacyjnego 70S (zapobiegają związaniu fMet-tRNA). Działanie głównie bakteriostatyczne; spektrum: ziarniaki Gram-dodatnie, w tym MRSA, VRE, oporne pneumokoki. Nie wykazują oporności krzyżowej z innymi antybiotykami.",
+    "i": "Powikłane zakażenia skóry i tkanek miękkich wywołane przez MRSA, VRE, pozaszpitalne i szpitalne zapalenie płuc; zakażenia kości i stawów.",
+    "c": "Mielosupresja (małopłytkowość, niedokrwistość — przy >2 tygodni terapii — monitorować morfologię), neuropatia obwodowa i nerwu wzrokowego (przy długiej terapii), kwasica mleczanowa, ZESPÓŁ SEROTONINOWY (linezolid jest słabym inhibitorem MAO — niebezpieczne łączenie z SSRI, SNRI, trójcyklikami, agonistami serotoniny).",
+    "n": "ZESPÓŁ SEROTONINOWY — linezolid jest inhibitorem MAO; NIE ŁĄCZYĆ z SSRI, MAO-I, pethidyną."
+  },
+  {
+    "z": 15,
+    "t": "8.12. Streptograminy",
+    "d": "Chinuprystyna, Dalfoprystyna",
+    "m": "Łączą się z podjednostką 50S rybosomu bakteryjnego w dwóch różnych miejscach, działają synergicznie blokując wydłużanie łańcucha białkowego. Stosowane jako kombinacja chinuprystyna/dalfoprystyna 30:70 — działanie bakteriobójcze (synergia), spektrum: ziarniaki Gram-dodatnie, w tym MRSA, VRE (Enterococcus faecium, NIE faecalis), Streptococcus.",
+    "i": "Ciężkie zakażenia wywołane przez Enterococcus faecium VRE i innymi opornymi ziarniakami Gram-dodatnimi, gdy inne leki zawiodły.",
+    "c": "Ból i zapalenie w miejscu wlewu iv (centralny dostęp niezbędny), bóle stawów i mięśni, hiperbilirubinemia, interakcje przez CYP3A4.",
+    "n": "Aktywna tylko na E. faecium (VRE), NIE na E. faecalis."
+  },
+  {
+    "z": 15,
+    "t": "8.13.1. Chloramfenikol",
+    "d": "Chloramfenikol",
+    "m": "Łączy się odwracalnie z podjednostką 50S rybosomu bakteryjnego, hamuje peptydylotransferazę (przeniesienie reszty aminokwasowej między tRNA) — działanie bakteriostatyczne, w wyższych stężeniach bakteriobójcze na H. influenzae, Neisseria meningitidis, Streptococcus pneumoniae. Szerokie spektrum (Gram+, Gram−, atypowe, beztlenowce, riketsje). Inhibuje izoenzymy CYP450.",
+    "i": "Obecnie rzadko stosowany ze względu na toksyczność: dur brzuszny (kraje rozwijające się), riketsjozy, zapalenie opon (alternatywa), zakażenia oka miejscowo (krople), bakterie beztlenowe.",
+    "c": "Mielotoksyczność: dawkozależna ODWRACALNA supresja szpiku (anemia, trombocytopenia) oraz IDIOSYNKRATYCZNA NIEDOKRWISTOŚĆ APLASTYCZNA (1:30 000, ŚMIERTELNA, niezależna od dawki). Zespół szary noworodków (Gray baby syndrome — sinica, hipotonia, niewydolność krążenia, śmierć — niemowlęta < 1 mies. nie metabolizują chloramfenikolu, brak UDP-glukuronylotransferazy). Reakcje alergiczne.",
+    "n": "GRAY BABY SYNDROME u noworodków i NIEDOKRWISTOŚĆ APLASTYCZNA — leki z prawie zarezerwowanych."
+  },
+  {
+    "z": 15,
+    "t": "8.13.2. Ansamycyny (Ryfampicyna i pokrewne)",
+    "d": "Ryfampicyna, Ryfabutyna, Ryfapentyna, Ryfaksymina",
+    "m": "Hamują bakteryjną polimerazę RNA zależną od DNA, wiążąc się z podjednostką β polimerazy — blokują transkrypcję, działają bakteriobójczo. Spektrum szerokie: prątki gruźlicy, prątki atypowe, Mycobacterium leprae, Gram-dodatnie i wybrane Gram-ujemne (N. meningitidis). Ryfaksymina ograniczona do przewodu pokarmowego (nie wchłania się).",
+    "i": "Gruźlica (lek I rzutu w skojarzeniu, R w schemacie RIPE), trąd, profilaktyka kontaktowa meningokokowa i H. influenzae typu b, leczenie zakażeń protezami (gronkowce), ryfaksymina w encefalopatii wątrobowej i biegunce podróżnych.",
+    "c": "Hepatotoksyczność, indukcja CYP450 (CYP3A4 — liczne interakcje, zmniejsza skuteczność antykoncepcji, warfaryny, leków przeciw HIV, glikokortykosteroidów), pomarańczowo-czerwone zabarwienie wydzielin (mocz, łzy, pot — łagodne, ale przebarwienia soczewek kontaktowych), reakcje hipersensytywne (zespół rzekomogrypowy).",
+    "n": "POMARAŃCZOWO-CZERWONE wydzieliny (mocz, łzy, pot) — naturalne ale niespotykane; INDUKCJA CYP450 — antykoncepcja może zawieść."
+  },
+  {
+    "z": 15,
+    "t": "8.13.3. Fidaksomycyna",
+    "d": "Fidaksomycyna",
+    "m": "Makrocykliczny antybiotyk, inhibitor bakteryjnej polimerazy RNA zależnej od DNA o budowie podobnej do ansamycyn, ale ograniczonej aktywności do bakterii beztlenowych (zwłaszcza Clostridium). Słabo wchłaniana z przewodu pokarmowego — działa miejscowo w jelicie.",
+    "i": "Zakażenia Clostridioides difficile (rzekomobłoniaste zapalenie jelit) — lek z wyboru w nawrotowym CDI, alternatywa dla wankomycyny doustnie.",
+    "c": "Nudności, wymioty, ból brzucha, anemia, neutropenia.",
+    "n": "Lek z wyboru w NAWROTOWYM C. difficile — mniej nawrotów niż po wankomycynie."
+  },
+  {
+    "z": 15,
+    "t": "8.13.4. Polimyksyny",
+    "d": "Polimyksyna B, Polimyksyna E (Kolistyna)",
+    "m": "Polimyksyny to amfipatyczne polipeptydowe antybiotyki kationowe, które wiążą się z lipidem A lipopolisacharydu (LPS) zewnętrznej błony bakterii Gram-ujemnych — dezorganizują błonę zewnętrzną i wewnętrzną, powodując wyciek zawartości komórki (działanie bakteriobójcze, niezależne od fazy wzrostu).",
+    "i": "Ciężkie zakażenia wieloopornymi pałeczkami Gram-ujemnymi (Pseudomonas aeruginosa, Acinetobacter, Klebsiella oporna na karbapenemy — KPC, NDM) — lek ostatniego rzutu; miejscowo w zakażeniach skóry, ucha, oka; nebulizowana w mukowiscydozie z P. aeruginosa.",
+    "c": "NEFROTOKSYCZNOŚĆ (martwica cewek nerkowych, zwykle odwracalna), NEUROTOKSYCZNOŚĆ (parestezje, zawroty głowy, blok nerwowo-mięśniowy), bóle, gorączka, zaburzenia mowy.",
+    "n": "LEK OSTATNIEGO RZUTU dla MDR Gram-ujemnych — wybiera się, gdy reszta nie działa."
+  },
+  {
+    "z": 15,
+    "t": "8.13.5. Pleuromutyliny",
+    "d": "Retapamulina, Lefamulina",
+    "m": "Półsyntetyczne pochodne pleuromutyliny — wiążą się z miejscem peptydylotransferazy podjednostki 50S rybosomu bakteryjnego, hamują wczesny etap syntezy białek. Spektrum: ziarniaki Gram-dodatnie, niektóre Gram-ujemne, bakterie atypowe.",
+    "i": "Retapamulina — miejscowo w niepowikłanych zakażeniach skóry (liszajec). Lefamulina — pozaszpitalne zapalenie płuc (PO i iv).",
+    "c": "Retapamulina: podrażnienia skóry. Lefamulina: zaburzenia żołądkowo-jelitowe, hepatotoksyczność, wydłużenie QT.",
+    "n": ""
+  },
+  {
+    "z": 15,
+    "t": "8.13.6. Fosfomycyna",
+    "d": "Fosfomycyna",
+    "m": "Analog fosfoenolopirogronianu — hamuje transferazę enolopirogronianową (MurA), pierwszy enzym w cytoplazmatycznej syntezie peptydoglikanu (przed włączeniem N-acetyloglukozaminy). Wnika do bakterii przez transporter glicero-3-fosforanu i glukozo-6-fosforanu (induktor: G6P).",
+    "i": "Niepowikłane zakażenia dolnych dróg moczowych u kobiet (1 doustna dawka 3 g — wygodna terapia), zakażenia P. aeruginosa, MRSA, oporne pałeczki Gram-ujemne (iv w połączeniu).",
+    "c": "Biegunka, bóle głowy, bóle brzucha, leukopenia.",
+    "n": "JEDNORAZOWA dawka 3 g doustnie — wygodne w niepowikłanym UTI u kobiet."
+  },
+  {
+    "z": 15,
+    "t": "8.13.7. Fusydany (Kwas fusydowy)",
+    "d": "Kwas fusydowy",
+    "m": "Antybiotyk o budowie steroidowej — hamuje syntezę białek w bakteriach poprzez wiązanie z czynnikiem elongacji EF-G i zatrzymanie translokacji rybosomu. Aktywny głównie wobec gronkowców, w tym MRSA.",
+    "i": "Zakażenia skóry i tkanek miękkich gronkowcami (miejscowo i ogólnoustrojowo), zakażenia kostno-stawowe, zapalenie wsierdzia gronkowcowe (w skojarzeniu).",
+    "c": "Zaburzenia żołądkowo-jelitowe, hepatotoksyczność (żółtaczka), reakcje alergiczne.",
+    "n": "Lek bardzo niszowy — głównie w gronkowcowych zakażeniach skóry i kości."
+  },
+  {
+    "z": 15,
+    "t": "8.13.8. Fuzafungina",
+    "d": "Fuzafungina",
+    "m": "Antybiotyk o budowie depsipeptydowej wytwarzany przez grzyb Fusarium lateritium, zaburzający funkcjonowanie błony komórkowej drobnoustrojów (podobnie do polimyksyn). Aktywny wobec paciorkowców, gronkowców, Mycoplasma pneumoniae, Candida albicans.",
+    "i": "Miejscowe leczenie zakażeń górnych dróg oddechowych (gardło, nos) — aerosol; dawniej w nieżytach nosa i gardła.",
+    "c": "Reakcje miejscowe nadwrażliwości, podrażnienia.",
+    "n": "Lek wycofany w wielu krajach z powodu ryzyka reakcji anafilaktycznych."
+  },
+  {
+    "z": 15,
+    "t": "8.13.9. Mupirocyna",
+    "d": "Mupirocyna",
+    "m": "Antybiotyk wytwarzany przez Pseudomonas fluorescens, hamujący syntetazę izoleucylo-tRNA bakterii — blokuje wprowadzanie izoleucyny do białek bakteryjnych, działanie bakteriostatyczne. Stosowana tylko miejscowo (szybko metabolizowana). Aktywna wobec gronkowców, w tym MRSA, i paciorkowców.",
+    "i": "Miejscowo: nosicielstwo MRSA (do nosa), zakażenia skóry (liszajec, czyraki), eradykacja nosicielstwa S. aureus przed zabiegami.",
+    "c": "Podrażnienia skóry, świąd, wysypka.",
+    "n": "Eradykacja MRSA z jamy nosowej u nosicieli przed zabiegami — standardowa procedura."
+  },
+  {
+    "z": 15,
+    "t": "8.13.10. Bacytracyna",
+    "d": "Bacytracyna",
+    "m": "Mieszanina cyklicznych peptydów produkowanych przez Bacillus subtilis — hamuje defosforylację bakteryjnego nośnika lipidowego (undekaprenylo-pirofosforanu), niezbędnego do transportu prekursorów peptydoglikanu przez błonę. Działa bakteriobójczo na bakterie Gram-dodatnie.",
+    "i": "Stosowana wyłącznie MIEJSCOWO (silna nefrotoksyczność) — zakażenia skóry, oczu, nosa, jamy ustnej (czasem z neomycyną/polimyksyną w kombinacji).",
+    "c": "Silna NEFROTOKSYCZNOŚĆ przy podaniu ogólnoustrojowym (dlatego tylko miejscowo), reakcje alergiczne kontaktowe.",
+    "n": "WYŁĄCZNIE MIEJSCOWO — nefrotoksyczna przy podaniu ogólnoustrojowym."
+  },
+  {
+    "z": 15,
+    "t": "8.13.11. Gramicydyna",
+    "d": "Gramicydyna",
+    "m": "Mieszanina liniowych peptydów hydrofobowych produkowana przez Bacillus brevis — tworzy kanały jonowe w błonie bakteryjnej, prowadząc do depolaryzacji i wycieku jonów (Na+, K+) z komórki. Działa głównie na bakterie Gram-dodatnie.",
+    "i": "Wyłącznie miejscowo (zbyt toksyczna systemowo) — w mieszankach: zapalenie spojówek, błon śluzowych, skóry.",
+    "c": "Hemoliza przy podaniu systemowym; reakcje alergiczne miejscowe.",
+    "n": ""
+  },
+  {
+    "z": 15,
+    "t": "8.13.12. Cykloseryna",
+    "d": "Cykloseryna",
+    "m": "Analog D-alaniny wytwarzany przez Streptomyces orchidaceus — hamuje racemazę D-alaniny i ligazę D-Ala-D-Ala (kompetycyjnie), blokując syntezę dipeptydu D-Ala-D-Ala niezbędnego do biosyntezy peptydoglikanu. Działa bakteriostatycznie na prątki gruźlicy (oporność na leki I rzutu).",
+    "i": "Lek II rzutu w leczeniu gruźlicy wielolekoopornej (MDR-TB).",
+    "c": "NEUROTOKSYCZNOŚĆ wyraźna: bóle głowy, drżenia, drgawki, depresja, psychoza; podanie pirydoksyny (B6) zmniejsza częstość zaburzeń neurologicznych.",
+    "n": "Neurotoksyczna — DRGAWKI i PSYCHOZY; profilaktycznie B6 (pirydoksyna)."
+  },
+  {
+    "z": 15,
+    "t": "8.14.1. Leki przeciwgruźlicze I rzutu",
+    "d": "Izoniazyd, Ryfampicyna, Pirazynamid, Etambutol, Streptomycyna",
+    "m": "Izoniazyd (INH) — prolek aktywowany przez bakteryjną katalazę-peroksydazę KatG, hamuje syntezę kwasów mykolowych (ściana prątka). Ryfampicyna (RMP) — inhibitor polimerazy RNA prątka. Pirazynamid (PZA) — prolek przekształcany przez pirazinamidazę w kwas pirazynowy, obniża pH w fagolizosomie makrofaga (działanie w środowisku kwaśnym). Etambutol (EMB) — hamuje arabinozylotransferazę (synteza arabinogalaktanu ściany). Streptomycyna — aminoglikozyd, hamuje 30S rybosomu.",
+    "i": "Gruźlica aktywna i utajona — schemat skojarzony (RIPE: ryfampicyna + izoniazyd + pirazynamid + etambutol) przez 2 miesiące, następnie RH przez 4 miesiące.",
+    "c": "INH: hepatotoksyczność, neuropatia obwodowa (suplementacja pirydoksyny B6), zespół toczniopodobny. RMP: hepatotoksyczność, indukcja CYP450, pomarańczowo-czerwone wydzieliny. PZA: hepatotoksyczność, hiperurykemia (dna), bóle stawów. EMB: zaburzenia widzenia (pozagałkowe zapalenie nerwu wzrokowego, ślepota na kolor czerwono-zielony — monitorowanie wzroku obowiązkowe). STREP: oto- i nefrotoksyczność.",
+    "n": "ETAMBUTOL — POZAGAŁKOWE ZAPALENIE NERWU WZROKOWEGO i ślepota na czerwono-zielone. IZONIAZYD — suplementacja B6, profilaktyka neuropatii."
+  },
+  {
+    "z": 15,
+    "t": "8.14.1. Leki przeciwgruźlicze II rzutu (MDR-TB)",
+    "d": "Etionamid, Protionamid, Kapreomycyna, Kanamycyna, Amikacyna, Cykloseryna, Kwas paraaminosalicylowy (PAS), Klofazymina, Linezolid, Lewofloksacyna, Moksyfloksacyna, Bedakwilina, Delamanid, Pretomanid",
+    "m": "Leki rezerwowe stosowane w gruźlicy wielolekoopornej (MDR-TB, oporna na izoniazyd i ryfampicynę) i przedrozległej (XDR-TB). Etionamid/protionamid — analogi izoniazydu, hamują syntezę kwasów mykolowych. Kapreomycyna, kanamycyna, amikacyna — aminoglikozydy hamujące 30S. Cykloseryna — hamuje syntezę D-Ala-D-Ala. PAS — analog PABA, hamuje syntezę kwasu foliowego prątka. Bedakwilina — inhibitor syntazy ATP prątka. Delamanid, pretomanid — proleki nitroimidazolowe blokujące syntezę kwasów mykolowych. Fluorochinolony — inhibitory gyrazy.",
+    "i": "Gruźlica wielolekooporna (MDR-TB) i przedrozległa (XDR-TB), w schematach >18 miesięcy. Bedakwilina i pretomanid w nowoczesnych schematach krótkoterminowych.",
+    "c": "Etionamid: hepatotoksyczność, zaburzenia żołądkowo-jelitowe, niedoczynność tarczycy. Aminoglikozydy: oto/nefrotoksyczność. Cykloseryna: psychoza, drgawki. PAS: nietolerancja żołądkowo-jelitowa, niedoczynność tarczycy. Bedakwilina: WYDŁUŻENIE QT, hepatotoksyczność. Delamanid, pretomanid: wydłużenie QT, hepatotoksyczność.",
+    "n": "WYDŁUŻENIE QT — bedakwilina, delamanid, pretomanid — monitorowanie EKG."
+  },
+  {
+    "z": 15,
+    "t": "8.14.2. Leki wykorzystywane w leczeniu trądu",
+    "d": "Dapson, Klofazymina, Ryfampicyna, Talidomid, Minocyklina, Klarytromycyna",
+    "m": "Dapson (DDS) — analog sulfonamidu, kompetycyjnie hamuje syntazę dihydropteroinianową (PABA), blokuje syntezę folianów u Mycobacterium leprae. Klofazymina — wiąże się z DNA prątka i prawdopodobnie generuje wolne rodniki tlenowe; działa też przeciwzapalnie i immunomodulacyjnie. Talidomid — immunomodulator, hamuje TNF-α (stosowany w odczynach trądowych ENL).",
+    "i": "Trąd (Mycobacterium leprae) — leczenie skojarzone długoterminowe (WHO): trąd lepromatyczny: dapson + ryfampicyna + klofazymina; trąd tuberkuloidowy: dapson + ryfampicyna. Talidomid w odczynach ENL (rumień guzowaty trądowy).",
+    "c": "Dapson: niedokrwistość hemolityczna (zwłaszcza w niedoborze G6PD), methemoglobinemia, hepatotoksyczność, zespół DRESS. Klofazymina: czerwono-brunatne przebarwienie skóry (odwracalne, ale demoralizujące), zaburzenia żołądkowo-jelitowe, wydłużenie QT. TALIDOMID — TERATOGENNY (fokomelia) — bezwzględnie przeciwwskazany w ciąży.",
+    "n": "TALIDOMID — KLASYCZNY TERATOGEN (fokomelia) — historyczna katastrofa lat 60.; absolutnie zakazany w ciąży."
+  }
+]

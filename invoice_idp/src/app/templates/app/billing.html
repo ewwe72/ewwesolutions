@@ -1,0 +1,80 @@
+{% extends "app/_layout.html" %}
+{% set active_nav = 'billing' %}
+{% block title %}Doładowanie — Faktomat{% endblock %}
+{% block main %}
+
+<div class="max-w-3xl">
+
+  <header class="mb-10">
+    <p class="text-xs font-mono-tabular uppercase tracking-[0.18em] text-stone-500">Płatność</p>
+    <h1 class="mt-2 font-serif-display italic text-4xl text-stone-900">Doładowanie konta.</h1>
+    <p class="mt-3 text-stone-600 text-[15px] leading-relaxed max-w-xl">
+      Płacisz tylko za to, co przetworzysz — jedna ekstrakcja kosztuje
+      <span class="font-medium text-stone-900">{{ '%.2f'|format(invoice_price_grosze / 100) }}&nbsp;PLN</span>.
+      Doładowanie nie wygasa, wykorzystasz je we własnym tempie.
+    </p>
+  </header>
+
+  {# Status-of-payment banners (refined) #}
+  {% if result == "ok" %}
+  <div class="mb-6 rounded-xl border border-emerald-200 bg-emerald-50/60 px-4 py-3 text-sm text-emerald-900 flex items-start gap-3">
+    <span class="inline-block w-1 self-stretch bg-emerald-500 rounded-full"></span>
+    <span>Płatność zaakceptowana. Saldo zaktualizuje się tu w ciągu kilku sekund.</span>
+  </div>
+  {% elif result == "cancel" %}
+  <div class="mb-6 rounded-xl border border-amber-200 bg-amber-50/60 px-4 py-3 text-sm text-amber-900 flex items-start gap-3">
+    <span class="inline-block w-1 self-stretch bg-amber-500 rounded-full"></span>
+    <span>Płatność anulowana. Środki nie zostały pobrane.</span>
+  </div>
+  {% endif %}
+
+  {% if reason == "empty" %}
+  <div class="mb-6 rounded-xl border border-brand-200 bg-brand-50/60 px-4 py-3 text-sm text-brand-900 flex items-start gap-3">
+    <span class="inline-block w-1 self-stretch bg-brand-500 rounded-full"></span>
+    <span>Brak środków na koncie. Doładuj saldo, aby wgrać kolejną fakturę.</span>
+  </div>
+  {% endif %}
+
+  {# Balance display — large, typographic #}
+  <section class="mb-12 flex items-end gap-6 border-b border-stone-200 pb-8">
+    <div>
+      <p class="text-[11px] font-mono-tabular uppercase tracking-[0.18em] text-stone-500">Aktualne saldo</p>
+      <p class="mt-1 font-mono-tabular text-5xl tabular-nums text-stone-900">
+        {{ '%.2f'|format(balance_grosze / 100) }}<span class="text-stone-400 text-3xl ml-1">PLN</span>
+      </p>
+    </div>
+    <div class="pb-2 text-xs text-stone-500">
+      ≈ <span class="font-mono-tabular text-stone-700">{{ (balance_grosze // invoice_price_grosze) }}</span> ekstrakcji w zapasie
+    </div>
+  </section>
+
+  {# Top-up tiles #}
+  <section>
+    <h2 class="font-serif-display italic text-2xl text-stone-900 mb-5">Doładuj.</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+      {% for amount in amounts_grosze %}
+      <form method="post" action="/app/billing/topup" class="contents">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+        <input type="hidden" name="amount_grosze" value="{{ amount }}">
+        <button type="submit"
+                class="group relative rounded-2xl bg-white ring-1 ring-stone-200 hover:ring-brand-400 hover:shadow-sm transition-all text-left p-6 overflow-hidden">
+          <p class="text-[11px] font-mono-tabular uppercase tracking-[0.16em] text-stone-500 group-hover:text-brand-700 transition-colors">Doładowanie</p>
+          <p class="mt-2 font-mono-tabular text-3xl tabular-nums text-stone-900">
+            {{ (amount // 100) }}<span class="text-stone-400 text-xl ml-1">PLN</span>
+          </p>
+          <p class="mt-1 text-xs text-stone-500">≈ {{ (amount // invoice_price_grosze) }} ekstrakcji</p>
+          <svg class="absolute top-5 right-5 w-4 h-4 text-stone-300 group-hover:text-brand-600 transition-colors" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
+        </button>
+      </form>
+      {% endfor %}
+    </div>
+
+    <p class="mt-6 text-xs text-stone-500 max-w-xl leading-relaxed">
+      Przekierujemy Cię do bezpiecznej strony płatności Stripe (karta lub BLIK).
+      Po sfinalizowaniu transakcji wrócisz tu automatycznie, a saldo zaktualizuje się w ciągu kilku sekund.
+    </p>
+  </section>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Weryfikacja email — Faktomat{% endblock %}
+{% block content %}
+<div class="min-h-screen bg-stone-50/60 flex flex-col">
+  <main class="flex-1 flex items-center justify-center px-4 py-16">
+    <div class="w-full max-w-md">
+
+      <a href="/" class="flex items-center justify-center gap-2.5 mb-10 group">
+        <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-gradient-to-br from-brand-600 to-brand-800 text-white font-bold text-base shadow-sm">F</span>
+        <span class="font-serif-display italic text-[26px] leading-none text-stone-900 group-hover:text-brand-800 transition-colors">Faktomat</span>
+      </a>
+
+      <div class="rounded-2xl bg-white ring-1 ring-stone-200 p-8 shadow-sm text-center">
+        {% if ok %}
+          <div class="mx-auto w-12 h-12 rounded-xl bg-emerald-50 ring-1 ring-emerald-200 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <h1 class="font-serif-display italic text-2xl text-stone-900 mb-2">Email zweryfikowany.</h1>
+          <p class="text-sm text-stone-600 mb-6">Konto jest aktywne — możesz się zalogować.</p>
+          <a href="/login"
+             class="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg bg-brand-700 text-white font-medium text-sm shadow-sm hover:bg-brand-800 transition">
+            Zaloguj się
+          </a>
+        {% else %}
+          <div class="mx-auto w-12 h-12 rounded-xl bg-rose-50 ring-1 ring-rose-200 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-rose-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </div>
+          <h1 class="font-serif-display italic text-2xl text-stone-900 mb-2">Link nieprawidłowy.</h1>
+          <p class="text-sm text-stone-600 mb-6">{{ message }}</p>
+          <a href="/login"
+             class="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg bg-stone-900 text-white font-medium text-sm shadow-sm hover:bg-stone-800 transition">
+            Wróć do logowania
+          </a>
+        {% endif %}
+      </div>
+
+    </div>
+  </main>
+</div>
+{% endblock %}

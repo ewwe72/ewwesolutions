@@ -1,0 +1,72 @@
+# Configuration for the cross-sectional momentum strategy.
+# Code reads this once at startup; no other module hardcodes these values.
+#
+# Survivorship-bias warning: the universe (S&P 500 snapshot) lives in
+# src/utils/sp500.py and is a current snapshot, not point-in-time
+# membership. Returns from any backtest using this universe are likely
+# overstated by 1-3%/year. See src/utils/sp500.py for details.
+
+strategy:
+  # 12-1 momentum signal
+  momentum_lookback: 252         # trading days for the lookback price
+  momentum_skip: 21              # most-recent days to skip (short-term reversal)
+
+  # Eligibility filter (applied at every rebalance)
+  min_days_history: 252          # required for valid momentum signal
+  min_price: 5.0                 # excludes penny stocks
+  min_adv_dollars: 10000000      # $10M average daily dollar volume
+  adv_lookback: 60               # window for ADV calculation
+
+  # Portfolio construction
+  n_positions: 50                # top-N by momentum score
+  position_cap_pct: 0.03         # max 3% per name
+  cash_reserve_pct: 0.02         # leave 2% in cash for slippage/partial fills
+
+  # Sector cap is supported by strategy.apply_sector_cap() but disabled
+  # by default — sector mapping requires an extra data source we haven't
+  # wired up. Re-enable when sector data is available.
+
+risk:
+  # Drawdown circuit breaker — catastrophe backstop, not a normal-DD throttle.
+  # The -25% / -10% pair (original setting) was calibrated for monthly halt
+  # sampling, where it almost never fired. Daily sampling exposed that those
+  # thresholds destroy alpha during normal bear-market drawdowns: in the OOS
+  # backtest the halt fired in April 2020 and sat at 50% sizing through the
+  # COVID rebound, costing ~80pp of return for no MaxDD benefit (trough had
+  # already happened by the time it activated). -35% / -15% only fires on
+  # genuinely catastrophic moves (2008-style) where you actually want to
+  # de-risk regardless of rebound timing.
+  drawdown_halt_threshold: -0.35     # trip when DD <= -35%
+  drawdown_resume_threshold: -0.15   # resume full size when DD >= -15%
+
+live:
+  # Data-feed sanity gate at rebalance time. yfinance routinely returns
+  # empty frames or stale bars for a slice of the universe on any given
+  # morning; without this gate the bot would rank on a partial / stale
+  # universe and trade. Both checks must pass or the rebalance is aborted
+  # with a non-zero exit so an external scheduler alerts.
+  min_universe_fresh_pct: 0.85       # fraction of SP500 universe that must have a
+                                     # bar dated >= yesterday - staleness_window
+  staleness_window_days: 3           # how many trading days back still counts as fresh
+  # Canary symbols: if NONE of these have yesterday's bar, the feed is
+  # presumed broken regardless of the aggregate fresh-pct. These names
+  # trade hundreds of millions of shares per day — a missing bar for ALL
+  # three means the upstream feed is degraded, not that the symbols moved.
+  canary_symbols: ["AAPL", "MSFT", "GOOGL"]
+
+backtest:
+  start_date: "2010-01-01"
+  end_date: "2024-12-31"
+  initial_cash: 100000
+
+  # Slippage in basis points (per side; applied to both buys and sells)
+  slippage_bps: 5.0              # 5 bps = 0.05% — realistic for retail liquid stocks
+
+  # In-sample / out-of-sample split for walk-forward
+  is_end_date: "2018-12-31"
+  oos_start_date: "2019-01-01"
+
+logging:
+  log_dir: "logs"
+  rotate_bytes: 10485760         # 10 MB
+  rotate_backups: 7

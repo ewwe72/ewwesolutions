@@ -1,0 +1,11 @@
+.env
+.env.local
+venv/
+__pycache__/
+.mypy_cache/
+.pytest_cache/
+logs/
+state/momentum_state.json
+state/*.json.tmp
+*.pyc
+.DS_Store

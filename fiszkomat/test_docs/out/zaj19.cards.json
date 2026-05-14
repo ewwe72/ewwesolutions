@@ -1,0 +1,362 @@
+[
+  {
+    "z": 19,
+    "t": "Witamina D (cholekalcyferol i pochodne)",
+    "d": "Cholekalcyferol (witamina D3), Ergokalcyferol (witamina D2), Kalcyfediol, Alfakalcydol, Kalcytriol, Dihydrotachysterol",
+    "m": "Wątrobowa 25-hydroksylacja (CYP2R1) cholekalcyferolu daje kalcyfediol (25-OH-D3), a nerkowa 1-alfa-hydroksylacja w obecności PTH przekształca go w aktywny kalcytriol (1,25-dihydroksycholekalcyferol). Kalcytriol zwiększa wchłanianie wapnia i fosforanów w jelitach, resorpcję kości oraz reabsorpcję w nerkach, podwyższając kalcemię. Alfakalcydol jest formą obchodzącą hydroksylację wątrobową, a dihydrotachysterol — alternatywą u chorych z hipoparatyreozą.",
+    "i": "Niedobór witaminy D, krzywica, osteomalacja, osteodystrofia nerkowa, hipoparatyreoza, hipokalcemia, profilaktyka osteoporozy.",
+    "c": "Hiperkalcemia, hiperkalciuria, kamica nerkowa, zwapnienia tkanek miękkich, nadwrażliwość. Działania niepożądane wynikają z przedawkowania i obejmują objawy hiperkalcemii.",
+    "n": "Tylko kalcytriol i alfakalcydol nie wymagają nerkowej 1-alfa-hydroksylacji — stąd ich rola w niewydolności nerek."
+  },
+  {
+    "z": 19,
+    "t": "Parathormon i jego rekombinowane analogi",
+    "d": "Paratyreoidyna, Teryparatyd, Paloperteryparatyd (Trans Con PTH)",
+    "m": "Egzogenny parathormon (paratyreoidyna) i jego N-końcowy fragment 1-34 (teryparatyd) działają agonistycznie na receptor PTH1R, pulsacyjnie pobudzając osteoblasty i tworzenie kości — co przy podawaniu raz dziennie daje efekt anaboliczny. Paloperteryparatyd to długodziałający koniugat PEG-PTH stosowany raz tygodniowo. Przewlekła ekspozycja na PTH (np. w hiperparatyreozie) ma natomiast działanie kataboliczne, zwiększając resorpcję kości.",
+    "i": "Hipoparatyreoza, ciężka osteoporoza pomenopauzalna i posteroidowa z wysokim ryzykiem złamań, niepowodzenie leczenia innymi lekami.",
+    "c": "Hiperkalcemia, choroba Pageta, niewyjaśnione zwiększenie fosfatazy alkalicznej, czynne nowotwory kości, przebyta radioterapia kości, ciąża. Brak innych dz. niepożądanych w książce.",
+    "n": "Teryparatyd jako jedyny lek przeciwosteoporotyczny działa anabolicznie kostnie (pobudza osteoblasty) — pozostałe są antyresorpcyjne."
+  },
+  {
+    "z": 19,
+    "t": "Kalcytonina",
+    "d": "Kalcytonina łososiowa, Kalcytonina ludzka",
+    "m": "Kalcytonina to 32-aminokwasowy peptyd produkowany przez komórki C tarczycy. Wiąże się ze swoim receptorem na osteoklastach, hamując ich aktywność resorpcyjną i zmniejszając stężenie wapnia we krwi. Dodatkowo zmniejsza reabsorpcję wapnia i fosforanów w nerkach, sprzyjając ich wydalaniu.",
+    "i": "Hiperkalcemia, choroba Pageta, osteoporoza (działanie krótkotrwałe, głównie przeciwbólowe w świeżych złamaniach kręgów).",
+    "c": "Nadwrażliwość. Najważniejszym problemem klinicznym jest szybkie pojawianie się oporności na działanie hipokalcemizujące i antyresorpcyjne (kalcytonina łososiowa jest immunogenna).",
+    "n": "Kalcytonina łososiowa silniej i dłużej działa niż ludzka, ale jest immunogenna — stąd częsta oporność wtórna."
+  },
+  {
+    "z": 19,
+    "t": "Glikokortykosteroidy (wpływ na kość)",
+    "d": "Brak konkretnych leków w tym podrozdziale",
+    "m": "W wysokich dawkach lub przewlekle hamują wchłanianie wapnia w jelitach, zwiększają jego wydalanie z moczem i działają katabolicznie na kość — zmniejszają resorpcję wapnia, hamują tworzenie kości oraz nasilają jej resorpcję. Efektem jest osteoporoza posterydowa.",
+    "i": "Nie są stosowane w leczeniu osteoporozy — wymienione jako lek powodujący osteoporozę wtórną.",
+    "c": "Brak w książce.",
+    "n": "Glikokortykoidy = klasyczna przyczyna osteoporozy posterydowej."
+  },
+  {
+    "z": 19,
+    "t": "Hormony tarczycy (wpływ na kość)",
+    "d": "Brak konkretnych leków w tym podrozdziale",
+    "m": "W przypadku nadczynności tarczycy (lub jej przedawkowania substytucji) pobudzają resorpcję kostną i zwiększają wydalanie wapnia z moczem, prowadząc do utraty masy kostnej.",
+    "i": "Nie są stosowane w leczeniu osteoporozy — wskazane jako czynnik ryzyka osteoporozy wtórnej.",
+    "c": "Brak w książce.",
+    "n": "Suprafizjologiczne dawki L-tyroksyny -> ryzyko osteoporozy."
+  },
+  {
+    "z": 19,
+    "t": "Hormony płciowe (estrogeny, androgeny — wpływ na kość)",
+    "d": "Brak konkretnych leków w tym podrozdziale",
+    "m": "Estrogeny i androgeny hamują resorpcję kostną poprzez wpływ na osteoklasty i ich apoptozę; ich niedobór (menopauza, hipogonadyzm) prowadzi do utraty masy kostnej.",
+    "i": "Hormonalna terapia zastępcza (HTZ) w okresie pomenopauzalnym — działanie antyresorpcyjne, lecz ze względu na ryzyko nowotworów i powikłań sercowo-naczyniowych stosowana w starannie wybranych grupach.",
+    "c": "Ryzyko nowotworów hormonozależnych i incydentów sercowo-naczyniowych ograniczające stosowanie w samej osteoporozie.",
+    "n": "Estrogeny -> wprowadzenie do SERM-ów."
+  },
+  {
+    "z": 19,
+    "t": "Selektywne modulatory receptorów estrogenowych (SERM)",
+    "d": "Raloksyfen",
+    "m": "Działa agonistycznie na receptory estrogenowe w tkance kostnej (hamując resorpcję) i jednocześnie antagonistycznie w tkance gruczołu sutkowego i endometrium. Dzięki temu nie zwiększa ryzyka nowotworów hormonozależnych, zachowując korzystny wpływ na kość.",
+    "i": "Profilaktyka i leczenie osteoporozy pomenopauzalnej.",
+    "c": "Czynna choroba zakrzepowo-zatorowa, ciąża, karmienie piersią. Może nasilać objawy wypadowe menopauzy.",
+    "n": "SERM = bezpieczniejsza alternatywa HTZ w osteoporozie — działa na kość, nie pobudza piersi/macicy."
+  },
+  {
+    "z": 19,
+    "t": "Bisfosfoniany — niezawierające azotu",
+    "d": "Kwas etydronowy, Kwas klodronowy, Kwas tyludronowy",
+    "m": "Wbudowują się w hydroksyapatyt kostny i zostają wchłonięte przez osteoklasty; w cytoplazmie tworzą cytotoksyczne analogi ATP, które indukują apoptozę osteoklastów i hamują ich aktywność resorpcyjną.",
+    "i": "Osteoporoza, choroba Pageta, hiperkalcemia nowotworowa, przerzuty osteolityczne (rzadziej stosowane niż bisfosfoniany azotowe).",
+    "c": "Brak w książce.",
+    "n": "Starsza generacja; w praktyce wyparta przez bisfosfoniany zawierające azot."
+  },
+  {
+    "z": 19,
+    "t": "Bisfosfoniany — zawierające azot (aminobisfosfoniany)",
+    "d": "Kwas alendronowy, Kwas ryzedronowy, Kwas pamidronowy, Kwas tyludronowy, Kwas ibandronowy, Kwas zoledronowy",
+    "m": "Hamują syntazę pirofosforanu farnezylu w szlaku mewalonianowym osteoklastów, blokując prenylację białek GTPazowych (m.in. Ras, Rho, Rac). Skutkiem jest zaburzenie cytoszkieletu, utrata rąbka szczoteczkowego i apoptoza osteoklasta — silnie hamowana jest resorpcja kości.",
+    "i": "Osteoporoza pomenopauzalna i posteroidowa, choroba Pageta, hiperkalcemia nowotworowa, przerzuty osteolityczne. Kwas zoledronowy podawany raz w roku dożylnie.",
+    "c": "Działania niepożądane: zaburzenia przewodu pokarmowego (zapalenie przełyku — formy doustne), objawy ostrej fazy po podaniu dożylnym, hipokalcemia, atypowe złamania kości udowej, martwica kości szczęki / żuchwy (zwłaszcza po dożylnych po zabiegach stomatologicznych).",
+    "n": "Doustne: na czczo, popić wodą, stać/siedzieć 30 min — ryzyko zapalenia przełyku. Martwica żuchwy = klasyczny trap."
+  },
+  {
+    "z": 19,
+    "t": "Ranelinian strontu",
+    "d": "Ranelinian strontu",
+    "m": "Działa dwukierunkowo — równocześnie hamuje resorpcję kości (zmniejsza aktywność osteoklastów) i stymuluje tworzenie kości (pobudza osteoblasty), zwiększając gęstość mineralną kości.",
+    "i": "Ciężka osteoporoza pomenopauzalna z wysokim ryzykiem złamań, gdy inne leki są przeciwwskazane lub nieskuteczne.",
+    "c": "Zwiększone ryzyko incydentów zakrzepowo-zatorowych i sercowo-naczyniowych (m.in. zawału serca) — istotnie ograniczające stosowanie.",
+    "n": "Jedyny lek o podwójnym działaniu (anty-resorpcja + anabolizm) poza teryparatydem, lecz ograniczony przez ryzyko sercowo-naczyniowe."
+  },
+  {
+    "z": 19,
+    "t": "Przeciwciała monoklonalne — Denosumab",
+    "d": "Denosumab",
+    "m": "Humanizowane przeciwciało monoklonalne IgG2 skierowane przeciwko RANKL. Wiążąc RANKL uniemożliwia jego połączenie z receptorem RANK na osteoklastach i ich prekursorach, hamując dojrzewanie, aktywację i przeżycie osteoklastów — efektem jest silne zmniejszenie resorpcji kostnej.",
+    "i": "Osteoporoza pomenopauzalna o wysokim ryzyku złamań, utrata masy kostnej w trakcie terapii hormonalnej raka prostaty / piersi, przerzuty kostne nowotworów litych.",
+    "c": "Hipokalcemia (wymaga uzupełnienia wapnia i wit. D), działania niepożądane: zwiększone ryzyko zakażeń, martwica kości szczęki/żuchwy, atypowe złamania kości udowej.",
+    "n": "Po odstawieniu denosumabu gwałtowny rebound resorpcji i ryzyko złamań kręgów — terapia zwykle wymaga kontynuacji lub przejścia na bisfosfonian."
+  },
+  {
+    "z": 19,
+    "t": "Przeciwciała monoklonalne — Romosozumab",
+    "d": "Romosozumab",
+    "m": "Humanizowane przeciwciało monoklonalne skierowane przeciwko sklerostynie — białku osteocytów, które hamuje szlak Wnt w osteoblastach. Blokada sklerostyny aktywuje osteoblasty (pobudza tworzenie kości) i jednocześnie zmniejsza resorpcję, dając podwójny efekt anaboliczno-antyresorpcyjny.",
+    "i": "Ciężka osteoporoza pomenopauzalna z wysokim ryzykiem złamań.",
+    "c": "Zwiększone ryzyko incydentów sercowo-naczyniowych (zawał, udar) — przeciwwskazany u pacjentów z przebytym zawałem lub udarem mózgu.",
+    "n": "Dwukierunkowy mechanizm (anabolizm + antyresorpcja) — w skrypcie wskazany jako nowość terapeutyczna."
+  },
+  {
+    "z": 19,
+    "t": "Sole wapnia",
+    "d": "Węglan wapnia, Cytrynian wapnia, Glubionian wapnia, Chlorek wapnia",
+    "m": "Suplementują podaż wapnia w diecie i jego pulę dostępną do mineralizacji kości; działają poprzez zwiększenie stężenia wapnia w surowicy i jelitach. Węglan wymaga kwaśnego pH do wchłaniania (przyjmować z posiłkiem), cytrynian wchłania się niezależnie od pH.",
+    "i": "Profilaktyka i leczenie hipokalcemii, osteoporoza, krzywica, osteomalacja — zwykle w skojarzeniu z witaminą D.",
+    "c": "Hiperkalcemia, kamica nerkowa wapniowa, ciężka niewydolność nerek. Działania niepożądane: zaparcia, dyspepsja, kamica nerkowa.",
+    "n": "Węglan wapnia z posiłkiem; cytrynian — można niezależnie od pH (lepszy przy IPP / niedokwasocie)."
+  },
+  {
+    "z": 19,
+    "t": "Preparaty fosforanów",
+    "d": "Fosforany doustne",
+    "m": "Dostarczają fosforany niezbędne do mineralizacji kości; uzupełniają niedobory u chorych z hipofosfatemią (np. krzywica fosforanowa, zespoły utraty fosforanów).",
+    "i": "Hipofosfatemia, krzywica hipofosfatemiczna, osteomalacja z niedoboru fosforanów.",
+    "c": "Hiperfosfatemia, ciężka niewydolność nerek. Działania niepożądane: biegunka, zaburzenia gospodarki wapniowo-fosforanowej (wtórna hipokalcemia, zwapnienia pozaszkieletowe).",
+    "n": "Suplementacja fosforanów wymaga monitorowania kalcemii."
+  },
+  {
+    "z": 19,
+    "t": "Kalcymimetyki",
+    "d": "Cynakalcet, Etelkalcetyd",
+    "m": "Alosteryczne modulatory receptora wapniowego (CaSR) w przytarczycach — zwiększają jego wrażliwość na zewnątrzkomórkowy wapń, co hamuje wydzielanie PTH i wtórnie obniża kalcemię. Etelkalcetyd to peptyd podawany dożylnie u chorych dializowanych.",
+    "i": "Wtórna nadczynność przytarczyc u chorych dializowanych z przewlekłą chorobą nerek, hiperkalcemia w raku przytarczyc, niektóre postacie pierwotnej nadczynności przytarczyc.",
+    "c": "Hipokalcemia. Działania niepożądane: nudności, wymioty, hipokalcemia, parestezje, kurcze mięśniowe.",
+    "n": "Działają na CaSR — odwrotnie niż witamina D i wapń (te zwiększają kalcemię)."
+  },
+  {
+    "z": 19,
+    "t": "Afotaza alfa (rekombinowana fosfataza alkaliczna)",
+    "d": "Afotaza alfa",
+    "m": "Rekombinowana glikoproteina zawierająca domenę katalityczną tkankowo niespecyficznej fosfatazy alkalicznej (TNSALP) połączoną z peptydem kierującym ją do hydroksyapatytu kości. Uzupełnia niedobór enzymu w hipofosfatazji, umożliwiając prawidłową mineralizację.",
+    "i": "Hipofosfatazja (niedobór TNSALP) o początku perinatalnym / niemowlęcym / dziecięcym.",
+    "c": "Brak w książce.",
+    "n": "Wąskie wskazanie genetyczne — rzadka choroba."
+  },
+  {
+    "z": 19,
+    "t": "Burosumab",
+    "d": "Burosumab",
+    "m": "Humanizowane przeciwciało monoklonalne wiążące FGF23 (fibroblast growth factor 23). Neutralizacja FGF23 przywraca reabsorpcję fosforanów w cewkach nerkowych i prawidłową syntezę kalcytriolu, korygując hipofosfatemię.",
+    "i": "Krzywica i osteomalacja hipofosfatemiczna sprzężona z chromosomem X (XLH) oraz inne postacie hipofosfatemii FGF23-zależnej.",
+    "c": "Brak w książce.",
+    "n": "Cel: nadmiar FGF23 (przeciwieństwo do leczenia witaminą D)."
+  },
+  {
+    "z": 19,
+    "t": "Insuliny krótko i szybko działające (analogi)",
+    "d": "Insulina ludzka (krótkodziałająca), Insulina lispro, Insulina aspart, Insulina glulizynowa",
+    "m": "Aktywują receptor insulinowy (kinaza tyrozynowa), prowadząc do fosforylacji IRS-1/2, aktywacji PI3K/Akt i translokacji GLUT4 do błony komórkowej miocytów i adipocytów — zwiększa się wychwyt glukozy, hamowana jest glukoneogeneza i lipoliza, nasila się synteza glikogenu, białek i lipidów. Analogi szybkodziałające mają zmienione aminokwasy, co przyspiesza dysocjację hexamerów i wchłanianie podskórne.",
+    "i": "Cukrzyca typu 1 (kontrola posiłkowa), cukrzyca typu 2 w intensywnej insulinoterapii, kwasica ketonowa, śpiączka hiperglikemiczna, cukrzyca ciężarnych, sytuacje okołooperacyjne, pompy insulinowe.",
+    "c": "Hipoglikemia, nadwrażliwość. Działania niepożądane: hipoglikemia, przyrost masy ciała, lipodystrofia w miejscach iniekcji, reakcje alergiczne, wzrost masy ciała przy długim stosowaniu.",
+    "n": "Analogi szybkodziałające mają szybszy początek i krótszy czas działania niż insulina ludzka — podawane bezpośrednio przed posiłkiem."
+  },
+  {
+    "z": 19,
+    "t": "Insuliny o pośrednim czasie działania",
+    "d": "Insulina izofanowa (NPH, protaminowa)",
+    "m": "Insulina ludzka skompleksowana z protaminą, co opóźnia wchłanianie z tkanki podskórnej i wydłuża czas działania do ok. 18 godzin. Mechanizm receptorowy taki sam jak insuliny ludzkiej.",
+    "i": "Pokrycie podstawowego (bazalnego) zapotrzebowania na insulinę w cukrzycy typu 1 i 2, terapia mieszankami insulin.",
+    "c": "Hipoglikemia, nadwrażliwość. Działania niepożądane: hipoglikemia, przyrost masy, alergia na protaminę.",
+    "n": "NPH = klasyczna insulina pośrednia; ma „szczyt\" działania — w analogiach długodziałających szczyt jest spłaszczony."
+  },
+  {
+    "z": 19,
+    "t": "Insuliny długo i bardzo długo działające (analogi)",
+    "d": "Insulina glargina, Insulina detemir, Insulina degludec",
+    "m": "Analogi insuliny ludzkiej o zmienionej sekwencji aminokwasów lub przyłączonym kwasie tłuszczowym (detemir, degludec), co powoduje powolne i równomierne uwalnianie podskórne — bezszczytowy profil 24 h (glargina, detemir) lub > 42 h (degludec). Mechanizm receptorowy jak innych insulin.",
+    "i": "Bazalne pokrycie zapotrzebowania na insulinę w cukrzycy typu 1 i 2 (intensywna insulinoterapia, terapia skojarzona z lekami doustnymi).",
+    "c": "Hipoglikemia, nadwrażliwość. Działania niepożądane: hipoglikemia (rzadsza niż NPH), przyrost masy ciała, reakcje w miejscu iniekcji.",
+    "n": "Degludec ma najdłuższe działanie i najbardziej płaski profil — najmniej epizodów nocnej hipoglikemii."
+  },
+  {
+    "z": 19,
+    "t": "Glukagon",
+    "d": "Glukagon",
+    "m": "29-aminokwasowy polipeptyd wydzielany przez komórki alfa wysp Langerhansa. Wiąże się ze swoim receptorem sprzężonym z białkiem Gs, aktywuje cyklazę adenylanową i podnosi cAMP — pobudza glikogenolizę i glukoneogenezę w wątrobie, podnosząc glikemię.",
+    "i": "Ciężka hipoglikemia (zwłaszcza u pacjentów na insulinie, gdy nie można podać glukozy dożylnie), diagnostyka endokrynologiczna.",
+    "c": "Guz chromochłonny (pheochromocytoma), insulinoma, glukagonoma. Działania niepożądane: nudności, wymioty, przejściowy wzrost ciśnienia.",
+    "n": "Lek ratunkowy „pierwszego rzutu\" w ciężkiej hipoglikemii poza szpitalem (i.m./s.c.)."
+  },
+  {
+    "z": 19,
+    "t": "Amylina (analog) — Pramlintyd",
+    "d": "Pramlintyd",
+    "m": "Syntetyczny analog amyliny (białka kowydzielanego z insuliną przez komórki beta). Hamuje wydzielanie glukagonu, opóźnia opróżnianie żołądka i zmniejsza apetyt — zmniejsza poposiłkowe wahania glikemii.",
+    "i": "Cukrzyca typu 1 i 2 jako uzupełnienie insulinoterapii u chorych z niedostatecznie kontrolowaną glikemią poposiłkową.",
+    "c": "Gastropareza, ciężka nieświadomość hipoglikemii. Działania niepożądane: nudności, hipoglikemia (szczególnie w skojarzeniu z insuliną).",
+    "n": "Podawany razem z insuliną — sam nie wywołuje hipoglikemii, ale nasila ją w skojarzeniu."
+  },
+  {
+    "z": 19,
+    "t": "Pochodne sulfonylomocznika",
+    "d": "Acetoheksamid, Chlorpropamid, Tolbutamid, Tolazamid (I generacja); Glimepiryd, Gliburyd, Glibenklamid, Glipizyd, Gliklazyd (II generacja)",
+    "m": "Wiążą się z podjednostką SUR1 kanału potasowego ATP-zależnego (Kir6.2 / SUR1) w komórkach beta wysp trzustkowych, blokują go i powodują depolaryzację błony, otwarcie kanałów wapniowych typu L i egzocytozę insuliny — niezależnie od stężenia glukozy. Działają tylko przy zachowanej populacji czynnych komórek beta.",
+    "i": "Cukrzyca typu 2 z zachowaną rezerwą insulinową (po nieskuteczności metforminy / w skojarzeniu).",
+    "c": "Cukrzyca typu 1, ciąża, niewydolność wątroby i nerek, alergia na sulfonamidy. Działania niepożądane: hipoglikemia (głównie chlorpropamid, gliburyd), przyrost masy ciała, reakcje skórne.",
+    "n": "II generacja silniejsza i bezpieczniejsza; chlorpropamid — długi t1/2, ryzyko ciężkiej hipoglikemii."
+  },
+  {
+    "z": 19,
+    "t": "Biguanidy",
+    "d": "Metformina",
+    "m": "Aktywuje kinazę AMPK w hepatocytach, co hamuje glukoneogenezę i syntezę cholesterolu, zmniejsza wątrobową produkcję glukozy, zwiększa wrażliwość tkanek obwodowych na insulinę i zwiększa beztlenowy rozpad glukozy w jelicie. Nie pobudza wydzielania insuliny — nie wywołuje hipoglikemii w monoterapii.",
+    "i": "Lek pierwszego rzutu w cukrzycy typu 2 (w monoterapii lub w skojarzeniach), zespół policystycznych jajników, stany przedcukrzycowe.",
+    "c": "Ciężka niewydolność nerek (GFR < 30), niewydolność wątroby, niewydolność serca w dekompensacji, kwasica metaboliczna, stany niedotlenienia. Działania niepożądane: zaburzenia żołądkowo-jelitowe (biegunka, nudności, metaliczny smak), kwasica mleczanowa (rzadko, ale groźne powikłanie), niedobór wit. B12.",
+    "n": "Metformina = lek I rzutu w T2DM, NIE wywołuje hipoglikemii sama. Kwasica mleczanowa — najgroźniejsze powikłanie."
+  },
+  {
+    "z": 19,
+    "t": "Tiazolidynodiony (glitazony)",
+    "d": "Pioglitazon, Rozyglitazon",
+    "m": "Agoniści jądrowego receptora PPAR-gamma — zwiększają ekspresję genów odpowiedzialnych za transport i metabolizm glukozy oraz lipidów, zwiększając wrażliwość tkanek (mięśni, tkanki tłuszczowej, wątroby) na insulinę. Nie pobudzają wydzielania insuliny.",
+    "i": "Cukrzyca typu 2 — w monoterapii lub w skojarzeniu z metforminą / sulfonylomocznikiem.",
+    "c": "Niewydolność serca, choroba niedokrwienna serca, niewydolność wątroby, rak pęcherza moczowego (pioglitazon). Działania niepożądane: retencja płynów i obrzęki, wzrost ryzyka niewydolności serca, przyrost masy ciała, zwiększone ryzyko złamań kości, rozyglitazon wycofany w wielu krajach z powodu ryzyka kardiologicznego.",
+    "n": "Rozyglitazon w UE wycofany (ryzyko zawału); pioglitazon — uwaga na raka pęcherza."
+  },
+  {
+    "z": 19,
+    "t": "Glinidy (meglitynidy)",
+    "d": "Repaglinid, Nateglinid",
+    "m": "Łączą się w innym miejscu niż pochodne sulfonylomocznika z podjednostką SUR1 kanału potasowego ATP-zależnego w komórkach beta, powodując krótkotrwałe i szybkie wyrzucanie insuliny zsynchronizowane z posiłkiem.",
+    "i": "Cukrzyca typu 2 — kontrola hiperglikemii poposiłkowej, zwłaszcza u pacjentów z nieregularnym rytmem posiłków.",
+    "c": "Cukrzyca typu 1, niewydolność wątroby, ciąża. Działania niepożądane: hipoglikemia (rzadziej i krócej niż po pochodnych sulfonylomocznika), przyrost masy ciała, infekcje górnych dróg oddechowych.",
+    "n": "Krótki t1/2 — podawać tuż przed posiłkiem; pominięcie posiłku = pominięcie dawki."
+  },
+  {
+    "z": 19,
+    "t": "Inhibitory alfa-glukozydazy",
+    "d": "Akarboza, Miglitol",
+    "m": "Hamują jelitowe enzymy alfa-glukozydazy szczotkowej rąbka enterocytów, blokując rozkład cukrów złożonych do glukozy. Zmniejsza to wchłanianie glukozy z jelita i obniża glikemię poposiłkową.",
+    "i": "Cukrzyca typu 2 z dominującą hiperglikemią poposiłkową, stany przedcukrzycowe.",
+    "c": "Choroby zapalne jelit, zespoły złego wchłaniania, ciężka niewydolność wątroby. Działania niepożądane: wzdęcia, gazy, biegunki (związane z fermentacją niestrawionych cukrów). Nie wywołują hipoglikemii w monoterapii, ale w skojarzeniu z insuliną/SU hipoglikemii nie można leczyć cukrami złożonymi — tylko glukozą.",
+    "n": "Hipoglikemia przy skojarzeniu wymaga glukozy, NIE sacharozy (ta nie zostanie strawiona)."
+  },
+  {
+    "z": 19,
+    "t": "Inkretynomimetyki — agoniści receptora GLP-1",
+    "d": "Eksenatyd, Liksysenatyd, Liraglutyd, Semaglutyd, Dulaglutyd, Albiglutyd",
+    "m": "Analogi peptydu glukagonopodobnego (GLP-1) oporne na działanie DPP-IV. Pobudzają receptor GLP-1 na komórkach beta, glukozozależnie nasilają wydzielanie insuliny, hamują wydzielanie glukagonu, opóźniają opróżnianie żołądka i zmniejszają łaknienie — sprzyjają redukcji masy ciała.",
+    "i": "Cukrzyca typu 2 (szczególnie u chorych otyłych, z ryzykiem sercowo-naczyniowym), niektóre analogi (liraglutyd, semaglutyd) w leczeniu otyłości.",
+    "c": "Cukrzyca typu 1, kwasica ketonowa, ciężka niewydolność nerek, choroby trzustki w wywiadzie, wywiad rodzinny rdzeniastego raka tarczycy / MEN-2. Działania niepożądane: nudności, wymioty, biegunki, ostre zapalenie trzustki (rzadko), reakcje w miejscu wstrzyknięcia.",
+    "n": "Korzyść kardio-renalna (zmniejszenie incydentów s-n) + redukcja masy ciała; liraglutyd / semaglutyd również jako lek na otyłość."
+  },
+  {
+    "z": 19,
+    "t": "Inhibitory DPP-IV (gliptyny)",
+    "d": "Sitagliptyna, Wildagliptyna, Saksagliptyna, Linagliptyna, Alogliptyna",
+    "m": "Hamują dipeptydylopeptydazę IV (DPP-IV), enzym rozkładający endogenne inkretyny GLP-1 i GIP. Wzrost stężenia inkretyn glukozozależnie nasila wydzielanie insuliny i hamuje wydzielanie glukagonu.",
+    "i": "Cukrzyca typu 2 — monoterapia lub w skojarzeniu z metforminą, sulfonylomocznikiem, glitazonem lub insuliną.",
+    "c": "Cukrzyca typu 1, kwasica ketonowa, przebyte zapalenie trzustki. Działania niepożądane: zakażenia górnych dróg oddechowych, bóle głowy, ostre zapalenie trzustki (rzadko), reakcje skórne, ryzyko niewydolności serca (saksagliptyna, alogliptyna).",
+    "n": "Neutralne wagowo, doustne — w odróżnieniu od agonistów GLP-1 (iniekcyjnych, redukujących masę)."
+  },
+  {
+    "z": 19,
+    "t": "Flozyny (inhibitory SGLT2)",
+    "d": "Dapagliflozyna, Kanagliflozyna, Empagliflozyna",
+    "m": "Selektywnie hamują kotransporter sodowo-glukozowy SGLT2 w kanaliku bliższym nerki, blokując zwrotną resorpcję glukozy i powodując glukozurię. Efektem jest obniżenie glikemii niezależnie od insuliny oraz utrata kalorii (redukcja masy) i sodu (efekt diuretyczny / hipotensyjny).",
+    "i": "Cukrzyca typu 2 (zwłaszcza ze współistniejącą niewydolnością serca i przewlekłą chorobą nerek), niewydolność serca z obniżoną i zachowaną frakcją wyrzutową, przewlekła choroba nerek.",
+    "c": "Cukrzyca typu 1, kwasica ketonowa, ciężka niewydolność nerek. Działania niepożądane: zakażenia układu moczowo-płciowego (kandydoza), euglikemiczna kwasica ketonowa, odwodnienie, hipotensja, rzadkie zgorzelinowe zapalenie krocza (Fourniera), zwiększone ryzyko amputacji (kanagliflozyna).",
+    "n": "Działają niezależnie od insuliny, dają korzyść kardio-renalną; uwaga na euglikemiczną kwasicę ketonową."
+  },
+  {
+    "z": 19,
+    "t": "Podwójni agoniści GIP / GLP-1",
+    "d": "Tirzepatyd",
+    "m": "Cząsteczka aktywująca jednocześnie receptory GIP i GLP-1; nasila glukozozależne wydzielanie insuliny, hamuje glukagon, opóźnia opróżnianie żołądka i silnie redukuje apetyt — bardziej niż czyści agoniści GLP-1.",
+    "i": "Cukrzyca typu 2, leczenie otyłości.",
+    "c": "Brak w książce. Działania niepożądane prawdopodobnie zbliżone do agonistów GLP-1 (zaburzenia żołądkowo-jelitowe).",
+    "n": "Nowość terapeutyczna; w skrypcie jako lek przyszłości."
+  },
+  {
+    "z": 19,
+    "t": "Leki o działaniu obwodowym (otyłość)",
+    "d": "Orlistat, Cetylistat",
+    "m": "Hamuje lipazę trzustkową i żołądkową w świetle przewodu pokarmowego, blokując hydrolizę triglicerydów do wchłanianych monoglicerydów i kwasów tłuszczowych. Powoduje wydalanie ok. 30% spożytych tłuszczów z kałem.",
+    "i": "Otyłość (BMI > 30 lub > 27 z chorobami współistniejącymi) jako wsparcie diety niskotłuszczowej.",
+    "c": "Zespoły złego wchłaniania, cholestaza, ciąża. Działania niepożądane: biegunka tłuszczowa, wzdęcia, nietrzymanie stolca, niedobór witamin rozpuszczalnych w tłuszczach (A, D, E, K), rzadko ciężkie uszkodzenie wątroby.",
+    "n": "Nie wchłania się — działa lokalnie w jelicie; trzeba suplementować witaminy ADEK."
+  },
+  {
+    "z": 19,
+    "t": "Suplementacja pożywieniowa (otyłość)",
+    "d": "Tabletki celulozowe / włókna roślinne",
+    "m": "Pęcznieją w żołądku, dając uczucie sytości i ograniczając ilość spożywanego pokarmu; spowalniają wchłanianie cukrów.",
+    "i": "Wspomaganie redukcji masy ciała w nadwadze i otyłości.",
+    "c": "Brak w książce. Działania niepożądane: wzdęcia, dyskomfort jelitowy.",
+    "n": "Efekt głównie objętościowy — bez ingerencji metabolicznej."
+  },
+  {
+    "z": 19,
+    "t": "Sukrynogabag",
+    "d": "Sukrynogabag (analog probukolu)",
+    "m": "Analog probukolu hamujący syntezę i wydzielanie chylomikronów oraz VLDL z enterocytów — zmniejsza wchłanianie tłuszczów i obniża stężenie lipidów.",
+    "i": "Otyłość, hiperlipidemia.",
+    "c": "Brak w książce.",
+    "n": "Nowy lek o mechanizmie obwodowym."
+  },
+  {
+    "z": 19,
+    "t": "Mereleptyna (rekombinowana leptyna)",
+    "d": "Mereleptyna (metreleptyna)",
+    "m": "Rekombinowany analog leptyny — hormonu sytości produkowanego przez tkankę tłuszczową. Pobudza receptory leptynowe w podwzgórzu, zmniejszając łaknienie, zwiększając wydatek energetyczny i poprawiając homeostazę glukozowo-lipidową.",
+    "i": "Wrodzona lipodystrofia (uogólnione zespoły lipodystrofii) z hipoleptynemią; w badaniach kombinacje (pramlintyd + mereleptyna) w leczeniu otyłości.",
+    "c": "Brak w książce. Działania niepożądane: hipoglikemia, reakcje w miejscu wstrzyknięcia, ryzyko immunogenności.",
+    "n": "Wskazanie głównie w rzadkich lipodystrofiach; otyłość prosta — wynik leptynooporności."
+  },
+  {
+    "z": 19,
+    "t": "Leki o działaniu ośrodkowym — inhibitor wychwytu zwrotnego serotoniny i noradrenaliny (otyłość)",
+    "d": "Sybutramina",
+    "m": "Hamuje wychwyt zwrotny serotoniny (5-HT) i noradrenaliny w ośrodku sytości — wzmaga uczucie sytości i zwiększa wydatek energetyczny.",
+    "i": "Otyłość (BMI > 30 lub > 27 z chorobami współistniejącymi).",
+    "c": "Choroba wieńcowa, niewydolność serca, nadciśnienie tętnicze, udar mózgu, jaskra. Działania niepożądane: wzrost ciśnienia tętniczego i częstości akcji serca, suchość w ustach, bezsenność. Lek wycofany z obrotu z powodu ryzyka sercowo-naczyniowego.",
+    "n": "Wycofana z rynku — w skrypcie wymieniona historycznie."
+  },
+  {
+    "z": 19,
+    "t": "Leki o działaniu ośrodkowym — fentermina i pochodne (otyłość)",
+    "d": "Fentermina, Fenfluramina, Deksfenfluramina",
+    "m": "Pobudzają ośrodkowe wydzielanie noradrenaliny (i serotoniny — fenfluramina), hamując łaknienie. Wykazują sympatykomimetyczne działanie ośrodkowe.",
+    "i": "Krótkoterminowe leczenie otyłości.",
+    "c": "Choroba wieńcowa, nadciśnienie, jaskra, uzależnienia, ciąża. Działania niepożądane: wzrost ciśnienia tętniczego i częstości akcji serca, bezsenność, pobudzenie, uzależnienie, wady zastawkowe i nadciśnienie płucne (fenfluramina, deksfenfluramina — wycofane).",
+    "n": "Fenfluramina / deksfenfluramina wycofane — uszkadzały zastawki serca i wywoływały nadciśnienie płucne."
+  },
+  {
+    "z": 19,
+    "t": "Leki o działaniu ośrodkowym — agonisty / odwrotny agonista CB1 (otyłość)",
+    "d": "Rimonabant",
+    "m": "Odwrotny agonista receptorów kannabinoidowych CB1 — blokuje aktywację układu endokannabinoidowego w ośrodkowym układzie nerwowym i obwodowo, zmniejszając łaknienie i poprawiając profil metaboliczny.",
+    "i": "Otyłość, zaburzenia metaboliczne.",
+    "c": "Depresja, zaburzenia lękowe, myśli samobójcze. Działania niepożądane: depresja, lęk, myśli i próby samobójcze — z tego powodu lek został wycofany z obrotu.",
+    "n": "Wycofany z powodu poważnych objawów psychiatrycznych (depresja, suicide)."
+  },
+  {
+    "z": 19,
+    "t": "Leki skojarzone w otyłości",
+    "d": "Bupropion + naltrekson, Fentermina + topiramat, Liraglutyd, Semaglutyd, Tirzepatyd",
+    "m": "Bupropion + naltrekson działają centralnie na układ nagrody i ośrodek łaknienia (bupropion — inhibitor wychwytu DA/NE; naltrekson — antagonista opioidowy). Fentermina + topiramat łączą sympatykomimetyczne hamowanie łaknienia z efektem topiramatu na uczucie sytości. Liraglutyd, semaglutyd i tirzepatyd działają jako agonisty GLP-1 (i GIP) — pobudzają ośrodek sytości i opóźniają opróżnianie żołądka.",
+    "i": "Leczenie otyłości u dorosłych z BMI > 30 lub > 27 z chorobami współistniejącymi.",
+    "c": "Ciąża, ciężka niewydolność nerek/wątroby (część leków), niekontrolowane nadciśnienie (fentermina), przebyte zapalenie trzustki (analogi GLP-1). Działania niepożądane zależne od składowych — j.w.",
+    "n": "Semaglutyd w wyższej dawce (Wegovy) — najbardziej skuteczny lek na otyłość bez chirurgii."
+  },
+  {
+    "z": 19,
+    "t": "Leki w otyłości uwarunkowanej genetycznie",
+    "d": "Setmelanotyd, Bremelanotyd",
+    "m": "Agoniści receptora melanokortynowego typu 4 (MC4R) — pobudzają szlak melanokortyn w podwzgórzu, hamując łaknienie. Stosowane w otyłości genetycznej wynikającej z mutacji POMC, PCSK1 lub LEPR.",
+    "i": "Otyłość uwarunkowana genetycznie (mutacje POMC, PCSK1, LEPR). Bremelanotyd dodatkowo w innym wskazaniu (zaburzenia seksualne — odsyłacz do podrozdziału 15.7.1).",
+    "c": "Otyłość niezwiązana z mutacjami wymienionych genów. Działania niepożądane: nieprawidłowe reakcje seksualne (priapizm, zaburzenia libido), hiperpigmentacja skóry.",
+    "n": "Wąskie, „genetyczne\" wskazanie — nie stosować w prostej otyłości."
+  }
+]

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Ustaw nowe hasło — Faktomat{% endblock %}
+{% block content %}
+<div class="min-h-screen bg-stone-50/60 flex flex-col">
+  <main class="flex-1 flex items-center justify-center px-4 py-16">
+    <div class="w-full max-w-md">
+
+      <a href="/" class="flex items-center justify-center gap-2.5 mb-10 group">
+        <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-gradient-to-br from-brand-600 to-brand-800 text-white font-bold text-base shadow-sm">F</span>
+        <span class="font-serif-display italic text-[26px] leading-none text-stone-900 group-hover:text-brand-800 transition-colors">Faktomat</span>
+      </a>
+
+      {% if done %}
+        <div class="rounded-2xl bg-white ring-1 ring-stone-200 p-8 shadow-sm text-center">
+          <div class="mx-auto w-12 h-12 rounded-xl bg-emerald-50 ring-1 ring-emerald-200 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <h1 class="font-serif-display italic text-2xl text-stone-900 mb-1">Hasło zaktualizowane.</h1>
+          <p class="text-sm text-stone-500 mb-6">Możesz się teraz zalogować nowym hasłem.</p>
+          <a href="/login"
+             class="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg bg-brand-700 text-white font-medium text-sm shadow-sm hover:bg-brand-800 transition">
+            Zaloguj się
+          </a>
+        </div>
+      {% else %}
+        <h1 class="font-serif-display italic text-3xl text-stone-900 mb-8 text-center">Ustaw nowe hasło.</h1>
+
+        {% if error %}
+        <div class="mb-5 rounded-xl border border-rose-200 bg-rose-50/60 px-4 py-3 text-sm text-rose-900 flex items-start gap-3">
+          <span class="inline-block w-1 self-stretch bg-rose-500 rounded-full"></span>
+          <span>{{ error }}</span>
+        </div>
+        {% endif %}
+
+        <form method="post" action="/reset-password" class="space-y-5 rounded-2xl bg-white ring-1 ring-stone-200 p-7 shadow-sm">
+          <input type="hidden" name="token" value="{{ token }}">
+          <div>
+            <label for="password" class="block text-[11px] font-mono-tabular uppercase tracking-[0.16em] text-stone-500 mb-1.5">Nowe hasło</label>
+            <input id="password" name="password" type="password" required minlength="8" maxlength="128" autofocus
+                   class="block w-full rounded-lg border border-stone-300 bg-white px-3.5 py-2.5 text-stone-900 placeholder-stone-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 focus:outline-none transition">
+            <p class="mt-1.5 text-xs text-stone-500">Minimum 8 znaków.</p>
+          </div>
+          <button type="submit"
+                  class="w-full inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg bg-brand-700 text-white font-medium text-sm shadow-sm hover:bg-brand-800 transition">
+            Ustaw hasło
+          </button>
+        </form>
+      {% endif %}
+
+    </div>
+  </main>
+</div>
+{% endblock %}

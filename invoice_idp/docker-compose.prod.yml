@@ -1,0 +1,110 @@
+# Production compose — single-host deploy (AWS EC2 / Hetzner Cloud /
+# any VPS with a public IP and a domain pointing at it).
+#
+# Differences from `docker-compose.yml` (dev):
+#   - app + worker services added (`Dockerfile` in this repo)
+#   - caddy in front for auto-HTTPS via Let's Encrypt
+#   - MinIO removed — use a real S3 bucket via env (S3_ENDPOINT_URL,
+#     S3_ACCESS_KEY, S3_SECRET_KEY, S3_BUCKET). MinIO is still fine
+#     if you prefer to self-host object storage, just keep its service
+#     stanza here and re-add the bucket-init job.
+#   - Postgres + Redis no longer expose ports to the host network
+#     (only reachable inside the compose network).
+#
+# Usage (on the prod host, with .env populated):
+#   docker compose -f docker-compose.prod.yml up -d --build
+#   docker compose -f docker-compose.prod.yml exec app alembic upgrade head
+#
+# Pre-deploy checklist:
+#   1. DNS A record for $DOMAIN → host public IP
+#   2. .env contains DOMAIN=faktomat.pl (or your choice), all secrets,
+#      and `APP_BASE_URL=https://faktomat.pl`
+#   3. Stripe Dashboard → Webhooks → endpoint
+#      `https://$DOMAIN/webhooks/stripe`, subscribe to
+#      `checkout.session.completed`, copy signing secret →
+#      STRIPE_WEBHOOK_SECRET in .env
+#   4. Port 80 + 443 open on host firewall
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: invoice_idp
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: invoice_idp
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U invoice_idp -d invoice_idp"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli ping | grep PONG"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://invoice_idp:${POSTGRES_PASSWORD}@postgres:5432/invoice_idp
+      REDIS_URL: redis://redis:6379
+      SESSION_COOKIE_SECURE: "true"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["python", "-m", "arq", "src.app.workers.extract.WorkerSettings"]
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://invoice_idp:${POSTGRES_PASSWORD}@postgres:5432/invoice_idp
+      REDIS_URL: redis://redis:6379
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      app:
+        condition: service_started
+    restart: unless-stopped
+
+  caddy:
+    image: caddy:2-alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    environment:
+      DOMAIN: ${DOMAIN:?set DOMAIN in .env, e.g. faktomat.pl}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:?set ADMIN_EMAIL in .env for Let's Encrypt}
+    depends_on:
+      app:
+        condition: service_started
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
+  caddy_data:
+  caddy_config:

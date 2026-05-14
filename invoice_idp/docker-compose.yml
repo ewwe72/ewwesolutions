@@ -1,0 +1,123 @@
+# Dev infrastructure + worker.
+#
+# The FastAPI app still runs on the host (uvicorn --reload) so editor
+# saves trigger an instant restart and breakpoints work. The arq worker
+# runs as a container so it survives Windows reboots and process
+# crashes without the operator babysitting a second terminal — the
+# difference between "one paying user works" and "every paying user
+# requires me to keep arq alive by hand".
+#
+# Production (docker-compose.prod.yml) additionally containerises the
+# app + caddy. This file is dev-only.
+#
+# Usage:
+#   docker compose up -d                 # postgres + redis + minio + worker
+#   docker compose up -d postgres redis  # selective
+#   docker compose logs -f worker        # tail the worker
+#   docker compose down                  # stop (keeps volumes)
+#   docker compose down -v               # stop + wipe data
+#
+# After editing src/app/workers/*, the extractor, or the models, the
+# worker image must be rebuilt:
+#   docker compose up -d --build worker
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: invoice_idp_postgres
+    environment:
+      POSTGRES_USER: invoice_idp
+      POSTGRES_PASSWORD: invoice_idp
+      POSTGRES_DB: invoice_idp
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U invoice_idp -d invoice_idp"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: invoice_idp_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli ping | grep PONG"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+
+  minio:
+    image: minio/minio:latest
+    container_name: invoice_idp_minio
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    ports:
+      - "9000:9000"     # S3 API
+      - "9001:9001"     # Web console (http://localhost:9001)
+    volumes:
+      - minio_data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # One-shot job: create the dev bucket on startup so the app doesn't
+  # need to do it itself.
+  minio-init:
+    image: minio/mc:latest
+    depends_on:
+      minio:
+        condition: service_healthy
+    entrypoint: >
+      sh -c "
+      mc alias set local http://minio:9000 minioadmin minioadmin &&
+      (mc mb local/invoice-idp || true) &&
+      echo 'bucket invoice-idp ready'
+      "
+    restart: "no"
+
+  # arq worker — pulls extraction jobs off Redis, runs the LLM
+  # pipeline, writes results back to Postgres. Same image as the prod
+  # app (we just override CMD). Restarts on crash + on Docker Desktop
+  # startup, so the operator never has to remember to run
+  # `python -m arq …` by hand.
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: invoice_idp_worker
+    command: ["python", "-m", "arq", "src.app.workers.extract.WorkerSettings"]
+    env_file: .env
+    environment:
+      # Override the host-localhost defaults from .env so the worker
+      # reaches the sibling containers, not the host. The host-side
+      # uvicorn keeps using its own DATABASE_URL/REDIS_URL — both end
+      # up at the same Postgres + Redis via the published ports.
+      DATABASE_URL: postgresql+asyncpg://invoice_idp:invoice_idp@postgres:5432/invoice_idp
+      REDIS_URL: redis://redis:6379
+      S3_ENDPOINT_URL: http://minio:9000
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
+  minio_data:

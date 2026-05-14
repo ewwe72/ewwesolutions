@@ -1,0 +1,42 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+_probe.json
+_html_probe.json
+_ref_cards_raw.txt
+*.apkg
+_work/
+
+# Operator's local study materials — never commit to the public repo.
+# Drop test PDFs / reference HTML in the project root for local use; they
+# stay out of git. (Future: move to fiszkomat/corpus/ if it makes sense
+# to organise.)
+*.pdf
+fiszki-*.html
+Leki-*.html
+
+# Cards JSON sidecars from local generation — ignored by default,
+# *except* the curated landing-page sample decks (whitelisted below).
+test_docs/out/*.cards.json
+
+# Curated sample decks shipped with the code so /study/sample/<slug>
+# and the landing "FISZKI PRZYKŁADOWE" section work on a fresh checkout.
+!test_docs/out/zaj08.cards.json
+!test_docs/out/zaj08.apkg
+!test_docs/out/zaj13.cards.json
+!test_docs/out/zaj13.apkg
+!test_docs/out/zaj15.cards.json
+!test_docs/out/zaj15.apkg
+!test_docs/out/zaj16.cards.json
+!test_docs/out/zaj16.apkg
+!test_docs/out/zaj17.cards.json
+!test_docs/out/zaj17.apkg
+!test_docs/out/zaj18.cards.json
+!test_docs/out/zaj18.apkg
+!test_docs/out/zaj19.cards.json
+!test_docs/out/zaj19.apkg

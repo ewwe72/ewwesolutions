@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Playspace pre-commit hook — blocks any commit that introduces a
+# secret pattern, PII canary, or forbidden path (.env, *.pem, etc.).
+#
+# Active because `core.hooksPath` is set to `.githooks` (per-clone).
+# Run once per clone: `git config core.hooksPath .githooks`.
+
+set -e
+ROOT=$(git rev-parse --show-toplevel)
+exec python "$ROOT/scripts/audit_secrets.py" --staged-only

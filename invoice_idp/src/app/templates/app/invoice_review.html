@@ -1,0 +1,759 @@
+{% extends "app/_layout.html" %}
+{% set active_nav = 'faktury' %}
+{% block title %}{{ invoice.original_filename or 'Faktura' }} — Faktomat{% endblock %}
+
+{# ──────────────────────────────────────────────────────────────────────
+   Editable review page (Phase 4 chunk 3b).
+
+   Every field is rendered as an <input>/<select>/<textarea> with
+   `name="..."` matching the path the JS serialiser writes into the
+   posted JSON. The whole right panel is a single form; the JS handler
+   on submit collects all named fields into a CanonicalInvoice-shaped
+   object and POSTs as `canonical_json`.
+
+   The "Re-ekstrakcja" button lives in a *separate* form (different
+   endpoint, different verb-of-intent).
+
+   Confidence pills shown next to fields that have a per-field score
+   recorded in `seller.confidence` / `buyer.confidence` / `lines[].confidence`.
+   After an operator save, those scores are stale (the field is now
+   100% trustworthy); the "✓ przejrzane" badge at the top supersedes.
+   ──────────────────────────────────────────────────────────────────────
+#}
+
+{% macro pill(c) %}
+  {% if c is not none %}
+    {% if c >= 0.90 %}<span class="text-[10px] px-1.5 py-0.5 rounded bg-green-100 text-green-800">{{ '%.0f'|format(c*100) }}%</span>
+    {% elif c >= 0.70 %}<span class="text-[10px] px-1.5 py-0.5 rounded bg-yellow-100 text-yellow-800">{{ '%.0f'|format(c*100) }}%</span>
+    {% else %}<span class="text-[10px] px-1.5 py-0.5 rounded bg-red-100 text-red-800">{{ '%.0f'|format(c*100) }}%</span>
+    {% endif %}
+  {% endif %}
+{% endmacro %}
+
+{% set d = invoice.canonical_data %}
+{% set invoice_currency = (d.total_net.currency if d.total_net else 'PLN') %}
+{% set currencies = ['PLN', 'EUR', 'USD', 'GBP', 'CHF', 'CZK'] %}
+{% set vat_rates = [('23', '23%'), ('8', '8%'), ('5', '5%'), ('0', '0%'),
+                    ('zw', 'zw.'), ('np', 'np.'), ('oo', 'oo')] %}
+{% set invoice_types = [('VAT', 'Faktura VAT'), ('PROFORMA', 'Pro forma'),
+                        ('KOREKTA', 'Korekta'), ('DUPLIKAT', 'Duplikat'),
+                        ('UPROSZCZONA', 'Uproszczona'), ('PARAGON', 'Paragon')] %}
+
+{% block main %}
+<div class="mb-4 flex justify-between items-center gap-3 flex-wrap">
+  <a href="/app/faktury" class="inline-flex items-center gap-1 text-sm text-stone-500 hover:text-brand-700 transition-colors">
+    <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd"/></svg>
+    Lista faktur
+  </a>
+  <div class="flex gap-2 text-sm items-center">
+    {% if invoice.user_reviewed_at %}
+      <span class="inline-flex items-center gap-1 text-[11px] font-mono-tabular px-2 py-1 rounded border border-emerald-300 bg-emerald-50 text-emerald-800">
+        ✓ przejrzane {{ invoice.last_correction_at.strftime('%Y-%m-%d %H:%M') if invoice.last_correction_at else '' }}
+      </span>
+    {% endif %}
+    <button id="shortcuts-btn" type="button"
+            class="px-2 py-1.5 text-stone-500 hover:text-stone-900 transition-colors"
+            title="Skróty klawiszowe (?)">⌨</button>
+    <a href="/app/faktury/{{ invoice.id }}/eksport/jpk_fa"
+       class="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-brand-700 text-white rounded-lg hover:bg-brand-800 transition text-sm font-medium shadow-sm"
+       title="JPK_FA(4) XML — wymaga NIP i kodu urzędu w ustawieniach">
+      Eksport JPK_FA
+    </a>
+    <a href="/app/faktury/{{ invoice.id }}/eksport/json"
+       class="inline-flex items-center px-3 py-1.5 bg-white border border-stone-300 rounded-lg hover:bg-stone-50 hover:border-stone-400 transition text-sm text-stone-700">
+      JSON
+    </a>
+    <a href="/app/faktury/{{ invoice.id }}/eksport/csv"
+       class="inline-flex items-center px-3 py-1.5 bg-white border border-stone-300 rounded-lg hover:bg-stone-50 hover:border-stone-400 transition text-sm text-stone-700">
+      CSV
+    </a>
+  </div>
+</div>
+
+<div class="grid lg:grid-cols-2 gap-4" style="height: calc(100vh - 200px)">
+  <!-- PDF preview -->
+  <div class="bg-white border rounded overflow-hidden">
+    <embed src="/app/faktury/{{ invoice.id }}/pdf" type="application/pdf"
+           class="w-full h-full" aria-label="PDF preview">
+  </div>
+
+  <!-- Structured fields (editable) -->
+  <form id="corrections-form" class="overflow-y-auto bg-white border rounded flex flex-col">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <input type="hidden" name="canonical_json" id="canonical_json">
+
+    <div class="p-6 space-y-6 flex-1">
+
+      <!-- Header -->
+      <div class="flex justify-between items-start pb-4 border-b gap-4">
+        <div class="flex-1 space-y-2">
+          <label class="block">
+            <span class="text-xs text-gray-500 block mb-1">Numer faktury</span>
+            <input name="invoice_number" type="text" required
+                   value="{{ d.invoice_number }}"
+                   class="text-xl font-semibold w-full border-b border-gray-200 focus:border-blue-500 focus:outline-none">
+          </label>
+          <div class="flex gap-3 text-sm">
+            <label class="flex-1">
+              <span class="text-xs text-gray-500 block">Typ</span>
+              <select name="invoice_type" class="w-full border-b border-gray-200 focus:border-blue-500 focus:outline-none bg-white py-0.5">
+                {% for code, label in invoice_types %}
+                  <option value="{{ code }}" {% if d.invoice_type == code %}selected{% endif %}>{{ label }}</option>
+                {% endfor %}
+              </select>
+            </label>
+            <label class="flex-1">
+              <span class="text-xs text-gray-500 block">Data wystawienia</span>
+              <input name="issue_date" type="date" required
+                     value="{{ d.issue_date }}"
+                     class="w-full border-b border-gray-200 focus:border-blue-500 focus:outline-none">
+            </label>
+            <label class="flex-1">
+              <span class="text-xs text-gray-500 block">Data sprzedaży</span>
+              <input name="sale_date" type="date"
+                     value="{{ d.sale_date or '' }}"
+                     class="w-full border-b border-gray-200 focus:border-blue-500 focus:outline-none">
+            </label>
+          </div>
+          <label class="block">
+            <span class="text-xs text-gray-500 block">Miejsce wystawienia</span>
+            <input name="place_of_issue" type="text"
+                   value="{{ d.place_of_issue or '' }}"
+                   class="w-full text-sm border-b border-gray-200 focus:border-blue-500 focus:outline-none">
+          </label>
+        </div>
+        <div class="text-right text-sm shrink-0">
+          {% set c = d.overall_confidence %}
+          {% if c >= 0.90 %}
+            <div class="px-3 py-1 rounded bg-green-100 text-green-800">✓ {{ '%.0f'|format(c*100) }}% — gotowe</div>
+          {% elif c >= 0.70 %}
+            <div class="px-3 py-1 rounded bg-yellow-100 text-yellow-800">⚠ {{ '%.0f'|format(c*100) }}% — sprawdź</div>
+          {% else %}
+            <div class="px-3 py-1 rounded bg-red-100 text-red-800">✗ {{ '%.0f'|format(c*100) }}% — popraw</div>
+          {% endif %}
+          <p class="text-xs text-gray-500 mt-1">
+            {{ invoice.extraction_path }} · {{ invoice.extraction_model }}
+          </p>
+          <label class="block mt-2">
+            <span class="text-xs text-gray-500 block">Waluta</span>
+            <select name="invoice_currency" id="invoice_currency"
+                    class="text-sm border-b border-gray-200 focus:border-blue-500 focus:outline-none bg-white">
+              {% for cur in currencies %}
+                <option value="{{ cur }}" {% if invoice_currency == cur %}selected{% endif %}>{{ cur }}</option>
+              {% endfor %}
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <!-- Warnings -->
+      {% if d.extraction_warnings %}
+      <div class="p-3 bg-yellow-50 border border-yellow-200 rounded">
+        <h3 class="font-medium text-yellow-900 text-sm mb-2">
+          Ostrzeżenia walidacji ({{ d.extraction_warnings|length }})
+        </h3>
+        <ul class="text-xs text-yellow-800 space-y-1 font-mono">
+          {% for w in d.extraction_warnings %}<li>· {{ w }}</li>{% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      <!-- Seller / Buyer side-by-side at desktop -->
+      <div class="grid md:grid-cols-2 gap-4">
+        {% for role, label in [('seller', 'Sprzedawca'), ('buyer', 'Nabywca')] %}
+        {% set cp = d[role] %}
+        {% set conf = cp.confidence or {} %}
+        <section>
+          <h2 class="font-semibold mb-2 text-gray-700 text-sm uppercase tracking-wide">{{ label }}</h2>
+          <div class="space-y-1.5 text-sm">
+            <label class="block">
+              <span class="flex items-center gap-2 text-xs text-gray-500">Nazwa {{ pill(conf.get('name')) }}</span>
+              <input name="{{ role }}.name" type="text" required value="{{ cp.name or '' }}"
+                     class="w-full border-b border-gray-200 focus:border-blue-500 focus:outline-none">
+            </label>
+            <label class="block">
+              <span class="flex items-center gap-2 text-xs text-gray-500">NIP {{ pill(conf.get('nip')) }}</span>
+              <input name="{{ role }}.nip" type="text" inputmode="numeric" value="{{ cp.nip or '' }}"
+                     class="w-full font-mono border-b border-gray-200 focus:border-blue-500 focus:outline-none">
+            </label>
+            <label class="block">
+              <span class="text-xs text-gray-500">REGON</span>
+              <input name="{{ role }}.regon" type="text" inputmode="numeric" value="{{ cp.regon or '' }}"
+                     class="w-full font-mono border-b border-gray-200 focus:border-blue-500 focus:outline-none">
+            </label>
+            <label class="block">
+              <span class="text-xs text-gray-500">Adres (linia 1)</span>
+              <input name="{{ role }}.address_line1" type="text" value="{{ cp.address_line1 or '' }}"
+                     class="w-full border-b border-gray-200 focus:border-blue-500 focus:outline-none">
+            </label>
+            <label class="block">
+              <span class="text-xs text-gray-500">Adres (linia 2)</span>
+              <input name="{{ role }}.address_line2" type="text" value="{{ cp.address_line2 or '' }}"
+                     class="w-full border-b border-gray-200 focus:border-blue-500 focus:outline-none">
+            </label>
+            <div class="flex gap-2">
+              <label class="w-24">
+                <span class="text-xs text-gray-500">Kod</span>
+                <input name="{{ role }}.postal_code" type="text" value="{{ cp.postal_code or '' }}"
+                       class="w-full font-mono border-b border-gray-200 focus:border-blue-500 focus:outline-none">
+              </label>
+              <label class="flex-1">
+                <span class="text-xs text-gray-500">Miasto</span>
+                <input name="{{ role }}.city" type="text" value="{{ cp.city or '' }}"
+                       class="w-full border-b border-gray-200 focus:border-blue-500 focus:outline-none">
+              </label>
+              <label class="w-16">
+                <span class="text-xs text-gray-500">Kraj</span>
+                <input name="{{ role }}.country" type="text" maxlength="2" value="{{ cp.country or 'PL' }}"
+                       class="w-full font-mono border-b border-gray-200 focus:border-blue-500 focus:outline-none">
+              </label>
+            </div>
+            <label class="block">
+              <span class="text-xs text-gray-500">Konto bankowe</span>
+              <input name="{{ role }}.bank_account" type="text" value="{{ cp.bank_account or '' }}"
+                     class="w-full font-mono text-xs border-b border-gray-200 focus:border-blue-500 focus:outline-none">
+            </label>
+          </div>
+        </section>
+        {% endfor %}
+      </div>
+
+      <!-- Line items -->
+      <section>
+        <h2 class="font-semibold mb-2 text-gray-700 text-sm uppercase tracking-wide">
+          Pozycje (<span id="line-count">{{ d.lines|length }}</span>)
+        </h2>
+        <table class="w-full text-xs" id="lines-table">
+          <thead class="text-gray-600 border-b">
+            <tr>
+              <th class="text-left py-1.5 w-6"></th>
+              <th class="text-left py-1.5">Opis</th>
+              <th class="text-right py-1.5 w-16">Ilość</th>
+              <th class="text-left py-1.5 w-14">J.m.</th>
+              <th class="text-left py-1.5 w-16">VAT</th>
+              <th class="text-right py-1.5 w-20">Netto</th>
+              <th class="text-right py-1.5 w-20">VAT zł</th>
+              <th class="text-right py-1.5 w-20">Brutto</th>
+              <th class="w-6"></th>
+            </tr>
+          </thead>
+          <tbody class="divide-y" id="lines-tbody">
+          {% for ln in d.lines %}
+            <tr data-row data-line-no="{{ ln.line_no }}"
+                data-unit-price-net="{{ ln.unit_price_net.amount if ln.unit_price_net else '0' }}"
+                data-discount-pct="{{ ln.discount_pct or 0 }}">
+              <td class="py-1 align-top text-gray-400" data-line-index>{{ loop.index }}</td>
+              <td class="py-1 align-top">
+                <input name="line.description" type="text" value="{{ ln.description }}"
+                       class="w-full border-b border-transparent focus:border-blue-500 focus:outline-none">
+              </td>
+              <td class="py-1 align-top">
+                <input name="line.quantity" type="number" step="0.0001" value="{{ ln.quantity }}"
+                       class="w-full text-right border-b border-transparent focus:border-blue-500 focus:outline-none">
+              </td>
+              <td class="py-1 align-top">
+                <input name="line.unit" type="text" value="{{ ln.unit or 'szt.' }}"
+                       class="w-full border-b border-transparent focus:border-blue-500 focus:outline-none">
+              </td>
+              <td class="py-1 align-top">
+                <select name="line.vat_rate" class="w-full bg-white border-b border-transparent focus:border-blue-500 focus:outline-none">
+                  {% for code, lbl in vat_rates %}
+                    <option value="{{ code }}" {% if ln.vat_rate == code %}selected{% endif %}>{{ lbl }}</option>
+                  {% endfor %}
+                </select>
+              </td>
+              <td class="py-1 align-top">
+                <input name="line.net_value" type="number" step="0.01" value="{{ ln.net_value.amount }}"
+                       class="w-full text-right border-b border-transparent focus:border-blue-500 focus:outline-none">
+              </td>
+              <td class="py-1 align-top">
+                <input name="line.vat_value" type="number" step="0.01" value="{{ ln.vat_value.amount }}"
+                       class="w-full text-right border-b border-transparent focus:border-blue-500 focus:outline-none">
+              </td>
+              <td class="py-1 align-top">
+                <input name="line.gross_value" type="number" step="0.01" value="{{ ln.gross_value.amount }}"
+                       class="w-full text-right font-medium border-b border-transparent focus:border-blue-500 focus:outline-none">
+              </td>
+              <td class="py-1 align-top text-center">
+                <button type="button" data-action="remove-line"
+                        class="text-gray-300 hover:text-red-600" title="Usuń pozycję">×</button>
+              </td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+        <button type="button" data-action="add-line"
+                class="mt-2 inline-flex items-center gap-1 text-xs text-brand-700 hover:text-brand-900 transition-colors">
+          <span class="text-base leading-none">+</span> Dodaj pozycję
+        </button>
+      </section>
+
+      <!-- VAT summary -->
+      <section>
+        <h2 class="font-semibold mb-2 text-gray-700 text-sm uppercase tracking-wide">Podsumowanie VAT</h2>
+        <table class="w-full text-xs" id="vat-summary-table">
+          <thead class="text-gray-600 border-b">
+            <tr>
+              <th class="text-left py-1.5 w-20">Stawka</th>
+              <th class="text-right py-1.5">Netto</th>
+              <th class="text-right py-1.5">VAT</th>
+              <th class="text-right py-1.5">Brutto</th>
+              <th class="w-6"></th>
+            </tr>
+          </thead>
+          <tbody class="divide-y" id="vat-summary-tbody">
+            {% for v in d.vat_summary %}
+            <tr data-row>
+              <td class="py-1">
+                <select name="vat.rate" class="w-full bg-white border-b border-transparent focus:border-blue-500 focus:outline-none">
+                  {% for code, lbl in vat_rates %}
+                    <option value="{{ code }}" {% if v.rate == code %}selected{% endif %}>{{ lbl }}</option>
+                  {% endfor %}
+                </select>
+              </td>
+              <td class="py-1">
+                <input name="vat.net_total" type="number" step="0.01" value="{{ v.net_total.amount }}"
+                       class="w-full text-right border-b border-transparent focus:border-blue-500 focus:outline-none">
+              </td>
+              <td class="py-1">
+                <input name="vat.vat_total" type="number" step="0.01" value="{{ v.vat_total.amount }}"
+                       class="w-full text-right border-b border-transparent focus:border-blue-500 focus:outline-none">
+              </td>
+              <td class="py-1">
+                <input name="vat.gross_total" type="number" step="0.01" value="{{ v.gross_total.amount }}"
+                       class="w-full text-right border-b border-transparent focus:border-blue-500 focus:outline-none">
+              </td>
+              <td class="py-1 text-center">
+                <button type="button" data-action="remove-vat"
+                        class="text-gray-300 hover:text-red-600" title="Usuń wiersz">×</button>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <button type="button" data-action="add-vat"
+                class="mt-2 inline-flex items-center gap-1 text-xs text-brand-700 hover:text-brand-900 transition-colors">
+          <span class="text-base leading-none">+</span> Dodaj stawkę
+        </button>
+      </section>
+
+      <!-- Totals -->
+      <section class="pt-2 border-t">
+        <h2 class="font-semibold mb-2 text-gray-700 text-sm uppercase tracking-wide">Razem</h2>
+        <dl class="space-y-1.5 text-sm">
+          <div class="flex justify-between items-center">
+            <span class="text-gray-600">Netto</span>
+            <input name="total_net" type="number" step="0.01" value="{{ d.total_net.amount }}"
+                   class="font-mono w-32 text-right border-b border-gray-200 focus:border-blue-500 focus:outline-none">
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-600">VAT</span>
+            <input name="total_vat" type="number" step="0.01" value="{{ d.total_vat.amount }}"
+                   class="font-mono w-32 text-right border-b border-gray-200 focus:border-blue-500 focus:outline-none">
+          </div>
+          <div class="flex justify-between items-center text-base font-semibold pt-2 border-t">
+            <span>Brutto</span>
+            <input name="total_gross" type="number" step="0.01" value="{{ d.total_gross.amount }}"
+                   class="font-mono w-32 text-right border-b border-gray-200 focus:border-blue-500 focus:outline-none">
+          </div>
+        </dl>
+      </section>
+
+      <!-- Payment -->
+      <section>
+        <h2 class="font-semibold mb-2 text-gray-700 text-sm uppercase tracking-wide">Płatność</h2>
+        <div class="space-y-1.5 text-sm">
+          <label class="flex items-center gap-3">
+            <span class="text-gray-600 w-28">Sposób</span>
+            <input name="payment.method" type="text" value="{{ (d.payment.method if d.payment else '') or '' }}"
+                   class="flex-1 border-b border-gray-200 focus:border-blue-500 focus:outline-none">
+          </label>
+          <label class="flex items-center gap-3">
+            <span class="text-gray-600 w-28">Termin</span>
+            <input name="payment.due_date" type="date" value="{{ (d.payment.due_date if d.payment else '') or '' }}"
+                   class="flex-1 border-b border-gray-200 focus:border-blue-500 focus:outline-none">
+          </label>
+          <label class="flex items-center gap-3">
+            <span class="text-gray-600 w-28">Konto</span>
+            <input name="payment.bank_account" type="text" value="{{ (d.payment.bank_account if d.payment else '') or '' }}"
+                   class="flex-1 font-mono text-xs border-b border-gray-200 focus:border-blue-500 focus:outline-none">
+          </label>
+          <div class="flex items-center gap-3 pt-1">
+            <label class="flex items-center gap-2">
+              <input name="payment.paid" type="checkbox" {% if d.payment and d.payment.paid %}checked{% endif %}>
+              <span class="text-gray-600">Zapłacone</span>
+            </label>
+            <label class="flex items-center gap-2 ml-4">
+              <span class="text-gray-600">w dniu</span>
+              <input name="payment.paid_date" type="date" value="{{ (d.payment.paid_date if d.payment else '') or '' }}"
+                     class="border-b border-gray-200 focus:border-blue-500 focus:outline-none">
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Notes -->
+      <section>
+        <h2 class="font-semibold mb-2 text-gray-700 text-sm uppercase tracking-wide">Uwagi</h2>
+        <textarea name="notes" rows="2"
+                  class="w-full text-sm border border-gray-200 rounded px-2 py-1 focus:border-blue-500 focus:outline-none">{{ d.notes or '' }}</textarea>
+      </section>
+
+      <!-- Meta -->
+      <section class="pt-3 border-t text-xs text-gray-500">
+        Ekstrakcja: {{ invoice.extracted_at.strftime('%Y-%m-%d %H:%M:%S') if invoice.extracted_at else '—' }}
+        · model: {{ invoice.extraction_model }}
+        · prompt: {{ invoice.extraction_version }}
+        · wgrane: {{ invoice.created_at.strftime('%Y-%m-%d %H:%M') }}
+      </section>
+    </div>
+
+    <!-- Sticky action bar -->
+    <div class="sticky bottom-0 bg-white border-t px-6 py-3 flex justify-between items-center">
+      <div id="save-status" class="text-xs text-gray-500" aria-live="polite"></div>
+      <div class="flex gap-2">
+        <button type="button" id="reextract-btn"
+                class="px-3 py-1.5 text-sm border border-gray-300 rounded hover:bg-gray-50">
+          Re-ekstrakcja (Sonnet)
+        </button>
+        <button type="submit"
+                class="px-4 py-1.5 text-sm bg-blue-600 text-white rounded hover:bg-blue-700">
+          Zapisz korekty
+          <span class="opacity-60 text-xs ml-1">⌘S</span>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- Re-extract: separate form so the submit handler can't conflate them -->
+<form id="reextract-form" method="post"
+      action="/app/faktury/{{ invoice.id }}/ponow-ekstrakcje" class="hidden">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+</form>
+
+<!-- Clone sources for "+ Dodaj pozycję" / "+ Dodaj stawkę". The wrapping
+     <table>/<tbody> are required so the browser keeps <tr> children
+     inside .content; only the <tr> is cloned at runtime. -->
+<template id="line-row-template">
+  <table><tbody>
+    <tr data-row data-line-no="" data-unit-price-net="0" data-discount-pct="0">
+      <td class="py-1 align-top text-gray-400" data-line-index></td>
+      <td class="py-1 align-top">
+        <input name="line.description" type="text" value=""
+               class="w-full border-b border-transparent focus:border-blue-500 focus:outline-none">
+      </td>
+      <td class="py-1 align-top">
+        <input name="line.quantity" type="number" step="0.0001" value="1"
+               class="w-full text-right border-b border-transparent focus:border-blue-500 focus:outline-none">
+      </td>
+      <td class="py-1 align-top">
+        <input name="line.unit" type="text" value="szt."
+               class="w-full border-b border-transparent focus:border-blue-500 focus:outline-none">
+      </td>
+      <td class="py-1 align-top">
+        <select name="line.vat_rate" class="w-full bg-white border-b border-transparent focus:border-blue-500 focus:outline-none">
+          {% for code, lbl in vat_rates %}
+            <option value="{{ code }}" {% if code == '23' %}selected{% endif %}>{{ lbl }}</option>
+          {% endfor %}
+        </select>
+      </td>
+      <td class="py-1 align-top">
+        <input name="line.net_value" type="number" step="0.01" value="0.00"
+               class="w-full text-right border-b border-transparent focus:border-blue-500 focus:outline-none">
+      </td>
+      <td class="py-1 align-top">
+        <input name="line.vat_value" type="number" step="0.01" value="0.00"
+               class="w-full text-right border-b border-transparent focus:border-blue-500 focus:outline-none">
+      </td>
+      <td class="py-1 align-top">
+        <input name="line.gross_value" type="number" step="0.01" value="0.00"
+               class="w-full text-right font-medium border-b border-transparent focus:border-blue-500 focus:outline-none">
+      </td>
+      <td class="py-1 align-top text-center">
+        <button type="button" data-action="remove-line"
+                class="text-gray-300 hover:text-red-600" title="Usuń pozycję">×</button>
+      </td>
+    </tr>
+  </tbody></table>
+</template>
+
+<template id="vat-row-template">
+  <table><tbody>
+    <tr data-row>
+      <td class="py-1">
+        <select name="vat.rate" class="w-full bg-white border-b border-transparent focus:border-blue-500 focus:outline-none">
+          {% for code, lbl in vat_rates %}
+            <option value="{{ code }}" {% if code == '23' %}selected{% endif %}>{{ lbl }}</option>
+          {% endfor %}
+        </select>
+      </td>
+      <td class="py-1">
+        <input name="vat.net_total" type="number" step="0.01" value="0.00"
+               class="w-full text-right border-b border-transparent focus:border-blue-500 focus:outline-none">
+      </td>
+      <td class="py-1">
+        <input name="vat.vat_total" type="number" step="0.01" value="0.00"
+               class="w-full text-right border-b border-transparent focus:border-blue-500 focus:outline-none">
+      </td>
+      <td class="py-1">
+        <input name="vat.gross_total" type="number" step="0.01" value="0.00"
+               class="w-full text-right border-b border-transparent focus:border-blue-500 focus:outline-none">
+      </td>
+      <td class="py-1 text-center">
+        <button type="button" data-action="remove-vat"
+                class="text-gray-300 hover:text-red-600" title="Usuń wiersz">×</button>
+      </td>
+    </tr>
+  </tbody></table>
+</template>
+
+<!-- Shortcuts dialog -->
+<div id="shortcuts-dialog" hidden
+     class="fixed inset-0 bg-black/30 flex items-center justify-center z-50"
+     onclick="if (event.target === this) this.hidden = true">
+  <div class="bg-white rounded-lg p-6 max-w-sm w-full shadow-xl">
+    <h3 class="font-semibold mb-4">Skróty klawiszowe</h3>
+    <dl class="space-y-2 text-sm">
+      <div class="flex justify-between"><dt>Zapisz</dt>
+        <dd><kbd class="px-1.5 py-0.5 bg-gray-100 border rounded text-xs">Ctrl+S</kbd></dd></div>
+      <div class="flex justify-between"><dt>Następne / poprzednie pole</dt>
+        <dd><kbd class="px-1.5 py-0.5 bg-gray-100 border rounded text-xs">Tab</kbd> /
+            <kbd class="px-1.5 py-0.5 bg-gray-100 border rounded text-xs">Shift+Tab</kbd></dd></div>
+      <div class="flex justify-between"><dt>Skróty</dt>
+        <dd><kbd class="px-1.5 py-0.5 bg-gray-100 border rounded text-xs">?</kbd></dd></div>
+      <div class="flex justify-between"><dt>Zamknij dialog</dt>
+        <dd><kbd class="px-1.5 py-0.5 bg-gray-100 border rounded text-xs">Esc</kbd></dd></div>
+    </dl>
+    <button type="button"
+            onclick="document.getElementById('shortcuts-dialog').hidden = true"
+            class="mt-4 w-full text-sm px-3 py-1.5 border border-gray-300 rounded">
+      Zamknij
+    </button>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  const form = document.getElementById('corrections-form');
+  const statusEl = document.getElementById('save-status');
+  const dialog = document.getElementById('shortcuts-dialog');
+
+  // --- Serialise the form into a CanonicalInvoice-shaped object ---
+  function emptyToNull(s) { return s === '' ? null : s; }
+
+  function num(s) {
+    if (s === '' || s == null) return null;
+    return s;  // server-side Pydantic coerces strings → Decimal
+  }
+
+  function money(amount, currency) {
+    if (amount === '' || amount == null) return null;
+    return { amount: amount, currency: currency };
+  }
+
+  function collectCounterparty(role) {
+    const get = (n) => form.querySelector(`[name="${role}.${n}"]`).value;
+    return {
+      name: get('name'),
+      nip: emptyToNull(get('nip')),
+      regon: emptyToNull(get('regon')),
+      address_line1: emptyToNull(get('address_line1')),
+      address_line2: emptyToNull(get('address_line2')),
+      postal_code: emptyToNull(get('postal_code')),
+      city: emptyToNull(get('city')),
+      country: get('country') || 'PL',
+      bank_account: emptyToNull(get('bank_account')),
+    };
+  }
+
+  function collectLines(currency) {
+    const rows = form.querySelectorAll('#lines-tbody tr[data-row]:not([data-removed])');
+    const lines = [];
+    rows.forEach((row, idx) => {
+      const get = (n) => row.querySelector(`[name="line.${n}"]`).value;
+      lines.push({
+        line_no: idx + 1,
+        description: get('description'),
+        quantity: get('quantity'),
+        unit: get('unit') || 'szt.',
+        unit_price_net: money(row.dataset.unitPriceNet || '0', currency),
+        vat_rate: get('vat_rate'),
+        discount_pct: row.dataset.discountPct || '0',
+        net_value: money(get('net_value'), currency),
+        vat_value: money(get('vat_value'), currency),
+        gross_value: money(get('gross_value'), currency),
+      });
+    });
+    return lines;
+  }
+
+  function collectVatSummary(currency) {
+    const rows = form.querySelectorAll('#vat-summary-tbody tr[data-row]:not([data-removed])');
+    const entries = [];
+    rows.forEach((row) => {
+      const get = (n) => row.querySelector(`[name="vat.${n}"]`).value;
+      entries.push({
+        rate: get('rate'),
+        net_total: money(get('net_total'), currency),
+        vat_total: money(get('vat_total'), currency),
+        gross_total: money(get('gross_total'), currency),
+      });
+    });
+    return entries;
+  }
+
+  function collectPayment() {
+    const get = (n) => form.querySelector(`[name="payment.${n}"]`).value;
+    const paid = form.querySelector('[name="payment.paid"]').checked;
+    return {
+      method: emptyToNull(get('method')),
+      due_date: emptyToNull(get('due_date')),
+      paid: paid,
+      paid_date: emptyToNull(get('paid_date')),
+      bank_account: emptyToNull(get('bank_account')),
+    };
+  }
+
+  function buildCanonical() {
+    const currency = form.querySelector('[name="invoice_currency"]').value;
+    return {
+      invoice_number: form.querySelector('[name="invoice_number"]').value,
+      invoice_type: form.querySelector('[name="invoice_type"]').value,
+      issue_date: form.querySelector('[name="issue_date"]').value,
+      sale_date: emptyToNull(form.querySelector('[name="sale_date"]').value),
+      place_of_issue: emptyToNull(form.querySelector('[name="place_of_issue"]').value),
+      seller: collectCounterparty('seller'),
+      buyer: collectCounterparty('buyer'),
+      lines: collectLines(currency),
+      vat_summary: collectVatSummary(currency),
+      total_net: money(form.querySelector('[name="total_net"]').value, currency),
+      total_vat: money(form.querySelector('[name="total_vat"]').value, currency),
+      total_gross: money(form.querySelector('[name="total_gross"]').value, currency),
+      payment: collectPayment(),
+      notes: emptyToNull(form.querySelector('[name="notes"]').value),
+    };
+  }
+
+  // --- Submit ---
+  async function submitForm() {
+    statusEl.textContent = 'Zapisuję…';
+    statusEl.className = 'text-xs text-gray-500';
+    const canonical = buildCanonical();
+    document.getElementById('canonical_json').value = JSON.stringify(canonical);
+    const body = new URLSearchParams(new FormData(form));
+    try {
+      const resp = await fetch(form.action || window.location.pathname + '/popraw', {
+        method: 'POST',
+        body: body,
+        headers: {'Accept': 'application/json'},
+      });
+      const data = await resp.json();
+      if (resp.ok && data.ok) {
+        statusEl.textContent = '✓ Zapisano';
+        statusEl.className = 'text-xs text-green-700';
+        window.location.href = data.redirect;
+        return;
+      }
+      if (resp.status === 422 && data.errors) {
+        const lines = data.errors.slice(0, 3).map(
+          e => `${(e.loc || []).join('.')}: ${e.msg}`
+        );
+        statusEl.textContent = '⚠ ' + lines.join(' · ');
+      } else {
+        statusEl.textContent = '⚠ ' + (data.message || 'Błąd zapisu');
+      }
+      statusEl.className = 'text-xs text-red-700';
+    } catch (err) {
+      statusEl.textContent = '⚠ Błąd sieci: ' + err.message;
+      statusEl.className = 'text-xs text-red-700';
+    }
+  }
+
+  form.action = window.location.pathname + '/popraw';
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    submitForm();
+  });
+
+  // --- Row remove / add ---
+  function refreshLineCount() {
+    const visible = form.querySelectorAll('#lines-tbody tr[data-row]:not([data-removed])');
+    document.getElementById('line-count').textContent = visible.length;
+    visible.forEach((row, i) => {
+      const idx = row.querySelector('[data-line-index]');
+      if (idx) idx.textContent = i + 1;
+    });
+  }
+
+  function cloneRowFromTemplate(templateId) {
+    const tpl = document.getElementById(templateId);
+    if (!(tpl instanceof HTMLTemplateElement)) return null;
+    const tr = tpl.content.querySelector('tr');
+    return tr ? tr.cloneNode(true) : null;
+  }
+
+  form.addEventListener('click', (e) => {
+    const target = e.target;
+    if (!(target instanceof HTMLElement)) return;
+    const action = target.dataset.action;
+    if (action === 'remove-line' || action === 'remove-vat') {
+      const row = target.closest('tr[data-row]');
+      if (!row) return;
+      row.dataset.removed = '1';
+      row.style.opacity = '0.3';
+      row.querySelectorAll('input, select').forEach(el => el.disabled = true);
+      if (action === 'remove-line') refreshLineCount();
+      return;
+    }
+    if (action === 'add-line') {
+      const row = cloneRowFromTemplate('line-row-template');
+      if (!row) return;
+      document.getElementById('lines-tbody').appendChild(row);
+      refreshLineCount();
+      const firstInput = row.querySelector('input[name="line.description"]');
+      if (firstInput instanceof HTMLInputElement) firstInput.focus();
+      return;
+    }
+    if (action === 'add-vat') {
+      const row = cloneRowFromTemplate('vat-row-template');
+      if (!row) return;
+      document.getElementById('vat-summary-tbody').appendChild(row);
+      const firstSelect = row.querySelector('select[name="vat.rate"]');
+      if (firstSelect instanceof HTMLSelectElement) firstSelect.focus();
+    }
+  });
+
+  // --- Re-extract ---
+  document.getElementById('reextract-btn').addEventListener('click', () => {
+    if (confirm('Re-ekstrakcja modelem Sonnet zastąpi obecne dane i wyzeruje status przeglądu. Kontynuować?')) {
+      document.getElementById('reextract-form').submit();
+    }
+  });
+
+  // --- Keyboard shortcuts ---
+  document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+      e.preventDefault();
+      submitForm();
+      return;
+    }
+    if (e.key === 'Escape' && !dialog.hidden) {
+      dialog.hidden = true;
+      return;
+    }
+    if (e.key === '?' && !e.ctrlKey && !e.metaKey) {
+      const tag = (e.target instanceof HTMLElement) ? e.target.tagName : '';
+      if (tag !== 'INPUT' && tag !== 'TEXTAREA' && tag !== 'SELECT') {
+        e.preventDefault();
+        dialog.hidden = false;
+      }
+    }
+  });
+  document.getElementById('shortcuts-btn').addEventListener('click', () => {
+    dialog.hidden = false;
+  });
+})();
+</script>
+{% endblock %}

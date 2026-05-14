@@ -1,0 +1,18 @@
+{
+  "total_return": 0.4133816510430004,
+  "cagr": 0.26257966144220046,
+  "sharpe": 1.5610423054734262,
+  "sortino": 2.615428362175198,
+  "max_drawdown": -0.1425531299552838,
+  "max_drawdown_days": 102,
+  "win_rate": 0.6968325791855203,
+  "profit_factor": 9.435829899747956,
+  "avg_win_pct": 0.3213591423424572,
+  "avg_loss_pct": -0.07828101976450667,
+  "expectancy_pct": 0.20020126514260844,
+  "trade_count": 442,
+  "rebalance_count": 18,
+  "avg_turnover_pct": 0.5623846077773463,
+  "avg_n_selected": 50.0,
+  "drawdown_halts": 0
+}

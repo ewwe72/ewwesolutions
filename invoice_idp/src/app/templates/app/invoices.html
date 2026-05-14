@@ -1,0 +1,123 @@
+{% extends "app/_layout.html" %}
+{% set active_nav = 'faktury' %}
+{% block title %}Faktury — Faktomat{% endblock %}
+{% block main %}
+
+<header class="flex items-end justify-between mb-8 gap-4">
+  <div>
+    <p class="text-xs font-mono-tabular uppercase tracking-[0.18em] text-stone-500">Archiwum</p>
+    <h1 class="mt-2 font-serif-display italic text-4xl text-stone-900">Faktury</h1>
+  </div>
+  <a href="/app/wgraj"
+     class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-brand-700 text-white font-medium text-sm shadow-sm hover:bg-brand-800 transition">
+    Wgraj fakturę
+    <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
+  </a>
+</header>
+
+{% if invoices %}
+<div class="rounded-2xl bg-white ring-1 ring-stone-200 overflow-hidden">
+  <table class="w-full text-sm">
+    <thead>
+      <tr class="text-left text-[11px] font-mono-tabular uppercase tracking-[0.14em] text-stone-500 bg-stone-50/60 border-b border-stone-200">
+        <th class="px-5 py-3 font-medium">Plik</th>
+        <th class="px-5 py-3 font-medium">Data</th>
+        <th class="px-5 py-3 font-medium">Status</th>
+        <th class="px-5 py-3 font-medium">Pewność</th>
+        <th class="px-5 py-3 font-medium">Ostrzeżenia</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-stone-100">
+      {% for inv in invoices %}
+      <tr class="hover:bg-stone-50/60 transition-colors">
+        <td class="px-5 py-3.5">
+          <a href="/app/faktury/{{ inv.id }}" class="flex items-center gap-2 group">
+            <svg class="w-4 h-4 text-stone-400 group-hover:text-brand-700 transition-colors shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+            </svg>
+            <span class="text-stone-900 group-hover:text-brand-800 group-hover:underline underline-offset-4">{{ inv.original_filename or 'Faktura' }}</span>
+            {% if inv.user_reviewed_at %}
+              <span class="text-[10px] font-medium text-emerald-700 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded">✓</span>
+            {% endif %}
+          </a>
+        </td>
+        <td class="px-5 py-3.5 text-stone-600 font-mono-tabular text-xs whitespace-nowrap">{{ inv.created_at.strftime('%Y-%m-%d · %H:%M') }}</td>
+        <td class="px-5 py-3.5">
+          {% if inv.status == 'completed' %}
+            <span class="inline-flex items-center gap-1 text-[11px] font-mono-tabular px-2 py-0.5 rounded border border-emerald-300 bg-emerald-50 text-emerald-800">Gotowe</span>
+          {% elif inv.status == 'processing' %}
+            <span class="inline-flex items-center gap-1 text-[11px] font-mono-tabular px-2 py-0.5 rounded border border-brand-300 bg-brand-50 text-brand-800">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse"></span>
+              Przetwarzam
+            </span>
+          {% elif inv.status == 'pending' %}
+            <span class="inline-flex items-center gap-1 text-[11px] font-mono-tabular px-2 py-0.5 rounded border border-stone-300 bg-stone-50 text-stone-700">W kolejce</span>
+          {% else %}
+            <span class="inline-flex items-center gap-1 text-[11px] font-mono-tabular px-2 py-0.5 rounded border border-rose-300 bg-rose-50 text-rose-800">Błąd</span>
+          {% endif %}
+        </td>
+        <td class="px-5 py-3.5">
+          {% if inv.overall_confidence is not none %}
+            {% if inv.overall_confidence >= 0.90 %}
+              <span class="font-mono-tabular text-[11px] px-2 py-0.5 rounded border border-emerald-300 bg-emerald-50 text-emerald-800">{{ '%.0f'|format(inv.overall_confidence * 100) }}%</span>
+            {% elif inv.overall_confidence >= 0.70 %}
+              <span class="font-mono-tabular text-[11px] px-2 py-0.5 rounded border border-amber-300 bg-amber-50 text-amber-800">{{ '%.0f'|format(inv.overall_confidence * 100) }}%</span>
+            {% else %}
+              <span class="font-mono-tabular text-[11px] px-2 py-0.5 rounded border border-rose-300 bg-rose-50 text-rose-800">{{ '%.0f'|format(inv.overall_confidence * 100) }}%</span>
+            {% endif %}
+          {% else %}
+            <span class="text-stone-300">—</span>
+          {% endif %}
+        </td>
+        <td class="px-5 py-3.5 text-stone-600 font-mono-tabular text-xs">
+          {% set warnings = inv.canonical_data.get('extraction_warnings', []) if inv.canonical_data else [] %}
+          {% if warnings %}
+            {{ warnings|length }}
+          {% else %}
+            <span class="text-stone-300">—</span>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{# Pagination — refined #}
+{% if has_more or offset > 0 %}
+<nav class="mt-6 flex items-center justify-between text-sm" aria-label="Stronicowanie">
+  {% if offset > 0 %}
+    <a href="?offset={{ [offset - limit, 0]|max }}"
+       class="inline-flex items-center gap-1.5 text-stone-600 hover:text-brand-700 transition-colors">
+      ← Poprzednia
+    </a>
+  {% else %}<span></span>{% endif %}
+  {% if has_more %}
+    <a href="?offset={{ offset + limit }}"
+       class="inline-flex items-center gap-1.5 text-stone-600 hover:text-brand-700 transition-colors">
+      Następna →
+    </a>
+  {% else %}<span></span>{% endif %}
+</nav>
+{% endif %}
+
+{% else %}
+{# Empty state #}
+<div class="rounded-2xl bg-white ring-1 ring-stone-200 px-8 py-16 text-center">
+  <div class="mx-auto w-12 h-12 rounded-xl bg-brand-50 ring-1 ring-brand-100 flex items-center justify-center mb-4">
+    <svg class="w-6 h-6 text-brand-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+      <polyline points="14 2 14 8 20 8"/>
+    </svg>
+  </div>
+  <p class="font-serif-display italic text-2xl text-stone-800">Pusto.</p>
+  <p class="mt-1 text-sm text-stone-500 max-w-sm mx-auto">Jeszcze żadnej faktury nie wgrałeś. Zacznij od pierwszego pliku.</p>
+  <a href="/app/wgraj"
+     class="mt-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-brand-700 text-white font-medium text-sm hover:bg-brand-800 transition">
+    Wgraj pierwszą fakturę
+  </a>
+</div>
+{% endif %}
+
+{% endblock %}

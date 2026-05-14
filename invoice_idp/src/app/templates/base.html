@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Faktomat{% endblock %}</title>
+
+  {# ---- SEO ---- #}
+  <meta name="description" content="Faktomat zamienia polskie faktury PDF w JPK_FA(4) XML zgodny ze schematem Ministerstwa Finansów. Eksport także do JSON i CSV. 30 sekund zamiast godzin ręcznego przepisywania danych.">
+  <meta name="keywords" content="JPK_FA, JPK_FA(4), OCR faktur, faktury PDF, biuro rachunkowe, księgowość, Ministerstwo Finansów, KSeF, polskie faktury, automatyzacja księgowości, ekstrakcja danych z faktur">
+  <meta name="author" content="Faktomat">
+  <meta name="robots" content="index, follow">
+
+  {# ---- Open Graph ---- #}
+  <meta property="og:title" content="Faktomat — wrzuć fakturę, pobierz JPK">
+  <meta property="og:description" content="Polskie faktury PDF zamienione w JPK_FA(4) XML w 30 sekund. Plik zgodny ze schematem MF, eksport także do JSON i CSV. Bez abonamentu — 0,50 PLN za fakturę.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://faktomat.pl/">
+  <meta property="og:site_name" content="Faktomat">
+  <meta property="og:locale" content="pl_PL">
+
+  {# ---- Twitter ---- #}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Faktomat — wrzuć fakturę, pobierz JPK">
+  <meta name="twitter:description" content="Polskie faktury PDF zamienione w JPK_FA(4) XML w 30 sekund. Bez abonamentu — 0,50 PLN za fakturę.">
+
+  {# ---- Inline SVG favicon: violet F mark matching navbar logo ---- #}
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237c3aed'/%3E%3Cstop offset='1' stop-color='%235b21b6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='Inter,Arial,sans-serif' font-size='38' font-weight='800' text-anchor='middle' fill='white'%3EF%3C/text%3E%3C/svg%3E">
+
+  {# Inter for UI, Cormorant Garamond for the wordmark + editorial accents (used
+     by app/* templates), JetBrains Mono for tabular numbers / IDs.
+     Latin Extended covers Polish diacritics ą/ę/ł/ś/ź. #}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50:  '#f5f3ff',
+              100: '#ede9fe',
+              200: '#ddd6fe',
+              300: '#c4b5fd',
+              400: '#a78bfa',
+              500: '#8b5cf6',
+              600: '#7c3aed',
+              700: '#6d28d9',
+              800: '#5b21b6',
+              900: '#4c1d95',
+            },
+          },
+          keyframes: {
+            'fade-up': {
+              '0%':   { opacity: '0', transform: 'translateY(8px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            'pdf-out': {
+              '0%, 40%':   { opacity: '1', transform: 'scale(1)' },
+              '50%, 90%':  { opacity: '0', transform: 'scale(0.92)' },
+              '100%':      { opacity: '1', transform: 'scale(1)' },
+            },
+            'xml-in': {
+              '0%, 40%':   { opacity: '0', transform: 'scale(0.92)' },
+              '50%, 90%':  { opacity: '1', transform: 'scale(1)' },
+              '100%':      { opacity: '0', transform: 'scale(0.92)' },
+            },
+            'arrow-pulse': {
+              '0%, 100%': { transform: 'translateX(0)', opacity: '0.6' },
+              '50%':      { transform: 'translateX(4px)', opacity: '1' },
+            },
+          },
+          animation: {
+            'fade-up':     'fade-up 0.6s ease-out both',
+            'pdf-out':     'pdf-out 5s ease-in-out infinite',
+            'xml-in':      'xml-in 5s ease-in-out infinite',
+            'arrow-pulse': 'arrow-pulse 1.6s ease-in-out infinite',
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    [hidden] { display: none !important; }
+    body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; }
+    /* Cross-template typography utilities — used by landing + auth + app. */
+    .font-serif-display { font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; }
+    .font-mono-tabular { font-family: 'JetBrains Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+    /* Subtle radial wash behind the hero — pure CSS, no asset load.
+       Warm stone undertone matches the app shell so landing and app feel
+       like one piece of design. */
+    .hero-wash {
+      background:
+        radial-gradient(60% 60% at 20% 10%, rgba(124, 58, 237, 0.10) 0%, transparent 60%),
+        radial-gradient(50% 50% at 90% 0%,  rgba(124, 58, 237, 0.06) 0%, transparent 60%),
+        linear-gradient(180deg, #faf9f7 0%, #f8f6f0 60%, #f5f3ec 100%);
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-900 antialiased">
+  {% block content %}{% endblock %}
+</body>
+</html>

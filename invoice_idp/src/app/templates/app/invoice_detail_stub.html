@@ -1,0 +1,67 @@
+{% extends "app/_layout.html" %}
+{% set active_nav = 'faktury' %}
+{% block title %}{{ invoice.original_filename or 'Faktura' }} — Faktomat{% endblock %}
+{% block main %}
+
+<div class="mb-6">
+  <a href="/app/faktury" class="inline-flex items-center gap-1 text-sm text-stone-500 hover:text-brand-700 transition-colors">
+    <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd"/></svg>
+    Lista faktur
+  </a>
+</div>
+
+<header class="flex justify-between items-start gap-6 mb-8 pb-6 border-b border-stone-200">
+  <div class="min-w-0">
+    <p class="text-xs font-mono-tabular uppercase tracking-[0.18em] text-stone-500">Faktura</p>
+    <h1 class="mt-2 font-serif-display italic text-3xl text-stone-900 break-words">{{ invoice.original_filename or 'Faktura' }}</h1>
+    <p class="mt-3 text-xs text-stone-500 font-mono-tabular">
+      Wgrana {{ invoice.created_at.strftime('%Y-%m-%d · %H:%M') }} · SHA-256
+      <code class="text-stone-700 ml-1">{{ invoice.pdf_sha256[:16] }}…</code>
+    </p>
+  </div>
+  <div class="text-right shrink-0">
+    {% if invoice.status == 'completed' %}
+      <span class="inline-flex items-center gap-1 text-[11px] font-mono-tabular px-2.5 py-1 rounded border border-emerald-300 bg-emerald-50 text-emerald-800">Gotowe</span>
+    {% elif invoice.status == 'processing' %}
+      <span class="inline-flex items-center gap-1.5 text-[11px] font-mono-tabular px-2.5 py-1 rounded border border-brand-300 bg-brand-50 text-brand-800">
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse"></span>
+        Przetwarzam
+      </span>
+    {% elif invoice.status == 'pending' %}
+      <span class="inline-flex items-center gap-1 text-[11px] font-mono-tabular px-2.5 py-1 rounded border border-stone-300 bg-stone-50 text-stone-700">W kolejce</span>
+    {% else %}
+      <span class="inline-flex items-center gap-1 text-[11px] font-mono-tabular px-2.5 py-1 rounded border border-rose-300 bg-rose-50 text-rose-800">Błąd</span>
+    {% endif %}
+    {% if invoice.overall_confidence is not none %}
+      <div class="mt-2 text-xs text-stone-500 font-mono-tabular">Pewność <span class="text-stone-700">{{ '%.0f'|format(invoice.overall_confidence * 100) }}%</span></div>
+    {% endif %}
+  </div>
+</header>
+
+{% if invoice.status in ('pending', 'processing') %}
+<div class="mb-6 rounded-xl border border-brand-200 bg-brand-50/60 px-4 py-3 text-sm text-brand-900 flex items-start gap-3">
+  <span class="inline-block w-1 self-stretch bg-brand-500 rounded-full"></span>
+  <span>Strona odświeży się automatycznie co 3 sekundy aż ekstrakcja się zakończy.</span>
+</div>
+<script>setTimeout(() => window.location.reload(), 3000);</script>
+{% endif %}
+
+{% if invoice.extraction_error %}
+<div class="mb-6 rounded-xl border border-rose-200 bg-rose-50/60 px-5 py-4">
+  <p class="text-[11px] font-mono-tabular uppercase tracking-[0.16em] text-rose-700">Błąd ekstrakcji</p>
+  <code class="block mt-2 text-sm text-rose-900 font-mono-tabular break-words">{{ invoice.extraction_error }}</code>
+</div>
+{% endif %}
+
+{% if invoice.canonical_data %}
+<section class="rounded-2xl bg-white ring-1 ring-stone-200 p-6">
+  <h2 class="font-serif-display italic text-2xl text-stone-900 mb-2">Wyniki ekstrakcji</h2>
+  <p class="text-sm text-stone-500 mb-4">
+    Edytowalna review UI z PDF-em po lewej i polami do poprawy po prawej — w następnej iteracji.
+    Na razie surowy JSON do podglądu:
+  </p>
+  <pre class="text-xs bg-stone-50 border border-stone-200 p-4 rounded-lg overflow-x-auto font-mono-tabular text-stone-700">{{ invoice.canonical_data | tojson(indent=2) }}</pre>
+</section>
+{% endif %}
+
+{% endblock %}

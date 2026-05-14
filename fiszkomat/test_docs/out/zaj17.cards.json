@@ -1,0 +1,830 @@
+[
+  {
+    "z": 18,
+    "t": "Antagoniści receptorów serotoninowych typu 3 (5-HT3)",
+    "d": "Ondansetron, Granisetron, Dolasetron, Tropisetron, Palonosetron",
+    "m": "Selektywnie blokują receptory serotoninowe 5-HT3 w area postrema i układzie pokarmowym, hamując wymioty spowodowane przede wszystkim bodźcami z tego obszaru.",
+    "i": "Wymioty pooperacyjne, wymioty spowodowane chemioterapią lub radioterapią przeciwnowotworową.",
+    "c": "Objawy podostrej niedrożności jelit, tendencja do zaparć.",
+    "n": "Zwolnienie pasażu treści w jelicie grubym, bóle głowy, dyskomfort w nadbrzuszu, przejściowe objawy pozapiramidowe przy szybkim podaniu dożylnym, wydłużenie odcinka QT (szczególnie dolasetron)."
+  },
+  {
+    "z": 18,
+    "t": "Neuroleptyki o działaniu przeciwwymiotnym",
+    "d": "Prometazyna, Tietylperazyna, Prochlorperazyna, Droperydol, Amisulpryd",
+    "m": "Blokują receptory dopaminowe (D2, D3), muskarynowe (M1) i histaminowe (H1) w ośrodku wymiotnym, hamując wymioty o różnej etiologii.",
+    "i": "Wymioty pooperacyjne, zawroty głowy, wymioty związane z chorobą Menierea, choroba lokomocyjna, wymioty po zabiegach chirurgicznych.",
+    "c": "Brak w książce.",
+    "n": "Objawy cholinolityczne (suchość w ustach, trudności w oddawaniu moczu, zaparcia, tachykardia), senność, obniżenie ciśnienia tętniczego krwi (szczególnie po podaniu dożylnym), objawy pozapiramidowe (trudności w mówieniu i połykaniu, dyskinezy, akatyzja), hiperprolaktynemia (zaburzenia miesiączkowania, ginekomastia)."
+  },
+  {
+    "z": 18,
+    "t": "Antagoniści receptorów histaminowych typu 1 (H1) i muskarynowych typu 1 (M1)",
+    "d": "Difenhydramina, Dimenhydrynat, Meklizyna, Cyklizyna, Klemastyna, Cynaryzyna, Flunaryzyna, Hioscyna",
+    "m": "Blokują receptory H1 i M1 w ośrodku wymiotnym i strukturach błędnika; cynaryzyna i flunaryzyna dodatkowo hamują kanały wapniowe typu L i wykazują działanie rozkurczające naczynia.",
+    "i": "Choroba lokomocyjna, wymioty związane ze znieczuleniem, choroby ucha wewnętrznego, wymioty u ciężarnych, zawroty głowy, objawy choroby Menierea.",
+    "c": "Brak w książce.",
+    "n": "Zespół cholinolityczny: retencja moczu, zaparcia, suchość w ustach, zaburzenia akomodacji, tachykardia."
+  },
+  {
+    "z": 18,
+    "t": "Antagoniści receptorów neurokininowych typu 1 (NK1)",
+    "d": "Aprepitant, Fosaprepitant, Rolapitant, Netupitant, Fosnetupitant",
+    "m": "Selektywnie blokują receptory NK1 w area postrema, hamując działanie substancji P, która uczestniczy w regulacji wymiotów.",
+    "i": "Zapobieganie i leczenie wymiotów związanych z chemioterapią przeciwnowotworową.",
+    "c": "Brak w książce.",
+    "n": "Zawroty głowy, uczucie zmęczenia, biegunka, jadłowstręt."
+  },
+  {
+    "z": 18,
+    "t": "Kannabinoidy",
+    "d": "Dronabinol, Nabilon, Lewonantrodol",
+    "m": "Pobudzają receptory CB1, stymulując apetyt oraz hamując nudności i wymioty.",
+    "i": "Wymioty związane z chemioterapią przeciwnowotworową, jadłowstręt u pacjentów z AIDS.",
+    "c": "Brak w książce.",
+    "n": "Działania psychoaktywne (euforia lub dysforia, omamy), sedacja, nasilenie łaknienia, objawy cholinolityczne (suchość w ustach, tachykardia), hipotonia ortostatyczna, przekrwienie spojówek, niepokój i bezsenność po nagłym odstawieniu."
+  },
+  {
+    "z": 18,
+    "t": "Leki prokinetyczne o działaniu przeciwwymiotnym",
+    "d": "Metoklopramid, Domperydon, Itopryd",
+    "m": "Działają ośrodkowo lub obwodowo, przyspieszając pasaż treści w przewodzie pokarmowym; posiadają również właściwości blokujące receptory dopaminowe.",
+    "i": "Wymioty związane ze znieczuleniem, migrena, chemioterapia przeciwnowotworowa.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 18,
+    "t": "Benzodiazepiny o działaniu przeciwwymiotnym",
+    "d": "Diazepam, Lorazepam",
+    "m": "Działają depresyjnie na ośrodkowy układ nerwowy, zmniejszając lęk i pobudzenie, które mogą wyzwalać wymioty.",
+    "i": "Wymioty, w których dużą rolę odgrywa czynnik psychiczny (strach, pobudzenie, wspomnienie chemioterapii).",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 18,
+    "t": "Glikokortykosteroidy o działaniu przeciwwymiotnym",
+    "d": "Deksametazon, Prednizolon",
+    "m": "Mechanizm działania przeciwwymiotnego nie został wyjaśniony; nasilają działanie innych leków przeciwwymiotnych.",
+    "i": "Wymioty związane z chemioterapią przeciwnowotworową, zapobieganie wymiotom.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 18,
+    "t": "Antagoniści kanałów wapniowych i azotany w zaburzeniach motoryki przełyku",
+    "d": "Nifedypina, Diazotan izosorbidu",
+    "m": "Nifedypina hamuje kanały wapniowe typu L, powodując rozluźnienie mięśniówki gładkiej; azotany zwiększają stężenie cyklicznego GMP, prowadząc do relaksacji mięśniówki.",
+    "i": "Achalazja przełyku, rozlany skurcz przełyku, bolesne skurcze przełyku.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 18,
+    "t": "Toksyna botulinowa typu A",
+    "d": "Toksyna botulinowa typu A",
+    "m": "Silnie hamuje wydzielanie acetylocholiny z zakończeń nerwowych, powodując rozluźnienie mięśniówki przełyku.",
+    "i": "Achalazja przełyku u osób z przeciwwskazaniami do leczenia operacyjnego, podawana miejscowo w czasie endoskopii.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 18,
+    "t": "Leki obniżające ciśnienie w łożysku wrotnym",
+    "d": "Wazopresyna, Terlipresyna, Somatostatyna, Oktreotyd, Lanreotyd, Wapreotyd, Propranolol, Nadolol",
+    "m": "Wazopresyna i terlipresyna obkurczają trzewne łożysko tętnicze; somatostatyna i jej analogi zmniejszają przepływ krwi przez łożysko trzewne; antagoniści receptorów β zmniejszają pojemność minutową serca i sprzyją skurczowi trzewnego łożyska.",
+    "i": "Krwawienie z żylaków przełyku w przebiegu nadciśnienia wrotnego, zapobieganie nawrotom krwawienia.",
+    "c": "Brak w książce.",
+    "n": "Dla wazopresyny: wzrost ciśnienia tętniczego krwi, udar mózgu, niedokrwienie mięśnia sercowego i jelit, zatrzymanie wody w ustroju, hiponatremia, obrzęki (obrzęk płuc)."
+  },
+  {
+    "z": 18,
+    "t": "Środki do skleroterapii żylaków przełyku",
+    "d": "Polidokanol, Histoacryl",
+    "m": "Polidokanol jako środek drażniący i histoacryl jako klej tkankowy — podskórnie wstrzykiwane powodują natychmiastowe zatkanie żylaka materiałem zakrzepowym, który następnie ulega organizacji i zarośnięciu tkanką łączną.",
+    "i": "Krwawienie z żylaków przełyku, skleroterapia endoskopowa.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 18,
+    "t": "Leki pobudzające receptor GABAB w chorobie refluksowej przełyku",
+    "d": "Baklofen, Arbaklofen, Lesogeberan",
+    "m": "Pobudzają receptory GABAB, zmniejszając refleks wymiotny i hamując niechciane skurcze przełyku.",
+    "i": "Choroba refluksowa przełyku.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Inhibitory pompy protonowej",
+    "d": "Omeprazol, Lansoprazol, Pantoprazol, Rabeprazol, Ezomeprazol, Dekslansoprazol, Tenatoprazol",
+    "m": "Słabe zasady wchłaniane do krwi, przenikające do komórek okładzinowych i wydzielane do kanalików. W kwaśnym pH ulegają aktywacji do formy sultenowej, kowalencyjnie wiążą się z aktywną pompą protonową i nieodwracalnie ją hamują. Blokują przede wszystkim wydzielanie kwasu solnego stymulowane pokarmem oraz wydzielanie pepsyny.",
+    "i": "Leczenie choroby wrzodowej żołądka i dwunastnicy, choroba refluksowa przełyku, profilaktyka wrzodów stresowych i wywołanych przez NLPZ, leczenie zespołu Zollimgera-Ellisona, schematy eradykacji Helicobacter pylori.",
+    "c": "Brak w książce.",
+    "n": "Nudności, wymioty, wzdęcia, bóle brzucha, biegunka, bóle głowy, bóle stawów, miopatia, wysypki skórne, upośledzenie wchłaniania witaminy B12 (niedokrwistość megaloblastyczna), osteoporoza i sprzyjanie złamaniom kości, efekt disulfiramowy, nocturnal acid breakthrough, hipergastrynemią, zwiększone ryzyko kolonizacji bakteriami górnego odcinka przewodu pokarmowego i dróg oddechowych."
+  },
+  {
+    "z": 0,
+    "t": "Bezpośrednie inhibitory pompy protonowej",
+    "d": "Wonaprazan, Soraprazan, Rewaprazan",
+    "m": "Kompetycyjnie i odwracalnie blokują pompę protonową poprzez przyłączanie się w miejscu wiązania się jonów potasu. Działają silnie i szybko — maksymalne działanie rozwija się w 30–60 minut po przyjęciu pierwszej dawki. Hamowanie pompy nie wymaga jej aktywności.",
+    "i": "Leczenie choroby wrzodowej żołądka i dwunastnicy, eradykacja Helicobacter pylori (w terapiach złożonych).",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Antagoniści receptorów histaminowych typu 2 (H2)",
+    "d": "Cymetydyna, Ranitydyna, Famotydyna, Nizatydyna, Roksatydyna, Ebrotydyna, Lupitydyna, Lafutydyna",
+    "m": "Kompetycyjnie i odwracalnie blokują receptory H2 na komórkach okładzinowych, zmniejszając głównie spoczynkowe wydzielanie kwasu solnego. Nie wpływają na wydzielanie pepsyny.",
+    "i": "Leczenie choroby wrzodowej żołądka i dwunastnicy, leczenie choroby refluksowej przełyku i dolegliwości dyspeptycznych, zapobieganie owrzodzeniom żołądka i dwunastnicy.",
+    "c": "Brak w książce.",
+    "n": "Cymetydyna — właściwości antyandrogenne (ginekomastia, zaburzenia czynności seksualnych), silne hamowanie enzymów cytochromu P450 (zaburzenie rozkładu estrogenów i niektórych leków), blokada wydzielania kreatyniny w cewkach nerkowych, rzadkie zaburzenia świadomości (splątanie, omamy). Wszystkie leki grupy — biegunka lub zaparcia, zawroty, bóle głowy, hipergastrynemią, zwiększone ryzyko kolonizacji bakteriami górnego odcinka przewodu pokarmowego i dróg oddechowych."
+  },
+  {
+    "z": 0,
+    "t": "Antagoniści receptorów muskarynowych typu 1 (M1)",
+    "d": "Pirenzepina, Telenzepina",
+    "m": "Zmniejszają wydzielanie kwasu solnego głównie poprzez hamowanie czynności nerwów układu przywspółczulnego, na których obecne są receptory M1. Hamują także wydzielanie pepsyny i gastryny.",
+    "i": "Choroba wrzodowa żołądka, choroba refluksowa przełyku.",
+    "c": "Brak w książce.",
+    "n": "Nasilone działania niepożądane o charakterze cholinolitycznym: zaparcia, zatrzymanie moczu, suchość w ustach."
+  },
+  {
+    "z": 0,
+    "t": "Analogi prostaglandyn",
+    "d": "Mizoprostol",
+    "m": "Stabilny analog prostaglandyny E1 hamujący wydzielanie kwasu solnego i zwiększający wydzielanie śluzu i wodorowęglanów przez śluzówkę żołądka. Nasila regenerację nabłonka błony śluzowej.",
+    "i": "Zapobieganie owrzodzeniom żołądka i dwunastnicy w czasie terapii NLPZ, indukcja aborcji (do 7. tygodnia ciąży).",
+    "c": "Ciąża w okresie, gdy nie jest planowana aborcja (jest silnie teratogenny — kategoria X).",
+    "n": "Biegunki, skurczowe bóle brzucha, nudności, wymioty, zaostrzenie procesów zapalnych w jelitach, silne skurcze macicy."
+  },
+  {
+    "z": 18,
+    "t": "Leki osłaniające śluzówkę żołądka",
+    "d": "Sukralfat, Dicytrynian tripotasu bizmutu (III), Tlenek bizmutu, Salicylan bizmutawy, Kwas alginowy",
+    "m": "Sukralfat w kwaśnym pH tworzy lepki żel pokrywający niszę wrzodową, stymulując gojenie poprzez pobudzanie wydzielania prostaglandyn i czynników wzrostowych. Sole bizmutu pokrywają śluzówkę, wiążą kwasy żółciowe i bakterie, wykazując działanie bakteriobójcze na Helicobacter pylori. Kwas alginowy podwyższa pH i pokrywa ochronną warstwą śluzówkę.",
+    "i": "Choroba wrzodowa żołądka, zapobieganie wrzodowi stresowemu, profilaktyka hiperfostatemii u chorych z niewydolnością nerek, dolegliwości dyspeptyczne, biegunka podróżnych.",
+    "c": "Sukralfat — jednoczesne stosowanie z preparatami hamującymi wydzielanie kwasu solnego. Sole bizmutu — przewlekła niewydolność nerek, ciąża, karmienie piersią.",
+    "n": "Sukralfat — zaparcia, biegunka, zatrucie glinem (rzadko u pacjentów z niewydolnością nerek); hamuje wchłanianie digoksyny, fluorochinolonów, fenytoiny, antybiotyków. Sole bizmutu — nudności, wymioty, zaburzenia konsystencji stolca; przy przewlekłym stosowaniu encefalopatia i osteodystrofia; barwienie języka, protez dentystycznych i stolca na czarno."
+  },
+  {
+    "z": 18,
+    "t": "Środki zobojętniające kwas solny",
+    "d": "Wodorotlenek magnezu, Tlenek magnezu, Węglan magnezu, Trójkrzemian magnezu, Wodorotlenek glinu, Monoglicynian glinu, Fosforan glinu, Węglan glinu, Magaldrat, Hydrotalcyt, Wodorowęglan sodu, Węglan wapnia",
+    "m": "Sole magnezu, glinu i wapnia wchodzą w reakcję zobojętniania z kwasem solnym, podwyższając pH w żołądku. Związki magnezu działają przeczyszczająco, związki glinu — zaparajaco. Sole glinu dodatkowo hamują wchłanianie fosforanów z jelit.",
+    "i": "Doraźne znoszenie objawów dyspepsji, zgaga, zapobieganie hiperfostatemii u chorych z przewlekłą niewydolnością nerek.",
+    "c": "Stosowanie soli glinu i magnezu u pacjentów z niewydolnością nerek. Wodorowęglan sodu i węglan wapnia — brak doprecyzowania w źródle dla przeciwwskazań bezwzględnych, ale praktycznie nie są już stosowane.",
+    "n": "Zaburzenia wchłaniania wielu leków stosowanych doustnie (wymaga 2-godzinnego odstępu); zatrucie glinem lub hipermagnezemią u pacjentów z niewydolnością nerek; hipergastrynemię. Wodorowęglan sodu i węglan wapnia — silne odbijania, wzdęcia, zespół mleczno-alkaliczny (hiperkalcemia, alkaloza, odkładanie złogów wapnia w tkankach i narządach, niewydolność nerek)."
+  },
+  {
+    "z": 18,
+    "t": "Antagoniści receptorów dopaminowych typu D₂",
+    "d": "Metoklopramid, Trimetobenzamid, Domperydon, Lewosulpiryd, Itopryd",
+    "m": "Blokują receptory dopaminowe typu D₂, nasilając perystaltykę górnego odcinka przewodu pokarmowego; metoklopramid dodatkowo pobudza receptory 5-HT₄. Wykazują działanie przeciwwymiotne oraz stymulują laktację poprzez hamowanie uwalniania dopaminy w przysadce, co nasila wydzielanie prolaktyny.",
+    "i": "Choroba refluksowa przełyku, atonia żołądka, stymulacja laktacji po porodzie.",
+    "c": "Brak explicite wymieniony w źródle.",
+    "n": "Zaburzenia pozapiramidowe (dystonie, wtórny parkinsonizm, późne dyskinezy — około 25% pacjentów przy dłuższej terapii), pobudzenie, niepokój, bezsenność (do około 20% chorych, szczególnie osoby starsze); nasilenie wydzielania prolaktyny powodujące zaburzenia miesiączkowania, ginekomastię, mlekotok i impotencję (działania częstsze przy metoklopramidzie niż domperydon)."
+  },
+  {
+    "z": 18,
+    "t": "Agoniści receptorów serotoninowych typu 5-HT₄",
+    "d": "Cyzapryd, Tegaserod, Mozapryd, Renzapryd, Prukalopryd",
+    "m": "Pobudzają receptory 5-HT₄ zlokalizowane na włóknach nerwowych przewodu pokarmowego, nasilając perystaltykę górnego odcinka przewodu pokarmowego, jelita cienkiego i okrężnicy. Renzapryd wykazuje dodatkowo działanie blokujące na receptory 5-HT₃.",
+    "i": "Choroba refluksowa przełyku (cyzapryd), atonia żołądka (cyzapryd), zaparcie (tegaserod, prukalopryd), zespół jelita drażliwego (tegaserod, prukalopryd).",
+    "c": "Brak explicite wymieniony w źródle.",
+    "n": "Cyzapryd i tegaserod — bóle brzucha, biegunka, rzadko zaparcia; cyzapryd przedłuża odstęp QT i może wywoływać groźne zaburzenia rytmu serca (metabolizowany przez CYP3A4, interakcje z ketokonazolem, fluoksetyną, midazolamem, cyprofloksacyną, rytonawirem, werapamilem, chinidyną); tegaserod — ostre niedokrwienie mięśnia sercowego i udar mózgu."
+  },
+  {
+    "z": 18,
+    "t": "Aktywatory kanałów chlorkowych typu CIC-2",
+    "d": "Lubiproston",
+    "m": "Otwierają kanały dla chloru typu CIC-2 na nabłonku żołądka i jelit, przyspieszając pasaż treści pokarmowej.",
+    "i": "Zaparcie nawykowe u dorosłych.",
+    "c": "Brak w książce.",
+    "n": "Biegunka, nudności i wymioty (najczęściej przejściowe)."
+  },
+  {
+    "z": 18,
+    "t": "Leki pobudzające jelitową cyklazę guanylową C",
+    "d": "Linaklotyd, Plekanatyd",
+    "m": "Pobudzają cyklazę guanylową C w nabłonku jelit, zwiększając wydzielanie wody, sodu i wodorowęglanów do światła jelita.",
+    "i": "Zespół jelita drażliwego z zaparciem, idiopatyczne nawykowe zaparcia.",
+    "c": "Brak w książce.",
+    "n": "Biegunka, bóle brzucha, wzdęcia."
+  },
+  {
+    "z": 18,
+    "t": "Leki hamujące wchłanianie sodu w jelitach",
+    "d": "Tenapanor",
+    "m": "Hamuje wymiennik sodowo-wodorowy typu NHE3 w błonie komórek nabłonka jelita cienkiego i grubego, zatrzymując sód w świetle jelit i prowadząc do zwiększenia uwodnienia treści jelitowej oraz zmiękczcenia konsystencji stolca.",
+    "i": "Zespół jelita drażliwego z zaparciem u dorosłych.",
+    "c": "Brak w książce.",
+    "n": "Biegunka, bóle brzucha, wzdęcia."
+  },
+  {
+    "z": 18,
+    "t": "Obwodowo działające antagoniści receptorów opioidowych μ",
+    "d": "Metylnaltrekson, Alwimopan, Naloksegol, Naldemedyna",
+    "m": "Działają obwodowo, blokując receptory opioidowe μ w przewodzie pokarmowym, przywracając prawidłową czynność motoryczną jelit bez interfencji z przeciwbólowym działaniem opioidów systemowych. Naloksegol to pegylowany form N-naloksolu, co zapobiega przenikaniu przez barierę krew-mózg.",
+    "i": "Zaparcia związane ze stosowaniem opioidów, zespół jelita drażliwego przebiegający z zaparciem, zaparcia nawykowe oporne na działanie środków przeczyszczających.",
+    "c": "Brak w książce.",
+    "n": "Ogólnie dobrze tolerowane; mogą powodować różnie nasilone objawy zespołu odstawienia opioidów."
+  },
+  {
+    "z": 18,
+    "t": "Antybiotyki makrolidowe o działaniu prokinetycznym",
+    "d": "Erytromycyna, Klarytromycyna, Azytromycyna, Atylmotyn, Mitemcynal",
+    "m": "Agoniści receptorów dla motyliny; w mniejszych dawkach niż przeciwbakteryjne nasilają perystaltykę górnego odcinka przewodu pokarmowego i jelita cienkiego. Erytromycyna podawana dożylnie wykazuje skuteczność w atoniach żołądka i jelita.",
+    "i": "Atonia żołądka, atonia jelita, zaburzenia motoryki u pacjentów z twardziną układową.",
+    "c": "Brak explicite wymieniony w źródle.",
+    "n": "Brak explicite wymieniony w źródle dla działań o działaniu prokinetycznym."
+  },
+  {
+    "z": 18,
+    "t": "Trimebutyna",
+    "d": "Trimebutyna",
+    "m": "Agonista wszystkich typów receptorów opioidowych o słabym działaniu ośrodkowym, wykazująca działanie normalizujące perystaltykę — pobudzająca ją w biegunkach, hamująca w zaparciu.",
+    "i": "Zespół jelita drażliwego.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 18,
+    "t": "Inhibitory transportu kwasów żółciowych o działaniu prokinetycznym",
+    "d": "Maraliksybat, Odewiksybat, Elobiksybat",
+    "m": "Testowane w badaniach klinicznych leki wykazujące obiecujące działanie prokinetyczne; odewiksybat zarejestrowany do hamowania świądu w zespołach postępującej cholestazy wewnątrzwątrobowej.",
+    "i": "Działanie prokinetyczne w badaniach klinicznych; odewiksybat — świąd w zespołach postępującej cholestazy wewnątrzwątrobowej (zespół Alagille'a).",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 18,
+    "t": "Środki masowe",
+    "d": "Błonnik, Agar, Metyloceluloza, Karagenan, Śluz z nasion babki jajowatej, Śluz z nasion babki płesznika",
+    "m": "Nieu legające strawieniu polisacharydy, które ściągają wodę i pęcznieją w świetle jelita, a w jelicie grubym stają się pożywką dla bakterii. Przyrost masy treści pokarmowej nasila perystaltykę jelit.",
+    "i": "Zaparcie.",
+    "c": "Brak w książce.",
+    "n": "Wzdęcia, nadmierne tworzenie się gazów; wymagają przyjmowania dużej ilości płynów, działają po kilku dniach."
+  },
+  {
+    "z": 18,
+    "t": "Solne środki przeczyszczające",
+    "d": "Siarczan magnezu, Siarczan sodu, Cytrynian sodu, Fosforan sodu",
+    "m": "Zwiększają ciśnienie osmotyczne w świetle okrężnicy i ściągają wodę. W dużych dawkach podane doustnie działają bardzo szybko. Powodują przejściowy stan zapalny w ścianie jelit.",
+    "i": "Zaparcie.",
+    "c": "Podeszły wiek, niewydolność nerek, niewydolność krążenia.",
+    "n": "Odwodnienie, zatrzymanie sodu i wody w organizmie (przy dłuższym stosowaniu), nadciśnienie, zaburzenia elektrolitowe — hipermagnezemia, hiperfosfatemia."
+  },
+  {
+    "z": 18,
+    "t": "Alkohole cukrowe i cukry osmotyczne",
+    "d": "Laktuloza, Laktitol, Sorbitol, Glicerol",
+    "m": "Nieulegające wchłanianiu i trawieniu w jelicie cienkim cukry rozkładane przez bakterie w jelicie grubym do pobudzających perystaltykę i ściągających wodę kwasów organicznych oraz dwutlenku węgla. Laktuloza i laktitol zmniejszają wchłanianie amoniaku i przyspieszają jego przekształcanie do amoniaku w jelicie.",
+    "i": "Zaparcie, śpiączka wątrobowa (laktuloza, laktitol), salmonelloza (laktuloza).",
+    "c": "Brak explicite wymieniony w źródle.",
+    "n": "Wzdęcia, bóle brzucha (rozkład do dwutlenku węgla); glicerol i sorbitol w postaci czopków — szybkie wzbudzanie odruchu defekacji."
+  },
+  {
+    "z": 18,
+    "t": "Polietylenoglikole",
+    "d": "Polietylenoglikol 4000 Da",
+    "m": "Polimery tlenku etylenu, które nie wchłaniają się w przewodzie pokarmowym, wiążą wodę i przyspieszają pasaż jelitowy.",
+    "i": "Oczyszczanie jelita przed badaniem endoskopowym.",
+    "c": "Brak w książce.",
+    "n": "Nudności, wymioty, wzdęcia, bóle brzucha."
+  },
+  {
+    "z": 18,
+    "t": "Bis akodyl",
+    "d": "Bisakodyl",
+    "m": "Drażni śluzówkę jelita i sploty śródścienne, prowadząc do nasilenia motoryki jelit.",
+    "i": "Zaparcie.",
+    "c": "Brak explicite wymieniony w źródle.",
+    "n": "Brak explicite wymieniony w źródle."
+  },
+  {
+    "z": 18,
+    "t": "Parafina ciekła",
+    "d": "Parafina ciekła",
+    "m": "Zmiękcza konsystencję stolca poprzez działanie fizyczne, zmniejszając tarcie i ułatwiając przepuszczenie treści pokarmowej.",
+    "i": "Zaparcie.",
+    "c": "Brak w książce.",
+    "n": "Brak explicite wymieniony w źródle."
+  },
+  {
+    "z": 18,
+    "t": "Glikozydy oksyantrachinonowe",
+    "d": "Glikozydy oksyantrachinonowe",
+    "m": "Drażnią śluzówkę jelit i sploty śródścienne, prowadząc do nasilenia motoryki jelit.",
+    "i": "Zaparcie.",
+    "c": "Brak w książce.",
+    "n": "Brak explicite wymieniony w źródle."
+  },
+  {
+    "z": 18,
+    "t": "Gliceryna w czopkach",
+    "d": "Gliceryna",
+    "m": "Działa osmotycznie, ściągając wodę, i wzbudza odruch defekacji poprzez drażnienie śluzówki odbytnika.",
+    "i": "Zaparcie.",
+    "c": "Brak w książce.",
+    "n": "Szybkie wzbudzanie odruchu defekacji (po kilku godzinach)."
+  },
+  {
+    "z": 18,
+    "t": "Olej rycynowy",
+    "d": "Olej rycynowy",
+    "m": "Drażni śluzówkę jelit i sploty śródścienne, prowadząc do nasilenia motoryki jelit.",
+    "i": "Zaparcie.",
+    "c": "Brak w książce.",
+    "n": "Brak explicite wymieniony w źródle."
+  },
+  {
+    "z": 0,
+    "t": "Środki zmiękczające masy kałowe",
+    "d": "Dokuzanian sodu, Parafina ciekła",
+    "m": "Dokuzanian sodu wykazuje działanie emulgujące, zmniejszające napięcie powierzchniowe mas kałowych, umożliwiające lepsze mieszanie się ich z wodą i tłuszczem. Parafina ciekła, nieabsorbowana z jelit, zmiękcza masy kałowe.",
+    "i": "Zaparcie, zapobieganie zaparciu.",
+    "c": "Dokuzanian sodu — ciąża, karmienie piersią.",
+    "n": "Dokuzanian sodu — bóle brzucha, hipokalliemia, gorzki posmak w ustach. Parafina ciekła — plamienie, trudności w połykaniu, refluks olejistego płynu, ryzyko aspiracji do dróg oddechowych, zaparcie atfoniczne przy długotrwałym stosowaniu, hamowanie wchłaniania witamin rozpuszczalnych w tłuszczach."
+  },
+  {
+    "z": 0,
+    "t": "Środki drażniące błonę śluzową jelit",
+    "d": "Olej rycynowy, Aloes (gliko​zydy oksyantrachinonowe), Kruszyna pospolitą (Frangulae cortex), Rzewień (Rhei radix), Strączyńcu wąskolistny (Cassia senna), Śliwki suszone, Bisakodyl, Pikosiarczam sodu",
+    "m": "Drażnią błonę śluzową jelit, powodując wzrost wydzielania soków trawiennych i śluzu oraz pobudzenie perystaltyki. Mechanizm może zależeć od zahamowania Na⁺/K⁺-ATPazy odpowiedzialnej za resorpcję elektrolitów ze światła jelit. Nasilają procesy zapalne w ścianie jelit i powodują przekrwienie narządów miednicy mniejszej.",
+    "i": "Zaparcie, niewydolność motoryczna jelit.",
+    "c": "Zaawansowana ciąża, podostra niedrożność jelit.",
+    "n": "Skurcze jelit, bóle brzucha, rzadko hipokaliemia. Przewlekłe użycie glikozydów oksyantrachinonowych może prowadzić do czerniaczki jelita grubego (melanosis coli) i zaburzenia cathartic colon. Bisakodyl i pikosiarczam sodu mogą wywoływać silne skurcze jelit, bóle brzucha, rzadko hipokaliemię."
+  },
+  {
+    "z": 0,
+    "t": "Leki przeciwbakteryjne stosowane w biegunkach",
+    "d": "Nifuroksazyd, Furazolion, Kotrimoksazol, Cyprofloksacyna, Azytromycyna, Metronidazol, Ryfamycyna, Ryfaksymina, Wankomycyna",
+    "m": "Działają na różne cele bakteryjne — hamują syntezę DNA, białek lub ścian komórkowych patogenów jelitowych. Ryfaksymina jest antybiotykiem niewchłanianym z przewodu pokarmowego.",
+    "i": "Biegunka bakteryjna, biegunka podróżnych, ciężka biegunka zapalna, zakażenie Giardia lamblia, zespół rozrostu bakteryjnego jelita cienkiego (SIBO), ciężka biegunka spowodowana Clostridium difficile.",
+    "c": "Biegunka spowodowana enterohemorrhagic Escherichia coli (EHEC) — cyprofloksacyna i azytromycyna są przeciwwskazane.",
+    "n": "Zależne od konkretnego antybiotyku; zawarte w rozdziale 8."
+  },
+  {
+    "z": 0,
+    "t": "Leki adsorpcyjne i osłaniające",
+    "d": "Węgiel aktywowany, Kaolin, Pektyna, Białczan taniny, Siemię lniane, Skrobia pszenna, Korzeń prawoślazu, Diosmektyt, Atapulgit, Kwas metylokrzemowy, Sole bizmutu, Cholestrymina, Kolestypol",
+    "m": "Nierozpuszczalne, neutralne chemicznie zawiesiny adsorbujące na swej powierzchni bakterie i ich toksyny oraz pokrywające błonę śluzową jelit ochronną warstwą. Preparaty wiążące kwasy żółciowe hamują wydzielniczą biegunkę wywoływaną przez kwasy żółciowe w okrężnicy.",
+    "i": "Biegunka, zaburzenia wchłaniania kwasów żółciowych w chorobie Leśniowskiego-Crohna.",
+    "c": "Brak w książce.",
+    "n": "Zaparcia, odbijania, wzdęcia. Wiążą wiele substancji terapeutycznych i zapobiegają ich wchłanianiu."
+  },
+  {
+    "z": 0,
+    "t": "Analogi somatostatyny stosowane w biegunkach",
+    "d": "Oktreotyd, Lanreotyd, Wapreotyd",
+    "m": "Blokują wydzielanie większości hormonów w przewodzie pokarmowym, zmniejszają wydzielanie soków trawiennych, hamują motorykę przewodu pokarmowego, zmniejszają przepływ krwi przez łożysko trzewne, blokują wydzielanie niektórych hormonów z przysadki.",
+    "i": "Biegunka związana z guzami hormonalnie czynnymi (rakowiak, VIPoma), biegunka u pacjentów z AIDS, cukrzycą i zespołem poposiłkowym (dumping syndrome), krwawienia z różnych odcinków przewodu pokarmowego.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Inhibitory wydzielania serotoniny i peptydu opioidowego",
+    "d": "Telotrystat, Racekadotryl",
+    "m": "Telotrystat hamuje hydroksylazę tryptofanu, kluczowy enzym regulujący tempo biosyntezy serotoniny. Racekadotryl jest prolekiem przekształcanym do torfanu — inhibitora jelitowej enkefalinazy; zwiększa stężenie endogennych peptydów opioidowych w ścianie jelit, hamując wydzielanie jelitowe i zmniejszając perystaltykę.",
+    "i": "Biegunka w zespole rakowiaka, biegunka w przebiegu zespołu jelita drażliwego (racekadotryl).",
+    "c": "Racekadotryl — niemowlęta, ciąża, karmienie piersią.",
+    "n": "Racekadotryl — zmiany skórne (wysypka, rumień), zwiększenie tendencji do powstania zmian zapalnych migdałków."
+  },
+  {
+    "z": 0,
+    "t": "Inhibitory kanałów chlorkowych",
+    "d": "Krofelemer",
+    "m": "Hamuje dwa rodzaje kanałów chlorkowych w nabłonku jelitowym — CFTR (cystic fibrosis transmembrane regulator) i anoktaminę-1 (kanał chlorkowy aktywowany przez Ca²⁺), blokując wydzielanie chlorków i sodu do światła jelit, zmniejszając zawartość wody w stolcu.",
+    "i": "Biegunka pojawiająca się w trakcie leczenia AIDS nukleozydowymi inhibitorami odwrotnej transkryptazy (NRTI) oraz inhibitorami proteazy (PI), biegunka w zespole jelita drażliwego.",
+    "c": "Brak w książce.",
+    "n": "Praktycznie nie wywołuje działań niepożądanych."
+  },
+  {
+    "z": 0,
+    "t": "Leki spazmolityczne",
+    "d": "Drotaweryna, Papaweryna, Alweryna, Hioscyna, Adyfenina, Oksyfenonium, Propantelina",
+    "m": "Usuwają nadmierne napięcie mięśniówki okrężnej i lekko hamują ruchy perystaltyczne; działają poprzez blokowanie receptorów cholinergicznych lub inne mechanizmy.",
+    "i": "Zespół jelita drażliwego przebiegający z nasileniem perystaltyki, dolegliwości bólowe brzucha i miednicy mniejszej związane ze skurczem mięśni przewodu pokarmowego, dolegliwości towarzyszące krwawieniu miesięcznemu.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Leki zapierające — opioid słabo przenikający barierę krew-mózg",
+    "d": "Loperamid, Difenoksylat",
+    "m": "Pobudzają receptory opioidowe na presynaptycznych włóknach cholinergicznych i zmniejszają wydzielanie acetylocholiny w ścianie jelit, hamując perystaltykę i zwiększając reabsorpcję wody oraz elektrolitów z treści pokarmowej.",
+    "i": "Ostre biegunki o ciężkim przebiegu, zespół jelita drażliwego.",
+    "c": "Łagodne, samoograniczające się biegunki, zaostrzenie chorób zapalnych jelita grubego (ryzyko megacolon toxicum), rzekomobłoniaste zapalenie jelit, dzieci do 2. roku życia, karmienie piersią.",
+    "n": "Suchość śluzówek jamy ustnej, zaparcia, wzdęcia, bóle brzucha, bóle i zawroty głowy. Loperamid nie wywołuje działania ośrodkowego; difenoksylat ma większą zdolność przenikania przez barierę krew-mózg."
+  },
+  {
+    "z": 0,
+    "t": "Agonista receptorów opioidowych μ i κ oraz antagonista receptorów δ",
+    "d": "Eluksadolina",
+    "m": "Działa głównie miejscowo w jelitach, pobudzając receptory opioidowe μ i κ oraz blokując receptory δ, zmniejszając motorykę jelit i wydzielanie.",
+    "i": "Zespół jelita drażliwego przebiegający z biegunkami u dorosłych.",
+    "c": "Dysfunkcja zwieracza Oddiego, niedrożność dróg żółciowych, resekcja pęcherzyka żółciowego w wywiadzie, nadużywanie alkoholu (ryzyko zapalenia trzustki).",
+    "n": "Ze względu na ryzyko cholestazy wymieniono powyżej główne przeciwwskazania."
+  },
+  {
+    "z": 0,
+    "t": "Antagoniści receptorów 5-HT3",
+    "d": "Alosetron",
+    "m": "Selektywny antagonista receptorów serotoninowych 5-HT3; pobudzenie tego receptora wywołuje nudności i wymioty; antagonizm zmniejsza wydzielanie i perystaltykę.",
+    "i": "Zespół jelita drażliwego przebiegający z biegunkami u kobiet.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Prokinetyki stosowane w zespole jelita drażliwego",
+    "d": "Tegaserod, Linaklotyd, Lubiproston, Tenapanor",
+    "m": "Zwiększają motorykę jelit i wchłanianie wody; działają na różne receptory i kanały jonowe regulujące funkcje jelit.",
+    "i": "Zespół jelita drażliwego przebiegający z zaparciem.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Antagoniści receptorów opioidowych μ",
+    "d": "Alwimopan, Metylnaltrekson, Naloksegol",
+    "m": "Blokują receptory opioidowe μ w ścianach jelit, odwracając zaparcie wywołane przez opioid, bez wpływu na działanie przeciwbólowe opioidów w ośrodkowym układzie nerwowym.",
+    "i": "Zaparcie w zespole jelita drażliwego, zaparcie w trakcie stosowania opioidów.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Polimery krzemowe zmniejszające napięcie powierzchniowe gazów",
+    "d": "Dimetykon, Symetykon",
+    "m": "Obniżają napięcie powierzchniowe na granicy faz gaz-papka pokarmowa, łagodząc wzdęcia i zmniejszając uczucie rozdętego gazami przewodu pokarmowego.",
+    "i": "Wzdęcia w zespole jelita drażliwego, dyskomfort brzuszny związany z gazami.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Antagoniści receptorów cholinergicznych stosowani w zespole jelita drażliwego",
+    "d": "Hioscyna, Propantelina, Adyfenina, Oksyfenonium, Otylinium, Pinawerium, Cymetropium",
+    "m": "Blokują receptory M, zmniejszając skurcze mięśni gładkich przewodu pokarmowego, zwłaszcza okrężnicy, łagodząc bóle brzucha.",
+    "i": "Zespół jelita drażliwego przebiegający z bólami brzucha i zaburzeniami motoryki.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Preparaty rozkurczające mięśnie gładkie działające przez inne mechanizmy",
+    "d": "Papaweryna, Drotaweryna, Alweryna, Mebeweryna",
+    "m": "Zmniejszają napięcie mięśni gładkich przewodu pokarmowego poprzez mechanizmy inne niż blokada receptorów cholinergicznych; łagodzą bóle brzucha i zaburzenia motoryki.",
+    "i": "Zespół jelita drażliwego, dolegliwości bólowe brzucha i miednicy mniejszej związane ze skurczem mięśni.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Agonista receptorów opioidowych μ, δ i κ",
+    "d": "Trimebutyna",
+    "m": "W zrównoważony sposób pobudza receptory opioidowe μ, δ i κ w ścianie jelit; wykazuje działanie tonizujące (regulujące) dla mięśniówki przewodu pokarmowego.",
+    "i": "Zespół jelita drażliwego przebiegający z biegunkami, zespół jelita drażliwego przebiegający z zaparciem.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Analog glukagonopodobnego peptydu 2",
+    "d": "Teduglutyd",
+    "m": "Peptyd analogiczny do GLP-2 wydzielanego przez komórki L nabłonka jelitowego; pobudza receptory dla GLP-2 na komórkach enteroendokrynnych, neuronach spłotów nerwowych i miofibroblastach podnabiłonkowych, modulując działanie jelitowego układu wewnątrzwydzielniczego, zwiększając syntezę insulinopodobnego czynnika wzrostowego typu 1, co sprzyja regeneracji nabłonka jelit i zwiększa wchłanianie pokarmu.",
+    "i": "Zespół krótkiego jelita, zmniejszanie zależności od żywienia pozajelitowego.",
+    "c": "Brak explicite; jednak przed leczeniem należy przeprowadzić kolonoskopię i usunąć ewentualne polipy.",
+    "n": "Zwiększone ryzyko rozwoju nowotworów (zwłaszcza przewodu pokarmowego); bóle brzucha, zapalenie trzustki, cholestaza, zakażenia układu oddechowego, nocne poty, gorączka, reakcje w miejscu wstrzyknięcia."
+  },
+  {
+    "z": 0,
+    "t": "Preparaty zawierające enzym laktazę",
+    "d": "Laktaza",
+    "m": "Rozkłada laktozę do glukozy i galaktozy; zapobiega objawom nietolerancji laktozy poprzez umożliwienie wchłaniania cukrów prostych.",
+    "i": "Biegunka na podłożu nietolerancji laktozy.",
+    "c": "Brak w książce.",
+    "n": "Wzrost wchłaniania glukozy do krwi może pogorszyć kontrolę glikemii u chorych na cukrzycę; możliwość pojawienia się odczynów alergicznych jako białko."
+  },
+  {
+    "z": 0,
+    "t": "Agonista receptorów α₂-adrenergicznych",
+    "d": "Klonidyna",
+    "m": "W małych dawkach reguluje czynności motoryczne jelit i zmniejsza wydzielanie wody oraz elektrolitów do stolca; dokładny mechanizm tego działania nie został wyjaśniony.",
+    "i": "Biegunka na tle neuropatii cukrzycowej.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Trójcykliczne leki przeciwdepresyjne stosowane w zespole jelita drażliwego",
+    "d": "Amitryptylina, Dezypramina",
+    "m": "W małych dawkach nie wpływają na nastrój, ale zmieniają ośrodkową odpowiedź na bodźce wiscerosensoryczne, łagodząc dolegliwości bólowe brzucha.",
+    "i": "Dolegliwości bólowe w zespole jelita drażliwego.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Probiotyki i preparaty zawierające szczepy bakteryjne",
+    "d": "Lactobacillus, Bifidobacterium",
+    "m": "Zawierają żywe szczepy mikroorganizmów, które przywracają równowagę mikroflory jelitowej; dokładne mechanizmy działania wymagają dalszych badań.",
+    "i": "Biegunka na podłożu dysbakterioz po stosowaniu antybiotyków o szerokim spektrum, zespół jelita drażliwego.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 18,
+    "t": "Aminosalicylany",
+    "d": "Mesalazyna, Sulfasalazyna, Olsalazyna, Balsalazyd",
+    "m": "Mesalazyna (5-ASA) hamuje powstawanie prozapalnych leukotrienów i prostaglandyn, zmniejsza aktywację czynnika transkrypcyjnego NF-κB i aktywację limfocytów T, wykazuje właściwości antyoksydacyjne. Sulfasalazyna, olsalazyna i balsalazyd zawierają 5-ASA związaną z nośnikiem, który w jelicie grubym ulega rozłożeniu przez azoreduktazę.",
+    "i": "Wrzodziejące zapalenie jelita grubego, choroba Leśniowskiego-Crohna.",
+    "c": "Brak w książce.",
+    "n": "Sulfasalazyna: bóle głowy, gorączka, nudności i wymioty, wysypki skórne, ototoksyczność, niebieskawe podbarwienie skóry, zaburzenia wchłaniania kwasu foliowego, agranulocytoza, małopłytkowość, niedokrwistość hemolityczna, zespół toczniopodobny, bóle mięśni, zapalenie śródmiąższowe nerek, zapalenie trzustki, oligospermia u mężczyzn. Mesalazyna: reakcje uczuleniowe, zapalenie śródmiąższowe nerek przy dużych dawkach, biegunka wydzielnicza przy olsalazynie u 10% pacjentów."
+  },
+  {
+    "z": 18,
+    "t": "Glikokortykosteroidy w chorobach zapalnych jelita grubego",
+    "d": "Prednizon, Prednizolon, Hydrokortyzon, Metyloprednizolon, Budezonid",
+    "m": "Mechanizm działania omówiony w rozdziale 16. Działają przeciwzapalnie poprzez hamowanie transkrypcji genów cytokin zapalnych i receptorów dla mediatorów zapalenia.",
+    "i": "Wrzodziejące zapalenie jelita grubego, choroba Leśniowskiego-Crohna, łagodna postać choroby Leśniowskiego-Crohna.",
+    "c": "Brak w książce.",
+    "n": "Omówione w rozdziale 16."
+  },
+  {
+    "z": 18,
+    "t": "Leki immunosupresyjne w chorobach zapalnych jelita grubego",
+    "d": "Azatiopryna, Merkaptopuryna, Cyklosporyna, Takrolimus",
+    "m": "Mechanizm działania omówiony w rozdziale 5. Hamują proliferację limfocytów i produkcję cytokin zapalnych.",
+    "i": "Wrzodziejące zapalenie jelita grubego, choroba Leśniowskiego-Crohna, indukcja remisji, terapia podtrzymująca.",
+    "c": "Brak w książce.",
+    "n": "Omówione w rozdziale 5."
+  },
+  {
+    "z": 18,
+    "t": "Leki anty-TNF-α i inne leki biologiczne",
+    "d": "Infliksymab, Adalimumab, Etanercept, Golimumab, Afelimomab, Pegsunercept, Certolizumab pegylowany, Wedolizumab, Natalizumab, Ustekinumab, Risankizumab",
+    "m": "Infliksymab i adalimumab to przeciwciała monoklonalne przeciwko TNF-α. Etanercept to receptor dla TNF-α połączony z fragmentem Fc IgG. Wedolizumab to przeciwciało przeciwko dimerowi integryny α4β7, hamuje adhezję limfocytów do śródbłonka naczyń przewodu pokarmowego. Ustekinumab i risankizumab neutralizują IL-25.",
+    "i": "Choroba Leśniowskiego-Crohna, wrzodziejące zapalenie jelita grubego, zaawansowane przypadki choroby, przetoki, zwężenia.",
+    "c": "Brak w książce.",
+    "n": "Omówione ogólnie w rozdziale 1, szczegółowo w rozdziale 5."
+  },
+  {
+    "z": 18,
+    "t": "Chemioterapeutyki przeciwbakteryjne w chorobach zapalnych jelita grubego",
+    "d": "Metronidazol, Cyprofloksacyna",
+    "m": "Mechanizm działania omówiony w części III tomu pierwszego. Metronidazol hamuje syntezę DNA bakterii anaerowych, cyprofloksacyna hamuje topizomerazy bakteryjne.",
+    "i": "Choroba Leśniowskiego-Crohna, zmiany okołoodbytnicze.",
+    "c": "Brak w książce.",
+    "n": "Omówione w części III tomu pierwszego."
+  },
+  {
+    "z": 18,
+    "t": "Leki żółciotwórcze",
+    "d": "Żółć wołu, Kwas ursodeoksycholowy, Kwas chenodeoksycholowy, Kwas obetycholowy, Hydroksymetylnikotynamid, Preparaty roślinne zawierające terpeny i terpenoidy",
+    "m": "Kwasy żółciowe wzmagają wytwarzanie żółci przez hepatocyty, wykazują właściwości emulsyfikacyjne, prokinetyczne i ułatwiają wchłanianie tłuszczów. Kwas obetycholowy działa jako agonista receptorów farnezoidu X (FXR), hamuje syntezę kwasów żółciowych i triglicerydów w wątrobie. Hydroksymetylnikotynamid nasila tworzenie żółci i wykazuje działanie odkażające. Preparaty roślinne zwiększają tworzenie żółci poprzez zawarte terpeny i terpenoidy.",
+    "i": "Wspieranie leczenia kamicy żółciowej, wspieranie leczenia zakażeń dróg żółciowych, leczenie dyskinez dróg żółciowych, zwiększanie wydzielania żółci po cholecystektomii, wspieranie leczenia hiperbilirubinemii, pobieranie żółci w celach diagnostycznych.",
+    "c": "Ostre zapalenie wątroby, ropniak pęcherzyka żółciowego, niedrożność dróg żółciowych, uszkodzenie miąższu wątroby.",
+    "n": "Kwasy żółciowe: biegunka, świąd skóry, bóle brzucha. Hydroksymetylnikotynamid: biegunka przy dłuższym stosowaniu."
+  },
+  {
+    "z": 18,
+    "t": "Leki żółciopędne",
+    "d": "Pilokarpina, Neostygmina, Himecromon",
+    "m": "Pilokarpina i neostygmina nasilają przekaźnictwo w układzie przywspółczulnym, wzmagając motorykę dróg żółciowych. Himecromon wykazuje działanie żółciopędne, słabe działanie spazmolityczne i żółciotwórcze.",
+    "i": "Leczenie dyskinez dróg żółciowych, wspomaganie opróżniania pęcherzyka żółciowego.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 18,
+    "t": "Kwas ursodeoksycholowy w rozpuszczaniu kamieni żółciowych",
+    "d": "Kwas ursodeoksycholowy",
+    "m": "Hamuje wydzielanie cholesterolu do żółci przez hepatocyty, powoduje przewagę kwasów żółciowych w żółci, co prowadzi do rozpuszczania kamieni cholesterolowych.",
+    "i": "Rozpuszczanie niewielkich kamieni cholesterolowych.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Kwas ursodeoksycholowy",
+    "d": "Kwas ursodeoksycholowy",
+    "m": "Stabilizuje kanaliki żółciowe i przeciwdziała immunologicznemu uszkodzeniu hepatocytów; dokładny mechanizm tych działań jest niejasny.",
+    "i": "Kamica żółciowa (małe kamienie cholesterolowe o niewielkim stopniu uwapnienia u pacjentów niekwalifikujących się do zabiegu operacyjnego), wczesne stadium pierwotnej marskości wątroby.",
+    "c": "Brak w książce.",
+    "n": "Biegunka, umiarkowane podwyższenie aktywności aminotransferaz we krwi, świąd skóry."
+  },
+  {
+    "z": 0,
+    "t": "Inhibitory proteazy serynowej NS3/4A wirusa HCV",
+    "d": "Asunaptewir, Glekaptewir, Grazoprewir, Parytaptewir, Woksylaprewir",
+    "m": "Selektywne inhibitory proteazy serynowej NS3/4A wirusa HCV; enzym ten tnie poliproteinę wirusa na odpowiednie części, w tym białka NS5A i NS5B.",
+    "i": "Przewlekłe zapalenie wątroby typu C.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Inhibitory białka NS5A wirusa HCV",
+    "d": "Elbaswir, Ledipaswir, Welpataswir, Pibrentaswir",
+    "m": "Inhibitory wirusowego białka NS5A, które wraz z polimerazą NS5B bierze udział w replikacji materiału genetycznego wirusa.",
+    "i": "Przewlekłe zapalenie wątroby typu C.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Inhibitory polimerazy RNA NS5B wirusa HCV",
+    "d": "Sofosbuwir, Dazabuwir",
+    "m": "Swoiste inhibitory wirusowej polimerazy RNA NS5B stosowane w skojarzonym leczeniu przewlekłego zapalenia wątroby typu C.",
+    "i": "Przewlekłe zapalenie wątroby typu C.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Leki chelatujące miedź",
+    "d": "Penicylamina, Trietylenotetramina",
+    "m": "Penicylamina wiąże miedź w tkankach w wydalany z moczem i kałem kompleks; chelatuje także inne metale (ołów, rtęć, kadm, cynk, nikiel, złoto, żelazo). Wykazuje właściwości hamujące aktywność limfocytów T. Trietylenotetramina to chelator miedzi lepiej tolerowany niż penicylamina.",
+    "i": "Choroba Wilsona.",
+    "c": "Dla penicylaminy: uczulenie na penicylinę. Dla trietylenotetraminŷ: brak w książce.",
+    "n": "Dla penicylaminy: reakcje nadwrażliwości (wysypki skórne, świąd skóry, gorączka, reakcje anafilaktyczne), uszkodzenie nerek z białkomoczem, pancytopenia, niedobór witaminy B6. Dla trietylenotetraminŷ: zapalenie żołądka, niedokrwistość syderoblastyczna lub rzadziej aplastyczna."
+  },
+  {
+    "z": 0,
+    "t": "Sole cynku",
+    "d": "Siarczan cynku, Glukonian cynku, Octan cynku",
+    "m": "Hamują wchłanianie miedzi z jelit.",
+    "i": "Choroba Wilsona (leczenie podtrzymujące u pacjentów bezobjawowych lub u chorych niezdolnych przyjmować chelatorów miedzi).",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Aminokwasy siarkowe",
+    "d": "Metionina, Cysteina",
+    "m": "Donory grup -SH wspierające detoksyfikację toksyn w hepatocytach.",
+    "i": "Schorzenia wątroby (śpiączka wątrobowa, zapalenia, stłuszczenie, marskość, zatrucia, rekonwalescencja po przebytych schorzeniach wątroby).",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Tymonacyk",
+    "d": "Tymonacyk",
+    "m": "Pro-drug przekształcający się w organizmie do cysteiny, donora zredukowanych grup -SH; wzmaga zdolności hepatocytów do detoksyfikacji trucizn, nasila regenerację wątroby, wykazuje działanie hipolipemizujące i żółciopędne.",
+    "i": "Schorzenia wątroby (śpiączka wątrobowa, zapalenia, stłuszczenie, marskość, zatrucia, rekonwalescencja po przebytych schorzeniach wątroby).",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Sylimaryna",
+    "d": "Sylimaryna",
+    "m": "Mieszanina flawolignanów (sylibiny, sylikrystyny, sylidioniny) z ostropestu plamistego wykazująca wielokierunkowe działanie przeciwzapalne, antyoksydacyjne i wzmacniające regenerację.",
+    "i": "Schorzenia wątroby (śpiączka wątrobowa, zapalenia, stłuszczenie, marskość, zatrucia, rekonwalescencja po przebytych schorzeniach wątroby).",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Ornityna",
+    "d": "Ornityna",
+    "m": "Aminokwas zwiększający usuwanie amoniaku z organizmu.",
+    "i": "Stan przedśpiączkowy, śpiączka wątrobowa.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Kwas liponowy",
+    "d": "Kwas liponowy",
+    "m": "Koenzym w przemianach kwasu pirogronowego i innych α-ketokwasów, donor grupy -SH; przyspiesza utlenianie glukozy (zmniejsza jej stężenie we krwi) i zwiększa odkładanie glikogenu w wątrobie, wykazuje działania przeciwzapalne i antyoksydacyjne.",
+    "i": "Schorzenia wątroby, neuropatia cukrzycowa.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Acetylocysteina",
+    "d": "Acetylocysteina",
+    "m": "Donor grup -SH.",
+    "i": "Zatrucia paracetamolem.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Pentoksyfilina",
+    "d": "Pentoksyfilina",
+    "m": "Lek hamujący powstawanie i działanie TNF-α, który odgrywa dużą rolę w rozwoju alkoholowego uszkodzenia wątroby.",
+    "i": "Ciężkie alkoholowe uszkodzenie wątroby.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Witaminy z grupy B, fosfolipidy i aminokwasy",
+    "d": "Witaminy B1, B5, B12, B6, Fosfolipidy, Arginina, Glutamina",
+    "m": "Wsparcie metaboliczne hepatocytów; dokładny mechanizm działania nie jest w pełni wyjaśniony.",
+    "i": "Schorzenia wątroby (śpiączka wątrobowa, zapalenia, stłuszczenie, marskość, zatrucia, rekonwalescencja po przebytych schorzeniach wątroby).",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Laktuloza i Laktitol",
+    "d": "Laktuloza, Laktitol",
+    "m": "Osmotyczne środki przeczyszczające przyspieszające przekształcanie w jelicie jonów amonowych do amoniaku i zmniejszające jego wchłanianie do krążenia.",
+    "i": "Śpiączka wątrobowa.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Antybiotyki w śpiączce wątrobowej",
+    "d": "Ryfaksymina, inne antybiotyki o szerokim spektrum działania",
+    "m": "Poprzez zwalczanie bakterii zasiedlających jelita zmniejszają stężenie amoniaku we krwi.",
+    "i": "Śpiączka wątrobowa.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Fenylomaślan glicerolu",
+    "d": "Fenylomaślan glicerolu",
+    "m": "Lek zwiększający wydalanie mocznika w formie fenylooctanu glutaminy.",
+    "i": "Wrodzena hiperammonemia, śpiączka wątrobowa.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Inhibitory transportu zwrotnego kwasów żółciowych",
+    "d": "Maralixybat, Odelixybat",
+    "m": "Inhibitory transportu zwrotnego kwasów żółciowych w jelicie krętym.",
+    "i": "Uporczywy świąd w postępującej rodzinnej cholestazie wewnątrzwątrobowej (PFIC typu 1 i 2) u pacjentów od 6. miesiąca życia.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Preparaty enzymów trzustkowych",
+    "d": "Pankreatyna, Pankrelipaza",
+    "m": "Zawierają trzustkowe lipazę, amylazę i proteazę; zastępują funkcję trzustki w niewystarczającym wydzielaniu enzymu.",
+    "i": "Przewlekłe zapalenie trzustki (zewnątrzwydzielnicza niewydolność trzustki), mukowiscydoza.",
+    "c": "Brak w książce.",
+    "n": "Podrażnienia błony śluzowej gardła i jamy ustnej (bezpośrednie działanie enzymów), hiperurykemia, urykozuria, kamica moczowa."
+  },
+  {
+    "z": 0,
+    "t": "Inhibitory proteaz serynowych",
+    "d": "Aprotynina",
+    "m": "Inhibitor proteaz serynowych — trypsyny, chymotrypsyny i plazminy oraz inhibitor kalikreiny; hamuje przedwczesną aktywację enzymów trzustkowych.",
+    "i": "Ostra pankreatitis (użycie historyczne).",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Drobnocząsteczkowe inhibitory enzymów proteolitycznych",
+    "d": "Gabeksat, Nafamostat, Ulinastatyna",
+    "m": "Inhibitory enzymów proteolitycznych trzustki; podawane dożylnie bezpośrednio do tętnic zaopatrujących trzustkę.",
+    "i": "Ostra pankreatitis (leczenie w fazie badań).",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Wzmacniacze działania CFTR",
+    "d": "Iwakaftor",
+    "m": "Wzmacnia działanie transportera chlorkowego CFTR (cystic fibrosis transmembrane regulator).",
+    "i": "Mukowiscydoza.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Korrektory transportu wewnątrzkomórkowego CFTR",
+    "d": "Lumakaftor, Tezakaftor, Eleksakaftor",
+    "m": "Korygują transport wewnątrzkomórkowy CFTR (cystic fibrosis transmembrane regulator).",
+    "i": "Mukowiscydoza.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  },
+  {
+    "z": 0,
+    "t": "Korrektory działania rybosomu",
+    "d": "Ataluren",
+    "m": "Koryguje działanie rybosomu w procesie translacji.",
+    "i": "Mukowiscydoza.",
+    "c": "Brak w książce.",
+    "n": "Brak w książce."
+  }
+]
