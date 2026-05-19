@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Patryk Popenda — CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:       #15181d;
+    --ink-soft:  #2c333d;
+    --muted:     #5a6068;
+    --rule:      #d8dadd;
+    --rule-soft: #ececee;
+    --accent:    #1a4480;
+    --code-bg:   #f3f4f6;
+  }
+
+  @page {
+    size: A4;
+    margin: 16mm 16mm 14mm 16mm;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    color: var(--ink);
+    font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10.25pt;
+    line-height: 1.5;
+    font-feature-settings: "ss01", "cv11", "kern";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .header {
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .name {
+    font-size: 26pt;
+    font-weight: 700;
+    letter-spacing: -0.6px;
+    line-height: 1.05;
+    margin: 0 0 4px 0;
+    color: var(--ink);
+  }
+  .role {
+    font-size: 11pt;
+    font-weight: 500;
+    color: var(--ink-soft);
+    margin: 0 0 8px 0;
+    letter-spacing: 0.1px;
+  }
+  .role .sep {
+    color: var(--rule);
+    margin: 0 8px;
+    font-weight: 400;
+  }
+  .contact {
+    font-size: 9.25pt;
+    color: var(--muted);
+    margin: 0;
+    letter-spacing: 0.1px;
+  }
+  .contact a {
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+  .contact .sep {
+    color: var(--rule);
+    margin: 0 6px;
+  }
+
+  h2 {
+    font-size: 8.75pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    color: var(--muted);
+    margin: 18px 0 8px 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--rule);
+    page-break-after: avoid;
+  }
+  h2:first-of-type { margin-top: 4px; }
+
+  h3 {
+    font-size: 11pt;
+    font-weight: 600;
+    margin: 12px 0 1px 0;
+    color: var(--ink);
+    letter-spacing: -0.1px;
+    page-break-after: avoid;
+  }
+  h3 .pipe {
+    color: var(--rule);
+    font-weight: 400;
+    margin: 0 8px;
+  }
+  h3 .org {
+    color: var(--ink);
+  }
+  h3 .title {
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+
+  .meta {
+    font-size: 9pt;
+    color: var(--muted);
+    margin: 0 0 6px 0;
+    letter-spacing: 0.1px;
+  }
+  .meta strong {
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+
+  p { margin: 0 0 7px 0; }
+  p.lead { margin-bottom: 8px; }
+
+  ul {
+    list-style: none;
+    margin: 4px 0 8px 0;
+    padding: 0;
+  }
+  li {
+    position: relative;
+    padding-left: 14px;
+    margin-bottom: 5px;
+    page-break-inside: avoid;
+  }
+  li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 4px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 0;
+  }
+
+  strong { font-weight: 600; color: var(--ink); }
+  em { font-style: italic; color: var(--ink-soft); }
+
+  code, .mono {
+    font-family: "JetBrains Mono", "SF Mono", "Menlo", "Consolas", monospace;
+    font-size: 8.75pt;
+    background: var(--code-bg);
+    padding: 1px 4px;
+    border-radius: 3px;
+    color: var(--ink-soft);
+    font-weight: 400;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .links a, .contact a { color: inherit; }
+
+  .summary {
+    color: var(--ink-soft);
+    font-size: 10.25pt;
+    line-height: 1.55;
+  }
+
+  /* Tight stack section so it reads as a card not a list of paragraphs */
+  .stack li { margin-bottom: 4px; }
+  .stack strong { color: var(--ink); }
+
+  .lang-row {
+    display: flex;
+    gap: 24px;
+    margin: 2px 0 0 0;
+  }
+  .lang-row > div { font-size: 10pt; }
+  .lang-row strong { display: block; color: var(--ink); font-size: 10.5pt; }
+  .lang-row .lvl { color: var(--muted); font-size: 9.25pt; }
+
+  .role-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .role-line .when {
+    color: var(--muted);
+    font-size: 9.25pt;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+    white-space: nowrap;
+  }
+
+  hr { display: none; }
+
+  @media print {
+    a { color: inherit; }
+    .contact a { color: var(--muted); }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <h1 class="name">Patryk Popenda</h1>
+  <p class="role">
+    Applied LLM / AI Engineer
+    <span class="sep">·</span> Remote EU
+    <span class="sep">·</span> based in Poland
+  </p>
+  <p class="contact">
+    <a href="mailto:patryk@ewwesolutions.work">patryk@ewwesolutions.work</a>
+    <span class="sep">·</span> +48 512 030 048
+    <span class="sep">·</span> <a href="https://ewwesolutions.work">ewwesolutions.work</a>
+    <span class="sep">·</span> <a href="https://github.com/ewwe72/ewwesolutions">github.com/ewwe72/ewwesolutions</a>
+    <span class="sep">·</span> <a href="https://linkedin.com/in/patryk-popenda">linkedin.com/in/patryk-popenda</a>
+  </p>
+</header>
+
+<h2>Summary</h2>
+<p class="summary">
+Applied-LLM engineer shipping two production Polish-language SaaS products
+built on the Anthropic API + AWS Bedrock. Comfortable across the full LLM
+stack: prompt engineering, forced tool-use with strict JSON schemas,
+multi-modal (text + vision) routing, prompt caching, evaluation,
+schema-validated output, cost modelling, and security auditing of LLM
+output boundaries (prompt injection, delimiter spoofing, stored XSS).
+Solo founder by necessity — I own the model layer, the FastAPI service,
+the worker, the Postgres schema, the Stripe integration, and the prod
+VM. Background is Windows + PowerShell systems engineering inside a
+large industrial-automation org, so I'm equally at home in
+M365 / Entra ID / Intune ops as I am in Linux + Docker. Looking for a
+remote-EU role where the LLM layer is genuinely load-bearing, not a
+wrapper.
+</p>
+
+<h2>Selected production work</h2>
+
+<div class="role-line">
+  <h3><span class="org">Faktomat</span><span class="pipe">—</span><span class="title">Polish invoice IDP SaaS</span></h3>
+  <span class="when">2025 – 2026 · solo</span>
+</div>
+<p class="meta">Live at <strong>faktomat.ewwesolutions.work</strong></p>
+<p>
+Paying flow end-to-end: signup → email verification → Stripe top-up →
+PDF upload → LLM extraction → editable review → JPK_FA (Polish
+government) XML export. Charged at 0.50 PLN per processed invoice.
+</p>
+<ul>
+  <li><strong>Bedrock Claude (Haiku) extraction pipeline with forced tool-use</strong> —
+    <code>tool_choice={"type": "tool", "name": ...}</code> + strict pydantic
+    <code>TOOL_SCHEMA</code>, which eliminates the "model emits text outside
+    the schema" failure mode entirely. Schema violations become server
+    errors, not silent drops.</li>
+  <li><strong>Multi-modal routing.</strong> Text path uses pdfplumber/pypdf;
+    if text extraction is degenerate, the same chunk is re-sent as a
+    <code>document</code> block (rasterised pages) — vision-mode fallback
+    at parity cost per the published Anthropic pricing.</li>
+  <li><strong>Bounded blast-radius extraction.</strong> Per-page cost
+    ceiling, per-upload spend cap, friendly Polish error messages with raw
+    LLM output preserved to <code>audit_events.payload.error_raw</code>
+    for post-hoc debugging.</li>
+  <li><strong>Stack:</strong> FastAPI · pydantic-strict · SQLAlchemy +
+    Alembic · arq worker · Postgres · Redis · MinIO (S3-compat) · Stripe
+    live (Checkout Sessions + webhooks) · Cloudflared tunnel · all
+    containerised via docker-compose on a Hyper-V Ubuntu VM.</li>
+  <li><strong>Discipline:</strong> mypy <code>--strict</code> across the
+    source tree, integration test suite that hits a real Postgres (no
+    mocks at the DB boundary), pre-push secret-audit script, public
+    <code>/status</code> page (DB / Redis / MinIO probes + 30 s cache +
+    bounded boto3 timeouts), per-event Discord alerter with anchored
+    cursor.</li>
+</ul>
+
+<div class="role-line">
+  <h3><span class="org">Fiszkomat</span><span class="pipe">—</span><span class="title">Polish PDF → Anki flashcard generator</span></h3>
+  <span class="when">2025 – 2026 · solo</span>
+</div>
+<p class="meta">Live at <strong>fiszkomat.ewwesolutions.work</strong></p>
+<p>
+Paid checkout, in-browser SM-style reviewer + <code>.apkg</code> export,
+7 curated sample decks (296 cards) on the landing page.
+</p>
+<ul>
+  <li><strong>Direct Anthropic API</strong> (Claude Haiku 4.5) with
+    <strong>prompt caching</strong> (<code>cache_control: ephemeral</code>)
+    on the system prompt — meaningful per-run cost reduction since the
+    system prompt is the chunked-call prefix.</li>
+  <li><strong>Pydantic-validated card schema</strong>
+    (<code>z, t, d, m, i, c, n</code>) with sha1 dedup, length caps per
+    field, and a Polish-only enforcement detector that inspects every
+    visible card text field against an English-only stopword set chosen
+    to avoid Polish false positives. Iterated from 5 hard-coded stopwords
+    to a curated 47-word set after a static audit.</li>
+  <li><strong>268-line static prompt-safety audit</strong> I wrote against
+    my own code (<code>docs/fiszkomat-prompt-audit.md</code>) covering:
+    delimiter-spoof injection via <code>---</code> chunk markers,
+    Polish-only detector gaps, HTML-escape posture across three render
+    surfaces (server-side sample HTML, in-browser reviewer DOM, Anki
+    Mustache template), DoS surface paywalling, prompt caching as
+    economic optimisation vs security control.</li>
+  <li><strong>XSS regression tests as positive pins</strong> on the LLM
+    output path — if a future refactor swaps <code>html.escape</code> for
+    raw interpolation or switches the reviewer from
+    <code>textContent</code> to <code>innerHTML</code>, the test suite
+    fails loudly with a comment pointing to the audit.</li>
+  <li><strong>147 pytest tests</strong> covering validate_cards,
+    telemetry sanitisation (no <code>$X.XX</code> cost or token counts
+    leak to <code>/status</code>), sample-deck asset integrity, and the
+    audit findings.</li>
+  <li><strong>Active dogfood user</strong> giving structured feedback (a
+    Polish medical student preparing for kolokwia).</li>
+</ul>
+
+<div class="role-line">
+  <h3><span class="org">Studio</span><span class="pipe">—</span><span class="title">ewwesolutions.work</span></h3>
+  <span class="when">2025 – 2026</span>
+</div>
+<p>
+Umbrella site for both products. Static HTML served by a tiny systemd
+unit; the equity card pulls live paper-trading P&amp;L from a 30-minute
+Alpaca snapshot timer. Honest delta-from-baseline rendering — no
+cherry-picked highs.
+</p>
+
+<h2>Core stack</h2>
+<ul class="stack">
+  <li><strong>LLM:</strong> Anthropic Claude (direct API + AWS Bedrock),
+    prompt caching, forced tool-use with input schemas, vision/document
+    blocks, structured output validation, multi-modal routing, cost
+    modelling, prompt-injection threat-modelling, evaluation against
+    real Polish-language inputs.</li>
+  <li><strong>Backend:</strong> Python 3.12, FastAPI, Pydantic (strict),
+    SQLAlchemy + Alembic, asyncio, arq (Redis-backed task queue).</li>
+  <li><strong>Data:</strong> Postgres, Redis, MinIO (S3-compatible), boto3.</li>
+  <li><strong>Infra (Linux):</strong> Docker, docker-compose, Cloudflared,
+    systemd, Ubuntu.</li>
+  <li><strong>Infra (Windows):</strong> Hyper-V, PowerShell (Exchange
+    Online, MSGraph / AzureAD, Intune Graph API, ActiveDirectory module),
+    Group Policy, Intune configuration profiles, Entra ID conditional
+    access.</li>
+  <li><strong>Payments:</strong> Stripe (Checkout Sessions, live keys,
+    webhook verification, idempotency).</li>
+  <li><strong>Frontend:</strong> Server-rendered Jinja2 + vanilla JS,
+    minimal-dep philosophy, no SPA framework.</li>
+  <li><strong>Discipline:</strong> mypy <code>--strict</code>, pytest
+    (unit + integration), pre-push secret audit, conventional commits,
+    post-hoc rationale in CHANGELOG.</li>
+</ul>
+
+<h2>Languages</h2>
+<div class="lang-row">
+  <div><strong>Polish</strong><span class="lvl">native</span></div>
+  <div><strong>English</strong><span class="lvl">fluent — technical writing, async, on-call</span></div>
+</div>
+
+<h2>Previous experience</h2>
+
+<div class="role-line">
+  <h3><span class="org">Rockwell Automation</span><span class="pipe">—</span><span class="title">IT Specialist (L2 / L3)</span></h3>
+  <span class="when">2022 – 2024</span>
+</div>
+<p>
+Enterprise systems engineering inside a large industrial-automation org.
+Tier-2/3 owner for Windows endpoint, Active Directory / Entra ID
+identity, and the Microsoft 365 stack — primarily a PowerShell-driven
+role, with ServiceNow as the system of record.
+</p>
+<ul>
+  <li><strong>PowerShell as the primary tool.</strong> Day-to-day work
+    was scripted, not clicked: Exchange Online Management cmdlets for
+    mailbox / mail-flow / transport-rule tasks, MSGraph / AzureAD modules
+    for Entra ID identity and conditional access, Intune Graph API for
+    device-config drift, ActiveDirectory module for on-prem AD. Recurring
+    fixes became runnable <code>.ps1</code> scripts rather than KB
+    walkthroughs — the next occurrence was a one-line invocation, not a
+    fresh investigation.</li>
+  <li><strong>Windows 10/11 endpoint engineering.</strong> Group Policy
+    + Intune configuration profiles, Windows update rings, BitLocker
+    recovery, always-on VPN profiles, conditional-access edge cases,
+    Autopilot enrolment failures, profile / OneDrive corruption recovery.
+    Comfortable below the GUI — Event Viewer, <code>gpresult</code>,
+    <code>dsregcmd</code>, <code>Test-NetConnection</code>, Sysinternals
+    — and at home reading a Windows event log instead of guessing.</li>
+  <li><strong>Microsoft 365 L2/L3 at scale.</strong> Exchange Online
+    (transport rules, message tracing, hybrid quirks), Teams, SharePoint,
+    OneDrive — admin centre and the underlying Graph/PowerShell surface.
+    Worked Intune-managed device drift back to a known-good baseline.</li>
+  <li><strong>Direct end-user resolution over the queue handoff.</strong>
+    Defaulted to connecting straight to the affected user — remote
+    session, call, or walk-up — to close the ticket in one pass rather
+    than ping-pong it through assignment groups. Faster SLA closure,
+    fewer reopens, higher user-side trust.</li>
+  <li><strong>Change-approval gate for offshore ops.</strong> Reviewed
+    and signed off on production-VM restarts, maintenance windows, and
+    infra changes executed by the outsourced ops vendor — the "I
+    approve, proceed" reply that gates a prod-touching action.</li>
+  <li><strong>Runbook + knowledge-base authoring.</strong> Documented
+    recurring fixes — and the PowerShell snippets that resolved them —
+    in the ServiceNow KB so L1 could deflect the same ticket without
+    another escalation.</li>
+  <li><strong>Cross-timezone async written communication.</strong> Most
+    of the work was email and ticket comments to teams in IST and US-CT
+    — the exact written-async muscle the LLM/SaaS work later leaned on.</li>
+</ul>
+
+<h2>Education</h2>
+<ul>
+  <li><strong>Self-taught software engineer.</strong> Python, FastAPI,
+    Anthropic API, AWS, Stripe, Docker, Postgres — all production-grade
+    and shipping real revenue. Everything in
+    <em>Selected production work</em> above was built outside any formal
+    CS program.</li>
+</ul>
+
+<h2>Links</h2>
+<ul class="links">
+  <li>Studio (umbrella): <a href="https://ewwesolutions.work">ewwesolutions.work</a></li>
+  <li>Faktomat (live): <a href="https://faktomat.ewwesolutions.work">faktomat.ewwesolutions.work</a></li>
+  <li>Fiszkomat (live, sample decks browsable without payment): <a href="https://fiszkomat.ewwesolutions.work">fiszkomat.ewwesolutions.work</a></li>
+  <li>Code monorepo: <a href="https://github.com/ewwe72/ewwesolutions">github.com/ewwe72/ewwesolutions</a></li>
+  <li>LinkedIn: <a href="https://linkedin.com/in/patryk-popenda">linkedin.com/in/patryk-popenda</a></li>
+</ul>
+
+</body>
+</html>
