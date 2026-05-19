@@ -24,7 +24,7 @@ Ministry of Finance schema, plus JSON and CSV. Pay-as-you-go,
 the EU.
 
 Stack: Python · FastAPI · Postgres · Anthropic SDK (Bedrock) ·
-Stripe · arq worker · Caddy reverse proxy.
+Stripe · arq worker · Cloudflare tunnel (cloudflared in-VM).
 
 ### [fiszkomat](fiszkomat/) — Polish-medical skrypt → Anki
 
@@ -37,9 +37,11 @@ Optional Claude Opus 4.7 quality pass for fact-checking the deck.
 Scanned PDFs handled via Claude vision fallback. Per-document
 pricing, no subscription.
 
-7 curated sample decks already on the landing — antybiotyki,
-toksykologia, układ oddechowy / pokarmowy, hormony, metabolizm
-wapnia + cukrzyca + otyłość. 296 cards.
+8 curated sample decks already on the landing — antybiotyki,
+toksykologia, układ oddechowy, układ pokarmowy, leki przeciwwirusowe /
+grzybicze / pasożytnicze, hormony, metabolizm wapnia + cukrzyca +
+otyłość, plus a full Polish microbiology MCQ bank (Murray-aligned).
+~1,160 cards.
 
 Stack: Python · FastAPI · Anthropic SDK · genanki · Stripe · pypdf +
 pdfplumber + pdftoppm for the OCR path.
@@ -115,4 +117,5 @@ npm run dev
 ## Contact
 
 [kontakt@ewwesolutions.work](mailto:kontakt@ewwesolutions.work) ·
-[ewwesolutions.work](https://ewwesolutions.work)
+[ewwesolutions.work](https://ewwesolutions.work) ·
+[Founder CV](cv.pdf)
