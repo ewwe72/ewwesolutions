@@ -1,0 +1,22 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Per-run logs (JSONL with cost + duration). Operator skims these to gauge
+# tokens-per-draft; not useful as a tracked artefact.
+_logs/*.jsonl
+!_logs/.gitkeep
+
+# Cached real BZP announcement HTML/PDF + generated drafts. Each is
+# attached to its source announcement number for replay. Whitelist
+# one curated reference sample per type for the next session's bootstrap.
+_samples/*
+!_samples/.gitkeep
+!_samples/curated/

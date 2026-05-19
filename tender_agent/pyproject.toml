@@ -1,0 +1,39 @@
+[project]
+name = "tender_agent"
+version = "0.0.1"
+description = "Polish public-procurement (BZP/eZamówienia/TED) bid drafting agent — Phase 0 prototype."
+requires-python = ">=3.11"
+dependencies = [
+    "anthropic>=0.40",
+    "httpx>=0.27",
+    "beautifulsoup4>=4.12",
+    "lxml>=5.0",
+    "pymupdf>=1.24",       # PDF ingestion of SIWZ / ogłoszeń o zamówieniu
+    "pydantic>=2.6",
+    "pydantic-settings>=2.0",
+    "python-dateutil>=2.9",
+    "rich>=13",            # human-readable CLI output during prototype phase
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "mypy>=1.10",
+    "respx>=0.21",         # mock httpx in tests without real BZP traffic
+]
+
+[project.scripts]
+tender-fetch = "tender_agent.cli:fetch"
+tender-draft = "tender_agent.cli:draft"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+pythonpath = ["."]
