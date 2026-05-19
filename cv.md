@@ -15,11 +15,12 @@ schema-validated output, cost modelling, and security auditing of LLM
 output boundaries (prompt injection, delimiter spoofing, stored XSS).
 Solo founder by necessity — I own the model layer, the FastAPI service,
 the worker, the Postgres schema, the Stripe integration, and the prod
-VM. Background is Windows + PowerShell systems engineering inside a
-large industrial-automation org, so I'm equally at home in
-M365 / Entra ID / Intune ops as I am in Linux + Docker. Looking for a
-remote-EU role where the LLM layer is genuinely load-bearing, not a
-wrapper.
+VM. Background is high-volume Windows L2/L3 end-user remote support
+at a large industrial-automation org (767+ closed tickets across the
+full endpoint / identity / M365 surface), so I'm equally at home in
+Windows + PowerShell + Entra ID / Intune ops as I am in Linux + Docker.
+Looking for a remote-EU role where the LLM layer is genuinely
+load-bearing, not a wrapper.
 
 ---
 
@@ -122,46 +123,50 @@ cherry-picked highs.
 
 ## Previous experience
 
-### Rockwell Automation &nbsp; · &nbsp; IT Specialist (L2 / L3) &nbsp; · &nbsp; *2022 – 2024*
+### Rockwell Automation &nbsp; · &nbsp; IT Specialist (L2 / L3), End-User Remote Support &nbsp; · &nbsp; *2022 – 2024*
 
-Enterprise systems engineering inside a large industrial-automation org.
-Tier-2/3 owner for Windows endpoint, Active Directory / Entra ID
-identity, and the Microsoft 365 stack — primarily a PowerShell-driven
-role with ServiceNow as the system of record.
+End-of-line remote support for a large industrial-automation org. The
+service desk escalates to my queue; if I or my colleague can't close
+the ticket, it goes to ticket hell. Partner with field services for
+the physical-touch side. ServiceNow is the system of record.
 
-- **PowerShell as the primary tool.** Day-to-day work was scripted,
-  not clicked: Exchange Online Management cmdlets for mailbox / mail-flow
-  / transport-rule tasks, MSGraph / AzureAD modules for Entra ID
-  identity and conditional access, Intune Graph API for device-config
-  drift, ActiveDirectory module for on-prem AD. Recurring fixes became
-  runnable `.ps1` scripts rather than KB walkthroughs, so the next
-  occurrence was a one-line invocation instead of a fresh investigation.
-- **Windows 10/11 endpoint engineering.** Group Policy + Intune
-  configuration profiles, Windows update rings, BitLocker recovery
-  flow, always-on VPN profiles, conditional-access edge cases, Autopilot
-  enrolment failures, profile / OneDrive corruption recovery. Comfortable
-  below the GUI — Event Viewer, `gpresult`, `dsregcmd`,
-  `Test-NetConnection`, Sysinternals — and at home reading a Windows
-  event log instead of guessing.
-- **Microsoft 365 L2/L3 at scale.** Exchange Online (transport rules,
-  message tracing, hybrid quirks), Teams, SharePoint, OneDrive — admin
-  centre and the underlying Graph/PowerShell surface. Worked
-  Intune-managed device drift back to a known-good baseline.
+- **767+ closed tickets across the full Windows-endpoint surface.**
+  Wi-Fi 802.1x certificate failures on the corporate SSID, print queue
+  / driver / printer-server issues, Windows 10/11 in-place upgrade
+  failures, peripherals (wireless mouse, dock, monitor), line-of-business
+  app installs (Visio, SAP GUI, vendor tools), RDP / RDS / SAP
+  connectivity (*"the remote device or resource won't accept the
+  connection"* and its cousins), VPN + conditional-access edge cases,
+  OneDrive / profile corruption, BitLocker recovery, Autopilot enrolment.
+  Whatever shape the ticket arrived in, the OS, network, identity, and
+  app layer were all on me — no narrow lane.
+- **Fast triage across a wide surface.** Reading Windows event logs,
+  `gpresult`, `dsregcmd`, certificate stores, MDM diagnostics, basic
+  network captures — and knowing which layer to look at first based on
+  the symptom. The part that doesn't show up on a CV but is what made
+  the SLA: pattern-matching across hundreds of tickets so the
+  second instance of a problem closes in minutes.
 - **Direct end-user resolution over the queue handoff.** Defaulted to
   connecting straight to the affected user — remote session, call, or
-  walk-up — to close the ticket in one pass rather than ping-pong it
-  through assignment groups. Faster SLA closure, fewer reopens, higher
-  user-side trust.
+  walk-up via field services — to close the ticket in one pass rather
+  than ping-pong it through assignment groups. Faster SLA closure,
+  fewer reopens, higher user-side trust.
+- **PowerShell + Microsoft 365 admin** when scripting was faster than
+  clicking. Exchange Online Management cmdlets, MSGraph / AzureAD for
+  Entra ID, Intune Graph for device-config drift, ActiveDirectory module
+  for on-prem AD. Recurring fixes were captured as runnable `.ps1`
+  snippets pinned in the KB, not screenshot walkthroughs.
 - **Change-approval gate for offshore ops.** Reviewed and signed off on
   production-VM restarts, maintenance windows, and infra changes
   executed by the outsourced ops vendor — the "I approve, proceed" reply
   that gates a prod-touching action.
 - **Runbook + knowledge-base authoring.** Documented recurring fixes
-  (and the PowerShell snippets that resolved them) in the ServiceNow KB
-  so L1 could deflect the same ticket without another escalation.
+  in the ServiceNow KB so the service desk could deflect the same
+  ticket without another escalation to my queue.
 - **Cross-timezone async written communication.** Most of the work was
-  email and ticket comments to teams in IST and US-CT — the exact
-  written-async muscle the LLM/SaaS work later leaned on.
+  email and ticket comments to field services and to teams in IST and
+  US-CT — the exact written-async muscle the LLM/SaaS work later
+  leaned on.
 
 ---
 

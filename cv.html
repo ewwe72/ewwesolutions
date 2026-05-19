@@ -30,15 +30,15 @@
     background: #fff;
     color: var(--ink);
     font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 10.25pt;
-    line-height: 1.5;
+    font-size: 9.75pt;
+    line-height: 1.42;
     font-feature-settings: "ss01", "cv11", "kern";
     -webkit-font-smoothing: antialiased;
   }
 
   .header {
-    margin-bottom: 14px;
-    padding-bottom: 12px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
     border-bottom: 1px solid var(--rule);
   }
   .name {
@@ -78,26 +78,33 @@
   }
 
   h2 {
-    font-size: 8.75pt;
+    font-size: 8.5pt;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 1.6px;
+    letter-spacing: 1.5px;
     color: var(--muted);
-    margin: 18px 0 8px 0;
-    padding-bottom: 5px;
+    margin: 13px 0 6px 0;
+    padding-bottom: 4px;
     border-bottom: 1px solid var(--rule);
+    break-after: avoid-page;
     page-break-after: avoid;
   }
-  h2:first-of-type { margin-top: 4px; }
+  h2:first-of-type { margin-top: 2px; }
 
   h3 {
-    font-size: 11pt;
+    font-size: 10.5pt;
     font-weight: 600;
-    margin: 12px 0 1px 0;
+    margin: 8px 0 1px 0;
     color: var(--ink);
     letter-spacing: -0.1px;
+    break-after: avoid-page;
     page-break-after: avoid;
   }
+
+  /* Allow sections to flow naturally; only headings + individual
+     bullets are protected (rules above on h2/h3/li). Avoid stacking
+     break-inside controls — they confused Chromium's flow. */
+  section.block { margin-bottom: 4px; }
   h3 .pipe {
     color: var(--rule);
     font-weight: 400;
@@ -122,18 +129,19 @@
     font-weight: 500;
   }
 
-  p { margin: 0 0 7px 0; }
-  p.lead { margin-bottom: 8px; }
+  p { margin: 0 0 5px 0; }
+  p.lead { margin-bottom: 6px; }
 
   ul {
     list-style: none;
-    margin: 4px 0 8px 0;
+    margin: 3px 0 6px 0;
     padding: 0;
   }
   li {
     position: relative;
-    padding-left: 14px;
-    margin-bottom: 5px;
+    padding-left: 13px;
+    margin-bottom: 4px;
+    break-inside: avoid;
     page-break-inside: avoid;
   }
   li::before {
@@ -168,12 +176,12 @@
 
   .summary {
     color: var(--ink-soft);
-    font-size: 10.25pt;
-    line-height: 1.55;
+    font-size: 9.75pt;
+    line-height: 1.5;
   }
 
   /* Tight stack section so it reads as a card not a list of paragraphs */
-  .stack li { margin-bottom: 4px; }
+  .stack li { margin-bottom: 3px; }
   .stack strong { color: var(--ink); }
 
   .lang-row {
@@ -225,6 +233,7 @@
   </p>
 </header>
 
+<section class="block keep">
 <h2>Summary</h2>
 <p class="summary">
 Applied-LLM engineer shipping two production Polish-language SaaS products
@@ -235,15 +244,19 @@ schema-validated output, cost modelling, and security auditing of LLM
 output boundaries (prompt injection, delimiter spoofing, stored XSS).
 Solo founder by necessity — I own the model layer, the FastAPI service,
 the worker, the Postgres schema, the Stripe integration, and the prod
-VM. Background is Windows + PowerShell systems engineering inside a
-large industrial-automation org, so I'm equally at home in
-M365 / Entra ID / Intune ops as I am in Linux + Docker. Looking for a
-remote-EU role where the LLM layer is genuinely load-bearing, not a
-wrapper.
+VM. Background is high-volume Windows L2/L3 end-user remote support at
+a large industrial-automation org (767+ closed tickets across the full
+endpoint / identity / M365 surface), so I'm equally at home in Windows
++ PowerShell + Entra ID / Intune ops as I am in Linux + Docker.
+Looking for a remote-EU role where the LLM layer is genuinely
+load-bearing, not a wrapper.
 </p>
+</section>
 
 <h2>Selected production work</h2>
 
+<section class="block">
+<div class="role-head">
 <div class="role-line">
   <h3><span class="org">Faktomat</span><span class="pipe">—</span><span class="title">Polish invoice IDP SaaS</span></h3>
   <span class="when">2025 – 2026 · solo</span>
@@ -254,6 +267,7 @@ Paying flow end-to-end: signup → email verification → Stripe top-up →
 PDF upload → LLM extraction → editable review → JPK_FA (Polish
 government) XML export. Charged at 0.50 PLN per processed invoice.
 </p>
+</div>
 <ul>
   <li><strong>Bedrock Claude (Haiku) extraction pipeline with forced tool-use</strong> —
     <code>tool_choice={"type": "tool", "name": ...}</code> + strict pydantic
@@ -279,7 +293,10 @@ government) XML export. Charged at 0.50 PLN per processed invoice.
     bounded boto3 timeouts), per-event Discord alerter with anchored
     cursor.</li>
 </ul>
+</section>
 
+<section class="block">
+<div class="role-head">
 <div class="role-line">
   <h3><span class="org">Fiszkomat</span><span class="pipe">—</span><span class="title">Polish PDF → Anki flashcard generator</span></h3>
   <span class="when">2025 – 2026 · solo</span>
@@ -289,6 +306,7 @@ government) XML export. Charged at 0.50 PLN per processed invoice.
 Paid checkout, in-browser SM-style reviewer + <code>.apkg</code> export,
 7 curated sample decks (296 cards) on the landing page.
 </p>
+</div>
 <ul>
   <li><strong>Direct Anthropic API</strong> (Claude Haiku 4.5) with
     <strong>prompt caching</strong> (<code>cache_control: ephemeral</code>)
@@ -319,7 +337,9 @@ Paid checkout, in-browser SM-style reviewer + <code>.apkg</code> export,
   <li><strong>Active dogfood user</strong> giving structured feedback (a
     Polish medical student preparing for kolokwia).</li>
 </ul>
+</section>
 
+<section class="block keep">
 <div class="role-line">
   <h3><span class="org">Studio</span><span class="pipe">—</span><span class="title">ewwesolutions.work</span></h3>
   <span class="when">2025 – 2026</span>
@@ -330,7 +350,9 @@ unit; the equity card pulls live paper-trading P&amp;L from a 30-minute
 Alpaca snapshot timer. Honest delta-from-baseline rendering — no
 cherry-picked highs.
 </p>
+</section>
 
+<section class="block keep">
 <h2>Core stack</h2>
 <ul class="stack">
   <li><strong>LLM:</strong> Anthropic Claude (direct API + AWS Bedrock),
@@ -355,63 +377,76 @@ cherry-picked highs.
     (unit + integration), pre-push secret audit, conventional commits,
     post-hoc rationale in CHANGELOG.</li>
 </ul>
+</section>
 
+<section class="block keep">
 <h2>Languages</h2>
 <div class="lang-row">
   <div><strong>Polish</strong><span class="lvl">native</span></div>
   <div><strong>English</strong><span class="lvl">fluent — technical writing, async, on-call</span></div>
 </div>
+</section>
 
+<section class="block">
+<div class="role-head">
 <h2>Previous experience</h2>
 
 <div class="role-line">
-  <h3><span class="org">Rockwell Automation</span><span class="pipe">—</span><span class="title">IT Specialist (L2 / L3)</span></h3>
+  <h3><span class="org">Rockwell Automation</span><span class="pipe">—</span><span class="title">IT Specialist (L2 / L3), End-User Remote Support</span></h3>
   <span class="when">2022 – 2024</span>
 </div>
 <p>
-Enterprise systems engineering inside a large industrial-automation org.
-Tier-2/3 owner for Windows endpoint, Active Directory / Entra ID
-identity, and the Microsoft 365 stack — primarily a PowerShell-driven
-role, with ServiceNow as the system of record.
+End-of-line remote support for a large industrial-automation org. The
+service desk escalates to my queue; if I or my colleague can't close
+the ticket, it goes to ticket hell. Partner with field services for
+the physical-touch side. ServiceNow is the system of record.
 </p>
+</div>
 <ul>
-  <li><strong>PowerShell as the primary tool.</strong> Day-to-day work
-    was scripted, not clicked: Exchange Online Management cmdlets for
-    mailbox / mail-flow / transport-rule tasks, MSGraph / AzureAD modules
-    for Entra ID identity and conditional access, Intune Graph API for
-    device-config drift, ActiveDirectory module for on-prem AD. Recurring
-    fixes became runnable <code>.ps1</code> scripts rather than KB
-    walkthroughs — the next occurrence was a one-line invocation, not a
-    fresh investigation.</li>
-  <li><strong>Windows 10/11 endpoint engineering.</strong> Group Policy
-    + Intune configuration profiles, Windows update rings, BitLocker
-    recovery, always-on VPN profiles, conditional-access edge cases,
-    Autopilot enrolment failures, profile / OneDrive corruption recovery.
-    Comfortable below the GUI — Event Viewer, <code>gpresult</code>,
-    <code>dsregcmd</code>, <code>Test-NetConnection</code>, Sysinternals
-    — and at home reading a Windows event log instead of guessing.</li>
-  <li><strong>Microsoft 365 L2/L3 at scale.</strong> Exchange Online
-    (transport rules, message tracing, hybrid quirks), Teams, SharePoint,
-    OneDrive — admin centre and the underlying Graph/PowerShell surface.
-    Worked Intune-managed device drift back to a known-good baseline.</li>
+  <li><strong>767+ closed tickets across the full Windows-endpoint
+    surface.</strong> Wi-Fi 802.1x certificate failures on the corporate
+    SSID, print queue / driver / printer-server issues, Windows 10/11
+    in-place upgrade failures, peripherals (wireless mouse, dock,
+    monitor), line-of-business app installs (Visio, SAP GUI, vendor
+    tools), RDP / RDS / SAP connectivity (<em>"the remote device or
+    resource won't accept the connection"</em> and its cousins), VPN +
+    conditional-access edge cases, OneDrive / profile corruption,
+    BitLocker recovery, Autopilot enrolment. Whatever shape the ticket
+    arrived in, the OS, network, identity, and app layer were all on me
+    — no narrow lane.</li>
+  <li><strong>Fast triage across a wide surface.</strong> Reading
+    Windows event logs, <code>gpresult</code>, <code>dsregcmd</code>,
+    certificate stores, MDM diagnostics, basic network captures — and
+    knowing which layer to look at first based on the symptom. The
+    part that doesn't show up on a CV but is what made the SLA:
+    pattern-matching across hundreds of tickets so the second instance
+    of a problem closes in minutes.</li>
   <li><strong>Direct end-user resolution over the queue handoff.</strong>
     Defaulted to connecting straight to the affected user — remote
-    session, call, or walk-up — to close the ticket in one pass rather
-    than ping-pong it through assignment groups. Faster SLA closure,
-    fewer reopens, higher user-side trust.</li>
+    session, call, or walk-up via field services — to close the ticket
+    in one pass rather than ping-pong it through assignment groups.
+    Faster SLA closure, fewer reopens, higher user-side trust.</li>
+  <li><strong>PowerShell + Microsoft 365 admin</strong> when scripting
+    was faster than clicking. Exchange Online Management cmdlets,
+    MSGraph / AzureAD for Entra ID, Intune Graph for device-config
+    drift, ActiveDirectory module for on-prem AD. Recurring fixes were
+    captured as runnable <code>.ps1</code> snippets pinned in the KB,
+    not screenshot walkthroughs.</li>
   <li><strong>Change-approval gate for offshore ops.</strong> Reviewed
     and signed off on production-VM restarts, maintenance windows, and
     infra changes executed by the outsourced ops vendor — the "I
     approve, proceed" reply that gates a prod-touching action.</li>
   <li><strong>Runbook + knowledge-base authoring.</strong> Documented
-    recurring fixes — and the PowerShell snippets that resolved them —
-    in the ServiceNow KB so L1 could deflect the same ticket without
-    another escalation.</li>
+    recurring fixes in the ServiceNow KB so the service desk could
+    deflect the same ticket without another escalation to my queue.</li>
   <li><strong>Cross-timezone async written communication.</strong> Most
-    of the work was email and ticket comments to teams in IST and US-CT
-    — the exact written-async muscle the LLM/SaaS work later leaned on.</li>
+    of the work was email and ticket comments to field services and to
+    teams in IST and US-CT — the exact written-async muscle the
+    LLM/SaaS work later leaned on.</li>
 </ul>
+</section>
 
+<section class="block keep">
 <h2>Education</h2>
 <ul>
   <li><strong>Self-taught software engineer.</strong> Python, FastAPI,
@@ -420,7 +455,9 @@ role, with ServiceNow as the system of record.
     <em>Selected production work</em> above was built outside any formal
     CS program.</li>
 </ul>
+</section>
 
+<section class="block keep">
 <h2>Links</h2>
 <ul class="links">
   <li>Studio (umbrella): <a href="https://ewwesolutions.work">ewwesolutions.work</a></li>
@@ -429,6 +466,7 @@ role, with ServiceNow as the system of record.
   <li>Code monorepo: <a href="https://github.com/ewwe72/ewwesolutions">github.com/ewwe72/ewwesolutions</a></li>
   <li>LinkedIn: <a href="https://linkedin.com/in/patryk-popenda">linkedin.com/in/patryk-popenda</a></li>
 </ul>
+</section>
 
 </body>
 </html>
