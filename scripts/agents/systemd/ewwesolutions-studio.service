@@ -1,0 +1,28 @@
+[Unit]
+Description=ewwesolutions.work studio homepage — static file server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ewwe
+Group=ewwe
+WorkingDirectory=/home/ewwe/playspace/random
+ExecStart=/usr/bin/python3 -m http.server 8002 --bind 127.0.0.1 --directory marketing/ewwesolutions
+Restart=on-failure
+RestartSec=5s
+
+# Belt-and-braces hardening — we're serving public static content from
+# a working tree the operator also edits; constrain what the unit can
+# touch so a Python http.server CVE can't blast the rest of the VM.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadOnlyPaths=/home/ewwe/playspace/random/marketing/ewwesolutions
+
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

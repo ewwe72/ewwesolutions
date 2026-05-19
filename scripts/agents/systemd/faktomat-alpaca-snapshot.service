@@ -1,0 +1,22 @@
+[Unit]
+Description=Alpaca paper-account snapshot → studio stats.json
+After=network-online.target ewwesolutions-studio.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=ewwe
+Group=ewwe
+WorkingDirectory=/home/ewwe/playspace/random
+ExecStart=/home/ewwe/playspace/random/scripts/agents/alpaca_paper_snapshot.sh
+SuccessExitStatus=0 1
+
+# Don't read anything outside the project tree.
+NoNewPrivileges=true
+PrivateTmp=true
+
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

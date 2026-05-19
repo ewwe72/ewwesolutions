@@ -5,8 +5,10 @@
     "d": "Salbutamol, Fenoterol, Terbutalina",
     "m": "Selektywni agoniści receptora β₂ sprzężonego z białkiem Gs → ↑cAMP w komórkach mięśni gładkich oskrzeli → rozkurcz mięśniówki oskrzeli (bronchodylatacja). Początek działania w 5 min, działają 4–6 h.",
     "i": "Doraźnie w napadzie duszności w astmie i POChP. Lek pierwszego rzutu w przerywaniu skurczu oskrzeli. Profilaktyka astmy wysiłkowej.",
-    "c": "Tachykardia, drżenie mięśni, hipokaliemia, niepokój. Ostrożnie w nadczynności tarczycy, chorobie niedokrwiennej serca, niewyrównanej cukrzycy.",
-    "n": "NIE są to leki pierwszej linii w leczeniu przewlekłym — to są \"raczej dla ratunku\"."
+    "c": "Brak w książce.",
+    "n": "NIE są to leki pierwszej linii w leczeniu przewlekłym — to są \"raczej dla ratunku\".",
+    "options": [],
+    "correct_letter": ""
   },
   {
     "z": 8,
@@ -14,8 +16,10 @@
     "d": "Salmeterol, Formoterol",
     "m": "Selektywni agoniści receptora β₂ o przedłużonym czasie działania ~12 h (dawkowanie 2×/dobę). Mechanizm jak SABA (↑cAMP → rozkurcz mięśniówki oskrzeli). Formoterol — szybki początek działania (porównywalny z salbutamolem), salmeterol — wolniejszy.",
     "i": "Leczenie przewlekłe astmy (ZAWSZE w połączeniu z wGKS — monoterapia LABA jest zakazana, zwiększa śmiertelność) i POChP. Formoterol może być częścią terapii MART/SMART razem z wGKS.",
-    "c": "Tachykardia, drżenia, hipokaliemia. NIGDY nie stosować LABA w monoterapii w astmie.",
-    "n": "Black box warning FDA dla LABA w monoterapii astmy."
+    "c": "Brak w książce.",
+    "n": "Black box warning FDA dla LABA w monoterapii astmy.",
+    "options": [],
+    "correct_letter": ""
   },
   {
     "z": 8,
@@ -23,8 +27,10 @@
     "d": "Indakaterol, Olodaterol, Wilanterol",
     "m": "Selektywni agoniści receptora β₂ o bardzo długim czasie działania ~24 h (dawkowanie 1×/dobę). Mechanizm jak SABA/LABA (↑cAMP → rozkurcz mięśniówki oskrzeli). Wolniejsze uwalnianie z receptora i większa lipofilność dają przedłużone działanie.",
     "i": "Leczenie przewlekłe POChP w dawkowaniu 1×/dobę. Najczęściej w preparatach złożonych z LAMA i/lub wGKS (np. indakaterol + glikopironium, wilanterol + umeklidynium, wilanterol + flutykazon).",
-    "c": "Tachykardia, drżenia, hipokaliemia. To samo ostrzeżenie co dla LABA — monoterapia w astmie zakazana.",
-    "n": "Once-daily LABA — kluczowe dla adherencji w POChP. Wilanterol występuje wyłącznie w preparatach złożonych."
+    "c": "Brak w książce.",
+    "n": "Once-daily LABA — kluczowe dla adherencji w POChP. Wilanterol występuje wyłącznie w preparatach złożonych.",
+    "options": [],
+    "correct_letter": ""
   },
   {
     "z": 8,
@@ -32,8 +38,10 @@
     "d": "Bromek ipratropium, Bromek oksytropium",
     "m": "Niewybiórczy antagoniści receptorów muskarynowych (M1, M2, M3) w drogach oddechowych — blokują M3 na mięśniówce gładkiej → rozkurcz. Działanie 4–6 h. Słabo wchłaniane (czwartorzędowe aminy).",
     "i": "Doraźnie w POChP, zaostrzeniu astmy (synergia z SABA — Berodual = fenoterol + ipratropium).",
-    "c": "Suchość w jamie ustnej, gorzki smak. Ostrożnie w jaskrze z wąskim kątem przesączania, przeroście prostaty, utrudnionym oddawaniu moczu.",
-    "n": "Czwartorzędowe aminy — minimalne efekty ośrodkowe."
+    "c": "Jaskra z wąskim kątem przesączania, przerost prostaty z zaleganiem moczu, niedrożność szyi pęcherza moczowego.",
+    "n": "Czwartorzędowe aminy — minimalne efekty ośrodkowe.",
+    "options": [],
+    "correct_letter": ""
   },
   {
     "z": 8,
@@ -41,8 +49,10 @@
     "d": "Tiotropium, Aklidynium, Umeklidynium, Glikopironium",
     "m": "Wybiórczy antagoniści receptora M3 w mięśniówce oskrzeli — wolne uwalnianie z M3 daje długie działanie (12–24 h), szybkie uwalnianie z M2 minimalizuje tachykardię.",
     "i": "Leczenie przewlekłe POChP — lek pierwszego wyboru. W astmie przewlekłej u dorosłych jako add-on do wGKS+LABA przy złej kontroli (tiotropium).",
-    "c": "Suchość w jamie ustnej, zaparcia, zatrzymanie moczu, jaskra z wąskim kątem. Tachykardia rzadko.",
-    "n": "Tiotropium — najlepiej zbadany LAMA. Inhalacja 1×/dobę."
+    "c": "Brak w książce.",
+    "n": "Tiotropium — najlepiej zbadany LAMA. Inhalacja 1×/dobę.",
+    "options": [],
+    "correct_letter": ""
   },
   {
     "z": 8,
@@ -50,8 +60,10 @@
     "d": "Teofilina, Aminofilina (sól etyleno-diaminowa teofiliny)",
     "m": "Nieselektywny inhibitor fosfodiesterazy (PDE) → ↑cAMP i cGMP → bronchodylatacja. Dodatkowo: antagonista receptorów adenozynowych (A1, A2), aktywacja deacetylazy histonowej (efekt przeciwzapalny w małych dawkach).",
     "i": "POChP, astma — leczenie drugiej linii. Dawniej szeroko używane, teraz wycofywane z powodu wąskiego okna terapeutycznego (10–20 μg/ml).",
-    "c": "Wąskie okno terapeutyczne — nudności, wymioty, tachykardia, drgawki, zaburzenia rytmu w przedawkowaniu. Interakcje (cymetydyna, makrolidy, chinolony hamują CYP1A2). Monitorowanie stężenia obowiązkowe.",
-    "n": "Klasyczne pytanie kolokwialne: czemu \"wąskie okno\"."
+    "c": "Brak w książce.",
+    "n": "Klasyczne pytanie kolokwialne: czemu \"wąskie okno\".",
+    "options": [],
+    "correct_letter": ""
   },
   {
     "z": 8,
@@ -59,8 +71,10 @@
     "d": "Beklometazon, Budezonid, Cyklezonid, Flutykazon (propionian, furoinian), Mometazon",
     "m": "Wiążą wewnątrzkomórkowy receptor GR → translokacja do jądra → indukcja anneksyny-1 (hamuje fosfolipazę A2) i hamowanie NF-κB → ↓prozapalnych cytokin, ↓COX-2, ↓naciek eozynofilów i mastocytów w drogach oddechowych.",
     "i": "Lek pierwszego wyboru w leczeniu kontrolującym astmę przewlekłą (od stopnia 2). POChP w fenotypie eozynofilowym, zwykle łączone z LABA/LAMA.",
-    "c": "Miejscowe: kandydoza jamy ustnej i gardła, chrypka, dysfonia (zapobieganie: płukanie ust po inhalacji). Ogólne (przy dużych dawkach): osteoporoza, hamowanie wzrostu u dzieci, zaćma, jaskra, zaburzenia kortyzolemii.",
-    "n": "Cyklezonid — proleukowy, aktywacja dopiero w płucach → mniej efektów miejscowych."
+    "c": "Brak w książce.",
+    "n": "Cyklezonid — proleukowy, aktywacja dopiero w płucach → mniej efektów miejscowych.",
+    "options": [],
+    "correct_letter": ""
   },
   {
     "z": 8,
@@ -68,8 +82,10 @@
     "d": "Montelukast, Zafirlukast, Pranlukast",
     "m": "Selektywni antagoniści receptora cysLT1 dla leukotrienów cysteinylowych (LTC4, LTD4, LTE4) na mięśniach gładkich oskrzeli i komórkach zapalnych → ↓skurcz oskrzeli, ↓naciek eozynofilów, ↓nadreaktywność oskrzeli.",
     "i": "Leczenie kontrolujące astmy przewlekłej (zwłaszcza wysiłkowa, aspirynowa AERD/Samter). Profilaktyka skurczu wysiłkowego. Alergiczny nieżyt nosa (montelukast).",
-    "c": "Bóle głowy, dolegliwości ze strony przewodu pokarmowego. UWAGA — boxed warning FDA dla montelukastu: zaburzenia neuropsychiatryczne (depresja, lęk, myśli samobójcze, koszmary senne).",
-    "n": "5-LOX inhibitor (Zileuton) to inna klasa, NIE należy do LTRA."
+    "c": "Brak w książce.",
+    "n": "5-LOX inhibitor (Zileuton) to inna klasa, NIE należy do LTRA.",
+    "options": [],
+    "correct_letter": ""
   },
   {
     "z": 8,
@@ -77,8 +93,10 @@
     "d": "Zileuton",
     "m": "Hamuje enzym 5-lipoksygenazę (5-LOX), kluczowy w przekształcaniu kwasu arachidonowego do LTA4 → blokuje syntezę wszystkich leukotrienów (LTB4, LTC4, LTD4, LTE4).",
     "i": "Astma przewlekła — leczenie drugiej linii (mało stosowany w Polsce, dostępność ograniczona w UE).",
-    "c": "Hepatotoksyczność (monitorowanie ALT obowiązkowe). Interakcje z teofiliną, warfaryną. Dawkowanie 4×/dobę — niska adherencja.",
-    "n": "NIE myl z LTRA — Zileuton działa wyżej w szlaku."
+    "c": "Brak w książce.",
+    "n": "NIE myl z LTRA — Zileuton działa wyżej w szlaku.",
+    "options": [],
+    "correct_letter": ""
   },
   {
     "z": 8,
@@ -86,8 +104,10 @@
     "d": "Kromoglikan disodowy, Nedokromil sodowy",
     "m": "Stabilizatory mastocytów — hamują degranulację komórek tucznych, zmniejszając uwalnianie histaminy, leukotrienów i mediatorów zapalnych. Działanie wyłącznie profilaktyczne, brak działania w napadzie.",
     "i": "Profilaktyka astmy alergicznej, zwłaszcza u dzieci (mała skuteczność, dziś rzadko stosowane). Alergiczne zapalenie spojówek (krople).",
-    "c": "Dobrze tolerowane. Sporadycznie kaszel po inhalacji, gorzki smak. Brak istotnych przeciwwskazań.",
-    "n": "Praktyczna pozycja w terapii niska — wyparte przez wGKS i LTRA."
+    "c": "Brak istotnych przeciwwskazań.",
+    "n": "Praktyczna pozycja w terapii niska — wyparte przez wGKS i LTRA.",
+    "options": [],
+    "correct_letter": ""
   },
   {
     "z": 8,
@@ -95,8 +115,10 @@
     "d": "Omalizumab",
     "m": "Humanizowane przeciwciało monoklonalne (anty-IgE) wiążące się z domeną Cε3 wolnej IgE → blokuje wiązanie IgE z receptorem FcεRI na mastocytach i bazofilach → ↓degranulacja po ekspozycji na alergen. Stężenie wolnej IgE spada o 95–99%.",
     "i": "Astma ciężka alergiczna IgE-zależna, niekontrolowana mimo wGKS+LABA w wysokich dawkach. Przewlekła pokrzywka idiopatyczna.",
-    "c": "Reakcje w miejscu wstrzyknięcia. Anafilaksja (rzadko, do 2 h po podaniu — obowiązkowa obserwacja). Wzrost ryzyka chorób pasożytniczych.",
-    "n": "Wymaga oznaczenia całkowitego IgE w surowicy do dawkowania."
+    "c": "Brak w książce.",
+    "n": "Wymaga oznaczenia całkowitego IgE w surowicy do dawkowania.",
+    "options": [],
+    "correct_letter": ""
   },
   {
     "z": 8,
@@ -104,8 +126,10 @@
     "d": "Mepolizumab, Reslizumab (anty-IL-5); Benralizumab (anty-IL-5Rα)",
     "m": "Mepolizumab i reslizumab wiążą krążącą IL-5 → blokują dojrzewanie i aktywację eozynofilów. Benralizumab wiąże receptor IL-5Rα na eozynofilach → bezpośrednia eliminacja eozynofilów przez ADCC (NK-zależna cytotoksyczność).",
     "i": "Astma ciężka eozynofilowa (eozynofile we krwi ≥150–300/μL), niekontrolowana mimo wGKS+LABA.",
-    "c": "Reakcje w miejscu wstrzyknięcia, bóle głowy. Rzadkie reakcje nadwrażliwości.",
-    "n": "Reslizumab — wlew dożylny dawkowany na kg m.c. Mepolizumab i benralizumab — podskórnie."
+    "c": "Brak w książce.",
+    "n": "Reslizumab — wlew dożylny dawkowany na kg m.c. Mepolizumab i benralizumab — podskórnie.",
+    "options": [],
+    "correct_letter": ""
   },
   {
     "z": 8,
@@ -113,8 +137,10 @@
     "d": "Dupilumab",
     "m": "Humanizowane przeciwciało monoklonalne wiążące podjednostkę α receptora IL-4 (IL-4Rα) wspólną dla receptorów IL-4 i IL-13 → jednoczesna blokada sygnalizacji obu cytokin Th2 → ↓IgE, ↓eozynofilia, ↓zapalenie typu 2.",
     "i": "Astma ciężka z fenotypem typu 2 (eozynofilia lub podwyższone FeNO). Atopowe zapalenie skóry (umiarkowane do ciężkiego). Przewlekłe zapalenie zatok z polipami nosa. Eozynofilowe zapalenie przełyku.",
-    "c": "Zapalenie spojówek (specyficzne dla AZS). Reakcje w miejscu wstrzyknięcia. Eozynofilia paradoksalna we krwi.",
-    "n": "Jedyne biologic z 4 wskazaniami w jednej klasie alergii typu 2."
+    "c": "Brak w książce.",
+    "n": "Jedyne biologic z 4 wskazaniami w jednej klasie alergii typu 2.",
+    "options": [],
+    "correct_letter": ""
   },
   {
     "z": 8,
@@ -122,8 +148,10 @@
     "d": "Tezepelumab",
     "m": "Humanizowane przeciwciało monoklonalne wiążące limfopoetynę grasiczego zrębu (TSLP) — alarminę uwalnianą przez nabłonek dróg oddechowych. Blokuje rozwój zapalenia typu 2 i typu nie-2 powyżej kaskady IL-4/IL-5/IL-13.",
     "i": "Astma ciężka — niezależnie od fenotypu (eozynofilowego, alergicznego). Najszerzej działający \"biologic\" w astmie.",
-    "c": "Bóle głowy, zapalenie gardła. Dobrze tolerowany.",
-    "n": "Najnowszy biologic — działa \"wcześniej\" w kaskadzie zapalnej."
+    "c": "Brak w książce.",
+    "n": "Najnowszy biologic — działa \"wcześniej\" w kaskadzie zapalnej.",
+    "options": [],
+    "correct_letter": ""
   },
   {
     "z": 8,
@@ -131,44 +159,54 @@
     "d": "Roflumilast",
     "m": "Selektywny inhibitor fosfodiesterazy typu 4 (PDE4) w komórkach zapalnych (neutrofile, makrofagi) → ↑cAMP → ↓produkcja TNF-α, ↓neutrofilia. Działanie przeciwzapalne, NIE bronchodilatacyjne.",
     "i": "Ciężkie POChP z przewlekłym zapaleniem oskrzeli i częstymi zaostrzeniami, w połączeniu z bronchodylatatorami.",
-    "c": "Spadek masy ciała, nudności, biegunki, bóle głowy. Zaburzenia psychiatryczne (depresja, myśli samobójcze). Przeciwwskazany w umiarkowanej/ciężkiej niewydolności wątroby.",
-    "n": "NIE jest lekiem astmy — wyłącznie POChP."
+    "c": "Przeciwwskazany w umiarkowanej/ciężkiej niewydolności wątroby.",
+    "n": "NIE jest lekiem astmy — wyłącznie POChP.",
+    "options": [],
+    "correct_letter": ""
   },
   {
     "z": 8,
     "t": "Leki przeciwkaszlowe — opioidowe ośrodkowe",
-    "d": "Kodeina, Dihydrokodeina, Hydrokodon, Morfina (rzadko)",
+    "d": "Kodeina, Dihydrokodeina, Hydrokodon, Folkodyna (Polkodyna), Morfina (rzadko)",
     "m": "Agoniści receptorów opioidowych μ (i częściowo κ) w ośrodku kaszlu w rdzeniu przedłużonym → hamują odruch kaszlu. Działanie przeciwkaszlowe wykazują też w dawkach niższych niż przeciwbólowe.",
     "i": "Suchy, męczący kaszel niereagujący na leczenie przyczynowe. Kaszel w przebiegu nowotworów płuc (morfina).",
-    "c": "Działania niepożądane opioidów: zaparcia, sedacja, depresja oddechowa, ryzyko uzależnienia, tolerancja. Przeciwwskazania: dzieci <12 r.ż. (kodeina — ryzyko zatrzymania oddechu, zwłaszcza u tzw. ultraszybkich metabolizerów CYP2D6).",
-    "n": "Kodeina jest prolekiem — metabolizm przez CYP2D6 do morfiny."
+    "c": "Brak w książce.",
+    "n": "Kodeina jest prolekiem — metabolizm przez CYP2D6 do morfiny.",
+    "options": [],
+    "correct_letter": ""
   },
   {
     "z": 8,
     "t": "Leki przeciwkaszlowe — nieopioidowe ośrodkowe",
-    "d": "Dekstrometorfan, Butamirat, Folkodyna (Polkodyna)",
+    "d": "Dekstrometorfan, Butamirat",
     "m": "Hamują ośrodek kaszlu w rdzeniu przedłużonym mechanizmem nieopioidowym (dekstrometorfan — antagonista NMDA, agonista σ; butamirat — działanie nieopioidowe, brak agonizmu μ). Brak ryzyka depresji oddechowej w dawkach terapeutycznych.",
     "i": "Suchy, męczący kaszel — leki preferowane w pediatrii (butamirat) ze względu na bezpieczeństwo.",
-    "c": "Sedacja, zawroty głowy, nudności. Dekstrometorfan — ryzyko zespołu serotoninowego przy łączeniu z SSRI, MAOI, tramadolem. Ryzyko nadużywania rekreacyjnego w wysokich dawkach (\"DXM trip\").",
-    "n": "Polkodyna wycofana w UE w 2022 r. z powodu ryzyka anafilaksji w okołooperacyjnym podaniu leków zwiotczających."
+    "c": "Brak w książce.",
+    "n": "Polkodyna wycofana w UE w 2022 r. z powodu ryzyka anafilaksji w okołooperacyjnym podaniu leków zwiotczających.",
+    "options": [],
+    "correct_letter": ""
   },
   {
     "z": 8,
     "t": "Leki przeciwkaszlowe — obwodowe",
     "d": "Lewodropropizyna, Benzonatat, Prenoksdiazyna",
-    "m": "Działają obwodowo — hamują receptory kaszlu na zakończeniach włókien aferentnych nerwu błędnego w drogach oddechowych (lewodropropizyna — antagonizm tachykinin; benzonatat — znieczulenie miejscowe receptorów kaszlu).",
+    "m": "Działają obwodowo — hamują receptory kaszlu na zakończeniach włókien aferentnych nerwu błędnego w drogach oddechowych (lewodropropizyna — wybiórcze hamowanie przewodnictwa we włóknach aferentnych typu C nerwu błędnego, wg PDF; benzonatat — znieczulenie miejscowe receptorów kaszlu).",
     "i": "Suchy, męczący kaszel — alternatywa dla leków ośrodkowych, zwłaszcza u kierowców (brak sedacji).",
-    "c": "Senność rzadko, nudności, zaburzenia żołądkowo-jelitowe. Benzonatat — możliwe znieczulenie błony śluzowej jamy ustnej i gardła; ryzyko zachłyśnięcia.",
-    "n": "Brak działania ośrodkowego — bez ryzyka depresji oddechowej."
+    "c": "Brak w książce.",
+    "n": "Brak działania ośrodkowego — bez ryzyka depresji oddechowej.",
+    "options": [],
+    "correct_letter": ""
   },
   {
     "z": 8,
     "t": "Leki mukolityczne",
-    "d": "N-acetylocysteina (NAC), Karbocysteina, Erdosteina, Ambroksol, Bromheksyna, Mesna",
-    "m": "Zmniejszają lepkość wydzieliny: NAC, karbocysteina, erdosteina, mesna — donory grupy -SH, rozrywają wiązania disiarczkowe w mucynach. Ambroksol, bromheksyna — pobudzają komórki surowicze błony śluzowej i ruch rzęsek.",
+    "d": "N-acetylocysteina (NAC), Karbocysteina, Erdosteina, Mesna, Dornaza alfa",
+    "m": "Zmniejszają lepkość wydzieliny: NAC, karbocysteina, erdosteina, mesna — donory grupy -SH, rozrywają wiązania disiarczkowe w mucynach; dornaza alfa rozkłada DNA z rozpadłych neutrofilów (m.in. mukowiscydoza). Uwaga: ambroksol i bromheksyna są w PDF zaliczane do mukokinetyków (17.1.3), nie mukolityków — stymulują pneumocyty typu II do wydzielania surfaktantu i poprawiają transport rzęskowy.",
     "i": "Kaszel produktywny z gęstą wydzieliną. Przewlekła obturacyjna choroba płuc (zaostrzenia). Mukowiscydoza (NAC, w nebulizacji).",
-    "c": "Skurcz oskrzeli (NAC w nebulizacji — zwłaszcza u astmatyków). Dolegliwości żołądkowo-jelitowe. Reakcje skórne rzadko.",
-    "n": "NAC — donor -SH, podstawowy antydot w zatruciu paracetamolem."
+    "c": "Brak w książce.",
+    "n": "NAC — donor -SH, podstawowy antydot w zatruciu paracetamolem.",
+    "options": [],
+    "correct_letter": ""
   },
   {
     "z": 8,
@@ -176,8 +214,10 @@
     "d": "Hipertoniczny roztwór NaCl, Gwajafenezyna, Korzeń prawoślazu, Tymianek, Roztwory soli rzemieślniczych (np. saliny)",
     "m": "Zwiększają wydzielanie surowiczej części śluzu w drogach oddechowych (efekt sekretolityczny), ułatwiając odkrztuszanie i wykrztuszanie. Hipertoniczny NaCl dodatkowo działa osmotycznie.",
     "i": "Kaszel produktywny z trudną do odkrztuszania, gęstą wydzieliną.",
-    "c": "Hipertoniczny NaCl — skurcz oskrzeli (premedykacja SABA). Gwajafenezyna — nudności, wymioty, biegunka.",
-    "n": "NIE łączyć z lekami przeciwkaszlowymi — zatrzymanie wydzieliny w drogach oddechowych."
+    "c": "Brak w książce.",
+    "n": "NIE łączyć z lekami przeciwkaszlowymi — zatrzymanie wydzieliny w drogach oddechowych.",
+    "options": [],
+    "correct_letter": ""
   },
   {
     "z": 8,
@@ -185,8 +225,10 @@
     "d": "Beraktant, Poraktant alfa, Kalfaktant, Lusinaktant",
     "m": "Mieszaniny fosfolipidów (głównie dipalmitoilofosfatydylocholina) i białek hydrofobowych SP-B/SP-C podawane dotchawiczo. ZMNIEJSZAJĄ napięcie powierzchniowe na granicy faz powietrze-płyn pęcherzykowy → zapobiegają zapadaniu się pęcherzyków na końcu wydechu.",
     "i": "Zespół zaburzeń oddychania noworodków (RDS), zwłaszcza wcześniaków <34 t.c. Profilaktycznie w wybranych przypadkach.",
-    "c": "Bradykardia, hipoksemia, niedrożność rurki intubacyjnej w trakcie podania (przejściowe).",
-    "n": "Surfaktanty ZMNIEJSZAJĄ, NIE zwiększają napięcie powierzchniowe — to klasyczny błąd kolokwialny."
+    "c": "Brak w książce.",
+    "n": "Surfaktanty ZMNIEJSZAJĄ, NIE zwiększają napięcie powierzchniowe — to klasyczny błąd kolokwialny.",
+    "options": [],
+    "correct_letter": ""
   },
   {
     "z": 8,
@@ -194,8 +236,10 @@
     "d": "Pirfenidon, Nintedanib",
     "m": "Pirfenidon — pleotropowy, hamuje TGF-β i syntezę kolagenu przez fibroblasty. Nintedanib — inhibitor receptorowych kinaz tyrozynowych (PDGFR, FGFR, VEGFR) → hamowanie proliferacji fibroblastów i włóknienia.",
     "i": "Samoistne włóknienie płuc (IPF) — spowalniają postęp choroby (FVC). Nintedanib — także w postępujących włóknieniach o innej etiologii i SSc-ILD.",
-    "c": "Pirfenidon — nudności, anoreksja, fotouczulenie. Nintedanib — biegunka (~60%), nudności, hepatotoksyczność, ryzyko krwawienia, perforacji p.p.",
-    "n": "Nintedanib (\"-nib\" — TKI) — to ten sam lek co w niedrobnokomórkowym raku płuca."
+    "c": "Brak w książce.",
+    "n": "Nintedanib (\"-nib\" — TKI) — to ten sam lek co w niedrobnokomórkowym raku płuca.",
+    "options": [],
+    "correct_letter": ""
   },
   {
     "z": 8,
@@ -203,7 +247,9 @@
     "d": "Iwakaftor (potencjator); Lumakaftor, Tezakaftor, Eleksakaftor (korektory); Ataluren (read-through)",
     "m": "Iwakaftor pobudza aktywność CFTR obecnego już w błonie komórkowej (mutacje bramkowe, np. G551D). Lumakaftor/tezakaftor/eleksakaftor naprawiają fałdowanie CFTR i transport do błony (mutacja F508del). Ataluren omija przedwczesny kodon stop (mutacje nonsensowne).",
     "i": "Mukowiscydoza — terapia zależnie od mutacji CFTR pacjenta. Trikafta (iwakaftor + tezakaftor + eleksakaftor) — leczenie F508del/F508del lub F508del + minimum function.",
-    "c": "Hepatotoksyczność (monitorowanie ALT). Zaćma u dzieci (iwakaftor). Interakcje z silnymi inhibitorami/induktorami CYP3A.",
-    "n": "Przełom w leczeniu mukowiscydozy — wcześniej tylko leczenie objawowe."
+    "c": "Brak w książce.",
+    "n": "Przełom w leczeniu mukowiscydozy — wcześniej tylko leczenie objawowe.",
+    "options": [],
+    "correct_letter": ""
   }
 ]

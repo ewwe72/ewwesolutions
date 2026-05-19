@@ -33,6 +33,11 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from src.app.auth.deps import require_verified_email
 from src.app.config import get_settings
 from src.app.db import get_session
+from src.app.services.invoice_upload import (
+    PDF_MAGIC_BYTES,
+    UploadIssue,
+    classify_pdf_upload,
+)
 from src.app.storage import get_storage
 from src.models.audit import AuditEvent
 from src.models.invoice_record import Invoice
@@ -40,7 +45,16 @@ from src.models.user import User
 
 router = APIRouter(prefix="/api/v1", tags=["invoices"])
 
-PDF_MAGIC_BYTES = b"%PDF-"
+# `PDF_MAGIC_BYTES` is re-exported here so existing imports keep
+# working (`from src.app.api.invoices import PDF_MAGIC_BYTES`). The
+# canonical home is now `src.app.services.invoice_upload`.
+__all__ = [
+    "PDF_MAGIC_BYTES",
+    "router",
+    "upload_invoice",
+    "InvoiceSummary",
+    "InvoiceDetail",
+]
 
 
 class InvoiceSummary(BaseModel):
@@ -93,14 +107,15 @@ async def upload_invoice(
     max_bytes = settings.max_upload_mb * 1024 * 1024
 
     content = await pdf.read()
-    if len(content) == 0:
+    issue = classify_pdf_upload(content, max_bytes)
+    if issue is UploadIssue.EMPTY:
         raise HTTPException(status.HTTP_400_BAD_REQUEST, "Empty file")
-    if len(content) > max_bytes:
+    if issue is UploadIssue.TOO_LARGE:
         raise HTTPException(
             status.HTTP_413_REQUEST_ENTITY_TOO_LARGE,
             f"File exceeds {settings.max_upload_mb} MB cap",
         )
-    if not content.startswith(PDF_MAGIC_BYTES):
+    if issue is UploadIssue.NOT_PDF:
         raise HTTPException(status.HTTP_400_BAD_REQUEST, "Not a PDF (magic bytes missing)")
 
     sha256 = hashlib.sha256(content).hexdigest()

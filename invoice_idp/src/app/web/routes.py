@@ -95,6 +95,115 @@ async def landing(request: Request) -> Response:
     return templates.TemplateResponse(request, "index.html", {})
 
 
+# ── /status: lightweight public health surface ────────────────────────
+#
+# Linked from the landing page footer + Dokumenty section. Probes the
+# three in-VM downstream services (Postgres, Redis, MinIO) with hard
+# 1.5s timeouts so a single degraded component doesn't hang the status
+# page itself. Results are cached in-process for ~30s — if traffic ever
+# warrants it, swap for Redis SETEX or static page generation.
+_STATUS_CACHE: dict[str, Any] = {"ts": 0.0, "data": None}
+_STATUS_CACHE_TTL_SECONDS = 30
+_STATUS_PROBE_TIMEOUT_SECONDS = 1.5
+
+
+async def _probe_db() -> dict[str, Any]:
+    """Single-row SELECT against Postgres. Uses its own short-lived
+    session so a stuck connection here doesn't poison the request's
+    main session."""
+    import asyncio as _asyncio
+    from src.app.db import SessionLocal
+    from sqlalchemy import text as _text
+
+    try:
+        async with _asyncio.timeout(_STATUS_PROBE_TIMEOUT_SECONDS):
+            async with SessionLocal() as s:
+                await s.execute(_text("SELECT 1"))
+        return {"ok": True}
+    except Exception as e:  # noqa: BLE001
+        return {"ok": False, "error": type(e).__name__}
+
+
+async def _probe_redis() -> dict[str, Any]:
+    import asyncio as _asyncio
+
+    settings = get_settings()
+    client: Any = None
+    try:
+        import redis.asyncio as _aioredis
+        client = _aioredis.from_url(settings.redis_url)  # type: ignore[no-untyped-call]
+        async with _asyncio.timeout(_STATUS_PROBE_TIMEOUT_SECONDS):
+            await client.ping()
+        return {"ok": True}
+    except Exception as e:  # noqa: BLE001
+        return {"ok": False, "error": type(e).__name__}
+    finally:
+        if client is not None:
+            try:
+                await client.aclose()
+            except Exception:  # noqa: BLE001
+                pass
+
+
+async def _probe_storage() -> dict[str, Any]:
+    """`head_bucket` is cheap and authoritative — proves network reach
+    + credentials. boto3 is sync, wrap in to_thread. Uses
+    ObjectStorage's short-timeout probe client so a wedged endpoint
+    times out at ~1s instead of dragging the thread along for boto3's
+    default 60s read window."""
+    import asyncio as _asyncio
+    from src.app.storage import get_storage
+
+    def _head() -> None:
+        get_storage().health_check()
+
+    try:
+        async with _asyncio.timeout(_STATUS_PROBE_TIMEOUT_SECONDS):
+            await _asyncio.to_thread(_head)
+        return {"ok": True}
+    except Exception as e:  # noqa: BLE001
+        return {"ok": False, "error": type(e).__name__}
+
+
+async def _gather_status() -> dict[str, Any]:
+    import asyncio as _asyncio
+
+    db, queue, storage = await _asyncio.gather(
+        _probe_db(), _probe_redis(), _probe_storage(),
+    )
+    checks = {
+        "Aplikacja": {"ok": True},  # we're serving this page; tautologically up
+        "Baza danych": db,
+        "Kolejka zadań": queue,
+        "Magazyn plików": storage,
+    }
+    overall_ok = all(c["ok"] for c in checks.values())
+    return {
+        "overall_ok": overall_ok,
+        "checks": checks,
+        "checked_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+    }
+
+
+@router.get("/status", response_class=HTMLResponse)
+async def status_page(request: Request) -> Response:
+    """Public status page — no auth, no PII, links from the landing
+    footer. Cached in-process for `_STATUS_CACHE_TTL_SECONDS` so
+    repeated curls don't hammer DB/Redis/S3."""
+    import time as _time
+
+    now = _time.monotonic()
+    cached = _STATUS_CACHE.get("data")
+    if cached is not None and (now - _STATUS_CACHE["ts"]) < _STATUS_CACHE_TTL_SECONDS:
+        data = cached
+    else:
+        data = await _gather_status()
+        _STATUS_CACHE["ts"] = now
+        _STATUS_CACHE["data"] = data
+
+    return templates.TemplateResponse(request, "status.html", {"status": data})
+
+
 @router.get("/login", response_class=HTMLResponse)
 async def login_page(request: Request) -> Response:
     return templates.TemplateResponse(request, "auth/login.html", {})
@@ -378,7 +487,11 @@ async def upload_page(
     csrf_token = get_or_create_csrf_token(request)
     return templates.TemplateResponse(
         request, "app/upload.html",
-        {"user": user, "csrf_token": csrf_token},
+        {
+            "user": user,
+            "csrf_token": csrf_token,
+            "max_upload_mb": get_settings().max_upload_mb,
+        },
     )
 
 
@@ -390,11 +503,16 @@ async def upload_submit(
     """Browser-facing PDF upload. Internally same logic as POST /api/v1/invoices
     but redirects to the detail page on success rather than returning JSON.
 
-    TODO(refactor): factor out shared upload logic into `services/invoice_upload.py`.
+    Shared validation primitives live in
+    `src.app.services.invoice_upload` so the JSON and HTML surfaces
+    classify identical bytes the same way. The Polish copy + 400
+    status code stay here because they are UI concerns.
     """
     import hashlib
-    from src.app.api.invoices import (
-        PDF_MAGIC_BYTES, _enqueue_extraction,
+    from src.app.api.invoices import _enqueue_extraction
+    from src.app.services.invoice_upload import (
+        UploadIssue,
+        classify_pdf_upload,
     )
     from src.app.storage import get_storage
 
@@ -408,23 +526,27 @@ async def upload_submit(
     form = await request.form()
     upload = form.get("pdf")
     csrf_token = get_or_create_csrf_token(request)
+    settings = get_settings()
+    max_upload_mb = settings.max_upload_mb
+
     if not hasattr(upload, "read"):
         return templates.TemplateResponse(
             request, "app/upload.html",
-            {"user": user, "csrf_token": csrf_token, "error": "Brak pliku."},
+            {"user": user, "csrf_token": csrf_token,
+             "max_upload_mb": max_upload_mb, "error": "Brak pliku."},
             status_code=status.HTTP_400_BAD_REQUEST,
         )
 
-    settings = get_settings()
-    max_bytes = settings.max_upload_mb * 1024 * 1024
+    max_bytes = max_upload_mb * 1024 * 1024
     content = await upload.read()  # type: ignore[union-attr]
     filename = getattr(upload, "filename", None)
 
-    if len(content) == 0:
-        err = "Plik jest pusty."
-    elif len(content) > max_bytes:
-        err = f"Plik większy niż {settings.max_upload_mb} MB."
-    elif not content.startswith(PDF_MAGIC_BYTES):
+    issue = classify_pdf_upload(content, max_bytes)
+    if issue is UploadIssue.EMPTY:
+        err: str | None = "Plik jest pusty."
+    elif issue is UploadIssue.TOO_LARGE:
+        err = f"Plik większy niż {max_upload_mb} MB."
+    elif issue is UploadIssue.NOT_PDF:
         err = "To nie jest PDF (brak nagłówka pliku PDF)."
     else:
         err = None
@@ -432,7 +554,8 @@ async def upload_submit(
     if err is not None:
         return templates.TemplateResponse(
             request, "app/upload.html",
-            {"user": user, "csrf_token": csrf_token, "error": err},
+            {"user": user, "csrf_token": csrf_token,
+             "max_upload_mb": max_upload_mb, "error": err},
             status_code=status.HTTP_400_BAD_REQUEST,
         )
 
@@ -682,6 +805,12 @@ async def reextract_invoice(
     Counts against the org's monthly extraction quota (Phase 6 — not yet
     enforced). Re-extraction wipes any prior operator corrections; the
     worker resets `user_reviewed_at` + `last_correction_at` on success.
+
+    Gated identically to the upload endpoint: requires email-verified
+    user + positive credit balance. Without the gate a user with 0
+    balance could click "Spróbuj ponownie (Sonnet)" on the failed-stub
+    page indefinitely, since the worker debits but doesn't refuse
+    on negative balance (per the in-flight-completes-anyway invariant).
     """
     from src.app.api.invoices import _enqueue_extraction
     from src.pipeline.extraction.extractor import SONNET_MODEL
@@ -690,6 +819,9 @@ async def reextract_invoice(
     if user is None:
         return RedirectResponse(url="/login", status_code=status.HTTP_303_SEE_OTHER)
     _verify_csrf_form(request, csrf_token)
+    gate = await _upload_gate(request, session, user)
+    if gate is not None:
+        return gate
 
     invoice = await session.scalar(
         select(Invoice).where(
@@ -723,7 +855,7 @@ async def reextract_invoice(
     )
 
 
-_EXPORT_FORMATS: frozenset[str] = frozenset({"json", "csv", "jpk_fa"})
+_EXPORT_FORMATS: frozenset[str] = frozenset({"json", "csv", "jpk_fa", "fa3"})
 
 
 @router.get("/app/faktury/{invoice_id}/eksport/{fmt}")
@@ -733,7 +865,7 @@ async def export_invoice(
     fmt: str,
     session: Annotated[AsyncSession, Depends(get_session)],
 ) -> Response:
-    """Download a completed invoice as `json` / `csv` / `jpk_fa`.
+    """Download a completed invoice as `json` / `csv` / `jpk_fa` / `fa3`.
 
     Exports require `status=completed` AND non-null `canonical_data`. We
     audit-log every successful export so a paying customer's downloads
@@ -741,10 +873,16 @@ async def export_invoice(
 
     JPK_FA additionally requires the org to have `nip` + `kod_urzedu`
     set (chunk 4 settings page) — without them, returns 422 with a
-    pointer to Settings.
+    pointer to Settings. FA(3) only needs the seller NIP from the PDF
+    itself (no org settings).
     """
     from src.models.invoice import CanonicalInvoice
-    from src.pipeline.export import csv_export, json_export, jpk_fa as jpk_fa_export
+    from src.pipeline.export import (
+        csv_export,
+        fa3 as fa3_export,
+        json_export,
+        jpk_fa as jpk_fa_export,
+    )
 
     user = await _get_user_or_none(request, session)
     if user is None:
@@ -789,6 +927,15 @@ async def export_invoice(
         content = csv_export.to_bytes(canonical)
         media_type = "text/csv; charset=utf-8"
         suffix = "csv"
+    elif fmt == "fa3":
+        try:
+            content = fa3_export.to_bytes(canonical)
+        except fa3_export.Fa3ExportError as e:
+            raise HTTPException(
+                status.HTTP_422_UNPROCESSABLE_ENTITY, str(e),
+            ) from e
+        media_type = "application/xml; charset=utf-8"
+        suffix = "fa3.xml"
     else:  # jpk_fa
         org = await session.scalar(select(Org).where(Org.id == user.org_id))
         assert org is not None  # user.org_id FK guarantees this

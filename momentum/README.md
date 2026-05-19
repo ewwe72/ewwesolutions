@@ -147,7 +147,7 @@ mypy --strict src/
 
 ```bash
 python -m src.backtest --start 2010-01-01 --end 2024-12-31 \
-    --walk-forward --report reports_momentum/
+    --walk-forward --report reports/
 ```
 
 `--walk-forward` splits at end-of-2018 and writes both `in_sample_*` and

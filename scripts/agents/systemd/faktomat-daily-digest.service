@@ -1,0 +1,23 @@
+[Unit]
+Description=Faktomat daily digest → Discord
+After=docker.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=ewwe
+Group=ewwe
+WorkingDirectory=/home/ewwe/playspace/random
+ExecStart=/home/ewwe/playspace/random/scripts/agents/daily_digest.sh
+
+# Don't crash systemd if the script fails — failures land in journalctl
+# and the script itself posts an error to Discord when it can. Avoids
+# noisy systemd-level Failed=1 status when the issue is downstream
+# (Discord 5xx, postgres restart, etc).
+SuccessExitStatus=0 1
+
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

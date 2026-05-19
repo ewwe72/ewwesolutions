@@ -5,16 +5,16 @@
     "d": "Atropina",
     "m": "Antagonista receptorów muskarynowych (M1–M5) — blokuje nadmiar acetylocholiny na receptorach M. Znosi objawy MUSKARYNOWE zatrucia (DUMBELS: ślinotok, łzawienie, oddawanie moczu/stolca, skurcz oskrzeli, bradykardia, mioza). Nie znosi efektów NIKOTYNOWYCH (osłabienie mięśni, drgawki).",
     "i": "Zatrucia inhibitorami acetylocholinesterazy: pestycydy fosforoorganiczne (paration, malation), karbaminiany, gazy bojowe (sarin, soman, VX). Bradykardia. Premedykacja.",
-    "c": "Tachykardia, suchość w jamie ustnej, zatrzymanie moczu, jaskra z wąskim kątem. W zatruciach AChE — dawki ogromne (do kilkudziesięciu mg/dobę), miarą wystarczalności jest osuszenie wydzielin.",
-    "n": "Dawka pediatryczna i.v.: 0,02 mg/kg, powtarzać co 5–15 min. Brak górnej dawki w zatruciu."
+    "c": "Brak w książce.",
+    "n": "Dawka pediatryczna i.v.: 0,05 mg/kg (wg PDF, tab. 45.2), powtarzać do pojawienia się objawów cholinolitycznych. Brak górnej dawki w zatruciu."
   },
   {
     "z": 13,
     "t": "Pralidoksym i Obidoksym — reaktywatory acetylocholinesterazy",
     "d": "Pralidoksym (2-PAM), Obidoksym (Toxogonin)",
-    "m": "Oksymy reaktywują AChE — odłączają fosforan od reszty serynowej w miejscu aktywnym enzymu, przywracając jego funkcję. Działają zarówno na komponentę muskarynową, jak i nikotynową. Skuteczne PRZED \"starzeniem\" enzymu (aging — kowalencyjna dehydratacja fosforanu).",
+    "m": "Oksymy reaktywują AChE — odłączają fosforan od reszty serynowej w miejscu aktywnym enzymu, przywracając jego funkcję. Działają zarówno na komponentę muskarynową, jak i nikotynową. Skuteczne PRZED \"starzeniem\" enzymu (aging — kowalencyjna dealkilacja fosforanu).",
     "i": "Zatrucia pestycydami fosforoorganicznymi — łącznie z atropiną. Im wcześniej podane, tym skuteczniejsze (godziny — nie dni).",
-    "c": "Bóle głowy, zawroty głowy, nudności, tachykardia, wzrost ciśnienia tętniczego. Nie są skuteczne w zatruciach karbaminianami (karbaminiany same odłączają się od AChE).",
+    "c": "Brak w książce.",
     "n": "Po procesie \"starzenia\" enzymu (1–48 h od ekspozycji, zależnie od związku) reaktywatory są bezużyteczne."
   },
   {
@@ -23,7 +23,7 @@
     "d": "Nalokson",
     "m": "Kompetycyjny antagonista receptorów opioidowych μ (i częściowo δ, κ) — wypiera opioidy z receptorów, znosi w ciągu kilku minut depresję ośrodka oddechowego, sedację, miozę. Krótki t1/2 (~30–60 min) — krótszy niż większości opioidów, stąd ryzyko nawrotu.",
     "i": "Zatrucia opioidami (heroina, morfina, fentanyl, oksykodon, metadon). Diagnostyka różnicowa śpiączki o nieznanej etiologii. Pooperacyjna depresja oddechowa.",
-    "c": "U osób uzależnionych — wywołanie gwałtownego zespołu abstynencyjnego (pobudzenie, mydriaza, tachykardia, nadciśnienie, wymioty). Ryzyko obrzęku płuc niesercopochodnego.",
+    "c": "Brak w książce.",
     "n": "Dawka i.v./i.m./s.c.: 0,4–2 mg, powtarzać co 2–3 min. Obserwacja minimum 4–6 h (ryzyko nawrotu depresji)."
   },
   {
@@ -32,7 +32,7 @@
     "d": "Flumazenil",
     "m": "Kompetycyjny antagonista receptora benzodiazepinowego (allosterycznego miejsca na receptorze GABA-A) — wypiera benzodiazepiny i odwraca sedację, depresję oddechową. Krótki t1/2 (~1 h) — krótszy niż BZD długodziałających.",
     "i": "Czyste zatrucia benzodiazepinami z depresją oddechową. Diagnostyka różnicowa śpiączki.",
-    "c": "PRZECIWWSKAZANY w mieszanych zatruciach z TLPD lub innymi lekami obniżającymi próg drgawkowy (ryzyko niekontrolowanych drgawek). PRZECIWWSKAZANY u przewlekle leczonych BZD (ryzyko ciężkiego zespołu abstynencyjnego). Wskazania zawężają się.",
+    "c": "Mieszane zatrucia z trójpierścieniowymi lekami przeciwdepresyjnymi lub innymi lekami obniżającymi próg drgawkowy, przewlekłe leczenie benzodiazepinami.",
     "n": "Zwykle NIE podaje się rutynowo — sama wentylacja zwykle wystarczy."
   },
   {
@@ -41,7 +41,7 @@
     "d": "N-acetylocysteina (NAC)",
     "m": "Donor grupy sulfhydrylowej (-SH) — uzupełnia zasoby wątrobowego glutationu, który neutralizuje hepatotoksyczny metabolit paracetamolu N-acetylo-p-benzochinonoiminę (NAPQI). Działa też jako bezpośredni \"scavenger\" wolnych rodników.",
     "i": "Zatrucia paracetamolem — stężenie powyżej linii leczenia na nomogramie Rumacka-Matthew (oznaczenie ≥4 h od spożycia). Maksymalna skuteczność w pierwszych 8 h, ale wskazane także później (>24 h — wciąż korzystne).",
-    "c": "Reakcje anafilaktoidalne przy szybkim wlewie i.v. (zaczerwienienie, świąd, skurcz oskrzeli, hipotensja — premedykacja antyhistaminowa lub spowolnienie wlewu). Nudności, wymioty doustnie.",
+    "c": "Brak w książce.",
     "n": "Protokół 21-godzinny i.v. (150 mg/kg + 50 mg/kg + 100 mg/kg) lub 72-godzinny doustnie."
   },
   {
@@ -49,8 +49,8 @@
     "t": "Etanol i Fomepizol — antydoty w zatruciach metanolem i glikolem etylenowym",
     "d": "Etanol; Fomepizol (4-metylopirazol)",
     "m": "Kompetycyjne hamowanie dehydrogenazy alkoholowej (ADH) — etanol jest preferowanym substratem nad metanolem/glikolem etylenowym. Zapobiega powstawaniu toksycznych metabolitów (formaldehyd → kwas mrówkowy; aldehyd glikolowy → kwas glikolowy, szczawiowy).",
-    "i": "Potwierdzone lub podejrzewane zatrucia metanolem, glikolem etylenowym, dietylenoglikolem. Fomepizol jest lekiem pierwszego wyboru (łatwiejsze dawkowanie, brak sedacji).",
-    "c": "Etanol — sedacja, hipoglikemia (zwłaszcza u dzieci), zaburzenia elektrolitowe, ryzyko aspiracji. Fomepizol — bóle głowy, nudności, nieprzyjemny smak.",
+    "i": "Potwierdzone lub podejrzewane zatrucia metanolem, glikolem etylenowym, dietylenoglikolem. Fomepizol — mechanistycznie korzystniejszy (łatwiejsze dawkowanie, brak sedacji), w PDF zaznaczony jako niedostępny w Polsce.",
+    "c": "Brak w książce.",
     "n": "Dodatkowo: hemodializa (eliminacja toksyn i alkoholu), folian (kw. mrówkowy → CO2 + H2O), tiamina + pirydoksyna (kw. szczawiowy → α-hydroksy-β-ketoadypinian)."
   },
   {
@@ -59,8 +59,8 @@
     "d": "Hydroksykobalamina; Tiosiarczan sodu (Na2S2O3); (alternatywa: Azotyn amylu wziewnie + Azotyn sodu i.v.)",
     "m": "Hydroksykobalamina (Vit B12a) — wiąże bezpośrednio jon CN⁻ tworząc cyjanokobalaminę (Vit B12), wydalaną z moczem. Tiosiarczan sodu — donor siarki dla rodankazy → CN⁻ przekształcany w nietoksyczny tiocyjanian (SCN⁻). Azotyny — utleniają hemoglobinę do methemoglobiny, która wiąże CN⁻ (kosztem zdolności transportu O2).",
     "i": "Zatrucia cyjankami (HCN, sole cyjanków), zatrucie dymem pożarowym (cyjanowodór ze spalania tworzyw), zatrucie nitroprusydkiem sodu (przy długotrwałym wlewie).",
-    "c": "Hydroksykobalamina — czerwone zabarwienie skóry, moczu, surowicy; reakcje alergiczne; wzrost ciśnienia tętniczego. Azotyny — methemoglobinemia (nie stosować w zatruciu dymem — niedotlenienie!), hipotensja.",
-    "n": "Hydroksykobalamina — antydot pierwszego wyboru. Dawka i.v.: 5 g w 15 min, można powtórzyć."
+    "c": "Azotyny: zatrucie dymem pożarowym (methemoglobinemia nasila niedotlenienie tkanek).",
+    "n": "Hydroksykobalamina — mechanizm teoretycznie preferowany (kobalt ma wyższe powinowactwo do CN⁻); w PDF zaznaczona jako niedostępna w Polsce. Dawka i.v.: 5 g w 15 min, można powtórzyć."
   },
   {
     "z": 13,
@@ -68,7 +68,7 @@
     "d": "Błękit metylenowy",
     "m": "Po redukcji do leukoformy (przez reduktazę NADPH-zależną) działa jako sztuczny przenośnik elektronów: redukuje methemoglobinę (Fe³⁺) z powrotem do hemoglobiny (Fe²⁺), przywracając zdolność transportu tlenu.",
     "i": "Methemoglobinemia o stężeniu MetHb >20–30% lub objawowa (sinica, kwasica, niedotlenienie tkanek). Zatrucia: azotyny, dapsone, anilina, sulfonamidy, nitrobenzen, fenacetyna.",
-    "c": "PRZECIWWSKAZANY w niedoborze G6PD (paradoksalnie nasila hemolizę i methemoglobinemię). Działania niepożądane: zielono-niebieski kolor moczu, hemoliza, dyspnoea. Interakcja z SSRI/MAOI — ryzyko zespołu serotoninowego.",
+    "c": "Niedobór dehydrogenazy glukozo-6-fosforanowej (paradoksalnie nasila hemolizę i methemoglobinemię).",
     "n": "Dawka i.v.: 1–2 mg/kg w wolnym bolusie. Klasyczny wynik testu: krew czekoladowo-brunatna → po podaniu BM jaśnieje."
   },
   {
@@ -77,7 +77,7 @@
     "d": "Fitomenadion (witamina K1)",
     "m": "Kofaktor karboksylacji reszt glutaminianowych (Glu → Gla) w czynnikach krzepnięcia II, VII, IX, X oraz białkach C i S. Pomija blok wywołany przez warfarynę/superwarfarynę na reduktazie epoksydu VK.",
     "i": "Zatrucia warfaryną, acenokumarolem, superwarfarynami (rodentycydy: brodifakum, bromadiolon). Krwawienie z przedawkowania VKA. Noworodki — profilaktyka choroby krwotocznej.",
-    "c": "Reakcje anafilaktoidalne przy szybkim wlewie i.v. (preferowane podanie i.m. lub doustne). U pacjentów przewlekle wymagających VKA — czasowa oporność na powrót terapii.",
+    "c": "Brak w książce.",
     "n": "W krwawieniu z dużej dawki VKA — łącznie PCC (koncentrat zespołu protrombiny) lub FFP dla natychmiastowej hemostazy."
   },
   {
@@ -86,8 +86,8 @@
     "d": "Glukagon",
     "m": "Aktywuje receptor glukagonowy (Gs) w mięśniu sercowym → ↑cAMP — niezależnie od receptora β. Omija blok receptora β, przywracając chronotropię i inotropię. Skuteczny też w blokadzie kanałów wapniowych (mniej).",
     "i": "Ciężkie zatrucia β-blokerami z hipotensją i bradykardią opornymi na atropinę i amine presyjne. Zatrucia blokerami kanałów wapniowych (drugi wybór).",
-    "c": "Nudności, wymioty (bardzo częste), hiperglikemia, hipokaliemia. Krótki t1/2 (3–6 min) — wymaga wlewu ciągłego.",
-    "n": "Dawka i.v.: bolus 3–10 mg, następnie wlew 1–5 mg/h."
+    "c": "Brak w książce.",
+    "n": "Dawka i.v.: bolus 5–10 mg (wg PDF, tab. 45.2), w razie potrzeby wlew ciągły (krótki t1/2)."
   },
   {
     "z": 13,
@@ -95,7 +95,7 @@
     "d": "Chlorek wapnia, Glukonian wapnia; HIE = High-dose Insulin Euglycemia (insulina + glukoza)",
     "m": "Wapń — zwiększa gradient zewnątrz/wewnątrzkomórkowy → przywraca dokomórkowy napływ Ca²⁺ mimo częściowej blokady kanałów L. HIE — wysokie dawki insuliny poprawiają zużycie glukozy przez mięsień sercowy zatruty (przesuwa metabolizm z kwasów tłuszczowych na glukozę), działając inotropowo dodatnio.",
     "i": "Ciężkie zatrucia blokerami kanałów wapniowych z hipotensją i bradykardią (werapamil, diltiazem, dihydropirydyny). HIE — także w ciężkich zatruciach β-blokerami.",
-    "c": "Wapń — bradykardia, asystolia przy szybkim podaniu i.v.; martwica tkanek przy wynaczynieniu (chlorek bardziej niż glukonian). HIE — hipoglikemia (monitorowanie glikemii i kaliemii co 30 min), hipokaliemia.",
+    "c": "Brak w książce.",
     "n": "HIE: insulina 1 j/kg bolus + wlew 0,5–1 j/kg/h; glukoza 0,5 g/kg/h."
   },
   {
@@ -104,7 +104,7 @@
     "d": "20% emulsja tłuszczowa (Intralipid)",
     "m": "Tworzy w surowicy dodatkową fazę lipidową (\"sink\"), do której wnikają lipofilne toksyny — zmniejszając ich stężenie w fazie wodnej i biodostępność dla tkanek. Dodatkowo dostarcza wolnych kwasów tłuszczowych mięśniu sercowemu.",
     "i": "Toksyczność systemowa od miejscowych anestetyków (LAST — bupiwakaina, ropiwakaina, lidokaina). Zatrucia innymi lipofilnymi: TLPD, β-blokery, blokery kanałów Ca²⁺ (próby ratunkowe).",
-    "c": "Reakcje alergiczne, hiperlipidemia, zapalenie trzustki, zaburzenia laboratoryjne (zaślepia gazometrię). Ostrożnie w niewydolności wątroby.",
+    "c": "Brak w książce.",
     "n": "Dawka i.v.: 1,5 ml/kg bolus + wlew 0,25 ml/kg/min przez 10 min."
   },
   {
@@ -113,7 +113,7 @@
     "d": "Deferoksamina (i.v., i.m., s.c.); Deferazyroks, Deferypron (doustne)",
     "m": "Wiążą trójwartościowe żelazo (Fe³⁺) w stabilne kompleksy (np. ferrioksamina), wydalane z moczem (kompleks pomarańczowo-czerwony — \"vin rosé urine\"). Deferoksamina ma 6 grup donorowych — wiąże 1 atom Fe.",
     "i": "Ostre zatrucie preparatami żelaza (poziom Fe w surowicy >500 μg/dl lub objawowe). Przeciążenie żelazem w talasemii, hemochromatozie wtórnej po transfuzjach.",
-    "c": "Hipotensja przy szybkim wlewie i.v. (limit: 15 mg/kg/h). Reakcje alergiczne. Długoterminowo: zaburzenia słuchu, wzroku, ARDS, neutropenia.",
+    "c": "Brak w książce.",
     "n": "Dawka i.v.: 15 mg/kg/h, max 6 g/dobę."
   },
   {
@@ -122,7 +122,7 @@
     "d": "Wersenian wapniowo-disodowy (CaNa2-EDTA); Dimerkaprol (BAL); DMSA (Kwas dimerkaptobursztynowy); DMPS (Dimerkaptopropanosulfonian); D-Penicylamina; Trietylenotetramina (Trien)",
     "m": "Tworzą z metalami ciężkimi stabilne, hydrofilne kompleksy chelatowe wydalane z moczem. Każdy chelator ma swój profil specyficzności: CaNa2-EDTA → Pb; BAL → As, Hg nieorganiczna; DMSA → Pb (preferowany u dzieci, doustny); DMPS → Hg; D-penicylamina → Cu (Wilson), Pb; Trien → Cu (alternatywa przy nietolerancji penicylaminy).",
     "i": "Ostre i przewlekłe zatrucia metalami ciężkimi (ołów, rtęć, arsen). Choroba Wilsona — penicylamina, trietylenotetramina, octan/siarczan cynku.",
-    "c": "Nefrotoksyczność (zwłaszcza CaNa2-EDTA i BAL). Reakcje alergiczne. BAL — bóle głowy, wymioty, nadciśnienie, gorączka, ból w miejscu podania. Penicylamina — uczulenie krzyżowe z penicyliną, leukopenia, proteinuria, miastenia.",
+    "c": "Brak w książce.",
     "n": "Ołów u dorosłych: CaNa2-EDTA + BAL. U dzieci: DMSA doustnie."
   },
   {
@@ -131,7 +131,7 @@
     "d": "Węgiel aktywowany (carbo medicinalis)",
     "m": "Sproszkowany węgiel o ogromnej powierzchni właściwej (~1000 m²/g) — adsorbuje toksyny w świetle przewodu pokarmowego, zapobiegając ich wchłanianiu. Wielokrotne dawki przerywają krążenie jelitowo-wątrobowe niektórych toksyn.",
     "i": "Zatrucia doustne (większość toksyn organicznych) w ciągu 1 h od spożycia (\"single-dose AC\"). Wielokrotne dawki (MDAC) — karbamazepina, fenobarbital, chinina, teofilina, dapsone.",
-    "c": "NIE adsorbuje: alkoholi, metali (Fe, Li), kwasów, zasad, węglowodorów alifatycznych, cyjanków. PRZECIWWSKAZANY przy zaburzeniach świadomości bez zabezpieczenia dróg oddechowych, niedrożności p.p., perforacji, zatruciu substancjami żrącymi.",
+    "c": "Zaburzenia świadomości bez zabezpieczenia dróg oddechowych, niedrożność lub perforacja przewodu pokarmowego, zatrucie substancjami żrącymi.",
     "n": "Dawka: 1 g/kg m.c. doustnie lub przez sondę. MDAC: 0,5 g/kg co 4–6 h."
   },
   {
@@ -140,7 +140,7 @@
     "d": "Cholinergiczny, Antycholinergiczny, Sympatykomimetyczny, Sedacyjny, Opioidowy, Serotoninowy",
     "m": "Toksydromy to charakterystyczne wzorce objawów pozwalające zidentyfikować klasę trucizny: CHOLINERGICZNY (DUMBELS + SLUDGE: ślinotok, mioza, bradykardia, biegunka, oddawanie moczu) — AChE inhibitory. ANTYCHOLINERGICZNY (gorący jak piekło, suchy jak kość, czerwony jak burak, ślepy jak nietoperz, szalony jak kapelusznik) — atropina, TLPD, antyhistaminowe. SYMPATYKOMIMETYCZNY (tachykardia, nadciśnienie, mydriaza, pobudzenie, hipertermia) — amfetamina, kokaina. SEDACYJNY (śpiączka, depresja oddechowa, hipotermia, mioza) — BZD, alkohol, barbiturany. OPIOIDOWY (śpiączka + mioza + depresja oddechowa = triada) — opioidy. SEROTONINOWY (gorączka, klonus mięśni, mioklonie, pobudzenie, biegunka) — SSRI + MAOI / tramadol / linezolid.",
     "i": "Wstępna ocena pacjenta z zatruciem o nieznanej etiologii — podstawa decyzji o doborze antydotu.",
-    "c": "Toksydromy mogą się nakładać (mieszane zatrucia) lub być niepełne — nie zwalniają z laboratorium i odpowiedzi na leczenie.",
+    "c": "Brak w książce.",
     "n": "Pamiętnik kolokwialny: \"sucho-gorąco-ślepo-szalono\" = antycholinergicznie; mioza + bradykardia + ślinotok = cholinergicznie/opioidowo (różnicowanie po pozostałych objawach)."
   },
   {
@@ -149,7 +149,7 @@
     "d": "Naltrekson (doustny, depot i.m.)",
     "m": "Doustny antagonista receptorów opioidowych μ o długim t1/2 (~4 h dla samego naltreksonu, ~13 h dla aktywnego metabolitu 6-β-naltreksolu; preparaty depot — 30 dni).",
     "i": "Profilaktyka nawrotów uzależnienia od opioidów (po detoksyfikacji). Uzależnienie od alkoholu. NIE jest stosowany jako antydot w ostrym zatruciu (zbyt długie działanie, ryzyko przedłużonego abstynencyjnego).",
-    "c": "Hepatotoksyczność (monitorowanie ALT). Reakcje w miejscu wstrzyknięcia (depot). PRZECIWWSKAZANY u osób przyjmujących opioidy lub fizycznie uzależnionych — wywołuje ciężki zespół abstynencyjny.",
+    "c": "Aktualne przyjmowanie opioidów lub fizyczne uzależnienie od opioidów (wywołuje ciężki zespół abstynencyjny).",
     "n": "Różnica vs nalokson: nalokson — ostre zatrucie, krótkie działanie. Naltrekson — leczenie przewlekłe."
   },
   {
@@ -158,7 +158,7 @@
     "d": "Tlen 100% (normobaryczny lub hiperbaryczny)",
     "m": "Tlenek węgla (CO) wiąże się z hemoglobiną 240× silniej niż O2, tworząc karboksyhemoglobinę (COHb) → upośledzenie transportu O2 + przesunięcie krzywej dysocjacji w lewo. Tlen 100% skraca t1/2 COHb z ~4 h (powietrze atmosferyczne) do ~80 min (100% O2 norm.) / ~20 min (HBOT 3 ATA).",
     "i": "Zatrucia tlenkiem węgla — wszystkie objawowe. HBOT: COHb >25%, ciąża, utrata przytomności, objawy neurologiczne, niedokrwienie miokardium.",
-    "c": "HBOT — barotrauma ucha, zatok, płuc; klaustrofobia; toksyczność tlenu (drgawki — Lorrain Smith, Paul Bert).",
+    "c": "Brak w książce.",
     "n": "Pulsoksymetr NIE rozróżnia COHb od HbO2 — daje fałszywie wysoki wynik. Konieczna gazometria z kooksymetrią."
   }
 ]

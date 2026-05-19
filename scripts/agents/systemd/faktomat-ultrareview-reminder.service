@@ -1,0 +1,18 @@
+[Unit]
+Description=Faktomat /ultrareview reminder → Discord
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=ewwe
+Group=ewwe
+WorkingDirectory=/home/ewwe/playspace/random
+ExecStart=/home/ewwe/playspace/random/scripts/agents/ultrareview_reminder.sh
+SuccessExitStatus=0 1
+
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

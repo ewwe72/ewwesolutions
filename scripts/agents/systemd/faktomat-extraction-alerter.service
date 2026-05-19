@@ -1,0 +1,22 @@
+[Unit]
+Description=Faktomat extraction alerter → Discord (per-event)
+After=docker.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=ewwe
+Group=ewwe
+WorkingDirectory=/home/ewwe/playspace/random
+ExecStart=/home/ewwe/playspace/random/scripts/agents/extraction_alerter.sh
+
+# Don't crash systemd on script failure — failures hit journalctl and
+# (when Discord is reachable) the script itself posts an error. Mirrors
+# the daily-digest service so all agent units behave the same way.
+SuccessExitStatus=0 1
+
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

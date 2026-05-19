@@ -1,0 +1,12 @@
+[Unit]
+Description=Faktomat daily digest — fires at 09:00 UTC (~11:00 PL)
+
+[Timer]
+OnCalendar=*-*-* 09:00:00 UTC
+# If the VM was offline at fire time, run once when it comes back up.
+Persistent=true
+# Tiny jitter to avoid all timers stampeding at the same wall-clock second.
+RandomizedDelaySec=60s
+
+[Install]
+WantedBy=timers.target

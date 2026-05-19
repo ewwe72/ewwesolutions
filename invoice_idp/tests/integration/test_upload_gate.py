@@ -87,6 +87,47 @@ async def test_upload_get_renders_when_gate_passes(
 
 
 @pytest.mark.asyncio
+async def test_upload_get_threads_max_upload_mb_to_template(
+    client: AsyncClient, db_session: AsyncSession,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """The client-side file-size guard reads MAX_UPLOAD_MB from the
+    rendered page (helper hint, JS constant, error message). Verify the
+    route threads the settings value through the template context.
+
+    Critically, the template uses `{{ max_upload_mb or 20 }}` as a
+    Jinja fallback in all three places. If the route stops passing the
+    key, the fallback still renders "max 20 MB" — so asserting
+    against the default `max_upload_mb` value would pass trivially.
+    Patch `get_settings` to return a non-default value (7), so the
+    template fallback (20) and the threaded value (7) diverge: only a
+    correctly-threaded route can satisfy the assertions."""
+    from src.app.web import routes as web_routes
+
+    real_settings = web_routes.get_settings()
+    monkeypatch.setattr(
+        web_routes,
+        "get_settings",
+        lambda: real_settings.model_copy(update={"max_upload_mb": 7}),
+    )
+
+    user = await _signup_and_login(client, db_session, "size-guard@example.com")
+    await _set_balance(db_session, user, 5000)
+    resp = await client.get("/app/wgraj")
+    assert resp.status_code == 200
+    assert "max 7 MB" in resp.text, (
+        "expected `max 7 MB` (from threaded setting) in upload page; "
+        "got the 20 fallback or worse — threading is broken"
+    )
+    assert "MAX_UPLOAD_MB = 7" in resp.text, (
+        "JS constant should reflect the threaded setting, not the "
+        "Jinja fallback"
+    )
+    # Inline error placeholder present so the JS has a target to show on.
+    assert 'id="file-size-error"' in resp.text
+
+
+@pytest.mark.asyncio
 async def test_upload_post_blocked_when_email_unverified(
     client: AsyncClient, db_session: AsyncSession,
 ) -> None:

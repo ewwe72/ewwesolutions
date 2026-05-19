@@ -1,0 +1,12 @@
+[Unit]
+Description=Faktomat /ultrareview reminder — fires every 10 days (3×/month cap)
+
+[Timer]
+# Anchor to month-start so the cadence is predictable across reboots and
+# new installs: fires on the 1st, 11th, and 21st of every month at 10:00 UTC.
+OnCalendar=*-*-01,11,21 10:00:00 UTC
+Persistent=true
+RandomizedDelaySec=300s
+
+[Install]
+WantedBy=timers.target

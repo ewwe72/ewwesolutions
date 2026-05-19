@@ -31,6 +31,7 @@ from sqlalchemy import select
 from src.app.config import get_settings
 from src.app.db import SessionLocal
 from src.app.storage import get_storage
+from src.app.workers.error_messages import friendly_extraction_error
 from src.models.audit import AuditEvent
 from src.models.invoice_record import Invoice
 from src.models.org import Org
@@ -151,18 +152,28 @@ async def extract_invoice_task(
 
     except Exception as e:  # noqa: BLE001
         logger.exception("extraction failed for invoice %s", iid)
+        # The user sees `extraction_error` in the UI (stub-page error box).
+        # Ops need the raw class+message to debug, so it goes into the
+        # audit payload under `error_raw` while the user-facing field
+        # carries a Polish, action-oriented message.
+        raw_error = f"{type(e).__name__}: {e}"[:1024]
+        user_message = friendly_extraction_error(e)
         async with SessionLocal() as session:
             invoice = await session.scalar(select(Invoice).where(Invoice.id == iid))
             if invoice is not None:
                 invoice.status = "failed"
-                invoice.extraction_error = f"{type(e).__name__}: {e}"[:1024]
+                invoice.extraction_error = user_message
                 session.add(AuditEvent(
                     org_id=invoice.org_id,
                     action="invoice.extraction_failed",
-                    payload={"invoice_id": str(invoice.id), "error": invoice.extraction_error},
+                    payload={
+                        "invoice_id": str(invoice.id),
+                        "error": user_message,
+                        "error_raw": raw_error,
+                    },
                 ))
                 await session.commit()
-        return {"status": "failed", "error": str(e)[:200]}
+        return {"status": "failed", "error": raw_error[:200]}
 
 
 class WorkerSettings:

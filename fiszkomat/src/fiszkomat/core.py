@@ -36,6 +36,14 @@ class Card(BaseModel):
     # Optional so existing cards.json files without it remain valid (the web
     # reviewer just won't render the section if empty).
     n: str = ""
+    # MCQ-style cards (mikrobio sample deck, 2026-05-17): when `options` is
+    # non-empty the reviewer renders the front as a question + the listed
+    # options A-E (or however many), and the back highlights `correct_letter`.
+    # Both empty = classic pharma layout (front: drugs, back: title + sections).
+    # Validation: each option <=300 chars; correct_letter must be one of
+    # "a".."e"/"f" when options non-empty, else "" / ignored.
+    options: list[str] = Field(default_factory=list)
+    correct_letter: str = ""
 
 
 @dataclass
@@ -365,6 +373,26 @@ def _parse_card_array(text: str) -> list[dict]:
 # ---------- validation ----------
 
 
+# English-only tokens used to detect a card the LLM emitted in English despite
+# the Polish-only rule (prompts.py zasada 1). Each entry is exclusively
+# English — Polish words like "to", "on", "do", "by", "we", "i", "a" are
+# excluded so that legitimate Polish text never trips the detector. See
+# docs/fiszkomat-prompt-audit.md §1 (Recommendation 2) for the motivating gap.
+_ENGLISH_STOPWORDS = frozenset({
+    "is", "are", "was", "were", "be", "been", "being",
+    "has", "have", "had", "having",
+    "does", "did", "doing",
+    "will", "would", "could", "should", "must", "may", "might", "shall",
+    "the", "this", "that", "these", "those",
+    "and", "but", "or", "if", "than", "then",
+    "what", "when", "where", "which", "who", "how", "why",
+    "with", "of", "for", "from", "into",
+    "they", "them", "their", "your", "his", "her", "its", "our",
+    "not", "only", "also",
+})
+_ENGLISH_TOKEN_RE = re.compile(r"[A-Za-z]+")
+
+
 def validate_cards(raw_cards: list[dict]) -> tuple[list[Card], list[tuple[dict, str]]]:
     """Return (valid, rejected_with_reasons). Dedup by hash of (t, d) within this run."""
     valid: list[Card] = []
@@ -388,8 +416,41 @@ def validate_cards(raw_cards: list[dict]) -> tuple[list[Card], list[tuple[dict, 
         if len(card.m) > 800 or len(card.i) > 600 or len(card.c) > 600 or len(card.n) > 800:
             rejected.append((raw, "field too long"))
             continue
-        # crude English leakage detector — Polish skrypt should be Polish
-        eng_hits = sum(1 for w in (" the ", " and ", " with ", " of ", " is ") if w in (" " + card.m.lower() + " "))
+        # MCQ extension validation: per-option <=300 chars, correct_letter
+        # optional even when options present. Empty correct_letter signals
+        # "bank parser couldn't detect which option is bolded as correct" —
+        # the reviewer renders these as "Odpowiedź: nieoznaczona w bazie."
+        # (Paulina feedback 2026-05-18: better to ship the question alone
+        # than drop it; student can self-check vs the Murray citation.)
+        if card.options:
+            if any(len(o) > 300 for o in card.options):
+                rejected.append((raw, "option too long"))
+                continue
+            if not (2 <= len(card.options) <= 8):
+                rejected.append((raw, "option count out of range"))
+                continue
+            if card.correct_letter:
+                if card.correct_letter not in "abcdefgh":
+                    rejected.append((raw, "correct_letter invalid"))
+                    continue
+                idx = ord(card.correct_letter) - ord("a")
+                if idx >= len(card.options):
+                    rejected.append((raw, "correct_letter out of range"))
+                    continue
+        # Crude English leakage detector — Polish skrypt should be Polish.
+        # Inspects every visible card text field (audit 2026-05-16 §1).
+        # Note: MCQ `options` deliberately NOT included — they often contain
+        # Latin binomials and short technical terms that would trip the
+        # heuristic; the stem (d) + explanations cover any English drift.
+        # ALL-CAPS tokens are skipped — they're virtually always technical
+        # abbreviations (WHO, IF, ATP, MRSA, ESBL) not English connectives
+        # (mikrobio enrichment 2026-05-18: "WHO 2021 update" and "IF" for
+        # immunofluorescence kept tripping the detector as false positives).
+        combined = " ".join((card.t, card.d, card.m, card.i, card.c, card.n))
+        eng_hits = sum(
+            1 for tok in _ENGLISH_TOKEN_RE.findall(combined)
+            if not tok.isupper() and tok.lower() in _ENGLISH_STOPWORDS
+        )
         if eng_hits >= 2:
             rejected.append((raw, "English leakage suspected"))
             continue
@@ -476,6 +537,123 @@ def pack_apkg(cards: Iterable[Card], deck_name: str, out_path: Path) -> None:
 QUALITY_REVIEW_MODEL = "claude-opus-4-7"
 
 
+def verify_contraindications(client, cards: list[Card], log=print,
+                              batch_size: int = 15) -> tuple[list[Card], float]:
+    """Focused Haiku pass: verify the `c` (przeciwwskazania) field on each
+    card. Operator feedback 2026-05-18 (Paulina, Polish med student):
+    the model frequently confuses przeciwwskazania (patient states where
+    the drug is NOT given) with działania niepożądane (effects the drug
+    causes) — especially in the respiratory deck. Even with system-prompt
+    rules + corrected few-shot examples, the model still drifts on edge
+    cases. This pass catches the drift after generation.
+
+    Logic per card with non-empty `c` (excluding "Brak w książce."):
+      - Send (z, t, d, c) to Haiku
+      - Ask: "Is EVERY element of c a patient state where the drug should
+        NOT be given? If any element describes what the drug does, or how
+        it's dosed, or any non-patient-state condition — the c field is
+        wrong; reply with 'Brak w książce.' as the corrected value."
+      - Replace c on failed cards. Don't try to salvage partial — operator
+        explicitly: "zastąp całe pole c".
+
+    Returns (updated_cards, USD cost).
+    """
+    if not cards:
+        return cards, 0.0
+    # Only check cards with substantive c content — skip empty + "Brak w książce."
+    BRAK = "Brak w książce."
+    indices_to_check = [
+        i for i, c in enumerate(cards)
+        if c.c and c.c.strip() and c.c.strip() != BRAK
+    ]
+    if not indices_to_check:
+        log(f"  → verify_contraindications: 0 cards have substantive `c`, skipping")
+        return cards, 0.0
+
+    log(f"  → verify_contraindications: checking {len(indices_to_check)} cards (Haiku, batch={batch_size}) ...")
+
+    system_text = (
+        "Jesteś polskim farmakologiem. Recenzujesz pole \"c\" (przeciwwskazania) "
+        "w fiszkach Anki. Twoje JEDYNE zadanie: sprawdzić, czy każda fiszka "
+        "ma w polu \"c\" RZECZYWISTE przeciwwskazania, czy też coś innego.\n\n"
+        "DEFINICJA PRZECIWWSKAZAŃ:\n"
+        "Przeciwwskazania = STANY PACJENTA u kogo lek NIE powinno się podawać.\n"
+        "Przykłady poprawnych haseł w polu c:\n"
+        "  - \"Nadwrażliwość na lek\"\n"
+        "  - \"Ciąża i karmienie piersią\"\n"
+        "  - \"Ciężka niewydolność wątroby\"\n"
+        "  - \"Jaskra z wąskim kątem przesączania\"\n"
+        "  - \"Niedrożność przewodu pokarmowego\"\n\n"
+        "NIE SĄ przeciwwskazaniami:\n"
+        "  - Działania niepożądane (\"tachykardia\", \"drżenie\", \"hipokaliemia\", "
+        "\"nudności\", \"biegunka\", \"suchość w ustach\") — to SKUTKI leku\n"
+        "  - Sposób stosowania (\"monoterapia\", \"częste stosowanie\", \"przewlekłe podawanie\")\n"
+        "  - Interakcje lekowe (\"łączenie z X\") — to osobna kategoria\n"
+        "  - Cechy leku (\"krótki czas półtrwania\", \"słaba biodostępność\")\n\n"
+        "DLA KAŻDEJ FISZKI Z WEJŚCIA:\n"
+        "1. Przejrzyj listę elementów w polu \"c\".\n"
+        "2. Jeśli KAŻDY element jest stanem pacjenta → zachowaj pole c bez zmian.\n"
+        "3. Jeśli CHOĆ JEDEN element jest działaniem niepożądanym, sposobem "
+        "stosowania, interakcją lub innym non-patient-state → zwróć pole c "
+        "jako dokładnie: \"Brak w książce.\" (z kropką).\n\n"
+        "WYJŚCIE: tablica JSON. Dla KAŻDEJ fiszki z wejścia zwróć obiekt "
+        "{\"id\": <int>, \"c\": <str>}, w tej samej kolejności co wejście. "
+        "Bez komentarzy, bez markdown fences, bez prefiksu."
+    )
+
+    total_cost = 0.0
+    patches: dict[int, str] = {}
+    for batch_start in range(0, len(indices_to_check), batch_size):
+        batch_idx = indices_to_check[batch_start:batch_start + batch_size]
+        batch_payload = [
+            {"id": i, "z": cards[i].z, "t": cards[i].t, "d": cards[i].d, "c": cards[i].c}
+            for i in batch_idx
+        ]
+        user_text = "Fiszki do weryfikacji:\n\n" + json.dumps(batch_payload, ensure_ascii=False, indent=2)
+        try:
+            resp = client.messages.create(
+                model=HAIKU_MODEL,
+                max_tokens=4096,
+                system=[{"type": "text", "text": system_text}],
+                messages=[{"role": "user", "content": user_text}],
+            )
+        except Exception as e:
+            log(f"     verify batch {batch_start // batch_size}: ERROR {e}; skipping batch")
+            continue
+        usage = resp.usage
+        in_tok = getattr(usage, "input_tokens", 0)
+        out_tok = getattr(usage, "output_tokens", 0)
+        # Haiku 4.5 pricing (USD per 1M tokens): input $0.80, output $4.00
+        total_cost += (in_tok * 0.80 + out_tok * 4.00) / 1_000_000
+        out_text = "".join(b.text for b in resp.content if hasattr(b, "text"))
+        try:
+            verdicts = _parse_card_array(out_text)
+        except Exception as e:
+            log(f"     verify batch {batch_start // batch_size}: parse error {e}; skipping")
+            continue
+        for v in verdicts:
+            if not isinstance(v, dict):
+                continue
+            vid = v.get("id")
+            new_c = v.get("c")
+            if not isinstance(vid, int) or vid not in batch_idx or not isinstance(new_c, str):
+                continue
+            # Only record patches where c actually changed
+            if new_c.strip() != cards[vid].c.strip():
+                patches[vid] = new_c
+
+    log(f"  → verify_contraindications: {len(patches)}/{len(indices_to_check)} cards corrected, ${total_cost:.4f}")
+
+    # Apply patches to a new list (Card is pydantic — use model_copy)
+    out_cards = []
+    for i, c in enumerate(cards):
+        if i in patches:
+            out_cards.append(c.model_copy(update={"c": patches[i]}))
+        else:
+            out_cards.append(c)
+    return out_cards, total_cost
+
+
 def quality_review_pass(client, cards: list[Card], card_mode: str = "simple",
                         log=print) -> tuple[list[Card], float]:
     """Optional second pass — sends the full deck produced by Haiku to
@@ -556,11 +734,15 @@ def quality_review_pass(client, cards: list[Card], card_mode: str = "simple",
 
 def run(pdf_path: Path, out_path: Path, pages_per_chunk: int = 5, dry_run: bool = False,
         max_chunks: int | None = None, log=print, card_mode: str = "simple",
-        quality_pass: bool = False) -> RunStats:
+        quality_pass: bool = False, verify_c: bool = True) -> RunStats:
     """card_mode = "simple" (5 fields, default for kolokwium) or "detailed"
     (7 fields including przeciwwskazania + działania niepożądane, for egzamin).
     quality_pass = if True, after Haiku finishes the deck is sent to Claude
-    Opus 4.7 for a single review pass (factual / grouping corrections only)."""
+    Opus 4.7 for a single review pass (factual / grouping corrections only).
+    verify_c = if True and card_mode='detailed', a cheap Haiku verify pass
+    runs on the `c` field (przeciwwskazania) to catch the common mistake of
+    leaking działania niepożądane into przeciwwskazania (operator feedback
+    2026-05-18). Defaults to True for detailed mode."""
     t0 = time.time()
     # Try the cheap text path; fall through to vision/OCR path if the PDF is
     # scanned/image-only. Auto-route is transparent to the caller — the only
@@ -617,6 +799,12 @@ def run(pdf_path: Path, out_path: Path, pages_per_chunk: int = 5, dry_run: bool 
     log(f"validation: {len(valid)} valid, {len(rejected)} rejected")
     for raw, reason in rejected[:10]:
         log(f"  rejected ({reason}): t={raw.get('t', '?')!r}")
+
+    # Contraindications-specific verify pass (cheap Haiku). Runs only in
+    # detailed mode — the c field doesn't exist in simple mode.
+    if verify_c and card_mode == "detailed" and valid:
+        valid, verify_cost = verify_contraindications(client, valid, log=log)
+        cost_total += verify_cost
 
     if quality_pass and valid:
         valid, review_cost = quality_review_pass(client, valid, card_mode=card_mode, log=log)

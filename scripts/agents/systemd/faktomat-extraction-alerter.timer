@@ -1,0 +1,14 @@
+[Unit]
+Description=Faktomat extraction alerter — fires every 5 minutes
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=5min
+# If the VM was offline at fire time, run once when it comes back up.
+Persistent=true
+# Tiny jitter so this timer doesn't pile up against the daily digest
+# or other timers that may share the 5-minute boundary.
+RandomizedDelaySec=20s
+
+[Install]
+WantedBy=timers.target

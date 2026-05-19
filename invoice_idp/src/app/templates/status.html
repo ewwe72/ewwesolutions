@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Status — Faktomat{% endblock %}
+{% block content %}
+<div class="min-h-screen bg-stone-50/60 flex flex-col">
+  <main class="flex-1 flex items-center justify-center px-4 py-16">
+    <div class="w-full max-w-xl">
+
+      <a href="/" class="flex items-center justify-center gap-2.5 mb-10 group">
+        <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-gradient-to-br from-brand-600 to-brand-800 text-white font-bold text-base shadow-sm">F</span>
+        <span class="font-serif-display italic text-[26px] leading-none text-stone-900 group-hover:text-brand-800 transition-colors">Faktomat</span>
+      </a>
+
+      <header class="mb-8 text-center">
+        <p class="text-xs font-mono-tabular uppercase tracking-[0.18em] text-stone-500">Status systemu</p>
+        {% if status.overall_ok %}
+          <h1 class="mt-2 font-serif-display italic text-4xl text-stone-900">Wszystko działa.</h1>
+          <p class="mt-3 text-sm text-stone-500">Wszystkie komponenty odpowiadają poprawnie.</p>
+        {% else %}
+          <h1 class="mt-2 font-serif-display italic text-4xl text-rose-900">Wystąpił problem.</h1>
+          <p class="mt-3 text-sm text-stone-600">Jeden lub więcej komponentów nie odpowiada. Trwa diagnoza.</p>
+        {% endif %}
+      </header>
+
+      <section class="rounded-2xl bg-white ring-1 ring-stone-200 shadow-sm divide-y divide-stone-100">
+        {% for name, check in status.checks.items() %}
+          <div class="flex items-center justify-between px-6 py-4">
+            <div class="flex items-center gap-3">
+              {% if check.ok %}
+                <span aria-hidden="true" class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 ring-4 ring-emerald-100"></span>
+              {% else %}
+                <span aria-hidden="true" class="inline-block w-2.5 h-2.5 rounded-full bg-rose-500 ring-4 ring-rose-100"></span>
+              {% endif %}
+              <span class="text-stone-900 font-medium">{{ name }}</span>
+            </div>
+            {% if check.ok %}
+              <span class="text-[11px] font-mono-tabular uppercase tracking-[0.16em] text-emerald-700">Działa</span>
+            {% else %}
+              <span class="text-[11px] font-mono-tabular uppercase tracking-[0.16em] text-rose-700" title="{{ check.error or 'błąd' }}">Problem</span>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </section>
+
+      <p class="mt-6 text-center text-xs font-mono-tabular text-stone-400">
+        Sprawdzono <time datetime="{{ status.checked_at }}">{{ status.checked_at }}</time> UTC ·
+        odświeżane co 30 sekund
+      </p>
+
+      <div class="mt-10 text-center text-sm text-stone-500">
+        <a href="/" class="text-brand-700 hover:text-brand-900 transition-colors">← Wróć na stronę główną</a>
+      </div>
+
+    </div>
+  </main>
+</div>
+{% endblock %}

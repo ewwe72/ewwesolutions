@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Faktomat — wrzuć fakturę, pobierz JPK{% endblock %}
+{% block title %}Faktomat — wrzuć fakturę, wczytaj w swoim systemie{% endblock %}
 {% block content %}
 
 {# ============================================================
@@ -15,12 +15,13 @@
     <nav class="flex items-center gap-1 sm:gap-3 text-sm">
       <a href="#dla-kogo"      class="hidden md:inline text-stone-600 hover:text-stone-900 px-2 py-1.5 transition-colors">Dla kogo</a>
       <a href="#jak-to-dziala" class="hidden md:inline text-stone-600 hover:text-stone-900 px-2 py-1.5 transition-colors">Jak to działa</a>
+      <a href="#integracje"    class="hidden lg:inline text-stone-600 hover:text-stone-900 px-2 py-1.5 transition-colors">Integracje</a>
       <a href="#cennik"        class="hidden md:inline text-stone-600 hover:text-stone-900 px-2 py-1.5 transition-colors">Cennik</a>
       <a href="#faq"           class="hidden md:inline text-stone-600 hover:text-stone-900 px-2 py-1.5 transition-colors">FAQ</a>
       <span class="hidden sm:inline-block h-4 border-l border-stone-300 mx-1"></span>
-      <a href="/login"  class="text-stone-700 hover:text-stone-900 px-3 py-1.5 transition-colors">Zaloguj</a>
-      <a href="/signup" class="px-4 py-1.5 rounded-lg bg-brand-700 text-white text-sm font-medium hover:bg-brand-800 transition shadow-sm">
-        Załóż konto
+      <a href="mailto:kontakt@ewwesolutions.work?subject=Faktomat%20%E2%80%94%20wczesny%20dostęp"
+         class="px-4 py-1.5 rounded-lg bg-brand-700 text-white text-sm font-medium hover:bg-brand-800 transition shadow-sm">
+        Zostaw kontakt
       </a>
     </nav>
   </div>
@@ -35,34 +36,37 @@
     <div class="animate-fade-up">
       <p class="inline-flex items-center gap-2 text-[11px] font-mono-tabular uppercase tracking-[0.18em] text-brand-700">
         <span class="w-1.5 h-1.5 rounded-full bg-brand-600"></span>
-        Polski produkt · zbudowany dla księgowych
+        Polski produkt · integracja z twoim systemem sprzedaży i magazynu
       </p>
 
       <h1 class="mt-5 text-4xl sm:text-5xl lg:text-6xl tracking-tight text-stone-900 leading-[1.05]">
-        <span class="font-extrabold">Wrzuć fakturę,</span><br>
-        <span class="font-serif-display italic text-brand-800">pobierz JPK.</span>
+        <span class="font-extrabold">Wrzuć fakturę PDF,</span><br>
+        <span class="font-serif-display italic text-brand-800">wczytaj w systemie.</span>
       </h1>
 
       <p class="mt-6 text-lg text-stone-600 max-w-xl leading-relaxed">
         Wgrywasz polską fakturę PDF — <span class="font-semibold text-stone-900">30 sekund</span> później
-        masz plik JPK_FA(4) XML zgodny ze schematem Ministerstwa Finansów.
-        Dodatkowo eksport do JSON i CSV — gotowy do importu w programie księgowym.
+        masz dane gotowe do importu w twoim programie
+        <span class="font-semibold text-stone-900">sprzedażowym</span>,
+        <span class="font-semibold text-stone-900">zakupowym</span> lub
+        <span class="font-semibold text-stone-900">magazynowym</span> —
+        a także JPK_FA(4) XML i e-fakturę KSeF FA(3).
       </p>
 
       <div class="mt-8 flex flex-wrap items-center gap-3">
-        <a href="/signup"
+        <a href="mailto:kontakt@ewwesolutions.work?subject=Faktomat%20%E2%80%94%20wczesny%20dostęp"
            class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-brand-700 text-white font-medium shadow-sm hover:bg-brand-800 transition">
-          Załóż konto
+          Zostaw kontakt
           <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"/></svg>
         </a>
-        <a href="/login"
+        <a href="#jak-to-dziala"
            class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-white text-stone-900 font-medium ring-1 ring-stone-300 hover:bg-stone-50 transition">
-          Zaloguj
+          Zobacz jak działa
         </a>
       </div>
 
       <p class="mt-3 text-xs text-stone-500">
-        Bez karty na start — zacznij od jednej faktury, doładujesz konto dopiero gdy zobaczysz wynik.
+        Domykamy integrację z popularnymi systemami sprzedażowo-magazynowymi. Zostaw kontakt — odzywamy się z premierą.
       </p>
 
       <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-stone-500">
@@ -121,26 +125,31 @@
 
           {# XML card #}
           <div class="relative aspect-[4/5] rounded-lg bg-stone-900 ring-1 ring-stone-800 overflow-hidden animate-xml-in">
-            <div class="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-emerald-500 text-stone-900 text-[9px] font-bold tracking-wide">JPK_FA(4)</div>
-            <pre class="p-3 pt-8 text-[8px] sm:text-[9px] leading-snug text-emerald-300 font-mono whitespace-pre overflow-hidden"><span class="text-stone-500">&lt;?xml version="1.0"?&gt;</span>
-<span class="text-sky-400">&lt;JPK&gt;</span>
-  <span class="text-sky-400">&lt;Naglowek&gt;</span>
-    <span class="text-amber-300">&lt;KodFormularza</span>
-      kod="JPK_FA"
-      wariant="4"<span class="text-amber-300">/&gt;</span>
-  <span class="text-sky-400">&lt;/Naglowek&gt;</span>
-  <span class="text-sky-400">&lt;Faktura&gt;</span>
+            <div class="absolute top-2 left-2 flex flex-wrap gap-1 max-w-[calc(100%-1rem)]">
+              <span class="px-1.5 py-0.5 rounded bg-emerald-500 text-stone-900 text-[9px] font-bold tracking-wide">JPK_FA(4)</span>
+              <span class="px-1.5 py-0.5 rounded bg-sky-400 text-stone-900 text-[9px] font-bold tracking-wide">FA(3)</span>
+              <span class="px-1.5 py-0.5 rounded bg-stone-200 text-stone-700 text-[9px] font-bold tracking-wide">JSON</span>
+              <span class="px-1.5 py-0.5 rounded bg-stone-200 text-stone-700 text-[9px] font-bold tracking-wide">CSV</span>
+            </div>
+            <pre class="p-3 pt-14 text-[8px] sm:text-[9px] leading-snug text-emerald-300 font-mono whitespace-pre overflow-hidden"><span class="text-stone-500">&lt;?xml version="1.0"?&gt;</span>
+<span class="text-sky-400">&lt;Faktura&gt;</span>
+  <span class="text-amber-300">&lt;Naglowek&gt;</span>
     <span class="text-emerald-200">P_1</span>=2026-05-13
     <span class="text-emerald-200">P_2A</span>=FV/2026/123
-    <span class="text-emerald-200">P_15</span>=1230.00
-  <span class="text-sky-400">&lt;/Faktura&gt;</span>
-<span class="text-sky-400">&lt;/JPK&gt;</span></pre>
+  <span class="text-amber-300">&lt;/Naglowek&gt;</span>
+  <span class="text-amber-300">&lt;Podmiot1&gt;</span>
+    NIP=5252344078
+  <span class="text-amber-300">&lt;/Podmiot1&gt;</span>
+  <span class="text-amber-300">&lt;P_15&gt;</span>
+    1230.00
+  <span class="text-amber-300">&lt;/P_15&gt;</span>
+<span class="text-sky-400">&lt;/Faktura&gt;</span></pre>
           </div>
         </div>
 
         <div class="mt-6 flex items-center justify-between text-[11px] text-stone-500">
           <span class="font-mono">faktura.pdf</span>
-          <span class="font-mono text-brand-700">jpk_fa.xml</span>
+          <span class="font-mono text-brand-700">→ twój system</span>
         </div>
       </div>
 
@@ -161,56 +170,59 @@
         Trzy typy klientów. <span class="font-serif-display italic font-normal">Jeden problem.</span>
       </h2>
       <p class="mt-3 text-stone-600">
-        Jeśli przepisujesz dane z faktur PDF do programu księgowego — Faktomat oddaje ci ten czas.
+        Jeśli przepisujesz dane z faktur PDF do swojego systemu — Faktomat oddaje ci ten czas.
       </p>
     </div>
 
     <div class="mt-10 grid md:grid-cols-3 gap-5">
-      {# Persona 1: Biuro rachunkowe #}
+      {# Persona 1: Firma handlowa #}
       <div class="p-6 rounded-2xl bg-stone-50/60 ring-1 ring-stone-200">
         <div class="flex items-center gap-2.5 mb-3">
           <span class="w-8 h-8 rounded-lg bg-white ring-1 ring-stone-200 text-brand-700 flex items-center justify-center">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M15 9h.01M9 13h.01M15 13h.01M9 17h.01M15 17h.01"/></svg>
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18l-2 12H5L3 7z"/><path d="M8 7V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3"/></svg>
           </span>
-          <h3 class="font-semibold text-stone-900">Biuro rachunkowe</h3>
+          <h3 class="font-semibold text-stone-900">Firma handlowa / dystrybutor</h3>
         </div>
         <p class="text-sm text-stone-600 leading-relaxed">
-          Kilkunastu klientów, setki faktur kosztowych miesięcznie. Dziś — ręczne przepisywanie danych z PDF.
+          Dziesiątki faktur od dostawców miesięcznie, wszystkie do ręcznego wbijania w Subiekt,
+          Wapro Mag albo Comarch ERP. Pozycji na fakturze — setki.
         </p>
         <p class="mt-3 text-sm text-stone-700 leading-relaxed">
-          <span class="font-medium text-stone-900">Efekt:</span> jeden pracownik obsługuje dwa razy więcej klientów bez nadgodzin.
+          <span class="font-medium text-stone-900">Efekt:</span> dane gotowe do importu jednym klikiem, magazyn aktualny tego samego dnia.
         </p>
       </div>
 
-      {# Persona 2: Solo-księgowa #}
+      {# Persona 2: Producent / firma usługowa #}
       <div class="p-6 rounded-2xl bg-stone-50/60 ring-1 ring-stone-200">
         <div class="flex items-center gap-2.5 mb-3">
           <span class="w-8 h-8 rounded-lg bg-white ring-1 ring-stone-200 text-brand-700 flex items-center justify-center">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
           </span>
-          <h3 class="font-semibold text-stone-900">Solo-księgowa</h3>
+          <h3 class="font-semibold text-stone-900">Producent / firma usługowa</h3>
         </div>
         <p class="text-sm text-stone-600 leading-relaxed">
-          Obsługujesz JDG-i znajomych. Jeden komplet faktur miesięcznie na klienta — ale każda minuta się liczy.
+          Surowce, podzespoły, materiały — wszystko z faktur kosztowych musi wpaść
+          w ERP, żeby BOM się zgadzał, a koszty projektu trzymały budżet.
         </p>
         <p class="mt-3 text-sm text-stone-700 leading-relaxed">
-          <span class="font-medium text-stone-900">Efekt:</span> miesięczne zamknięcie skraca się z godziny do dziesięciu minut.
+          <span class="font-medium text-stone-900">Efekt:</span> koszty projektu aktualne tego samego dnia, bez czekania na koniec miesiąca.
         </p>
       </div>
 
-      {# Persona 3: Mała firma #}
+      {# Persona 3: E-commerce / hurtownia #}
       <div class="p-6 rounded-2xl bg-stone-50/60 ring-1 ring-stone-200">
         <div class="flex items-center gap-2.5 mb-3">
           <span class="w-8 h-8 rounded-lg bg-white ring-1 ring-stone-200 text-brand-700 flex items-center justify-center">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
           </span>
-          <h3 class="font-semibold text-stone-900">Mała firma</h3>
+          <h3 class="font-semibold text-stone-900">E-commerce / hurtownia</h3>
         </div>
         <p class="text-sm text-stone-600 leading-relaxed">
-          Zbierasz 20–50 faktur kosztowych miesięcznie. Pełny system ERP to przesada i niepotrzebny wydatek.
+          Pełny system magazynowo-sprzedażowy (enova365, Subiekt nexo, Streamsoft).
+          Faktury kosztowe rozjeżdżają stany magazynowe, jeśli nie wpadną na czas.
         </p>
         <p class="mt-3 text-sm text-stone-700 leading-relaxed">
-          <span class="font-medium text-stone-900">Efekt:</span> JPK_FA gotowy dla księgowej — bez wdrożenia i bez licencji.
+          <span class="font-medium text-stone-900">Efekt:</span> faktura od dostawcy → pozycje w magazynie w 30 sekund, bez przepisywania.
         </p>
       </div>
     </div>
@@ -225,25 +237,32 @@
     <div class="max-w-2xl">
       <span class="text-[11px] font-mono-tabular uppercase tracking-[0.18em] text-brand-700">Dlaczego Faktomat</span>
       <h2 class="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-stone-900">
-        Zbudowane dla <span class="font-serif-display italic font-normal">polskich</span> biur rachunkowych.
+        Most między <span class="font-serif-display italic font-normal">PDF-em</span> a twoim systemem.
       </h2>
       <p class="mt-4 text-stone-600">
-        To nie jest kolejny rozbudowany ERP. Jeden problem, rozwiązany porządnie:
-        PDF na wejściu, JPK_FA(4) na wyjściu — bez integratorów, bez kombinowania.
+        Nie zastępujemy twojego ERP-u, magazynu ani programu sprzedażowego —
+        karmimy je strukturą. PDF na wejściu, dane na wyjściu w formacie,
+        który czyta natywnie twój system.
       </p>
     </div>
 
     <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-      {# Card 1 #}
+      {# Card 1 — wiele formatów wyjścia #}
       <div class="group relative p-6 rounded-2xl bg-white ring-1 ring-stone-200 hover:ring-brand-300 hover:shadow-lg hover:shadow-brand-900/5 transition">
         <div class="w-10 h-10 rounded-lg bg-brand-100 text-brand-700 flex items-center justify-center mb-4">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 13h6M9 17h6"/></svg>
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
         </div>
-        <h3 class="font-semibold text-stone-900">JPK_FA(4) natywnie</h3>
+        <h3 class="font-semibold text-stone-900">Wiele formatów wyjścia</h3>
         <p class="mt-2 text-sm text-stone-600 leading-relaxed">
-          XML zgodny ze schematem XSD Ministerstwa Finansów. Bez zewnętrznych integratorów
-          i bez konwerterów — plik gotowy do wysyłki do bramki MF.
+          JPK_FA(4) XML, FA(3) KSeF, JSON i CSV — pobierasz to, co rozumie
+          twój system. Bez zewnętrznych konwerterów i wtyczek.
         </p>
+        <div class="mt-3 flex flex-wrap gap-1.5 text-[10px] font-mono-tabular">
+          <span class="px-1.5 py-0.5 rounded bg-stone-100 text-stone-700">JPK_FA(4)</span>
+          <span class="px-1.5 py-0.5 rounded bg-stone-100 text-stone-700">FA(3)</span>
+          <span class="px-1.5 py-0.5 rounded bg-stone-100 text-stone-700">JSON</span>
+          <span class="px-1.5 py-0.5 rounded bg-stone-100 text-stone-700">CSV</span>
+        </div>
       </div>
 
       {# Card 2 #}
@@ -326,11 +345,71 @@
       <div class="relative p-6 rounded-2xl bg-white ring-1 ring-stone-200">
         <div class="flex items-center gap-3 mb-3">
           <span class="w-8 h-8 rounded-full bg-brand-700 text-white text-sm font-bold flex items-center justify-center">3</span>
-          <h3 class="font-semibold text-stone-900">Pobierz JPK_FA</h3>
+          <h3 class="font-semibold text-stone-900">Wczytaj w swoim systemie</h3>
         </div>
         <p class="text-sm text-stone-600 leading-relaxed">
-          Eksport do JPK_FA(4) XML, JSON albo CSV. Plik jest gotowy do wysyłki
-          do bramki MF lub do importu w programie księgowym.
+          Eksport: JPK_FA(4) XML do bramki MF, FA(3) do KSeF, JSON lub CSV
+          do importu w programie sprzedażowym, zakupowym, magazynowym
+          albo księgowym. Wybierasz format pod swój system.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ============================================================
+   INTEGRACJE
+   ============================================================ #}
+<section id="integracje" class="py-16 lg:py-20 bg-white border-b border-stone-200">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid lg:grid-cols-[1fr_1.2fr] gap-10 lg:gap-14 items-start">
+      <div>
+        <span class="text-[11px] font-mono-tabular uppercase tracking-[0.18em] text-brand-700">Integracje</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-bold tracking-tight text-stone-900">
+          Działa z <span class="font-serif-display italic font-normal">każdym</span> programem,
+          z którego korzystasz.
+        </h2>
+        <p class="mt-4 text-stone-600 leading-relaxed">
+          Eksport JPK_FA(4) XML, FA(3) KSeF, JSON i CSV importuje się do dowolnego programu
+          <span class="font-medium text-stone-900">księgowego</span>,
+          <span class="font-medium text-stone-900">sprzedażowego</span>,
+          <span class="font-medium text-stone-900">zakupowego</span>
+          lub <span class="font-medium text-stone-900">magazynowego</span> —
+          bez integratorów, bez wtyczek, bez wdrożenia po stronie IT.
+        </p>
+        <p class="mt-3 text-sm text-stone-500 leading-relaxed">
+          Nie znalazłaś swojego programu na liście obok? Napisz —
+          dorobimy mapowanie pól pod konkretny format importu.
+        </p>
+      </div>
+
+      <div>
+        <p class="text-[11px] font-mono-tabular uppercase tracking-[0.18em] text-stone-500 mb-3">
+          Przykładowo, pliki z Faktomatu wczytują:
+        </p>
+        <ul class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm">
+          {% for prog in [
+              "Comarch Optima",
+              "Comarch ERP XL",
+              "Symfonia",
+              "Symfonia Handel",
+              "enova365",
+              "Subiekt GT",
+              "Subiekt nexo",
+              "Wapro Fakir",
+              "Wapro Mag",
+              "Rachmistrz",
+              "Rewizor",
+              "Streamsoft",
+          ] %}
+          <li class="px-3 py-2 rounded-lg bg-stone-50 ring-1 ring-stone-200 text-stone-700 text-center font-medium">
+            {{ prog }}
+          </li>
+          {% endfor %}
+        </ul>
+        <p class="mt-4 text-xs text-stone-400 leading-relaxed">
+          Faktomat nie jest powiązany z żadnym z wymienionych producentów —
+          to standardowe formaty wymiany danych (XML / JSON / CSV).
         </p>
       </div>
     </div>
@@ -367,9 +446,9 @@
           Bez abonamentu, bez zobowiązań
         </li>
       </ul>
-      <a href="/signup"
+      <a href="mailto:kontakt@ewwesolutions.work?subject=Faktomat%20%E2%80%94%20wczesny%20dostęp"
          class="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-brand-700 text-white font-medium shadow-sm hover:bg-brand-800 transition">
-        Zacznij teraz
+        Zostaw kontakt
       </a>
     </div>
 
@@ -410,15 +489,16 @@
       {# Q2 #}
       <details class="group rounded-xl bg-white ring-1 ring-stone-200 open:ring-brand-300 open:shadow-sm transition">
         <summary class="flex items-center justify-between gap-4 cursor-pointer px-5 py-4 list-none">
-          <span class="font-medium text-stone-900">Co z KSeF i fakturą ustrukturyzowaną FA(3)?</span>
+          <span class="font-medium text-stone-900">Czym różni się JPK_FA(4) od FA(3) i czy macie oba?</span>
           <svg class="w-5 h-5 text-stone-400 shrink-0 transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 111.08 1.04l-4.25 4.39a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
         </summary>
         <div class="px-5 pb-5 text-sm text-stone-600 leading-relaxed">
-          To dwie różne rzeczy. <span class="font-medium text-stone-900">JPK_FA(4)</span> to plik kontrolny —
+          Tak, oba. <span class="font-medium text-stone-900">JPK_FA(4)</span> to plik kontrolny —
           rejestr faktur, którego urząd skarbowy może zażądać w trakcie kontroli.
-          <span class="font-medium text-stone-900">KSeF (FA(3))</span> to format e-faktury wystawianej przez
-          Krajowy System e-Faktur. Faktomat skupia się na JPK_FA(4), bo to właśnie taki plik tworzysz
-          z otrzymanych faktur PDF. Wsparcie dla FA(3) planujemy w kolejnej wersji.
+          <span class="font-medium text-stone-900">FA(3)</span> to format ustrukturyzowanej e-faktury
+          używany w Krajowym Systemie e-Faktur (KSeF) i czytany natywnie przez większość
+          polskich systemów sprzedażowych. Z tej samej faktury PDF generujesz oba formaty
+          (oraz JSON i CSV) — wybierasz to, co czyta twój program.
         </div>
       </details>
 
@@ -456,9 +536,24 @@
         </summary>
         <div class="px-5 pb-5 text-sm text-stone-600 leading-relaxed">
           Faktomat działa jako podmiot przetwarzający dane na zlecenie klienta, który pozostaje administratorem.
-          Umowa powierzenia przetwarzania (DPA) jest dostępna na żądanie — podpisujemy ją z każdym biurem rachunkowym.
+          Umowa powierzenia przetwarzania (DPA) jest dostępna na żądanie — podpisujemy ją z każdym klientem.
           Logi audytowe przechowujemy przez 90 dni; dane faktur — do końca okresu obowiązkowej archiwizacji po stronie klienta.
           Prawo do usunięcia konta i wszystkich danych masz w panelu — jeden klik.
+        </div>
+      </details>
+
+      {# Q6a — integracje #}
+      <details class="group rounded-xl bg-white ring-1 ring-stone-200 open:ring-brand-300 open:shadow-sm transition">
+        <summary class="flex items-center justify-between gap-4 cursor-pointer px-5 py-4 list-none">
+          <span class="font-medium text-stone-900">Czy Faktomat zintegruje się z moim programem księgowym / sprzedażowym / magazynowym?</span>
+          <svg class="w-5 h-5 text-stone-400 shrink-0 transition-transform group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 111.08 1.04l-4.25 4.39a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+        </summary>
+        <div class="px-5 pb-5 text-sm text-stone-600 leading-relaxed">
+          W praktyce — tak, z dowolnym. Pobierasz wynik jako JPK_FA(4) XML, FA(3) KSeF, JSON albo CSV
+          i wczytujesz w swoim programie (Comarch Optima, Symfonia, enova365, Subiekt GT/nexo,
+          Wapro Fakir/Mag, Rachmistrz, Rewizor, Streamsoft i inne). Nie instalujemy żadnego
+          konektora, nie wymagamy wdrożenia po stronie IT — to standardowe formaty wymiany.
+          Jeśli twój program oczekuje specyficznego układu pól w CSV, napisz — dorobimy mapowanie.
         </div>
       </details>
 
@@ -471,8 +566,7 @@
         <div class="px-5 pb-5 text-sm text-stone-600 leading-relaxed">
           Doładowujesz konto przez Stripe Checkout w aplikacji — minimalne doładowanie 20 PLN, środki są dostępne
           natychmiast po zaksięgowaniu płatności. Automatyczne doładowania (przy spadku salda poniżej progu)
-          planujemy w kolejnej wersji. Na razie świadomie zostawiamy tę decyzję po stronie użytkownika —
-          księgowi nie lubią automatycznych obciążeń bez kontroli.
+          planujemy w kolejnej wersji — na razie świadomie zostawiamy tę decyzję po stronie użytkownika.
         </div>
       </details>
     </div>
@@ -498,9 +592,11 @@
         i przesyłanych. Retencja logów audytowych: 90 dni.
       </p>
     </div>
-    {# TODO: trasy /regulamin, /polityka-prywatnosci, /dpa, /status nie istnieją jeszcze
-       po stronie FastAPI — operator musi dorobić stub-pages albo podpiąć zewnętrzne
-       szablony prawne (np. iubenda / własny PDF) zanim te linki przestaną 404-ować. #}
+    {# /status żyje — public route w web/routes.py, probe DB/Redis/MinIO z hard
+       timeoutem 1.5s + 30s in-process cache.
+       TODO: trasy /regulamin, /polityka-prywatnosci, /dpa nie istnieją po stronie
+       FastAPI — operator musi dorobić stub-pages albo podpiąć zewnętrzne szablony
+       prawne (np. iubenda / własny PDF) zanim te linki przestaną 404-ować. #}
     <div>
       <h4 class="font-semibold text-stone-900 mb-2">Dokumenty</h4>
       <ul class="space-y-1.5 leading-relaxed">
@@ -526,8 +622,7 @@
     <div class="flex items-center gap-4">
       <a href="#faq" class="hover:text-stone-700">FAQ</a>
       <a href="/status" class="hover:text-stone-700">Status</a>
-      <a href="/login" class="hover:text-stone-700">Zaloguj</a>
-      <a href="/signup" class="hover:text-stone-700">Załóż konto</a>
+      <a href="mailto:kontakt@ewwesolutions.work?subject=Faktomat%20%E2%80%94%20wczesny%20dostęp" class="hover:text-stone-700">Kontakt</a>
     </div>
   </div>
 </footer>

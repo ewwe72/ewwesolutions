@@ -311,6 +311,17 @@ async def test_corrections_other_org_404(
     assert resp.status_code == 404
 
 
+async def _grant_balance(
+    db_session: AsyncSession, org_id: UUID, grosze: int = 5000,
+) -> None:
+    """Top up org balance so the re-extract gate (email + balance) passes."""
+    from src.models.org import Org
+    org = await db_session.scalar(select(Org).where(Org.id == org_id))
+    assert org is not None
+    org.credit_balance_grosze = grosze
+    await db_session.commit()
+
+
 @pytest.mark.asyncio
 async def test_reextract_enqueues_sonnet_and_resets_status(
     client: AsyncClient, db_session: AsyncSession,
@@ -319,10 +330,113 @@ async def test_reextract_enqueues_sonnet_and_resets_status(
     csrf = await _login_with_csrf(client, db_session, "rx@example.com")
     user = await db_session.scalar(select(User).where(User.email == "rx@example.com"))
     assert user is not None
+    await _grant_balance(db_session, user.org_id)
     invoice = await _make_completed_invoice(db_session, user.org_id)
     # Simulate prior operator review — should be wiped by re-extract worker
     # (worker side is unit-covered; here we verify the endpoint + enqueue).
     invoice.user_reviewed_at = datetime(2026, 5, 13, tzinfo=timezone.utc)
+    await db_session.commit()
+
+    resp = await client.post(
+        f"/app/faktury/{invoice.id}/ponow-ekstrakcje",
+        data={"csrf_token": csrf},
+        follow_redirects=False,
+    )
+    assert resp.status_code == 303
+    assert resp.headers["location"] == f"/app/faktury/{invoice.id}"
+
+    await db_session.refresh(invoice)
+    assert invoice.status == "pending"
+    assert invoice.extraction_error is None
+    assert _stub_storage_and_queue["enqueued"] == [
+        (str(invoice.id), "claude-sonnet-4-6")
+    ]
+
+
+@pytest.mark.asyncio
+async def test_reextract_blocked_when_balance_empty(
+    client: AsyncClient, db_session: AsyncSession,
+    _stub_storage_and_queue: dict[str, list[Any]],
+) -> None:
+    """Without credit balance the re-extract endpoint must redirect to
+    /app/billing — otherwise a user could spam Sonnet re-extracts and
+    rack up an unbounded negative balance, since the worker debits but
+    never refuses on negative."""
+    csrf = await _login_with_csrf(client, db_session, "rx-noballance@example.com")
+    user = await db_session.scalar(
+        select(User).where(User.email == "rx-noballance@example.com")
+    )
+    assert user is not None
+    invoice = await _make_completed_invoice(db_session, user.org_id)
+    # Balance defaults to 0 from signup; do not top up.
+
+    resp = await client.post(
+        f"/app/faktury/{invoice.id}/ponow-ekstrakcje",
+        data={"csrf_token": csrf},
+        follow_redirects=False,
+    )
+    assert resp.status_code == 303
+    assert resp.headers["location"] == "/app/billing?reason=empty"
+
+    await db_session.refresh(invoice)
+    # Status untouched, no job enqueued.
+    assert invoice.status == "completed"
+    assert _stub_storage_and_queue["enqueued"] == []
+
+
+@pytest.mark.asyncio
+async def test_reextract_blocked_when_email_unverified(
+    client: AsyncClient, db_session: AsyncSession,
+    _stub_storage_and_queue: dict[str, list[Any]],
+) -> None:
+    """Email-unverified users must not be able to spend balance via
+    re-extract any more than they can via upload."""
+    csrf = await _login_with_csrf(client, db_session, "rx-noemail@example.com")
+    user = await db_session.scalar(
+        select(User).where(User.email == "rx-noemail@example.com")
+    )
+    assert user is not None
+    # Helper verifies email by default — unverify after the fact.
+    user.email_verified = False
+    await _grant_balance(db_session, user.org_id)
+    await db_session.commit()
+    invoice = await _make_completed_invoice(db_session, user.org_id)
+
+    resp = await client.post(
+        f"/app/faktury/{invoice.id}/ponow-ekstrakcje",
+        data={"csrf_token": csrf},
+        follow_redirects=False,
+    )
+    assert resp.status_code == 303
+    assert resp.headers["location"] == "/app?reason=email_verify"
+
+    await db_session.refresh(invoice)
+    assert invoice.status == "completed"
+    assert _stub_storage_and_queue["enqueued"] == []
+
+
+@pytest.mark.asyncio
+async def test_reextract_works_on_failed_status_invoice(
+    client: AsyncClient, db_session: AsyncSession,
+    _stub_storage_and_queue: dict[str, list[Any]],
+) -> None:
+    """The stub-page recovery button (added 2026-05-14 night) posts to the
+    same endpoint as the review-page button, but the originating invoice
+    status is `failed`, not `completed`. Verify the handler accepts that
+    transition: status flips to pending, extraction_error clears, job
+    enqueues with Sonnet."""
+    csrf = await _login_with_csrf(client, db_session, "rxfail@example.com")
+    user = await db_session.scalar(
+        select(User).where(User.email == "rxfail@example.com")
+    )
+    assert user is not None
+    await _grant_balance(db_session, user.org_id)
+    invoice = await _make_completed_invoice(db_session, user.org_id)
+    # Mimic a true initial-extraction failure: no canonical_data, status
+    # 'failed', extraction_error set by the worker.
+    invoice.status = "failed"
+    invoice.canonical_data = None
+    invoice.extraction_error = "BedrockAccessError: model access not granted"
     await db_session.commit()
 
     resp = await client.post(
@@ -457,6 +571,7 @@ async def test_reextract_skips_when_already_processing(
     csrf = await _login_with_csrf(client, db_session, "rx2@example.com")
     user = await db_session.scalar(select(User).where(User.email == "rx2@example.com"))
     assert user is not None
+    await _grant_balance(db_session, user.org_id)
     invoice = await _make_completed_invoice(db_session, user.org_id)
     invoice.status = "processing"
     await db_session.commit()

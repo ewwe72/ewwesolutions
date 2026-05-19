@@ -244,6 +244,30 @@ async def test_export_jpk_fa_happy_path(
 
 
 @pytest.mark.asyncio
+async def test_export_fa3_happy_path(
+    client: AsyncClient, db_session: AsyncSession,
+) -> None:
+    """FA(3) export doesn't need org settings — seller NIP from PDF only."""
+    await _login(client, db_session, "fa3@example.com")
+    user = await db_session.scalar(select(User).where(User.email == "fa3@example.com"))
+    assert user is not None
+
+    invoice = await _make_completed_invoice(db_session, user.org_id)
+
+    resp = await client.get(f"/app/faktury/{invoice.id}/eksport/fa3")
+    assert resp.status_code == 200, resp.text
+    assert resp.headers["content-type"].startswith("application/xml")
+    assert ".fa3.xml" in resp.headers["content-disposition"]
+    body = resp.content
+    assert body.startswith(b"<?xml")
+    assert b"<Faktura " in body or b"<Faktura\n" in body
+    assert b"FA (3)" in body
+    assert b"<WariantFormularza>3</WariantFormularza>" in body
+    assert b"<Podmiot1>" in body
+    assert b"<Podmiot2>" in body
+
+
+@pytest.mark.asyncio
 async def test_export_jpk_fa_422_when_kod_urzedu_missing(
     client: AsyncClient, db_session: AsyncSession,
 ) -> None:

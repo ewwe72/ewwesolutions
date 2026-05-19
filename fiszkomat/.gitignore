@@ -40,3 +40,5 @@ test_docs/out/*.cards.json
 !test_docs/out/zaj18.apkg
 !test_docs/out/zaj19.cards.json
 !test_docs/out/zaj19.apkg
+!test_docs/out/mikrobio.cards.json
+!test_docs/out/mikrobio.apkg

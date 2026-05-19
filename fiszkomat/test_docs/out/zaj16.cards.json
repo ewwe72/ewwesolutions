@@ -2,19 +2,19 @@
   {
     "z": 16,
     "t": "9.1. Leki przeciw HSV/VZV — acyklowir i analogi",
-    "d": "Acyklowir, Walacyklowir, Penacyklowir, Famcyklowir, Trifluridyna, Foskarnet, Cydofowir, Idoksurydyna",
-    "m": "Acyklowir to nukleozydowy analog guanozyny, fosforylowany do postaci czynnej (trójfosforanu) najpierw przez kinazę tymidynową HSV/VZV, a następnie kinazy komórkowe; trójfosforan hamuje polimerazę DNA wirusa i powoduje terminację łańcucha DNA. Selektywność wynika z aktywacji wyłącznie w komórkach zakażonych. Walacyklowir to ester acyklowiru o lepszej biodostępności doustnej. Penacyklowir/famcyklowir działają analogicznie. Trifluridyna, foskarnet, cydofowir i idoksurydyna pozostają lekami rezerwowymi (w tym przy oporności wynikającej z mutacji UL23 kinazy tymidynowej lub UL30 polimerazy).",
+    "d": "Acyklowir, Walacyklowir, Pencyklowir, Famcyklowir, Trifluridyna, Foskarnet, Cydofowir, Idoksurydyna",
+    "m": "Acyklowir to nukleozydowy analog guanozyny, fosforylowany do postaci czynnej (trójfosforanu) najpierw przez kinazę tymidynową HSV/VZV, a następnie kinazy komórkowe; trójfosforan hamuje polimerazę DNA wirusa i powoduje terminację łańcucha DNA. Selektywność wynika z aktywacji wyłącznie w komórkach zakażonych. Walacyklowir to ester acyklowiru o lepszej biodostępności doustnej. Pencyklowir/famcyklowir działają analogicznie. Trifluridyna, foskarnet, cydofowir i idoksurydyna pozostają lekami rezerwowymi (w tym przy oporności wynikającej z mutacji UL23 kinazy tymidynowej lub UL30 polimerazy).",
     "i": "Zakażenia HSV-1, HSV-2 i VZV: opryszczka warg, narządów płciowych, opryszczkowe zapalenie mózgu, ospa wietrzna, półpasiec (zwłaszcza u pacjentów z niedoborem odporności). Walacyklowir w profilaktyce nawrotów opryszczki narządów płciowych i u biorców przeszczepów. Trifluridyna miejscowo w opryszczkowym zapaleniu rogówki.",
-    "c": "Acyklowir: nudności, wymioty, biegunka, bóle głowy; przy podaniu dożylnym nefrotoksyczność (krystaluria w cewkach nerkowych) oraz odwracalne objawy neurologiczne (drżenie, splątanie, halucynacje, śpiączka), szczególnie u pacjentów z niewydolnością nerek. Walacyklowir w dużych dawkach może wywoływać zespół hemolityczno-mocznicowy u pacjentów immunoniekompetentnych.",
+    "c": "Nadwrażliwość na acyklowir lub walacyklowir.",
     "n": "Krystaluria i ostre uszkodzenie nerek przy szybkim wlewie dożylnym acyklowiru — wymaga nawodnienia."
   },
   {
     "z": 16,
     "t": "9.2. Leki przeciw CMV — gancyklowir, walgancyklowir, foskarnet, cydofowir, letermowir, fomiwirsen, marybawir",
     "d": "Gancyklowir, Walgancyklowir, Foskarnet, Cydofowir, Letermowir, Fomiwirsen, Marybawir",
-    "m": "Gancyklowir to acykliczny analog guanozyny fosforylowany do trójfosforanu (najpierw przez kinazę fosfotransferazową UL97 CMV, dalej przez kinazy komórkowe), hamujący polimerazę DNA CMV; walgancyklowir to jego ester walinowy o lepszej biodostępności doustnej. Foskarnet (analog pirofosforanu) bezpośrednio blokuje polimerazy DNA HSV, VZV, CMV, HHV-6 i EBV oraz odwrotną transkryptazę HIV bez fosforylacji. Cydofowir to fosfonianowy analog nukleotydu, niewymagający aktywacji wirusowej, hamujący polimerazy DNA. Letermowir blokuje kompleks terminazy DNA CMV (pUL56). Fomiwirsen to oligonukleotyd antysensowy hamujący translację mRNA IE2 CMV. Marybawir hamuje kinazę UL97 i blokuje dojrzewanie kapsydu.",
+    "m": "Gancyklowir to acykliczny analog guanozyny fosforylowany do trójfosforanu (najpierw przez kinazę wirusową UL97 CMV, dalej przez kinazy komórkowe), hamujący polimerazę DNA CMV; walgancyklowir to jego ester walinowy o lepszej biodostępności doustnej. Foskarnet (analog pirofosforanu) bezpośrednio blokuje polimerazy DNA HSV, VZV, CMV, HHV-6 i EBV oraz odwrotną transkryptazę HIV bez fosforylacji. Cydofowir to fosfonianowy analog nukleotydu, niewymagający aktywacji wirusowej, hamujący polimerazy DNA. Letermowir blokuje kompleks terminazy DNA CMV (pUL56). Fomiwirsen to oligonukleotyd antysensowy hamujący translację mRNA IE2 CMV. Marybawir hamuje kinazę UL97 i blokuje dojrzewanie kapsydu.",
     "i": "Zakażenia CMV u biorców przeszczepów, w AIDS, retinitis CMV, zapobieganie reaktywacji CMV po przeszczepie. Walgancyklowir doustnie w terapii doustnej; gancyklowir, foskarnet i cydofowir dożylnie. Letermowir w profilaktyce reaktywacji CMV u biorców allogenicznych przeszczepów krwiotwórczych. Fomiwirsen dawniej doszklistkowo w retinitis CMV (już wycofany). Marybawir w opornym/refrakcyjnym CMV.",
-    "c": "Gancyklowir/walgancyklowir: mielosupresja (neutropenia, niedokrwistość, trombocytopenia, ok. 30% pacjentów), gorączka, wysypka, nudności, wzrost AlAT, działanie teratogenne i kancerogenne. Foskarnet: nefrotoksyczność, zaburzenia gospodarki wapniowo-fosforanowej i magnezowej, hipokalcemia, drgawki, owrzodzenia narządów płciowych. Cydofowir: nefrotoksyczność (zwykle z probenecydem i nawodnieniem), neutropenia. Letermowir: nudności, wymioty, biegunka, obrzęki kończyn. Marybawir: zaburzenia smaku, nudności.",
+    "c": "Gancyklowir/walgancyklowir: ciąża, karmienie piersią, znaczna mielosupresja (ANC <500/μl lub PLT <25 tys./μl). Foskarnet: ciężka niewydolność nerek.",
     "n": "Cydofowir podawany ZAWSZE z probenecydem i nawodnieniem ze względu na nefrotoksyczność."
   },
   {
@@ -22,17 +22,17 @@
     "t": "9.3.1. Leki przeciw HIV — inhibitory wejścia HIV do komórek (CCR5, fuzji)",
     "d": "Enfuwirtyd, Marawirok, Ibalizumab, Pleryksafor",
     "m": "Enfuwirtyd to syntetyczny peptyd o długości 36 aminokwasów wiążący się z gp41 glikoproteiny otoczki HIV — blokuje fuzję otoczki wirusa z błoną komórkową limfocytu CD4+. Marawirok jest antagonistą koreceptora chemokinowego CCR5 na limfocycie CD4+, wiąże się z nim allosterycznie i zapobiega przyłączeniu gp120 wirusa wykorzystującego CCR5. Ibalizumab to humanizowane przeciwciało monoklonalne przeciw CD4, blokuje wnikanie HIV. Pleryksafor jest odwracalnym antagonistą CXCR4 (głównie do mobilizacji komórek macierzystych, w HIV opisywany).",
-    "i": "Zakażenie HIV w terapii skojarzonej u pacjentów z wielolekoopornością. Marawirok tylko po wcześniejszym oznaczeniu trotyzmu wirusa (R5).",
-    "c": "Enfuwirtyd: reakcje w miejscu wstrzyknięcia (do 98% pacjentów), zwiększone ryzyko zapaleń płuc bakteryjnych, neuropatia, bezsenność. Marawirok: hepatotoksyczność, wysypka, kaszel, zakażenia, gorączka, bóle stawów, podwyższone ryzyko zawału serca.",
-    "n": "Marawirok wymaga oznaczenia trotyzmu wirusa przed włączeniem."
+    "i": "Zakażenie HIV w terapii skojarzonej u pacjentów z wielolekoopornością. Marawirok tylko po wcześniejszym oznaczeniu tropizmu wirusa (R5).",
+    "c": "Nadwrażliwość. Marawirok wymaga uprzedniego oznaczenia tropizmu wirusa (tylko szczepy R5).",
+    "n": "Marawirok wymaga oznaczenia tropizmu wirusa przed włączeniem."
   },
   {
     "z": 16,
     "t": "9.3.2. Leki przeciw HIV — NRTI (nukleozydowe i nukleotydowe inhibitory odwrotnej transkryptazy)",
     "d": "Zydowudyna (AZT), Stawudyna (d4T), Lamiwudyna (3TC), Emtrycytabina (FTC), Dydanozyna (ddI), Zalcytabina (ddC), Abakawir, Tenofowir, Adefowir",
-    "m": "NRTI to analogi nukleozydów/nukleotydów, fosforylowane wewnątrzkomórkowo do trójfosforanów, które konkurują z naturalnymi nukleotydami o odwrotną transkryptazę HIV i powodują terminację łańcucha DNA. Zydowudyna, stawudyna, dydanozyna, zalcytabina i emtrycytabina to analogi tymidyny/cytydyny/adenozyny. Tenofowir to nukleotydowy analog, podaje się jako dipropoksyl (TDF) lub alafenamid (TAF). Mutacje M184V (oporność na lamiwudynę/emtrycytabinę) oraz K65R, L74V, K103N, T215Y to typowe mutacje oporności.",
+    "m": "NRTI to analogi nukleozydów/nukleotydów, fosforylowane wewnątrzkomórkowo do trójfosforanów, które konkurują z naturalnymi nukleotydami o odwrotną transkryptazę HIV i powodują terminację łańcucha DNA. Zydowudyna, stawudyna, dydanozyna, zalcytabina i emtrycytabina to analogi tymidyny/cytydyny/adenozyny. Tenofowir to nukleotydowy analog, podaje się jako dizoproksyl (TDF) lub alafenamid (TAF). Mutacje M184V (oporność na lamiwudynę/emtrycytabinę) oraz K65R, L74V, K103N, T215Y to typowe mutacje oporności.",
     "i": "Zakażenie HIV w terapii skojarzonej (zwykle szkielet pary NRTI + trzeci lek). Tenofowir i emtrycytabina również w zakażeniu HBV. Zydowudyna w profilaktyce wertykalnego zakażenia HIV u dziecka chorej matki.",
-    "c": "Wspólne dla NRTI: toksyczność mitochondrialna (z hamowania polimerazy DNA typu γ) — kwasica mleczanowa, hepatotoksyczność, neuropatia obwodowa, zapalenie trzustki, lipoatrofia. Zydowudyna: niedokrwistość, neutropenia, miopatia. Stawudyna/dydanozyna: neuropatia obwodowa, zapalenie trzustki. Abakawir: reakcja nadwrażliwości skojarzona z HLA-B*5701. Tenofowir: nefrotoksyczność (zwłaszcza TDF), spadek gęstości kości.",
+    "c": "Abakawir: dodatni wynik testu HLA-B*5701 (ciężka reakcja nadwrażliwości — bezwzględne przeciwwskazanie). Tenofowir TDF: ciężka niewydolność nerek.",
     "n": "TEST HLA-B*5701 OBOWIĄZKOWY przed abakawirem — reakcja nadwrażliwości może być śmiertelna."
   },
   {
@@ -41,7 +41,7 @@
     "d": "Newirapina, Efawirenz, Delawirdyna, Etrawiryna, Rylpiwiryna, Dorawiryna",
     "m": "NNRTI są niekompetycyjnymi inhibitorami odwrotnej transkryptazy HIV-1 — wiążą się w miejscu allosterycznym enzymu (kieszeń hydrofobowa) i zmieniają jego konformację, blokując aktywność. Nie wymagają wewnątrzkomórkowej aktywacji. Działają tylko na HIV-1, nie na HIV-2. Mutacja K103N daje krzyżową oporność na NNRTI pierwszej generacji.",
     "i": "Zakażenie HIV-1 w terapii skojarzonej. Etrawiryna i rylpiwiryna używane przy oporności na NNRTI pierwszej generacji. Newirapina dawniej w profilaktyce wertykalnego zakażenia.",
-    "c": "Newirapina: indukcja CYP3A4, ciężkie reakcje skórne (zespół Stevensa-Johnsona), hepatotoksyczność. Efawirenz: zaburzenia OUN (bezsenność, koszmary senne, lęki, depresja), wzrost cholesterolu we krwi, teratogenność. Rylpiwiryna i dorawiryna lepiej tolerowane.",
+    "c": "Efawirenz: ciąża (teratogenność). Newirapina: ciężka niewydolność wątroby.",
     "n": "Efawirenz teratogenny — unikać u kobiet w ciąży. Koszmary senne ustępują po kilku tygodniach."
   },
   {
@@ -50,7 +50,7 @@
     "d": "Atazanawir, Sakwinawir, Rytonawir, Indynawir, Lopinawir, Tipranawir, Darunawir, Fosamprenawir, Amprenawir, Nelfinawir",
     "m": "Inhibitory proteazy HIV blokują wirusową proteazę aspartylową, która tnie poliproteinę Gag-Pol → produkty rozpadu są niefunkcjonalne, nowe wiriony niezakaźne. Niemal wszystkie są intensywnie metabolizowane przez CYP3A4 — rytonawir w małych dawkach służy jako booster farmakokinetyczny innych inhibitorów proteazy.",
     "i": "Zakażenie HIV w terapii skojarzonej, zazwyczaj z parą NRTI; rytonawir wyłącznie jako wzmacniacz farmakokinetyczny (boost).",
-    "c": "Zaburzenia metaboliczne: lipodystrofia, hipercholesterolemia, hipertriglicerydemia, insulinooporność (zespół metaboliczny). Atazanawir: hiperbilirubinemia (bez hepatotoksyczności). Indynawir: kamica nerkowa. Sakwinawir: wydłużenie QT. Tipranawir: hepatotoksyczność, krwawienia śródczaszkowe. Darunawir: wysypka. Lopinawir/r: biegunka.",
+    "c": "Brak w książce.",
     "n": "Rytonawir w niskiej dawce = booster CYP3A4, nie ma znaczenia jako lek aktywny."
   },
   {
@@ -58,8 +58,8 @@
     "t": "9.3.5. Leki przeciw HIV — inhibitory integrazy",
     "d": "Raltegrawir, Elwitegrawir, Dolutegrawir, Bictegrawir, Kabotegrawir",
     "m": "Inhibitory integrazy HIV (INSTI) blokują integrazę odpowiedzialną za wbudowywanie (transfer nici) prowirusowego DNA HIV do genomu gospodarza w jądrze komórkowym, zapobiegając integracji genetycznej wirusa.",
-    "i": "Zakażenie HIV w terapii skojarzonej — obecnie podstawa pierwszorzutowej terapii antyretrowirusowej w schematach 2-DRT (np. dolutegrawir + lamiwudyna) i 3-DRT. Kabotegrawir w postaci depot doodbytniczo lub iniekcyjnie razem z rylpiwiryną w terapii długodziałającej.",
-    "c": "Dobrze tolerowane. Niewielkie wzrosty masy ciała, sporadycznie reakcje nadwrażliwości i hepatotoksyczność. Dolutegrawir: wzrost CK, bóle głowy, bezsenność. Raltegrawir: bóle mięśni.",
+    "i": "Zakażenie HIV w terapii skojarzonej — obecnie podstawa pierwszorzutowej terapii antyretrowirusowej w schematach 2-DRT (np. dolutegrawir + lamiwudyna) i 3-DRT. Kabotegrawir w postaci długodziałającej iniekcji domięśniowej razem z rylpiwiryną w terapii długodziałającej.",
+    "c": "Brak w książce.",
     "n": "INSTI to lek pierwszego rzutu w terapii antyretrowirusowej w 2026 r."
   },
   {
@@ -68,7 +68,7 @@
     "d": "Lenakapawir",
     "m": "Lenakapawir wiąże się z fragmentami kapsydu HIV, zaburzając jego prawidłowe składanie i funkcję — blokuje wczesne etapy (transport pre-integracyjnego kompleksu, niekompletna integracja) oraz późne etapy (nieprawidłowe formowanie kapsydu) replikacji wirusa.",
     "i": "Zakażenie HIV u pacjentów zakażonych wielolekooporną odmianą wirusa; podawany podskórnie raz na 6 miesięcy.",
-    "c": "Reakcje w miejscu wstrzyknięcia, nudności, wymioty, zaparcia, zaburzenia immunologiczne (zespół rekonstytucji immunologicznej).",
+    "c": "Brak w książce.",
     "n": "Dawkowanie raz na 6 miesięcy podskórnie — kluczowe dla przylegania."
   },
   {
@@ -77,7 +77,7 @@
     "d": "Interferon alfa (IFN-α2a, IFN-α2b), Peginterferon alfa-2a, Peginterferon alfa-2b, Lamiwudyna, Telbiwudyna, Entekawir, Tenofowir, Adefowir",
     "m": "W przewlekłym zakażeniu HBV stosuje się dwie grupy leków: interferony alfa (pegylowane lub niepegylowane), które działają immunomodulująco i hamują replikację wirusa, oraz analogi nukleozydów/nukleotydów hamujące polimerazę DNA HBV. Lamiwudyna i telbiwudyna to analogi cytydyny/tymidyny, entekawir to analog guanozyny (najsilniejszy), adefowir i tenofowir to nukleotydowe analogi adenozyny.",
     "i": "Przewlekłe wirusowe zapalenie wątroby typu B (WZW B), zazwyczaj długoterminowo aż do utraty HBeAg/HBsAg lub immunokontroli.",
-    "c": "Wszystkie analogi: ryzyko zaostrzenia HBV po odstawieniu. Tenofowir: nefrotoksyczność, spadek gęstości kości. Lamiwudyna: szybkie narastanie oporności (mutacja M204V/I, L180M). Entekawir: rzadko kwasica mleczanowa, hepatomegalia. Interferony: objawy grypopodobne, depresja, mielosupresja, autoagresja, dysfunkcja tarczycy.",
+    "c": "Brak w książce.",
     "n": "Lamiwudyna szybko prowadzi do oporności — nie jest preferowana jako monoterapia HBV; tenofowir/entekawir są lekami pierwszego wyboru."
   },
   {
@@ -86,7 +86,7 @@
     "d": "Inhibitory NS3/4A (proteazy): Symeprewir, Paritaprewir, Asunaprewir, Glekaprewir, Woksilaprewir, Grazoprewir; Inhibitory NS5A: Daklataswir, Ledipaswir, Welpataswir, Pibrentaswir, Sofosbuwir-ledipaswir; Inhibitor NS5B (polimerazy): Sofosbuwir, Dasabuwir; Rybawiryna; Interferon alfa",
     "m": "Bezpośrednio działające leki przeciwwirusowe (DAA) blokują kluczowe białka wirusowe HCV. Inhibitory NS3/4A (-prewiry) blokują proteazę serynową wirusa odpowiadającą za przetwarzanie poliproteiny. Inhibitory NS5A (-aswiry) blokują białko replikacyjne i mechanizm składania wirionów. Inhibitor NS5B sofosbuwir to nukleotydowy analog uracylu wbudowywany przez polimerazę RNA HCV → terminacja łańcucha. Rybawiryna (guanozyna) — wielokierunkowa: błędne sparowywanie zasad, hamowanie syntezy GTP, immunomodulacja. Interferony już niemal nieużywane.",
     "i": "Przewlekłe WZW C — schematy bezpośrednio działających leków przeciwwirusowych (DAA) zazwyczaj 8–12 tygodni doustnie. Preparaty pangenotypowe (sofosbuwir+welpataswir, glekaprewir+pibrentaswir) skuteczne wobec wszystkich genotypów HCV.",
-    "c": "Rybawiryna: niedokrwistość hemolityczna, teratogenność (przeciwwskazana w ciąży i u partnerek chorych), wysypka. Sofosbuwir: bóle głowy, zmęczenie. Glekaprewir/pibrentaswir: nudności, swędzenie. Inhibitory proteazy NS3/4A nie powinny być stosowane w niewydolności wątroby Child-Pugh B/C.",
+    "c": "Rybawiryna: ciąża (teratogenność — także u partnerek pacjentów), karmienie piersią. Inhibitory NS3/4A: niewydolność wątroby Child-Pugh B/C.",
     "n": "Era interferonu w HCV już minęła; DAA dają wyleczenie u >95% chorych."
   },
   {
@@ -95,7 +95,7 @@
     "d": "Amantadyna, Rymantadyna",
     "m": "Amantadyna i rymantadyna to cykliczne aminy o charakterystycznej, klatkowej budowie adamantanu; hamują białko M2 otoczki wirusa grypy A — blokują kanał jonowy, przez co uniemożliwiają odpłaszczenie wirusa (uncoating) i uwolnienie genomu do cytoplazmy. Amantadyna ma też pewne działanie dopaminergiczne (stosowana w chorobie Parkinsona). Obecnie ze względu na powszechną oporność szczepów (zwłaszcza H1N1) ich wartość kliniczna w grypie jest znikoma; rola nasilona w pandemii COVID-19 z amantadyną nie została potwierdzona.",
     "i": "Dawniej w profilaktyce i leczeniu grypy A; obecnie marginalne zastosowanie ze względu na oporność. Amantadyna również w chorobie Parkinsona.",
-    "c": "Nudności, zaburzenia żołądkowo-jelitowe, zawroty głowy, bóle głowy, obrzęki kończyn, suchość w ustach. Działania niepożądane ze strony OUN: bezsenność, halucynacje, zaburzenia zachowania.",
+    "c": "Brak w książce.",
     "n": "Powszechna oporność krzyżowa pochodnych adamantanu na grypę — ich znaczenie w grypie marginalne."
   },
   {
@@ -103,26 +103,26 @@
     "t": "9.5.2. Leki przeciw grypie — inhibitory neuraminidazy",
     "d": "Zanamiwir, Oseltamiwir, Peramiwir",
     "m": "Analogi kwasu sialowego (N-acetyloneuraminowego), które kompetycyjnie blokują neuraminidazę wirusów grypy A i B — enzym odpowiedzialny za odcinanie reszt kwasu sialowego z glikoprotein komórek gospodarza, niezbędne dla uwolnienia nowych wirionów. Brak uwolnienia ograniczа propagację zakażenia. Działają na wirusy grypy A (w tym H5N1, H1N1) i B. Zanamiwir podaje się wziewnie, oseltamiwir doustnie (prodrug), peramiwir dożylnie.",
-    "i": "Profilaktyka i leczenie grypy A i B w ciągu pierwszych 48 godzin od pojawienia się objawów. Skraca przebieg objawów o 1 dobę. Oseltamiwir również w grypie H5N1/H1N1 i u pacjentów ciężko chorych.",
-    "c": "Zanamiwir: skurcz oskrzeli (nie wolno stosować w astmie/POChP). Oseltamiwir: nudności, wymioty, ciężkie skórne reakcje nadwrażliwości (zespół Stevensa-Johnsona, toksyczna nekroliza naskórka), zaburzenia neuropsychiczne u dzieci (omamy, lęki, samookaleczenia), bóle głowy.",
-    "n": "Zanamiwir wziewnie — przeciwwskazany w astmie ze względu na ryzyko skurczu oskrzeli."
+    "i": "Profilaktyka i leczenie grypy A i B w ciągu pierwszych 48 godzin od pojawienia się objawów. Skraca przebieg objawów o 1–2 dni (wg PDF p.211). Oseltamiwir również w grypie H5N1/H1N1 i u pacjentów ciężko chorych.",
+    "c": "Brak w książce.",
+    "n": "Zanamiwir wziewnie — może wywołać skurcz oskrzeli; ostrożnie u chorych z astmą."
   },
   {
     "z": 16,
     "t": "9.5.3. Leki przeciw grypie — inhibitory endonukleazy (baloxavir)",
     "d": "Baloksawir (Marboksil baloksawiru)",
     "m": "Baloksawir podawany w postaci prodrugu marboksylu, hydrolizowany do aktywnego baloksawiru — selektywny inhibitor endonukleazy zależnej od czapeczki (cap-dependent endonuclease) podjednostki PA polimerazy wirusa grypy, blokujący \"cap-snatching\" i syntezę wirusowego mRNA. Hamuje replikację wirusów grypy A i B (w tym H7N9, H5N1) od pierwszych godzin.",
-    "i": "Grypa A i B — jednorazowe doustne podanie do 48 godzin od początku objawów; szczególnie szybkie ustąpienie objawów i skrócenie wydzielania wirusa.",
-    "c": "Biegunka, zapalenie oskrzeli, bóle głowy, zmiany w EKG.",
+    "i": "Grypa A i B — wg PDF p.212 zarejestrowany do profilaktyki poekspozycyjnej u pacjentów >12 r.ż.: jednorazowe doustne podanie do 48 godzin od kontaktu z osobą zakażoną.",
+    "c": "Brak w książce.",
     "n": "Jedna dawka doustna na cały kurs — wyjątkowa wygoda."
   },
   {
     "z": 16,
     "t": "9.6. Leki przeciw RSV",
-    "d": "Rybawiryna, Paliwizumab, Niserwimab",
-    "m": "Rybawiryna (analog nukleozydowy o szerokim spektrum) podawana wziewnie do leczenia ciężkich zakażeń RSV u dzieci. Paliwizumab to humanizowane przeciwciało monoklonalne skierowane przeciwko białku F (fuzyjnemu) RSV — neutralizuje wirusa, zapobiega fuzji z błoną komórki gospodarza. Niserwimab to nowsze, długo działające przeciwciało monoklonalne anty-F RSV o przedłużonym okresie półtrwania.",
-    "i": "Profilaktyka ciężkich zakażeń RSV u wcześniaków, niemowląt z dysplazją oskrzelowo-płucną lub wrodzoną wadą serca w sezonie RSV. Niserwimab — pojedyncza dawka w sezonie RSV. Rybawiryna inhalacyjnie w ciężkich zakażeniach.",
-    "c": "Paliwizumab/niserwimab: reakcje nadwrażliwości, gorączka. Rybawiryna wziewna: teratogenność (zakaz dla personelu medycznego w ciąży); może powodować skurcz oskrzeli.",
+    "d": "Rybawiryna, Paliwizumab, Nirsewimab",
+    "m": "Rybawiryna (analog nukleozydowy o szerokim spektrum) podawana wziewnie do leczenia ciężkich zakażeń RSV u dzieci. Paliwizumab to humanizowane przeciwciało monoklonalne skierowane przeciwko białku F (fuzyjnemu) RSV — neutralizuje wirusa, zapobiega fuzji z błoną komórki gospodarza. Nirsewimab to nowsze, długo działające przeciwciało monoklonalne anty-F RSV o przedłużonym okresie półtrwania.",
+    "i": "Profilaktyka ciężkich zakażeń RSV u wcześniaków, niemowląt z dysplazją oskrzelowo-płucną lub wrodzoną wadą serca w sezonie RSV. Nirsewimab — pojedyncza dawka w sezonie RSV. Rybawiryna inhalacyjnie w ciężkich zakażeniach.",
+    "c": "Rybawiryna wziewna: ciąża pacjentki lub bliski kontakt z personelem medycznym w ciąży (teratogenność).",
     "n": "Paliwizumab — przeciwciało, NIE szczepionka; profilaktyka tylko sezonowa."
   },
   {
@@ -130,8 +130,8 @@
     "t": "9.7. Leki przeciw koronawirusom (SARS-CoV-2 / COVID-19)",
     "d": "Remdesiwir, Molnupirawir, Nirmatrelwir/rytonawir (Paxlovid), Rybawiryna",
     "m": "Remdesiwir to nukleotydowy analog adenozyny hamujący wirusową polimerazę RNA zależną od RNA (RdRp) — wbudowywany prowadzi do opóźnionej terminacji łańcucha. Molnupirawir to N-hydroksycytydyna powodująca błędy w syntezie genomu wirusa (mutageneza śmiertelna, error catastrophe). Nirmatrelwir hamuje główną proteazę 3CL/Mpro SARS-CoV-2 — blokuje proteolityczne dojrzewanie poliproteiny; podawany z rytonawirem jako boosterem CYP3A4. Rybawiryna o szerokim spektrum w niektórych protokołach.",
-    "i": "Leczenie COVID-19 u pacjentów z czynnikami ryzyka ciężkiego przebiegu (otyłość, choroby przewlekłe, niedobór odporności). Remdesiwir hospitalizowanym, molnupirawir i nirmatrelwir/rytonawir ambulatoryjnie w ciągu pierwszych 5 dni objawów.",
-    "c": "Remdesiwir: nudności, wymioty, wzrost AlAT, reakcje w miejscu wlewu, bradykardia. Molnupirawir: teratogenność (przeciwwskazany w ciąży), biegunka. Nirmatrelwir/rytonawir: liczne interakcje lekowe (przez CYP3A4), zaburzenia smaku.",
+    "i": "Leczenie COVID-19 u pacjentów z czynnikami ryzyka ciężkiego przebiegu (otyłość, choroby przewlekłe, niedobór odporności). Remdesiwir hospitalizowanym, molnupirawir i nirmatrelwir/rytonawir ambulatoryjnie we wczesnym okresie choroby.",
+    "c": "Molnupirawir: ciąża (teratogenność).",
     "n": "Molnupirawir teratogenny — niedozwolony w ciąży. Paxlovid (nirmatrelwir/rytonawir) ma liczne interakcje — sprawdzaj listę leków pacjenta."
   },
   {
@@ -140,15 +140,15 @@
     "d": "Atoltiwimab/maftiwimab/odesiwimab (Inmazeb), Ansuwimab",
     "m": "Atoltiwimab/maftiwimab/odesiwimab (Inmazeb) to mieszanina (koktajl) trzech ludzkich przeciwciał monoklonalnych skierowanych przeciw glikoproteinie wirusa Ebola — neutralizują wirusa i zapobiegają wnikaniu do komórek. Ansuwimab to pojedyncze humanizowane przeciwciało monoklonalne anty-glikoproteina Ebola.",
     "i": "Leczenie gorączki krwotocznej Ebola u dorosłych i dzieci. Redukują śmiertelność.",
-    "c": "Reakcje na wlew: gorączka, dreszcze, tachykardia, nudności i wymioty.",
+    "c": "Brak w książce.",
     "n": "Inmazeb to koktajl trzech przeciwciał — pojedyncza dawka dożylna."
   },
   {
     "z": 16,
-    "t": "9.9. Leki stosowane w innych chorobach wirusowych (HPV, RSV, ospa małp)",
-    "d": "Tekowirymat, Anuwimab, Plekonaryl",
-    "m": "Tekowirymat to inhibitor białka VP37 ortopokswirusa (zapobiega tworzeniu się wirionów gotowych do opuszczenia komórki). Anuwimab to ludzkie przeciwciało monoklonalne stosowane w opornej infekcji RSV (jak ansuwimab w ebolaviru). Plekonaryl — lek łączący się z hydrofobową kieszenią kapsydu wirusów Picornaviridae (enterowirusy), stabilizuje strukturę kapsydu i hamuje uncoating oraz wnikanie do komórek.",
-    "i": "Tekowirymat: leczenie ospy małp (mpox), ospy ludzkiej, ospy wirusowych zoonotycznych pokswirusowych. Anuwimab w opornym RSV. Plekonaryl — pikornawirusy (w tym enterowirusy, rynowirusy).",
+    "t": "9.9. Leki stosowane w innych chorobach wirusowych (HPV, ospa małp, pikornawirusy)",
+    "d": "Tekowirymat, Imikwimod, Rezykwimod, Plekonaryl",
+    "m": "Tekowirymat to inhibitor białka VP37 ortopokswirusa (zapobiega tworzeniu się wirionów gotowych do opuszczenia komórki). Imikwimod to immunomodulator (agonista TLR7) stosowany miejscowo (5% krem) w kłykcinach kończystych HPV; rezykwimod ma podobny mechanizm. Plekonaryl — lek łączący się z hydrofobową kieszenią kapsydu wirusów Picornaviridae (enterowirusy), stabilizuje strukturę kapsydu i hamuje uncoating oraz wnikanie do komórek.",
+    "i": "Tekowirymat: leczenie ospy prawdziwej oraz ospy małp (mpox) wg PDF p.215. Imikwimod miejscowo w kłykcinach kończystych HPV. Plekonaryl — pikornawirusy (w tym enterowirusy, rynowirusy).",
     "c": "Brak w książce.",
     "n": "Tekowirymat — nadzieja w terapii ospy małp; jeden z niewielu specyficznych leków."
   },
@@ -158,25 +158,25 @@
     "d": "Interferon alfa-2a, Interferon alfa-2b, Peginterferon alfa-2a, Peginterferon alfa-2b, Interferon beta, Interferon gamma",
     "m": "Interferony to naturalne cytokiny wytwarzane w odpowiedzi na zakażenia wirusowe. Po związaniu się z receptorami komórkowymi indukują ekspresję setek genów (ISGs), które blokują replikację wirusa: aktywują 2',5'-OAS, kinazy PKR, blokują translację mRNA, indukują apoptozę zakażonych komórek i nasilają odpowiedź immunologiczną (NK, limfocyty T cytotoksyczne, prezentacja antygenów przez MHC I). Pegylowane (PEG-IFN) mają wydłużony okres półtrwania.",
     "i": "Dawniej WZW B (peginterferon alfa-2a, -2b) i WZW C (era pre-DAA); obecnie głównie WZW B i wybrane wskazania w guzach (białaczka włochatokomórkowa, szpiczak, mięsak Kaposiego), stwardnienie rozsiane (IFN-β).",
-    "c": "Objawy grypopodobne (gorączka, dreszcze, bóle mięśni), mielosupresja, depresja, autoagresja (zapalenia tarczycy), nudności.",
+    "c": "Ciężkie zaburzenia psychiczne (depresja, myśli samobójcze w wywiadzie), niewyrównane choroby autoimmunologiczne, ciężka niewydolność wątroby, ciąża.",
     "n": "Interferony w erze DAA są lekami niszowymi — głównie w WZW B i SM."
   },
   {
     "z": 16,
     "t": "10.1. Amfoterycyna B (polien)",
     "d": "Amfoterycyna B, Liposomalna amfoterycyna B (AmBisome, Abelcet)",
-    "m": "Amfoterycyna B to antybiotyk polienowy o budowie polienomakrolidowej, wytwarzany przez Streptomyces nodosus. Wiąże się z ergosterolem w błonie komórkowej grzybów (większe powinowactwo niż do cholesterolu), tworzy pory transmembranowe i powoduje wyciek elektrolitów (K+), prowadzący do śmierci komórki grzyba. Działa fungistatycznie lub fungobójczo w zależności od stężenia. Posiada szerokie spektrum: Candida sp., Cryptococcus neoformans, Aspergillus, Histoplasma, Blastomyces, Mucor (mukormykoza).",
+    "m": "Amfoterycyna B to antybiotyk polienowy o budowie polienomakrolidowej, wytwarzany przez Streptomyces nodosus. Wiąże się z ergosterolem w błonie komórkowej grzybów (większe powinowactwo niż do cholesterolu), tworzy pory transmembranowe i powoduje wyciek elektrolitów (K+), prowadzący do śmierci komórki grzyba. Działa grzybobójczo (wg PDF p.216). Posiada szerokie spektrum: Candida sp., Cryptococcus neoformans, Aspergillus, Histoplasma, Blastomyces, Mucor (mukormykoza).",
     "i": "Ciężkie ogólnoustrojowe zakażenia grzybicze, kryptokokozowe zapalenie opon mózgowo-rdzeniowych, kandydoza inwazyjna, aspergiloza, histoplazmoza, mukormykoza, leiszmanioza, kandydoza pęcherza moczowego. Liposomalna mniej nefrotoksyczna.",
-    "c": "Nefrotoksyczność (główne działanie niepożądane — spadek GFR, zaburzenia kanalikowe), reakcje natychmiastowe (gorączka, dreszcze, skurcz oskrzeli, hipotensja, nudności, wymioty), niedokrwistość, zaburzenia elektrolitowe (hipokaliemia, hipomagnezemia). Liposomalne preparaty znacznie mniej nefrotoksyczne, ale droższe.",
+    "c": "Nadwrażliwość na amfoterycynę B. Ciężka niewydolność nerek (preferować preparaty liposomalne).",
     "n": "Liposomalna amfoterycyna B (AmBisome) — wybierana u pacjentów z niewydolnością nerek; znacznie mniej nefrotoksyczna."
   },
   {
     "z": 16,
     "t": "10.2. Flucytozyna",
     "d": "Flucytozyna (5-FC)",
-    "m": "Flucytozyna to syntetyczny analog pirymidynowy (5-fluorocytozyna), wychwytywany przez komórki grzybów przez deaminazę cytozynową i przekształcany w 5-fluorouracyl (5-FU); ten wbudowuje się w RNA i hamuje syntezę białek (poprzez fałszywe RNA) oraz blokuje syntazę tymidylanową (poprzez 5-FdUMP) → blokada syntezy DNA grzyba. Komórki ssaków nie mają deaminazy cytozynowej → selektywność wobec grzybów. Skuteczna przeciwko Candida sp., Cryptococcus neoformans, niektórym Aspergillus i ciemno barwiącym się grzybom.",
+    "m": "Flucytozyna to syntetyczny analog pirymidynowy (5-fluorocytozyna), wychwytywany przez komórki grzybów przez permeazę cytozynową, następnie przekształcany w 5-fluorouracyl (5-FU) przez deaminazę cytozynową; ten wbudowuje się w RNA i hamuje syntezę białek (poprzez fałszywe RNA) oraz blokuje syntazę tymidylanową (poprzez 5-FdUMP) → blokada syntezy DNA grzyba. Komórki ssaków nie mają deaminazy cytozynowej → selektywność wobec grzybów. Skuteczna przeciwko Candida sp., Cryptococcus neoformans, niektórym Aspergillus i ciemno barwiącym się grzybom.",
     "i": "Zwykle w skojarzeniu z amfoterycyną B (synergizm) w leczeniu kryptokokowego zapalenia opon mózgowo-rdzeniowych i ciężkich zakażeń Candida. Rzadko w monoterapii — szybki rozwój oporności.",
-    "c": "Hepatotoksyczność, mielosupresja (zwłaszcza w skojarzeniu z amfoterycyną B), nudności, biegunka, wysypka.",
+    "c": "Ciężka niewydolność nerek, mielosupresja, ciąża.",
     "n": "5-FC NIGDY w monoterapii — szybki rozwój oporności; zawsze z amfoterycyną B w kryptokokowym ZOMR."
   },
   {
@@ -185,7 +185,7 @@
     "d": "Triazole: Flukonazol, Itrakonazol, Worykonazol, Pozakonazol, Izawukonazol, Ketokonazol (też imidazol systemowy); Imidazole: Klotrimazol, Ekonazol, Mikonazol, Bifonazol, Tiokonazol, Izokonazol, Oksykonazol, Sertakonazol, Fentikonazol",
     "m": "Wszystkie azole hamują grzybiczy cytochrom P450 (głównie CYP51) → blokują demetylację 14-α-lanosterolu, blokując syntezę ergosterolu, kluczowego sterolu błony komórkowej grzyba. Powstają nieprawidłowe sterole, błona traci integralność, dochodzi do śmierci komórki. Triazole są bardziej selektywne (mniej hamują ludzki P450) i mają lepszy profil bezpieczeństwa od imidazoli. Flukonazol — przeciw Candida (oprócz C. krusei), Cryptococcus. Itrakonazol szerokie spektrum (Aspergillus). Worykonazol — Aspergillus (lek pierwszego wyboru w aspergilozie inwazyjnej). Pozakonazol/izawukonazol — szerokie spektrum, mukormykoza.",
     "i": "Zakażenia grzybicze powierzchowne (kandydoza skóry/błon śluzowych, dermatofitozy, łupież pstry) i układowe (kandydoza inwazyjna, aspergiloza, kryptokokoza). Worykonazol w aspergilozie inwazyjnej. Pozakonazol i izawukonazol w mukormykozie. Itrakonazol w grzybicach skóry, paznokci, blastomykozie, histoplazmozie. Ketokonazol — głównie miejscowo (działa na CYP nadnerczy, niekiedy w leczeniu zespołu Cushinga).",
-    "c": "Hepatotoksyczność (kontrola enzymów wątrobowych), wysypka, zaburzenia żołądkowo-jelitowe, liczne interakcje lekowe (silne inhibitory CYP3A4 — szczególnie itrakonazol i worykonazol). Worykonazol: zaburzenia widzenia (fotopsje, ~30% pacjentów), halucynacje, fototoksyczność, wydłużenie QT. Flukonazol: względnie bezpieczny. Ketokonazol systemowy: hepatotoksyczność, blokada CYP nadnerczy → hipoadrenalizm, ginekomastia.",
+    "c": "Ciężka niewydolność wątroby. Worykonazol: wydłużenie QT w wywiadzie. Ciąża (większość azoli — teratogenne).",
     "n": "Worykonazol — pułapka: zaburzenia widzenia (ok. 30%), fototoksyczność i ryzyko nowotworów skóry. Pozakonazol/izawukonazol = pierwsza linia w mukormykozie."
   },
   {
@@ -194,7 +194,7 @@
     "d": "Kaspofungina, Mykafungina, Anidulafungina, Rezafungina",
     "m": "Echinokandyny to lipopeptydowe inhibitory β-1,3-glukanu, kluczowego składnika ściany komórkowej grzybów. Hamują syntazę β-1,3-D-glukanu → osłabienie i pękanie ściany komórkowej, śmierć komórki. Spektrum: Candida (w tym oporne na flukonazol, jak C. glabrata i C. krusei), Aspergillus (drugi rzut po worykonazolu); NIE działają na Cryptococcus neoformans. Podawane wyłącznie dożylnie.",
     "i": "Inwazyjna kandydoza (lek pierwszego wyboru, szczególnie w gatunkach opornych na azole), aspergiloza (drugi rzut po worykonazolu), kandydoza przełyku, profilaktyka u biorców przeszczepów.",
-    "c": "Dobrze tolerowane. Niewielka hepatotoksyczność, sporadycznie nudności, gorączka, wysypka, reakcje histaminergiczne (przy zbyt szybkim wlewie kaspofunginy).",
+    "c": "Brak w książce.",
     "n": "Echinokandyny — lek pierwszego wyboru w inwazyjnej kandydozie u pacjentów krytycznie chorych; NIE działają na Cryptococcus."
   },
   {
@@ -203,7 +203,7 @@
     "d": "Ibreksafungerp",
     "m": "Ibreksafungerp to nowy lek przeciwgrzybiczy o budowie triterpenoidu, hamujący enzym syntazę β-1,3-D-glukanu (mechanizm jak echinokandyny). Główna zaleta: skuteczność doustna. Działa fungobójczo na Candida sp., w tym szczepy oporne na flukonazol (C. auris, C. glabrata).",
     "i": "Kandydoza sromu i pochwy (VVC) ostre i nawracające, w tym wywołane przez gatunki Candida oporne na azole.",
-    "c": "Bóle brzucha, biegunka, wymioty, bóle i zawroty głowy.",
+    "c": "Brak w książce.",
     "n": "Ibreksafungerp = doustna echinokandyna; do leczenia VVC opornej na flukonazol."
   },
   {
@@ -212,16 +212,16 @@
     "d": "Terbinafina, Butenafina, Naftyfina",
     "m": "Inhibitory epoksydazy skwalenowej grzybów — blokują przekształcanie skwalenu do epoksydu skwalenu, hamując syntezę ergosterolu i powodując nagromadzenie toksycznego skwalenu w komórkach grzyba (mechanizm podwójny). Działają fungobójczo na dermatofity (Trichophyton, Microsporum, Epidermophyton). Terbinafina stosowana też ogólnoustrojowo, butenafina i naftyfina głównie miejscowo.",
     "i": "Grzybice skóry (w tym tinea pedis, cruris, corporis), grzybica paznokci (terbinafina doustnie 3 miesiące paznokcie rąk, 6 miesięcy paznokcie stóp).",
-    "c": "Terbinafina: hepatotoksyczność (kontrola AlAT przed leczeniem), zaburzenia smaku, bóle głowy, zaburzenia żołądkowo-jelitowe, indukcja enzymów wątrobowych.",
+    "c": "Ciężka niewydolność wątroby, czynne choroby wątroby w wywiadzie.",
     "n": "Terbinafina — przed włączeniem skontroluj AlAT."
   },
   {
     "z": 16,
     "t": "10.7. Inne leki przeciwgrzybicze",
     "d": "Gryzeofulwina, Tolnaftat, Ciklopiroks, Tawaborol",
-    "m": "Gryzeofulwina — antybiotyk produkowany przez Penicillium griseofulvum; wnika do keratyny skóry i paznokci, wiąże się z białkami mikrotubularnymi grzybów, zaburza tworzenie wrzeciona kariokinetycznego, hamuje mitozę i wzrost grzyba. Działa głównie na dermatofity (Trichophyton, Microsporum, Epidermophyton). Tolnaftat — działa wybiórczo na dermatofity (mechanizm: hamuje epoksydazę skwalenową). Ciklopiroks — chelatuje kationy metali (Fe³⁺, Al³⁺), blokując enzymy zależne od metali; działa również przeciwzapalnie. Tawaborol — pochodna oksaborolu o szerokim spektrum.",
+    "m": "Gryzeofulwina — antybiotyk produkowany przez Penicillium griseofulvum; wnika do keratyny skóry i paznokci, wiąże się z białkami mikrotubularnymi grzybów, zaburza tworzenie wrzeciona kariokinetycznego, hamuje mitozę i wzrost grzyba. Działa głównie na dermatofity (Trichophyton, Microsporum, Epidermophyton). Tolnaftat — działa wybiórczo na dermatofity (mechanizm: hamuje epoksydazę skwalenową). Ciklopiroks — chelatuje kationy metali (Fe³⁺, Al³⁺), blokując enzymy zależne od metali; działa również przeciwzapalnie. Tawaborol — inhibitor grzybiczej syntetazy leucylo-tRNA (hamuje syntezę białek); stosowany miejscowo (5% roztwór) w grzybicy paznokci wg PDF p.220.",
     "i": "Grzybice skóry, włosów, paznokci (Tinea capitis u dzieci — gryzeofulwina jest lekiem z wyboru). Tolnaftat, ciklopiroks, tawaborol — miejscowo w grzybicach skóry i paznokci.",
-    "c": "Gryzeofulwina: ciężkie reakcje skórne, bóle głowy, zaburzenia żołądkowo-jelitowe, fototoksyczność, indukcja CYP, neuropatia obwodowa. Ciklopiroks: rzadkie reakcje miejscowe, świąd, pieczenie.",
+    "c": "Gryzeofulwina: ciąża, porfiria, niewydolność wątroby.",
     "n": "Tinea capitis u dzieci — gryzeofulwina lek z wyboru, dlatego nie da się jej zastąpić miejscowymi terbinafinami."
   },
   {
@@ -230,7 +230,7 @@
     "d": "Chlorochina, Hydroksychlorochina, Amodiachina, Chinina, Meflochina, Lumefantryna, Pirymetamina, Pyronaridyna, Halofantryna, Atowakwon, Proguanil",
     "m": "Pochodne aminochinoliny (chlorochina, hydroksychlorochina, amodiachina) — wnikają do erytrocytów zakażonych Plasmodium, akumulują się w wakuoli pasożyta, blokują polimerazę hemową → wolny hem (toksyczny) niszczy pasożyta. Chinina — wiąże się z hematyną, blokuje detoksykację hemu. Meflochina — działa podobnie do chininy (blokuje polimeryzację hemu). Halofantryna i lumefantryna — pochodne metanolowe, podobny mechanizm. Pyronaridyna — działa na poziomie wakuoli żywieniowej pasożyta. Atowakwon — inhibitor mitochondrialnego łańcucha transportu elektronów (kompleks III). Proguanil — prodrug do cykloguanilu, inhibitor reduktazy dihydrofolianowej Plasmodium.",
     "i": "Profilaktyka i leczenie malarii. Chlorochina obecnie skuteczna głównie w nielicznych regionach (P. vivax, P. ovale, P. malariae). Meflochina, atowakwon+proguanil (Malarone), doksycyklina, lumefantryna+artemeter (ACT) — leczenie i profilaktyka P. falciparum opornej na chlorochinę. SBET (stand-by emergency treatment). Hydroksychlorochina również w toczniu układowym (SLE) i RZS.",
-    "c": "Chlorochina/hydroksychlorochina: retinopatia (regularne kontrole okulistyczne, zwłaszcza po latach), zaburzenia żołądkowo-jelitowe, świąd, hipoglikemia, kardiotoksyczność (wydłużenie QT, kardiomiopatia przy długoterminowym stosowaniu). Meflochina: zaburzenia psychiatryczne (depresja, zaburzenia snu, psychoza, drgawki, samobójstwa), bradykardia, wydłużenie QT. Chinina: cynchonizm (szum w uszach, zawroty głowy, nudności, zaburzenia widzenia), hipoglikemia, hemoliza u pacjentów z niedoborem G6PD. Halofantryna: kardiotoksyczność, wydłużenie QT. Atowakwon/proguanil dobrze tolerowane.",
+    "c": "Chlorochina/hydroksychlorochina: pre-existing retinopatia lub makulopatia, ciężkie zaburzenia rytmu, porfiria. Chinina: niedobór dehydrogenazy glukozo-6-fosforanowej. Halofantryna: wydłużenie QT w wywiadzie.",
     "n": "Chlorochina + retinopatia po latach — wymagane regularne kontrole okulistyczne. Meflochina + zaburzenia psychiatryczne — wywiad psychiatryczny obowiązkowy. Halofantryna i chinina — wydłużenie QT, ostrożność z innymi lekami pro-arytmicznymi."
   },
   {
@@ -239,7 +239,7 @@
     "d": "Atowakwon, Proguanil (Malarone)",
     "m": "Atowakwon to hydroksynaftochinon, który podawany razem z proguanilem wywiera działanie schizontobójcze przeciwko Plasmodium falciparum. Atowakwon hamuje kompleks III mitochondrialnego łańcucha transportu elektronów (cytochrom bc1) → uniemożliwia syntezę pirymidyn pasożyta i prowadzi do śmierci komórki. Proguanil to prodrug — w wątrobie przekształcany do cykloguanilu (przez CYP2C19), inhibitor reduktazy dihydrofolianowej Plasmodium (zaburza syntezę DNA, RNA, białek pasożyta).",
     "i": "Profilaktyka i leczenie niepowikłanej malarii Plasmodium falciparum (również szczepów chlorochinoopornych); profilaktyka 1 dzień przed wyjazdem, w czasie pobytu i 7 dni po powrocie.",
-    "c": "Atowakwon+proguanil: nudności, wymioty, biegunka, bóle głowy, świąd; możliwa hepatotoksyczność.",
+    "c": "Brak w książce.",
     "n": "Malarone — wygodna, dobrze tolerowana profilaktyka malarii dla podróżników."
   },
   {
@@ -248,7 +248,7 @@
     "d": "Artemizynina, Artesunat, Artemeter, Dihydroartemizynina, Lumefantryna, Amodiachina, Sulfadoksyna, Pirymetamina, Meflochina (jako partnerzy w terapii złożonej ACT)",
     "m": "Artemizynina (z rośliny Artemisia annua) i jej pochodne (artesunat, artemeter, dihydroartemizynina) zawierają mostek endoperoksydowy, który w obecności jonów Fe²⁺ (z wolnego hemu pasożyta) rozpada się, generując wolne rodniki tlenowe i reaktywne formy alkilujące — uszkadzają białka i błony pasożyta, niszcząc Plasmodium na wszystkich stadiach erytrocytarnych. Bardzo szybkie działanie. Stosowane wyłącznie w terapii złożonej (ACT — artemisinin-based combination therapy) z partnerem o dłuższym czasie półtrwania (lumefantryna, amodiachina, sulfadoksyna+pirymetamina, meflochina), by zapobiec oporności.",
     "i": "Niepowikłana i powikłana (artesunat dożylnie) malaria P. falciparum, lek pierwszego wyboru w ACT na całym świecie. Artesunat dożylnie — leczenie ciężkiej malarii.",
-    "c": "Wysypka, nudności, wymioty, bóle głowy, zaburzenia żołądkowo-jelitowe, niedokrwistość, kardiotoksyczność (wydłużenie QT), neurotoksyczność (eksperymentalnie), reakcje nadwrażliwości.",
+    "c": "I trymestr ciąży (potencjalna teratogenność artemizynin).",
     "n": "ACT (artemisinin-based combination therapy) — standard światowy w leczeniu niepowikłanej malarii P. falciparum."
   },
   {
@@ -257,7 +257,7 @@
     "d": "Pirymetamina, Proguanil, Chlorproguanil, Sulfadoksyna, Sulfalen, Dapson",
     "m": "Pirymetamina, proguanil i chlorproguanil hamują reduktazę dihydrofolianową (DHFR) pasożyta, blokując redukcję dihydrofolianu do tetrahydrofolianu (aktywnej formy folianu). Sulfadoksyna, sulfalen i dapson hamują syntazę dihydropteroniową (DHPS), blokując syntezę dihydrofolianu z PABA. Łącząc inhibitor DHFR z inhibitorem DHPS (np. pirymetamina+sulfadoksyna, dapson+chlorproguanil) uzyskuje się sekwencyjną blokadę szlaku syntezy folianów u pasożyta, prowadząc do śmierci komórki.",
     "i": "Profilaktyka i leczenie malarii Plasmodium falciparum (sulfadoksyna+pirymetamina = Fansidar). Pirymetamina+sulfadiazyna w toksoplazmozie. Dapson — w trądziku, trądzie i pneumocystozie.",
-    "c": "Reakcje hipersensycyjne (zespół Stevensa-Johnsona, toksyczna nekroliza naskórka), niedokrwistość megaloblastyczna (z niedoboru folianów), leukopenia, neutropenia. Suplementacja kwasem foliowym (folinowym) w czasie leczenia.",
+    "c": "Niedobór dehydrogenazy glukozo-6-fosforanowej, ciąża III trymestru (kernikterus), wiek noworodkowy.",
     "n": "Sulfadoksyna+pirymetamina = Fansidar — klasyczna terapia, obecnie używana w ACT lub IPTp (intermittent preventive treatment in pregnancy)."
   },
   {
@@ -266,7 +266,7 @@
     "d": "Tetracyklina, Doksycyklina, Klindamycyna",
     "m": "Tetracykliny (tetracyklina, doksycyklina) i klindamycyna wykazują pewną aktywność przeciwzimniczą — hamują syntezę białek w apikoplaście Plasmodium (rybosomy 70S typu prokariotycznego). Stosowane w skojarzeniu z chininą lub artemizyninami w leczeniu zakażeń Plasmodium falciparum w obszarach oporności.",
     "i": "Leczenie malarii w skojarzeniu z chininą lub artemizyninami; profilaktyka malarii (doksycyklina).",
-    "c": "Doksycyklina: fototoksyczność, zaburzenia żołądkowo-jelitowe, zmiana flory pochwy (kandydoza), przebarwienia zębów u dzieci poniżej 8 lat (przeciwwskazana w ciąży i u dzieci <8 lat). Klindamycyna: rzekomobłoniaste zapalenie jelit (C. difficile).",
+    "c": "Doksycyklina: ciąża, karmienie piersią, wiek poniżej 8 lat.",
     "n": "Doksycyklina jako profilaktyka malarii — wymaga 1 dzień przed wyjazdem do 4 tygodni po powrocie."
   },
   {
@@ -275,7 +275,7 @@
     "d": "Pirymetamina, Sulfadiazyna, Spiramycyna, Klindamycyna, Kwas folinowy (leukoworyna)",
     "m": "Pirymetamina hamuje reduktazę dihydrofolianową Toxoplasma gondii, a sulfadiazyna hamuje syntazę dihydropteroniową — sekwencyjna blokada syntezy folianów, zatrzymanie syntezy DNA, RNA i białek pasożyta (synergizm). Spiramycyna (makrolid) — hamuje syntezę białek bakteryjnych/pasożytniczych na rybosomie 50S, mniej skuteczna ale bezpieczna w ciąży. Klindamycyna stosowana zamiennie z sulfadiazyną u pacjentów uczulonych. Kwas folinowy podawany jednocześnie, by zapobiec niedoborowi folianów u pacjenta.",
     "i": "Toksoplazmoza — pirymetamina+sulfadiazyna+leukoworyna u pacjentów z immunosupresją (np. AIDS, w ciąży po I trymestrze). Spiramycyna w toksoplazmozie u kobiet w ciąży (do I trymestru, by zapobiec przeniesieniu na płód).",
-    "c": "Pirymetamina+sulfadiazyna: mielosupresja (niedokrwistość megaloblastyczna), reakcje skórne (SJS/TEN), niedobór folianów. Spiramycyna: względnie dobrze tolerowana, zaburzenia żołądkowo-jelitowe.",
+    "c": "Pirymetamina + sulfadiazyna: niedobór folianów, niedobór dehydrogenazy glukozo-6-fosforanowej, ciąża III trymestru (kernikterus po sulfadiazynie).",
     "n": "Spiramycyna — toksoplazmoza w I trymestrze ciąży; pirymetamina+sulfadiazyna — od II trymestru i u immunoniekompetentnych."
   },
   {
@@ -284,34 +284,34 @@
     "d": "Metronidazol, Tynidazol, Ornidazol, Jodochinol, Diloksanid, Paromomycyna",
     "m": "Pochodne 5-nitroimidazolu (metronidazol, tynidazol, ornidazol) — w warunkach beztlenowych w komórkach Entamoeba histolytica grupa nitrowa jest redukowana do reaktywnych metabolitów (radniki nitrowe), które uszkadzają DNA pasożyta. Działają na trofozoity w świetle jelita i tkankach (postać inwazyjna). Diloksanid i jodochinol — działają w świetle jelita na cystę (forma nieinwazyjna). Paromomycyna (aminoglikozyd) — działa miejscowo w świetle jelita.",
     "i": "Amebioza jelitowa i pozajelitowa (ropień wątroby) — metronidazol/tynidazol w postaci inwazyjnej, następnie diloksanid lub paromomycyna w eliminacji cyst w świetle jelita. Metronidazol również w lambliozie, giardiazie, trichomonadozie, dracunkulozie.",
-    "c": "Metronidazol: nudności, metaliczny smak, reakcje disulfiramopodobne z alkoholem (zakaz alkoholu!), neuropatia obwodowa, drgawki przy długim stosowaniu. Tynidazol: lepiej tolerowany. Diloksanid: wzdęcia, nudności.",
+    "c": "Metronidazol: I trymestr ciąży.",
     "n": "Metronidazol + alkohol = reakcja disulfiramopodobna; bezwzględny zakaz alkoholu w czasie i 48 h po terapii."
   },
   {
     "z": 16,
     "t": "11.4. Leki używane w leczeniu rzęsistkowicy",
     "d": "Metronidazol, Tynidazol, Ornidazol, Sekonidazol",
-    "m": "Pochodne 5-nitroimidazolu (metronidazol, tynidazol, ornidazol, sekonidazol) — w warunkach beztlenowych pierwotniak Trichomonas vaginalis redukuje grupę nitrową do reaktywnych metabolitów, które uszkadzają DNA pasożyta. Działają fungobójczo na T. vaginalis i bakterie beztlenowe.",
+    "m": "Pochodne 5-nitroimidazolu (metronidazol, tynidazol, ornidazol, sekonidazol) — w warunkach beztlenowych pierwotniak Trichomonas vaginalis redukuje grupę nitrową do reaktywnych metabolitów, które uszkadzają DNA pasożyta. Działają pierwotniakobójczo na T. vaginalis (pierwotniak, nie grzyb) i bakteriobójczo na bakterie beztlenowe.",
     "i": "Rzęsistkowica narządów moczowo-płciowych u kobiet i mężczyzn (leczenie obojga partnerów). Pojedyncza wysoka dawka doustna lub schemat dawkowania.",
-    "c": "Metronidazol: jak wyżej (nudności, metaliczny smak, reakcja disulfiramopodobna z alkoholem). Polineuropatia obwodowa, drgawki przy długotrwałym stosowaniu.",
+    "c": "Metronidazol: I trymestr ciąży.",
     "n": "Leczenie zawsze obu partnerów seksualnych jednocześnie — inaczej re-infekcja."
   },
   {
     "z": 16,
     "t": "11.5. Leki używane w trypanosomozach",
     "d": "Pentamidyna, Suramina, Eflornityna, Melarsoprol, Nifurtymoks, Benznidazol",
-    "m": "Suramina (działa na T. brucei rhodesiense/gambiense — wczesna postać ośrodkowa) — wiąże enzymy glikolityczne i fosforanowe pasożyta. Pentamidyna — wiązanie DNA pasożyta, hamowanie syntezy nukleotydów. Eflornityna (DFMO, difluorometyloornityna) — inhibitor dekarboksylazy ornityny — blokuje syntezę poliamin (śpiączka afrykańska T. b. gambiense). Melarsoprol — związek arsenowy, działa na ośrodkową fazę śpiączki afrykańskiej. Nifurtymoks i benznidazol — pochodne nitroaromatyczne aktywne przeciw T. cruzi (choroba Chagasa), wytwarzają reaktywne metabolity uszkadzające DNA pasożyta.",
+    "m": "Suramina (działa na T. brucei gambiense — wczesna postać krwiopochodna; NIE przenika do OUN wg PDF p.228) — wiąże enzymy glikolityczne i fosforanowe pasożyta. Pentamidyna — wiązanie DNA pasożyta, hamowanie syntezy nukleotydów. Eflornityna (DFMO, difluorometyloornityna) — inhibitor dekarboksylazy ornityny — blokuje syntezę poliamin (śpiączka afrykańska T. b. gambiense). Melarsoprol — związek arsenowy, działa na ośrodkową fazę śpiączki afrykańskiej. Nifurtymoks i benznidazol — pochodne nitroaromatyczne aktywne przeciw T. cruzi (choroba Chagasa), wytwarzają reaktywne metabolity uszkadzające DNA pasożyta.",
     "i": "Trypanosomozy afrykańskie (śpiączka afrykańska, T. brucei): suramina/pentamidyna — postać krwiopochodna; eflornityna i melarsoprol — postać ośrodkowa. Trypanosomoza amerykańska (choroba Chagasa, T. cruzi): nifurtymoks i benznidazol.",
-    "c": "Suramina: anafilaksja, nefrotoksyczność, neuropatia. Pentamidyna: hipoglikemia, nefrotoksyczność, zapalenie trzustki, tachykardia, hipotensja. Eflornityna: mielosupresja, drgawki, alopecja. Melarsoprol: encefalopatia reaktywna (3–10%, śmiertelność wysoka), gorączka, wysypka. Nifurtymoks: jadłowstręt, neuropatia obwodowa, drgawki. Benznidazol: wysypka, neuropatia, hepatotoksyczność.",
+    "c": "Brak w książce.",
     "n": "Melarsoprol — encefalopatia reaktywna może być śmiertelna; mimo to lek ratujący życie w ośrodkowej fazie śpiączki afrykańskiej."
   },
   {
     "z": 16,
     "t": "11.6. Inne leki przeciwpierwotniakowe",
-    "d": "Glukonian antymonu (Pentostam — stibogluconate), Miltefozyna, Nitazoksanid, Benznidazol, Meklosprol",
+    "d": "Glukonian antymonu (Pentostam — stibogluconate), Miltefozyna, Nitazoksanid, Benznidazol, Melarsoprol",
     "m": "Glukonian antymonu (stibogluconate, Pentostam) — pochodna antymonu (V), stosowana w leiszmaniozie (mechanizm: hamowanie szlaków energetycznych pasożyta, zaburzenie syntezy ATP). Miltefozyna — alkilofosfolipid o działaniu przeciwpasożytniczym (zaburza syntezę fosfolipidów i błony komórkowej Leishmania, w tym L. donovani — pierwsza doustna terapia leiszmaniozy trzewnej). Nitazoksanid — produkt nitrotiazolu o szerokim spektrum (zaburza dehydrogenazę pirogronian:ferredoksyny pasożyta). Stosowany w giardiazie, kryptosporydiozie, amebiazie. Benznidazol (jak wyżej) — choroba Chagasa.",
     "i": "Leiszmanioza trzewna i skórna (glukonian antymonu, miltefozyna), kryptosporydioza i giardiaza (nitazoksanid), choroba Chagasa (benznidazol).",
-    "c": "Glukonian antymonu: gorączka, wymioty, bóle stawów i mięśni, kardiotoksyczność, hepatotoksyczność. Miltefozyna: wymioty, biegunka, zaburzenia żołądkowo-jelitowe; teratogenność (nie wolno w ciąży). Nitazoksanid: dobrze tolerowany.",
+    "c": "Miltefozyna: ciąża (teratogenność), karmienie piersią.",
     "n": "Miltefozyna — pierwsza doustna terapia leiszmaniozy trzewnej, ale teratogenna — przeciwwskazana w ciąży."
   },
   {
@@ -320,7 +320,7 @@
     "d": "Albendazol, Mebendazol, Tiabendazol, Triklabendazol, Iwermektyna, Dietylkarbamazyna, Pyrantel",
     "m": "Benzimidazole (albendazol, mebendazol, tiabendazol, triklabendazol) wiążą się z β-tubuliną pasożyta, blokując polimeryzację mikrotubul i wychwyt glukozy → niedobór ATP i śmierć robaka. Iwermektyna otwiera kanały chlorkowe bramkowane glutaminianem w komórkach nerwowych i mięśniowych pasożyta → paraliż i śmierć (nie wnika do CNS człowieka, bo wykluczana przez P-glikoproteinę). Dietylkarbamazyna — niejasny mechanizm, uwrażliwia mikrofilarie na odpowiedź immunologiczną gospodarza. Pyrantel — agonista receptorów nikotynowych w synapsach nerwowo-mięśniowych pasożyta → paraliż spastyczny.",
     "i": "Zakażenia nicieniami przewodu pokarmowego (owsica, glistnica, węgorczyca, włośnica): albendazol, mebendazol, pyrantel. Iwermektyna: strongyloidoza, onchocerkoza (ślepota rzeczna), filariozy, świerzb. Dietylkarbamazyna: filariozy (loaza, wuchererioza). Triklabendazol: fascioloza (Fasciola hepatica). Tiabendazol: larva migrans skórna i trzewna.",
-    "c": "Albendazol/mebendazol: zaburzenia żołądkowo-jelitowe, bóle brzucha, hepatotoksyczność (zwłaszcza długie kursy), mielosupresja, łysienie, teratogenność (zakaz w ciąży). Iwermektyna: reakcja Mazzottiego (przy onchocerkozie — gorączka, świąd, obrzęki, hipotensja z powodu lizy mikrofilarii i uwolnienia antygenów), nudności, wysypka. Dietylkarbamazyna: silna reakcja immunologiczna po lizie mikrofilarii. Pyrantel: nudności, bóle głowy.",
+    "c": "Albendazol, mebendazol: ciąża, karmienie piersią, ciężka niewydolność wątroby.",
     "n": "Iwermektyna + reakcja Mazzottiego po lizie mikrofilarii w onchocerkozie — wymaga stopniowego dawkowania. Albendazol/mebendazol w ciąży zakazane."
   },
   {
@@ -329,7 +329,7 @@
     "d": "Prazikwantel, Niklozamid, Oksamnichina, Bitionol, Metrifonat",
     "m": "Prazikwantel — wpływa na transport wapnia w mięśniach pasożyta (zwiększa przepuszczalność błony dla Ca²⁺), prowadzi do skurczu, paraliżu i odsłonięcia antygenów pasożyta → odpowiedź immunologiczna gospodarza i śmierć. Działa na większość trematod i cestod. Niklozamid — hamuje fosforylację oksydacyjną w mitochondriach tasiemca → niedobór ATP. Oksamnichina — substancja o niejasnym mechanizmie działania, prawdopodobnie zaburza syntezę nukleinianów (skuteczna w schistosomiazie Schistosoma mansoni). Bitionol — hamuje fosforylację oksydacyjną pasożytów. Metrifonat — związek fosforoorganiczny, hamujący cholinesterazę przywry Schistosoma haematobium.",
     "i": "Schistosomoza (prazikwantel jest lekiem z wyboru w schistosomozie wywołanej przez S. mansoni, S. japonicum, S. haematobium), tasiemczyce (tasiemiec uzbrojony Taenia solium, T. saginata, Hymenolepis nana, Echinococcus granulosus — wągrzyca, bąblowica), inwazje przywrami. Niklozamid — tasiemczyce. Oksamnichina — S. mansoni. Metrifonat — S. haematobium.",
-    "c": "Prazikwantel: bóle głowy, zawroty głowy, nudności, dyskomfort brzuszny, gorączka, wysypka. W neurocysticerkozie reakcje neurologiczne (drgawki) z powodu lizy cyst i obrzęku mózgu — kontrola glikokortykosteroidami. Niklozamid: nudności, bóle brzucha. Oksamnichina: zawroty głowy, neuropsychiatryczne. Bitionol: nadwrażliwość skórna. Metrifonat: objawy cholinergiczne (jak inhibitory cholinesterazy).",
+    "c": "Prazikwantel: neurocysticerkoza bez jednoczesnej osłony glikokortykosteroidami (ryzyko drgawek), I trymestr ciąży.",
     "n": "Prazikwantel + neurocysticerkoza — drgawki z lizy cyst i obrzęku mózgu, wymaga osłony glikokortykosteroidem."
   }
 ]

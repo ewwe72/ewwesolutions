@@ -5,7 +5,7 @@
     "d": "Somatropina, Somatrogon, Somapacitan",
     "m": "Rekombinowane analogi ludzkiego hormonu wzrostu działają poprzez receptor GH (cytokinowy receptor klasy I) – aktywują szlak JAK/STAT, indukują produkcję IGF-1 (insulinopodobny czynnik wzrostu, somatomedyna C) głównie w wątrobie. IGF-1 pośredniczy w większości anabolicznych efektów GH, stymulując wzrost kostny, mięśniowy i syntezę białek. Somatrogon i somapacitan to formy o przedłużonym działaniu (pegylowane lub fuzyjne) podawane raz w tygodniu.",
     "i": "Niedobór GH u dzieci i dorosłych, niskorosłość idiopatyczna, zespół Turnera, zespół Pradera-Williego, niewydolność nerek u dzieci, zespół krótkiego jelita, kacheksja w AIDS.",
-    "c": "Czynna choroba nowotworowa, zaawansowana retinopatia cukrzycowa, ostry stan krytyczny po operacjach lub urazach. Działania niepożądane: insulinooporność, obrzęki, bóle stawów, zespół cieśni nadgarstka.",
+    "c": "Czynna choroba nowotworowa, zaawansowana retinopatia cukrzycowa, ostry stan krytyczny po operacjach lub urazach.",
     "n": "Somatropina powinna być podawana w iniekcjach podskórnych wieczorem, by naśladować fizjologiczny szczyt nocny wydzielania GH."
   },
   {
@@ -14,7 +14,7 @@
     "d": "Mekasermina, Mekasermina rinfabat",
     "m": "Rekombinowany ludzki IGF-1 (mekasermina) lub kompleks IGF-1 z białkiem wiążącym IGFBP-3 (rinfabat) – działa bezpośrednio przez receptor IGF-1 z pominięciem osi GH, stymulując wzrost komórek i tkanek.",
     "i": "Ciężki pierwotny niedobór IGF-1 z prawidłowym lub podwyższonym stężeniem GH (zespół Larona, mutacje receptora GH, przeciwciała neutralizujące GH).",
-    "c": "Czynna choroba nowotworowa, zamknięte chrząstki nasadowe. Główne działanie niepożądane: hipoglikemia (podawać z posiłkiem).",
+    "c": "Czynna choroba nowotworowa, zamknięte chrząstki nasadowe.",
     "n": "Mekasermina jest skuteczna tylko wtedy, gdy chrząstki nasadowe nie są jeszcze zamknięte."
   },
   {
@@ -23,7 +23,7 @@
     "d": "Pegwizomant",
     "m": "Pegylowany analog GH zmodyfikowany genetycznie – wiąże się z receptorem GH, ale blokuje jego prawidłową dimeryzację, uniemożliwiając transdukcję sygnału i syntezę IGF-1.",
     "i": "Akromegalia oporna na leczenie analogami somatostatyny lub po nieskutecznym leczeniu operacyjnym; często łączony z analogami somatostatyny.",
-    "c": "Ciąża, niewydolność wątroby. Działania niepożądane: hepatotoksyczność (kontrola enzymów wątrobowych), reakcje w miejscu wstrzyknięcia, lipohipertrofia.",
+    "c": "Ciąża, niewydolność wątroby.",
     "n": "Pegwizomant obniża IGF-1, ale paradoksalnie zwiększa stężenie GH w surowicy – nie można monitorować skuteczności po GH, tylko po IGF-1."
   },
   {
@@ -41,7 +41,7 @@
     "d": "Oktreotyd, Lanreotyd, Pasyreotyd",
     "m": "Syntetyczne analogi 14-aminokwasowej somatostatyny. Oktreotyd i lanreotyd działają głównie przez receptory SSTR2 i SSTR5, pasyreotyd ma szersze powinowactwo (SSTR1, 2, 3, 5). Hamują uwalnianie GH, TSH, insuliny, glukagonu, gastryny, sekretyny i peptydów żołądkowo-jelitowych, obniżając IGF-1 i hamując wzrost guzów neuroendokrynnych.",
     "i": "Akromegalia, guzy neuroendokrynne (rakowiaki, VIP-omy, glukagonomy), oporna biegunka, krwawienia z żylaków przełyku. Pasyreotyd – choroba Cushinga (ektopowy ACTH).",
-    "c": "Działania niepożądane: kamica pęcherzyka żółciowego, hipo-/hiperglikemia (szczególnie pasyreotyd), zaburzenia wchłaniania, bradykardia.",
+    "c": "Brak w książce.",
     "n": "Pasyreotyd częściej powoduje hiperglikemię niż oktreotyd i lanreotyd – wymaga ścisłej kontroli glikemii."
   },
   {
@@ -50,7 +50,7 @@
     "d": "Bromokryptyna, Kabergolina, Chinagolid",
     "m": "Agoniści receptora dopaminowego D2 w komórkach laktotropowych przedniego płata przysadki – hamują wydzielanie prolaktyny. Kabergolina ma najwyższą selektywność wobec D2 i najdłuższy okres półtrwania. Bromokryptyna jest pochodną sporyszu.",
     "i": "Hiperprolaktynemia, prolaktynoma, akromegalia (kabergolina), zahamowanie laktacji poporodowej, choroba Parkinsona (bromokryptyna).",
-    "c": "Zwłóknienie zastawek serca, niewyrównane nadciśnienie, choroby psychiczne. Działania niepożądane: nudności, hipotonia ortostatyczna, zaburzenia psychiczne, objawy fibrozy.",
+    "c": "Zwłóknienie zastawek serca, niewyrównane nadciśnienie tętnicze, czynne choroby psychiczne.",
     "n": "Kabergolina w wysokich dawkach (leczenie choroby Parkinsona, nie hiperprolaktynemii) może wywoływać włóknienie zastawek serca; w niskich dawkach prolaktynowych ryzyko jest minimalne."
   },
   {
@@ -67,7 +67,7 @@
     "t": "TRH – protyrelina",
     "d": "Protyrelina",
     "m": "Syntetyczny tripeptyd identyczny z hormonem uwalniającym tyreotropinę (TRH). Pobudza receptor TRH na komórkach tyreotropowych przysadki, powodując uwolnienie TSH i prolaktyny.",
-    "i": "Test diagnostyczny TRH – ocena rezerwy TSH w różnicowaniu nadczynności i niedoczynności tarczycy pochodzenia przysadkowego oraz podwzgórzowego.",
+    "i": "Test diagnostyczny TRH – różnicowanie przyczyny niedoczynności tarczycy (pierwotnej tarczycowej, wtórnej przysadkowej i trzeciorzędowej podwzgórzowej) wg PDF p.321.",
     "c": "Brak w książce.",
     "n": "Wzrost stężenia TSH po podaniu TRH wskazuje na zachowaną rezerwę przysadki; brak odpowiedzi sugeruje uszkodzenie przysadki, nadmierna i przedłużona – uszkodzenie podwzgórza."
   },
@@ -86,7 +86,7 @@
     "d": "Tetrakozaktyd, Kortykorelina (diagnostyczna)",
     "m": "Tetrakozaktyd to syntetyczny peptyd zawierający 24 N-końcowe aminokwasy ACTH. Wiąże się z receptorem melanokortyny typu 2 (MC2R) w warstwie pasmowatej kory nadnerczy i stymuluje produkcję glikokortykosteroidów, mineralokortykoidów i androgenów nadnerczowych.",
     "i": "Test Synacthen – diagnostyka niewydolności kory nadnerczy (pierwotnej i wtórnej); rzadko terapeutycznie w stwardnieniu rozsianym i niemowlęcych skurczach.",
-    "c": "Działania niepożądane: reakcje alergiczne (peptyd), rzadko terapeutycznie stosowany – odpowiednie do glikokortykosteroidów.",
+    "c": "Brak w książce.",
     "n": "Brak wzrostu kortyzolu po Synacthen świadczy o niewydolności kory nadnerczy; w niewydolności wtórnej (przysadkowej) test może wypaść prawidłowo po krótkim okresie deprywacji."
   },
   {
@@ -104,7 +104,7 @@
     "d": "Leuprorelina, Goserelina, Tryptorelina, Buserelina, Nafarelina, Histrelina",
     "m": "Syntetyczne analogi GnRH – po początkowej stymulacji receptora GnRH na komórkach gonadotropowych przysadki (efekt flare – wzrost FSH/LH) wywołują przy ciągłym podawaniu desensytyzację i internalizację receptorów, prowadząc do supresji wydzielania FSH/LH i wtórnie testosteronu/estradiolu.",
     "i": "Rak prostaty hormonozależny, rak piersi przedmenopauzalny, endometrioza, mięśniaki macicy, przedwczesne dojrzewanie płciowe, stymulacja owulacji (krótkotrwałe podanie pulsacyjne).",
-    "c": "Przeciwwskazania: nieznana etiologia krwawień z dróg rodnych, ciąża. Działania niepożądane: objawy menopauzalne, osteoporoza, spadek libido, wydłużenie QT.",
+    "c": "Nieznana etiologia krwawień z dróg rodnych, ciąża.",
     "n": "Pułapka – pulsacyjne (krótkotrwałe) podawanie GnRH stymuluje uwalnianie gonadotropin (terapia indukująca owulację), natomiast ciągłe podawanie hamuje oś gonadalną. Tumor flare na początku leczenia raka prostaty wymaga osłony antyandrogenem."
   },
   {
@@ -113,7 +113,7 @@
     "d": "Cetroreliks, Ganireliks, Degareliks, Relugoliks",
     "m": "Bezpośredni antagoniści receptora GnRH – kompetycyjnie blokują receptor na komórkach gonadotropowych przysadki, natychmiastowo hamując wydzielanie FSH i LH bez efektu flare. Relugoliks – pierwszy doustny antagonista GnRH.",
     "i": "Sztuczne zapłodnienie – zapobieganie przedwczesnemu wzrostowi LH (cetroreliks, ganireliks); rak prostaty (degareliks, relugoliks); mięśniaki macicy, endometrioza.",
-    "c": "Ciąża, karmienie piersią, ciężka niewydolność nerek/wątroby. Działania niepożądane: reakcje w miejscu wstrzyknięcia, objawy menopauzalne, wydłużenie QT.",
+    "c": "Ciąża, karmienie piersią, ciężka niewydolność nerek lub wątroby.",
     "n": "Antagoniści GnRH nie wywołują efektu flare – preferowani w leczeniu raka prostaty u chorych ze znacznym obciążeniem nowotworowym lub uciskiem rdzenia kręgowego."
   },
   {
@@ -122,7 +122,7 @@
     "d": "Menotropina (hMG), Urofolitropina, Folitropina rekombinowana",
     "m": "Preparaty zawierające FSH (i częściowo LH w menotropinie) izolowane z moczu kobiet po menopauzie (hMG, urofolitropina) lub rekombinowane (folitropina). Stymulują receptor FSH w komórkach ziarnistych pęcherzyków jajnikowych, indukując dojrzewanie pęcherzyków i steroidogenezę.",
     "i": "Indukcja owulacji w niepłodności, stymulacja jajników w protokołach zapłodnienia in vitro, pobudzenie spermatogenezy u mężczyzn z hipogonadyzmem hipogonadotropowym.",
-    "c": "Nowotwory hormonozależne (jajnika, sutka, prostaty), niewydolność jajników pierwotna. Działanie niepożądane: zespół hiperstymulacji jajników (OHSS), ciąże mnogie.",
+    "c": "Nowotwory hormonozależne (jajnika, sutka, prostaty), pierwotna niewydolność jajników.",
     "n": "OHSS (zespół hiperstymulacji jajników) – groźne powikłanie po gonadotropinach: obrzęki, wysięki, zakrzepica; ryzyko rośnie w protokołach IVF."
   },
   {
@@ -131,7 +131,7 @@
     "d": "Lutropina alfa, Choriogonadotropina alfa (rekombinowana hCG), hCG urinarne",
     "m": "Lutropina alfa to rekombinowana ludzka LH – aktywuje receptor LH w komórkach osłonki pęcherzyka i komórkach Leydiga. hCG (urinarna lub rekombinowana choriogonadotropina alfa) wiąże się z tym samym receptorem (LHCGR) z długim okresem półtrwania, naśladując pik LH.",
     "i": "Indukcja owulacji (hCG po stymulacji FSH zastępuje pik LH), wspomaganie cyklu zapłodnienia in vitro, leczenie hipogonadyzmu hipogonadotropowego u mężczyzn, wnętrostwo u chłopców.",
-    "c": "Te same co dla gonadotropin FSH – OHSS, nowotwory hormonozależne, ciąże mnogie.",
+    "c": "Nowotwory hormonozależne, pierwotna niewydolność gonad.",
     "n": "hCG ze względu na długi okres półtrwania zastępuje pik LH w protokołach indukcji owulacji w jednorazowej dawce wyzwalającej."
   },
   {
@@ -140,7 +140,7 @@
     "d": "Lewotyroksyna (T4), Liotyronina (T3), Liotyriks (T4+T3)",
     "m": "Syntetyczne hormony tarczycy. Lewotyroksyna jest prolekiem – ulega obwodowej dejodynacji do aktywnego T3, który wiąże się z jądrowymi receptorami tarczycowymi (TR) i moduluje transkrypcję genów regulujących metabolizm podstawowy, termogenezę, syntezę białek i wzrost. Liotyronina ma szybki, krótki efekt (T1/2 ok. 7 h), lewotyroksyna długi (T1/2 ok. 7 dni).",
     "i": "Niedoczynność tarczycy (pierwotna, wtórna, wrodzona), wole, stan po tyreoidektomii, supresja TSH w zróżnicowanym raku tarczycy, śpiączka hipometaboliczna (liotyronina).",
-    "c": "Nieleczona nadczynność kory nadnerczy, nieleczona tyreotoksykoza, ostry zawał serca. Działania niepożądane: objawy nadczynności tarczycy przy przedawkowaniu (tachykardia, drżenia, utrata masy ciała, osteoporoza).",
+    "c": "Nieleczona niewydolność kory nadnerczy, nieleczona tyreotoksykoza, ostry zawał mięśnia sercowego.",
     "n": "Lewotyroksynę należy przyjmować rano, na czczo, co najmniej 30 minut przed posiłkiem – pokarmy, wapń, żelazo i inhibitory pompy protonowej znacząco zmniejszają wchłanianie."
   },
   {
@@ -149,7 +149,7 @@
     "d": "Jod-131 (¹³¹I)",
     "m": "Izotop jodu emitujący promieniowanie β (i γ), selektywnie wychwytywany przez tyreocyty za pośrednictwem symportera Na/I (NIS). Promieniowanie β niszczy komórki pęcherzykowe tarczycy, redukując masę i czynność gruczołu lub niszcząc resztki/przerzuty po tyreoidektomii.",
     "i": "Nadczynność tarczycy (choroba Gravesa-Basedowa, wole guzkowe toksyczne), zróżnicowany rak tarczycy (ablacja resztek i leczenie przerzutów).",
-    "c": "Ciąża, karmienie piersią, młody wiek (względnie). Działania niepożądane: niedoczynność tarczycy (planowany efekt), zapalenie ślinianek, popromienne zapalenie tarczycy, objawy radiacyjne.",
+    "c": "Ciąża, karmienie piersią, młody wiek (przeciwwskazanie względne).",
     "n": "U osób z dużą wolą lub orbitopatią Gravesa-Basedowa I-131 może nasilić oftalmopatię – w takich sytuacjach stosuje się osłonę glikokortykosteroidem."
   },
   {
@@ -158,7 +158,7 @@
     "d": "Tiamazol (metimazol), Propylotiouracyl (PTU), Karbimazol",
     "m": "Hamują tyreoperoksydazę (TPO), blokując utlenianie jodu, jodowanie reszt tyrozyny w tyreoglobulinie i sprzęganie MIT/DIT do T3 i T4. Propylotiouracyl dodatkowo hamuje obwodową dejodynację T4 do T3.",
     "i": "Nadczynność tarczycy (choroba Gravesa-Basedowa), przygotowanie do operacji tarczycy lub terapii jodem radioaktywnym, przełom tarczycowy (PTU).",
-    "c": "Ciąża I trymestr (tiamazol – embriopatia), agranulocytoza w wywiadzie. Działania niepożądane: agranulocytoza, hepatotoksyczność (zwłaszcza PTU – ostra niewydolność wątroby), wysypki, zapalenie naczyń.",
+    "c": "Ciąża I trymestru (tiamazol — embriopatia), agranulocytoza w wywiadzie.",
     "n": "PTU jest lekiem z wyboru w I trymestrze ciąży (tiamazol – embriopatia: aplazja skóry głowy, atrezja choanae), w II i III trymestrze przechodzi się na tiamazol ze względu na ryzyko hepatotoksyczności PTU."
   },
   {
@@ -176,7 +176,7 @@
     "d": "Hydrokortyzon, Prednizon, Prednizolon, Metyloprednizolon, Triamcynolon, Deksametazon, Betametazon",
     "m": "Agoniści cytoplazmatycznego receptora glikokortykosteroidowego (GR). Po związaniu hormon-receptor kompleks ulega translokacji do jądra, gdzie reguluje transkrypcję poprzez wiązanie do GRE (transaktywacja: lipokortyna-1, IκB) lub interakcję z czynnikami transkrypcyjnymi NF-κB i AP-1 (transrepresja: cytokiny prozapalne). Efekt: silne działanie przeciwzapalne, immunosupresyjne, antyproliferacyjne, glukogenne i mineralokortykoidowe (zależne od preparatu).",
     "i": "Terapia substytucyjna w niewydolności kory nadnerczy (choroba Addisona), choroby autoimmunologiczne, astma, alergie, choroby zapalne (RZS, IBD), nowotwory hematologiczne, schorzenia skórne, obrzęk mózgu, ARDS, profilaktyka odrzucenia przeszczepu.",
-    "c": "Czynne zakażenia (gruźlica, grzybice), wrzody żołądka, niewyrównana cukrzyca, ciężkie nadciśnienie, jaskra, osteoporoza, psychoza. Działania niepożądane: zespół Cushinga jatrogenny, osteoporoza, cukrzyca posteroidowa, nadciśnienie, miopatia, supresja osi HPA, immunosupresja, jaskra, zaćma.",
+    "c": "Czynne zakażenia (gruźlica, grzybice układowe), wrzody żołądka i dwunastnicy, niewyrównana cukrzyca, ciężkie nadciśnienie tętnicze, jaskra, osteoporoza, psychoza w wywiadzie.",
     "n": "Optymalny dawkowy schemat to dawka jednorazowa rano ok. 8:00 – naśladuje fizjologiczny rytm dobowy i minimalizuje supresję osi podwzgórze-przysadka-nadnercza."
   },
   {
@@ -185,16 +185,16 @@
     "d": "Fludrokortyzon",
     "m": "Syntetyczny fluorowany analog hydrokortyzonu o silnym działaniu mineralokortykoidowym (i słabszym glikokortykosteroidowym) – aktywuje receptor mineralokortykoidowy w cewce krętej dystalnej i zbiorczej nefronu, zwiększając ekspresję ENaC i Na/K-ATPazy, co prowadzi do retencji sodu i wody oraz wydalania potasu i wodoru.",
     "i": "Terapia substytucyjna w pierwotnej niewydolności kory nadnerczy (choroba Addisona) oraz wrodzonym przeroście nadnerczy; hipotonia ortostatyczna neurogenna.",
-    "c": "Niewydolność serca, nadciśnienie, hipokaliemia, obrzęki. Działania niepożądane: nadciśnienie, hipokaliemia, retencja płynów, zasadowica hipokaliemiczna.",
+    "c": "Niewydolność serca, nadciśnienie tętnicze, obrzęki.",
     "n": ""
   },
   {
     "z": 18,
     "t": "Inhibitory syntezy hormonów nadnerczowych",
     "d": "Aminoglutetimid, Metyrapon, Ketokonazol, Etomidat, Mitotan, Trilostan, Osilodrostat",
-    "m": "Hamują kluczowe enzymy steroidogenezy: aminoglutetimid – CYP11A1 (desmolaza); metyrapon i osilodrostat – CYP11B1 (11β-hydroksylaza); ketokonazol – CYP17 i inne enzymy P450; etomidat – 11β-hydroksylaza; trilostan – 3β-HSD; mitotan – adrenolityk niszczący komórki kory nadnerczy (warstwy pasmowatą i siatkowatą).",
+    "m": "Hamują kluczowe enzymy steroidogenezy: aminoglutetimid – CYP11A1 (desmolaza), także aromataza; metyrapon – CYP11B1 (11β-hydroksylaza); osilodrostat – głównie CYP11B2 (syntaza aldosteronu), słabiej CYP11B1 wg PDF p.336; ketokonazol – 17,20-liaza (CYP17); etomidat – 11β-hydroksylaza; trilostan – 3β-HSD; mitotan – adrenolityk niszczący komórki kory nadnerczy.",
     "i": "Zespół Cushinga (pierwotny i ektopowy) – objawowa kontrola hiperkortyzolemii przed operacją lub gdy operacja niemożliwa; rak kory nadnerczy (mitotan).",
-    "c": "Ciąża. Działania niepożądane: hipokortyzolemia, hepatotoksyczność (ketokonazol), hipogonadyzm (ketokonazol – blok CYP17), objawy ze strony OUN i przewodu pokarmowego (mitotan), wydłużenie QT (osilodrostat).",
+    "c": "Ciąża.",
     "n": "Etomidat to jedyny dostępny dożylny inhibitor steroidogenezy – stosowany w intensywnej terapii w gwałtownie narastającej hiperkortyzolemii."
   },
   {
@@ -203,7 +203,7 @@
     "d": "Mifepriston",
     "m": "Antagonista receptora glikokortykosteroidowego (GR) oraz receptora progesteronowego (PR). W zespole Cushinga blokuje obwodowe działanie nadmiaru kortyzolu na poziomie receptora.",
     "i": "Zespół Cushinga z nietolerancją glukozy lub cukrzycą u pacjentów niekwalifikujących się do operacji; przerwanie ciąży (jako antyprogestagen).",
-    "c": "Ciąża (jeśli nie chcemy jej przerywać), niewydolność nadnerczy, krwawienia z dróg rodnych. Działania niepożądane: hipokaliemia, nadciśnienie (wzmożona aktywacja MR przez kortyzol), zmęczenie, krwawienia z dróg rodnych.",
+    "c": "Ciąża (jeśli nie jest planowana aborcja), niewydolność kory nadnerczy, niewyjaśnione krwawienia z dróg rodnych.",
     "n": "Mifepriston obniża objawy hiperkortyzolemii, ale nie obniża stężenia kortyzolu we krwi – monitorować klinicznie, nie biochemicznie."
   },
   {
@@ -212,7 +212,7 @@
     "d": "DHEA (dehydroepiandrosteron)",
     "m": "Słaby androgen nadnerczowy syntetyzowany w warstwie siatkowatej kory nadnerczy z pregnenolonu poprzez 17α-hydroksylazę. Po obwodowej konwersji do testosteronu i estradiolu działa przez receptory androgenowe i estrogenowe.",
     "i": "Niewydolność kory nadnerczy z niedoborem androgenów u kobiet (poprawa libido, samopoczucia), opóźnienie zmian inwolucyjnych u osób starszych (kontrowersyjne).",
-    "c": "Nowotwory hormonozależne (rak prostaty, rak piersi). Działania niepożądane: hirsutyzm, trądzik, łojotok, zaburzenia profilu lipidowego.",
+    "c": "Nowotwory hormonozależne (rak prostaty, rak piersi).",
     "n": "DHEA może powodować wzrost stężenia testosteronu u kobiet z guzami androgenowydzielającymi – ostrożnie u chorych z nowotworem gruczołu krokowego, gdzie często występuje w stężeniach kompensacyjnych."
   },
   {
@@ -221,7 +221,7 @@
     "d": "Estradiol, Estron, Estriol, Etynyloestradiol, Walerianian estradiolu, Cypionian estradiolu, Estrogeny skoniugowane",
     "m": "Działają poprzez jądrowe receptory estrogenowe ERα i ERβ (klasyczna droga genomowa) oraz przezbłonowy receptor GPER-1 (efekty niegenomowe – produkcja NO i rozkurcz naczyń). Regulują transkrypcję genów odpowiedzialnych za rozwój i utrzymanie żeńskich cech płciowych, dojrzewanie endometrium, gospodarkę wapniową i lipidową.",
     "i": "Hormonalna terapia zastępcza w okresie menopauzy, hipogonadyzm żeński, antykoncepcja (w połączeniu z gestagenem), niedoczynność jajników, osteoporoza pomenopauzalna.",
-    "c": "Czynne nowotwory estrogenozależne (rak piersi, endometrium), niewyjaśnione krwawienia z dróg rodnych, czynna choroba zakrzepowo-zatorowa, ciężkie choroby wątroby, ciąża. Działania niepożądane: zakrzepica żylna, wzrost ryzyka raka piersi i endometrium, nudności, obrzęki, nadciśnienie.",
+    "c": "Czynne nowotwory estrogenozależne (rak piersi, rak endometrium), niewyjaśnione krwawienia z dróg rodnych, czynna choroba zakrzepowo-zatorowa, ciężka choroba wątroby, ciąża.",
     "n": "Estriol jest najsłabszym estrogenem – stosowany głównie miejscowo w atrofii pochwy bez ogólnoustrojowego ryzyka zakrzepicy."
   },
   {
@@ -230,7 +230,7 @@
     "d": "Tamoksyfen, Raloksyfen, Bazedoksyfen, Ospemifen, Lazofoksyfen",
     "m": "Selektywne modulatory receptora estrogenowego (SERM) – częściowi agoniści/antagoniści ER zależnie od tkanki. Tamoksyfen: antagonista w piersi (terapia raka piersi), agonista w endometrium (ryzyko hiperplazji) i kości. Raloksyfen i bazedoksyfen: agoniści w kości (ochrona przed osteoporozą), antagoniści w piersi i endometrium. Ospemifen: agonista w pochwie (atrofia).",
     "i": "Tamoksyfen – rak piersi ER+ (leczenie i prewencja), zaburzenia owulacji. Raloksyfen, bazedoksyfen – osteoporoza pomenopauzalna i prewencja raka piersi. Ospemifen – dyspareunia w atrofii pochwy. Lazofoksyfen – osteoporoza.",
-    "c": "Czynna lub przebyta żylna choroba zakrzepowo-zatorowa, ciąża, karmienie piersią. Działania niepożądane: uderzenia gorąca, ŻChZZ, ryzyko raka endometrium (tamoksyfen), kurcze nóg.",
+    "c": "Czynna lub przebyta żylna choroba zakrzepowo-zatorowa, ciąża, karmienie piersią.",
     "n": "Tamoksyfen jest prolekiem aktywowanym przez CYP2D6 do endoksyfenu – wolni metabolizerzy CYP2D6 mają zmniejszoną skuteczność leczenia raka piersi."
   },
   {
@@ -239,7 +239,7 @@
     "d": "Fulwestrant",
     "m": "Czysty antagonista receptora estrogenowego (SERD – selective estrogen receptor degrader) – wiąże ER kompetycyjnie i powoduje jego degradację, hamując zarówno aktywację genomową, jak i niegenomową receptora.",
     "i": "Zaawansowany rak piersi ER+ u kobiet w okresie pomenopauzalnym, oporny na inne metody hormonoterapii.",
-    "c": "Ciąża, karmienie piersią, ciężka niewydolność wątroby. Działania niepożądane: uderzenia gorąca, osteoporoza, zaburzenia żołądkowo-jelitowe.",
+    "c": "Ciąża, karmienie piersią, ciężka niewydolność wątroby.",
     "n": "Fulwestrant nie wykazuje działania agonistycznego w żadnej tkance – w odróżnieniu od SERM nie zwiększa ryzyka raka endometrium."
   },
   {
@@ -248,7 +248,7 @@
     "d": "Klomifen, Tamoksyfen (off-label)",
     "m": "Niesteroidowy SERM – w podwzgórzu działa głównie jako antagonista ER, znosząc ujemne sprzężenie zwrotne estrogenów, co prowadzi do zwiększonego wydzielania GnRH, FSH i LH, a w konsekwencji do indukcji owulacji.",
     "i": "Niepłodność wynikająca z braku owulacji (zespół PCOS), diagnostyka rezerwy jajnikowej.",
-    "c": "Ciąża, torbiele jajnika niezwiązane z PCOS, niewyjaśnione krwawienia, choroby wątroby. Działania niepożądane: uderzenia gorąca, zaburzenia widzenia, ciąże mnogie, OHSS.",
+    "c": "Ciąża, torbiele jajnika niezwiązane z PCOS, niewyjaśnione krwawienia z dróg rodnych, choroby wątroby.",
     "n": "Klomifen zwiększa ryzyko ciąży mnogiej (ok. 10%) – pacjentkę należy o tym uprzedzić przed leczeniem."
   },
   {
@@ -257,7 +257,7 @@
     "d": "Progesteron, Medroksyprogesteron, Hydroksyprogesteron, Lewonorgestrel, Noretysteron, Norgestymat, Lewonorgestrel, Drospirenon, Dienogest, Etonogestrel, Norelgestromin, Cyproteron, Chlormadinon",
     "m": "Działają przez jądrowe receptory progesteronowe (PR-A i PR-B), modulując transkrypcję genów odpowiedzialnych za fazę lutealną cyklu, przygotowanie endometrium do implantacji, utrzymanie ciąży i hamowanie owulacji. Pochodne III generacji (norgestymat, dezogestrel) mają zmniejszone działanie androgenne; drospirenon ma działanie antymineralokortykoidowe i antyandrogenne; dienogest ma silne działanie antyandrogenne.",
     "i": "Antykoncepcja hormonalna (w skojarzeniu z estrogenami lub jako monoterapia – minipigułka, implant, IUD), hormonalna terapia zastępcza, endometrioza (dienogest), niewydolność fazy lutealnej, zagrażające poronienie, mięśniaki macicy.",
-    "c": "Czynna choroba zakrzepowo-zatorowa, czynne nowotwory hormonozależne, niewyjaśnione krwawienia z dróg rodnych, ciężkie choroby wątroby. Działania niepożądane: zaburzenia miesiączkowania, plamienia, retencja płynów, depresja, trądzik (gestageny androgenne).",
+    "c": "Czynna choroba zakrzepowo-zatorowa, czynne nowotwory hormonozależne, niewyjaśnione krwawienia z dróg rodnych, ciężkie choroby wątroby.",
     "n": "Cyproteron jest gestagenem o silnym działaniu antyandrogennym – stosowany w trądziku i hirsutyzmie u kobiet (Diane), ale w wysokich dawkach u mężczyzn z rakiem prostaty zwiększa ryzyko hepatotoksyczności i meningiomy."
   },
   {
@@ -266,7 +266,7 @@
     "d": "Mifepriston, Ulipristal, Onapriston",
     "m": "Mifepriston – antagonista PR i GR; w endometrium uniemożliwia podtrzymanie ciąży, w szyjce macicy powoduje rozmiękanie. Ulipristal – selektywny modulator PR (SPRM) z głównie antagonistycznym działaniem na endometrium i częściowo agonistycznym na PR w mięśniakach. Onapriston – czysty antagonista PR.",
     "i": "Mifepriston – farmakologiczne przerwanie ciąży (w skojarzeniu z mizoprostolem), zespół Cushinga (off-label). Ulipristal – antykoncepcja awaryjna do 120 godzin po stosunku, leczenie mięśniaków macicy.",
-    "c": "Ciąża pożądana, niewydolność nadnerczy (mifepriston), niewyjaśnione krwawienia z dróg rodnych, choroby wątroby. Działania niepożądane: krwawienia, bóle brzucha, hepatotoksyczność (ulipristal w długotrwałym leczeniu mięśniaków).",
+    "c": "Ciąża pożądana, niewydolność kory nadnerczy (mifepriston), niewyjaśnione krwawienia z dróg rodnych, choroby wątroby.",
     "n": "Ulipristal w przewlekłym leczeniu mięśniaków macicy został zawieszony przez EMA ze względu na ryzyko ciężkiej hepatotoksyczności wymagającej przeszczepu wątroby."
   },
   {
@@ -275,7 +275,7 @@
     "d": "Testosteron (cypionian, enantan, undekanian), Mesterolon, Metylotestosteron",
     "m": "Androgeny działają przez wewnątrzkomórkowy receptor androgenowy (AR). Testosteron jest częściowo redukowany przez 5α-reduktazę do silniejszego dihydrotestosteronu (DHT) lub aromatyzowany do estradiolu. Regulują rozwój i utrzymanie męskich cech płciowych, libido, spermatogenezę, masę mięśniową i mineralizację kości.",
     "i": "Hipogonadyzm męski (pierwotny i wtórny), opóźnione dojrzewanie, niedokrwistość aplastyczna, terapia zastępcza testosteronem u mężczyzn z niedoborem.",
-    "c": "Rak prostaty, rak piersi u mężczyzn, ciężka niewydolność wątroby, nerek, serca, ciąża i karmienie piersią. Działania niepożądane: poliglobulia, trądzik, retencja płynów, hepatotoksyczność (preparaty 17α-alkilowane), hipertrofia prostaty, ginekomastia (z aromatyzacji).",
+    "c": "Rak prostaty, rak piersi u mężczyzn, ciężka niewydolność wątroby/nerek/serca, ciąża i karmienie piersią.",
     "n": "Doustne pochodne 17α-alkilowane (metylotestosteron) są hepatotoksyczne i nie są zalecane do przewlekłej substytucji – preferowane są iniekcje (enantan, cypionian, undekanian) lub żele transdermalne."
   },
   {
@@ -284,7 +284,7 @@
     "d": "Cyproteron, Flutamid, Bikalutamid, Nilutamid, Enzalutamid, Apalutamid, Darolutamid",
     "m": "Antagoniści receptora androgenowego – kompetycyjnie blokują wiązanie testosteronu/DHT z AR w komórkach docelowych. Cyproteron dodatkowo działa jako progestagen (hamuje LH). Enzalutamid, apalutamid, darolutamid (II generacja) blokują również translokację AR do jądra i wiązanie z DNA.",
     "i": "Rak prostaty (samodzielnie lub w skojarzeniu z agonistą GnRH – osłona przed tumor flare), hirsutyzm i trądzik u kobiet (cyproteron), zaburzenia płciowe.",
-    "c": "Ciężka niewydolność wątroby, ciąża, dzieci. Działania niepożądane: ginekomastia, hepatotoksyczność (flutamid – ostra niewydolność wątroby), uderzenia gorąca, drgawki (enzalutamid).",
+    "c": "Ciężka niewydolność wątroby, ciąża, wiek dziecięcy.",
     "n": "Klasyczni antyandrogeni (flutamid, bikalutamid, nilutamid) podawani z agonistą GnRH chronią przed tumor flare w pierwszych tygodniach leczenia raka prostaty – obowiązkowa osłona."
   },
   {
@@ -293,7 +293,7 @@
     "d": "Finasteryd, Dutasteryd",
     "m": "Hamują 5α-reduktazę – enzym konwertujący testosteron do silniej działającego dihydrotestosteronu (DHT) w tkankach docelowych (prostata, mieszki włosowe). Finasteryd blokuje izoformę typu 2, dutasteryd typu 1 i 2.",
     "i": "Łagodny przerost gruczołu krokowego (BPH), łysienie androgenowe u mężczyzn (finasteryd w niższej dawce).",
-    "c": "Kobiety w ciąży (teratogenność dla płodu męskiego – zaburzenia rozwoju zewnętrznych narządów płciowych), dzieci. Działania niepożądane: zaburzenia erekcji, spadek libido, ginekomastia, zaburzenia nastroju.",
+    "c": "Kobiety w ciąży (teratogenność dla płodu męskiego), wiek dziecięcy.",
     "n": "Finasteryd obniża stężenie PSA o około 50% – wynik PSA u pacjentów leczonych należy podwoić przy interpretacji w kontekście diagnostyki raka prostaty."
   },
   {
@@ -302,16 +302,16 @@
     "d": "Danazol",
     "m": "Syntetyczny izoksazolowy analog 17α-etynylotestosteronu o słabym działaniu androgennym i antygonadotropowym – hamuje uwalnianie LH i FSH z przysadki oraz steroidogenezę jajnikową, a także wykazuje pewną aktywność progestagenną.",
     "i": "Endometrioza, mastopatia włóknisto-torbielowata, wrodzony obrzęk naczynioruchowy (niedobór C1-inhibitora), ginekomastia.",
-    "c": "Ciąża, karmienie piersią, ciężka niewydolność wątroby, nerek, serca, krwawienia z dróg rodnych o niejasnej etiologii. Działania niepożądane: wirylizacja u kobiet (hirsutyzm, trądzik, obniżenie głosu), wzrost masy ciała, hepatotoksyczność, zaburzenia profilu lipidowego.",
+    "c": "Ciąża, karmienie piersią, ciężka niewydolność wątroby/nerek/serca, niewyjaśnione krwawienia z dróg rodnych.",
     "n": "Wirylizujące działania niepożądane danazolu (zwłaszcza obniżenie głosu) mogą być nieodwracalne po odstawieniu leku."
   },
   {
     "z": 18,
     "t": "Hormonalna terapia zastępcza (HTZ)",
-    "d": "Estrogeny (estradiol, walerianian estradiolu, estrogeny skoniugowane) + gestageny (medroksyprogesteron, dydrogesteron, octan noretysteronu), Tibolon, Octan abirateronu (off-label)",
+    "d": "Estrogeny (estradiol, walerianian estradiolu, estrogeny skoniugowane) + gestageny (medroksyprogesteron, dydrogesteron, octan noretysteronu), Tibolon, Prasteron (DHEA dopochwowo); niehormonalnie: Fezolinetant (antagonista receptora neurokininy 3)",
     "m": "Substytucja estrogenowo-gestagenowa po menopauzie – łagodzi objawy wypadowe, zapobiega osteoporozie pomenopauzalnej i atrofii układu moczowo-płciowego. Gestagen dodawany do estrogenu chroni endometrium przed hiperplazją i nowotworem (kobiety z zachowaną macicą). Tibolon to syntetyczny steroid o słabym działaniu estrogennym, gestagennym i androgennym.",
     "i": "Łagodne i ciężkie objawy wypadowe menopauzy (uderzenia gorąca, suchość pochwy, zaburzenia snu, bóle stawów), profilaktyka osteoporozy pomenopauzalnej u kobiet z czynnikami ryzyka.",
-    "c": "Przebyty lub czynny rak piersi i endometrium, czynna choroba zakrzepowo-zatorowa, ciężka choroba wątroby, nieuregulowane nadciśnienie, niewyjaśnione krwawienia z dróg rodnych. Działania niepożądane: wzrost ryzyka żylnej choroby zakrzepowo-zatorowej, raka piersi i endometrium (przy monoterapii estrogenem), udaru.",
+    "c": "Przebyty lub czynny rak piersi i endometrium, czynna choroba zakrzepowo-zatorowa, ciężka choroba wątroby, niekontrolowane nadciśnienie tętnicze, niewyjaśnione krwawienia z dróg rodnych.",
     "n": "Optymalne okno czasowe rozpoczęcia HTZ to pierwsze 10 lat po menopauzie lub przed 60. rokiem życia – później wzrasta ryzyko sercowo-naczyniowe (hipoteza okna)."
   },
   {
@@ -320,7 +320,7 @@
     "d": "Etynyloestradiol + Lewonorgestrel/Norgestymat/Dezogestrel/Drospirenon/Dienogest/Gestoden/Norelgestromin",
     "m": "Skojarzenie estrogenu (najczęściej etynyloestradiolu) i gestagenu hamuje wydzielanie GnRH, FSH i LH przez przysadkę, blokując owulację. Dodatkowo gestagen zagęszcza śluz szyjkowy (bariera dla plemników) i zmienia endometrium (utrudniona implantacja). Składnik estrogenowy stabilizuje endometrium i kontroluje cykl.",
     "i": "Antykoncepcja, regulacja cyklu miesiączkowego, leczenie trądziku, hirsutyzmu, PMS, endometriozy, krwotocznych miesiączek.",
-    "c": "Czynne lub przebyte żylne i tętnicze incydenty zakrzepowo-zatorowe, ciężkie nadciśnienie, migrena z aurą, palenie >35. roku życia, czynne nowotwory hormonozależne, ciężkie choroby wątroby, ciąża, niewyjaśnione krwawienia z dróg rodnych. Działania niepożądane: zakrzepica żylna, nadciśnienie, nudności, bóle głowy, plamienia, wpływ na libido.",
+    "c": "Czynne lub przebyte żylne i tętnicze incydenty zakrzepowo-zatorowe, ciężkie nadciśnienie tętnicze, migrena z aurą, palenie tytoniu po 35. roku życia, czynne nowotwory hormonozależne, ciężkie choroby wątroby, ciąża, niewyjaśnione krwawienia z dróg rodnych.",
     "n": "Tabletki dwuskładnikowe zwiększają ryzyko żylnej choroby zakrzepowo-zatorowej około 3-4-krotnie – preparaty z drospirenonem, dezogestrelem lub gestodenem mają wyższe ryzyko niż lewonorgestrel."
   },
   {
@@ -329,7 +329,7 @@
     "d": "Lewonorgestrel, Dezogestrel, Etonogestrel (implant), Octan medroksyprogesteronu (depot)",
     "m": "Gestagen w niskich dawkach (minipigułka) zagęszcza śluz szyjkowy, modyfikuje endometrium i zmniejsza ruchliwość jajowodów; nie hamuje owulacji konsekwentnie. Wyższe dawki (dezogestrel, etonogestrel, depot MPA) hamują również owulację.",
     "i": "Antykoncepcja u kobiet z przeciwwskazaniami do estrogenów (karmienie piersią, wywiad zakrzepowy, migrena z aurą, palenie, choroby sercowo-naczyniowe), antykoncepcja postkoitalna (lewonorgestrel).",
-    "c": "Ciąża, czynny rak piersi, niewyjaśnione krwawienia z dróg rodnych, ciężka choroba wątroby. Działania niepożądane: nieregularne krwawienia i plamienia (najczęstsze), trądzik, łojotok, wzrost masy ciała, nastroju.",
+    "c": "Ciąża, czynny rak piersi, niewyjaśnione krwawienia z dróg rodnych, ciężka choroba wątroby.",
     "n": "Minipigułkę z lewonorgestrelem trzeba przyjmować ściśle o tej samej porze (okno 3 godziny) – pominięcie powoduje utratę skuteczności antykoncepcyjnej; dezogestrel ma dłuższe okno 12 godzin."
   },
   {

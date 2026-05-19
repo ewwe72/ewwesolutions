@@ -18,6 +18,9 @@ dependencies = [
 
 [project.optional-dependencies]
 web = []  # placeholder; web deps are required for Phase 1
+dev = [
+    "pytest>=8.0",
+]
 
 [project.scripts]
 fiszkomat = "fiszkomat.cli:main"

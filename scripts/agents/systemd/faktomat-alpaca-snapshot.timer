@@ -1,0 +1,11 @@
+[Unit]
+Description=Alpaca paper-account snapshot — every 30 min
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=30min
+Persistent=true
+RandomizedDelaySec=60s
+
+[Install]
+WantedBy=timers.target

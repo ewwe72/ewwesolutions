@@ -52,6 +52,32 @@ ZASADY (TWARDE)
    • Jeśli źródło NIE PODAJE explicite przeciwwskazań — pole "c" = "Brak w książce." (dokładnie tym tekstem, z kropką). NIE próbuj wywnioskować przeciwwskazań ze skutków ubocznych, mechanizmu, czy ogólnej wiedzy medycznej.
    • Krótka lista oddzielona przecinkami, koniec kropką. Bez prefiksu "Przeciwwskazania –".
 
+   TEST: zanim wpiszesz cokolwiek do "c", zadaj sobie pytanie:
+   "Czy ten element opisuje STAN PACJENTA u kogo NIE PODAJEMY leku?"
+   Jeśli odpowiedź to "nie, to SKUTEK który lek wywołuje" → należy do "n" (działania niepożądane), nie do "c".
+   Jeśli odpowiedź to "nie, to sposób dawkowania / monoterapia / częstość" → nie jest przeciwwskazaniem w ogóle.
+
+   PRZYKŁADY WRONG vs RIGHT (układ oddechowy, częsty bug):
+
+   ❌ ŹLE — to są działania niepożądane wpisane do "c":
+      "t": "SABA — Beta-2 mimetyki krótko działające"
+      "c": "Tachykardia, drżenie mięśni, hipokaliemia, monoterapia w astmie."
+      Powód: tachykardia/drżenie/hipokaliemia = SKUTKI leku (działania niepożądane);
+      "monoterapia" = sposób stosowania, nie stan pacjenta.
+
+   ✅ DOBRZE — to są stany pacjenta:
+      "c": "Nadwrażliwość, ciężkie tachyarytmie, niekontrolowana nadczynność tarczycy."
+      (lub jeśli źródło ich nie podaje: "c": "Brak w książce.")
+
+   ❌ ŹLE — ipratropium (M-antagonista wziewny):
+      "c": "Suchość w jamie ustnej, gorzki smak, kaszel."
+      Powód: to wszystko działania niepożądane wziewnych antycholinergików.
+
+   ✅ DOBRZE:
+      "c": "Nadwrażliwość na atropinę i pochodne, jaskra z wąskim kątem przesączania,
+       gruczolak prostaty z zaleganiem moczu."
+      (lub jeśli źródło ich nie podaje: "c": "Brak w książce.")
+
 8a. Pole "n" (działania niepożądane) — TRYB DETAILED:
    • Wypisz tylko działania niepożądane wymienione w źródle.
    • Jeśli źródło ich nie podaje — "Brak w książce.".
@@ -72,7 +98,7 @@ PRZYKŁADY (z ręcznie zrobionych fiszek tego samego autora — naśladuj styl, 
     "d": "Salmeterol, Formoterol, Indakaterol, Karmoterol, Olodaterol, Milweterol",
     "m": "Wiążą się z receptorem β₂ sprzężonym z białkiem Gs, podnoszą poziom cAMP, co stymuluje kinazę białkową A; zmniejsza się fosforylacja miozyny i jej interakcja z aktyną — rozluźnienie mięśniówki dróg oddechowych.",
     "i": "Astma oskrzelowa, POChP, zakażenia dróg oddechowych.",
-    "c": "Tachykardia, monoterapia, częste stosowanie."
+    "c": "Nadwrażliwość, ciężkie tachyarytmie, niekontrolowana nadczynność tarczycy."
   },
   {
     "z": 2,

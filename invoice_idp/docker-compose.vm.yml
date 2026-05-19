@@ -1,0 +1,96 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: invoice_idp_postgres
+    environment:
+      POSTGRES_USER: invoice_idp
+      POSTGRES_PASSWORD: invoice_idp
+      POSTGRES_DB: invoice_idp
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U invoice_idp -d invoice_idp"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: invoice_idp_redis
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+
+  minio:
+    image: minio/minio:latest
+    container_name: invoice_idp_minio
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    volumes:
+      - minio_data:/data
+    restart: unless-stopped
+
+  minio-init:
+    image: minio/mc:latest
+    depends_on:
+      minio:
+        condition: service_started
+    entrypoint: >
+      sh -c "
+      sleep 5 &&
+      mc alias set local http://minio:9000 minioadmin minioadmin &&
+      (mc mb local/invoice-idp || true) &&
+      echo 'bucket invoice-idp ready'
+      "
+    restart: "no"
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: invoice_idp_app
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://invoice_idp:invoice_idp@postgres:5432/invoice_idp
+      REDIS_URL: redis://redis:6379
+      S3_ENDPOINT_URL: http://minio:9000
+    ports:
+      - "0.0.0.0:8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+      minio:
+        condition: service_started
+    restart: unless-stopped
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: invoice_idp_worker
+    command: ["python", "-m", "arq", "src.app.workers.extract.WorkerSettings"]
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://invoice_idp:invoice_idp@postgres:5432/invoice_idp
+      REDIS_URL: redis://redis:6379
+      S3_ENDPOINT_URL: http://minio:9000
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+      minio:
+        condition: service_started
+      app:
+        condition: service_started
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
+  minio_data:

@@ -53,6 +53,22 @@
 </div>
 {% endif %}
 
+{% if invoice.status == 'failed' %}
+<div class="mb-6 flex flex-wrap items-center justify-between gap-4 rounded-xl border border-stone-200 bg-stone-50 px-5 py-4">
+  <div class="text-sm text-stone-700 min-w-0">
+    <p class="font-medium text-stone-900">Spróbuj ponownie mocniejszym modelem</p>
+    <p class="text-xs text-stone-500 mt-1">Sonnet częściej radzi sobie z trudnymi PDF-ami niż Haiku. Każda próba zużywa jedną opłatę z portfela.</p>
+  </div>
+  <form method="post" action="/app/faktury/{{ invoice.id }}/ponow-ekstrakcje" class="shrink-0">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <button type="submit"
+            class="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-brand-700 text-white rounded-lg hover:bg-brand-800 transition text-sm font-medium shadow-sm">
+      Spróbuj ponownie (Sonnet)
+    </button>
+  </form>
+</div>
+{% endif %}
+
 {% if invoice.canonical_data %}
 <section class="rounded-2xl bg-white ring-1 ring-stone-200 p-6">
   <h2 class="font-serif-display italic text-2xl text-stone-900 mb-2">Wyniki ekstrakcji</h2>

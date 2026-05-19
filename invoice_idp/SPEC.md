@@ -42,6 +42,129 @@
 
 ---
 
+## 0. Bootstrap — for a Claude instance picking this up cold
+
+If you are reading this as a fresh Claude session with no prior context,
+this section is your entry point. Read it before anything else.
+
+### What this project is
+
+A self-serve SaaS for Polish accountants and SMEs that ingests PDF
+invoices, extracts structured data using vision LLM, validates against
+Polish tax-law rules, and exports to formats that Polish accounting
+systems accept (JPK_FA XML, CSV/XLSX, Insert Subiekt EDI++). Monetised
+as freemium subscription with metered overage. Hosted on AWS
+`eu-central-1` (Frankfurt) for RODO/GDPR compliance and to keep Bedrock
++ S3 + EC2 co-resident.
+
+### What state the project is in when you arrive
+
+Unknown until you check. Three possible states:
+
+1. **Pre-validation.** SPEC.md exists, no code, customer research not
+   yet done. The correct first action is to ask the operator (the
+   human user) whether customer research has been completed. If no,
+   **refuse to start coding** — the spec is explicit that the
+   customer-research gate must pass first (§15 Phase 0 checklist).
+   The right action is to help the operator prepare for accountant
+   interviews, not write code.
+
+2. **Validation passed, no code yet.** Start with the Claude vision
+   extraction prototype (§6). It is a single Python file, <200 LOC,
+   that takes a PDF path and prints a JSON `CanonicalInvoice` to stdout.
+   This is the foundation for everything else and validates the unit
+   cost assumption before deeper investment.
+
+3. **Implementation in progress.** Read what exists. The repository
+   layout in §4 tells you where each module belongs. Check `tests/`
+   for what's verified. Resume from the first incomplete phase
+   defined in §15.
+
+### Operator profile (the human you're working with)
+
+- Polish speaker, fluent English, comfortable in both
+- Built two production-shape paper-trading bots before this — see
+  `~/playspace/random/momentum/` and `~/playspace/random/crypto_momentum/`
+  for the patterns the operator and prior Claude sessions have established:
+  pytest discipline, mypy `--strict`, structured JSON logging, Discord
+  webhook alerting via `BIGGA` env var, scheduled-task deployment.
+  (Those bots still run as Windows-host scheduled tasks; only faktomat
+  and fiszkomat moved into the Hyper-V Ubuntu VM 2026-05-14 — see
+  `docs/vm-migration-2026-05-14.md`.)
+- Python 3.11. Production runtime is now containers in a Hyper-V Ubuntu
+  VM; dev still works on Windows 11 (PowerShell + Git Bash) or Linux.
+- Project root: `~/playspace/random/invoice_idp/` (on the VM the
+  prod stack reads its `.env` from this exact path).
+- Discord webhook for *trading* alerts lives in the trading projects'
+  `.env` files under `BIGGA`. For this project, the operator should
+  create a **separate** webhook (different channel) and place it in
+  `invoice_idp/.env` under `BIGGA` — different product, different
+  alert stream.
+- The Phase 1 prototype needs `ANTHROPIC_API_KEY` in
+  `invoice_idp/.env` (direct Anthropic API — see §17 decision 8).
+  From Phase 3 the worker switches to AWS Bedrock and additionally
+  needs `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`,
+  `AWS_REGION=eu-central-1`. Keep `ANTHROPIC_API_KEY` configured
+  through Phase 3 anyway as a local-dev fallback when Bedrock
+  credentials aren't loaded.
+- Required env vars by phase (commit `.env.example` with empty
+  values; never commit the real `.env`):
+  - **Phase 1:** `ANTHROPIC_API_KEY`, `BIGGA` (Discord webhook)
+  - **Phase 2:** + `DATABASE_URL`, `SESSION_SECRET`, `CSRF_SECRET`,
+    `POSTMARK_API_TOKEN`
+  - **Phase 3:** + `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`,
+    `AWS_REGION`, `S3_ENDPOINT`, `S3_BUCKET`, `S3_ACCESS_KEY`,
+    `S3_SECRET_KEY` (AWS S3 `eu-central-1` in prod, MinIO in dev)
+  - **Phase 6:** + `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`,
+    `STRIPE_PRICE_ID_STARTER`, `STRIPE_PRICE_ID_PRO`,
+    `STRIPE_PRICE_ID_BUSINESS`
+  - **Phase 8:** + per-tenant SFTP / inbox config lives in the DB,
+    not env
+
+### Architectural patterns to inherit from the trading bots
+
+The trading bots are not load-bearing for this project, but their
+patterns are good and should be reused:
+
+- **Pure-function strategy / business logic with engine-driven side
+  effects.** Apply the same split: extraction-and-validation as pure
+  functions over `CanonicalInvoice`; persistence/IO as thin shells.
+- **Structured JSON logging via `python-json-logger`** (`logger.py` in
+  either trading project shows the pattern).
+- **Discord wrapper around the trading runner** that does state-diff +
+  log-tail + post (`scripts/run_live.py` in either trading project).
+  The invoice project's ops-alerting layer should follow the same
+  pattern: a wrapper script that runs the daily batch job and posts
+  notable events (error spikes, signups, payments) to Discord.
+- **Reconciliation / "broker vs persisted state" hard halt pattern**
+  becomes "broker (Stripe) vs persisted state" hard halt for billing
+  discrepancies in this project.
+- **`mypy --strict` from day one.** Don't relax it. Configure once,
+  then keep clean.
+- **Pytest plus a small `test_lookahead.py`-style invariant test
+  file** for the extraction layer: no test data may leak into prompts,
+  no future-dated information can appear in extracted output.
+
+### What is decided and what is open
+
+§15 is the implementation checklist organised by phase. §17 lists
+explicit open questions that require operator decisions — do not
+guess answers; bring them to the operator. §16 lists what is
+deliberately out of scope; refuse politely if asked to add them in V1.
+
+### How to make progress
+
+1. Re-confirm with the operator that the customer-research gate has
+   passed (or help them through it if not).
+2. Read §4 for layout, §5 for the canonical data model, §6 for the
+   extraction approach.
+3. Implement phase 1.0 deliverables in the order listed in §15.
+4. Run `pytest tests/` and `mypy --strict src/` before declaring any
+   phase complete.
+5. After each substantive change, write a one-line summary in
+   `CHANGELOG.md` (create it on first change).
+
+---
 
 ## 1. Executive summary
 
@@ -318,7 +441,8 @@ invoice_idp/
 ├── tests/
 │   ├── unit/
 │   ├── integration/
-│   └── e2e/
+│   ├── e2e/
+│   └── test_no_data_leak.py       # Extraction must not leak prompts/test data
 ├── prompts/
 │   └── extraction_v1.md           # Versioned prompts for the LLM
 └── schemas/
@@ -1188,6 +1312,8 @@ Done when:
 - [ ] Validation layer in `src/pipeline/validation/`: NIP, REGON,
       VAT math, totals reconciliation
 - [ ] Pipeline tests using fixtures of known invoice PDFs
+- [ ] `tests/test_no_data_leak.py` asserts no test data appears in
+      production prompts
 - [ ] `mypy --strict` clean
 
 ### Phase 4 — V1.0 web UI

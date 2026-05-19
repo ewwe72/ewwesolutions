@@ -1,0 +1,10 @@
+[Unit]
+Description=Faktomat Postgres backup — fires at 03:00 UTC (~05:00 PL, low-traffic window)
+
+[Timer]
+OnCalendar=*-*-* 03:00:00 UTC
+Persistent=true
+RandomizedDelaySec=120s
+
+[Install]
+WantedBy=timers.target

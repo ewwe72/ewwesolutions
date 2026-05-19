@@ -37,6 +37,30 @@ class ObjectStorage:
             region_name=region,
             config=Config(signature_version="s3v4"),
         )
+        # Separate short-timeout client for liveness probes (/status).
+        # boto3's default 60s read timeout means a hanging MinIO would
+        # leave background threads alive long after the asyncio probe
+        # timeout fires — accumulating with every /status hit.
+        self._probe_client: Any = boto3.client(
+            "s3",
+            endpoint_url=endpoint_url,
+            aws_access_key_id=access_key,
+            aws_secret_access_key=secret_key,
+            region_name=region,
+            config=Config(
+                signature_version="s3v4",
+                connect_timeout=1,
+                read_timeout=1,
+                retries={"max_attempts": 1},
+            ),
+        )
+
+    def health_check(self) -> None:
+        """Lightweight liveness probe — raises if the bucket isn't
+        reachable within ~1s. Sync call; wrap with `asyncio.to_thread`
+        from async contexts. Uses the short-timeout boto3 client so a
+        wedged endpoint doesn't leave a thread hanging for 60s."""
+        self._probe_client.head_bucket(Bucket=self._bucket)
 
     @property
     def bucket(self) -> str:
