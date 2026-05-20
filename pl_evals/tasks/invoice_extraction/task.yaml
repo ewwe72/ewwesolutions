@@ -1,0 +1,39 @@
+name: invoice_extraction
+description: Extract structured data from Polish invoices (JPK_FA-relevant fields)
+version: 1
+
+schema: schema.json
+prompt: prompt.md
+cases: cases/seed.jsonl
+
+# Scoring weights for composite score (0-1). Must sum to 1.0.
+scoring:
+  field_accuracy: 0.7
+  schema_validity: 0.2
+  latency_p50: 0.05
+  cost_per_1k: 0.05
+
+models:
+  # OpenRouter — closed frontier flagships (one per provider for v0)
+  - id: anthropic/claude-opus-4-7
+    provider: openrouter
+    cost_per_1m_in: 15.0
+    cost_per_1m_out: 75.0
+  - id: openai/gpt-5
+    provider: openrouter
+    cost_per_1m_in: 5.0
+    cost_per_1m_out: 20.0
+  - id: google/gemini-2.5-pro
+    provider: openrouter
+    cost_per_1m_in: 2.5
+    cost_per_1m_out: 10.0
+  # Groq — open flagship
+  - id: llama-3.3-70b-versatile
+    provider: groq
+    cost_per_1m_in: 0.0
+    cost_per_1m_out: 0.0
+  # HF Inference — PL flagship
+  - id: speakleash/Bielik-11B-v2.3-Instruct
+    provider: hf_inference
+    cost_per_1m_in: 0.0
+    cost_per_1m_out: 0.0

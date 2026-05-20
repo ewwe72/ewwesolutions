@@ -1,0 +1,3 @@
+{"task": "sample", "case_id": "c1", "model_id": "test/model-1", "provider": "openrouter", "output_text": "{\"k\": 1}", "latency_ms": 50, "input_tokens": 10, "output_tokens": 5}
+{"task": "sample", "case_id": "c1", "model_id": "test/model-2", "provider": "openrouter", "output_text": "{\"k\": 99}", "latency_ms": 80, "input_tokens": 10, "output_tokens": 5}
+{"task": "sample", "case_id": "c1", "model_id": "test/model-3", "provider": "openrouter", "error": {"message": "boom", "retryable": false}}

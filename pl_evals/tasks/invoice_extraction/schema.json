@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Polish invoice extraction",
+  "type": "object",
+  "required": ["seller_nip", "buyer_nip", "invoice_number", "issue_date", "total_gross", "currency", "line_items"],
+  "properties": {
+    "seller_nip": {"type": "string", "pattern": "^[0-9]{10}$"},
+    "seller_name": {"type": "string"},
+    "buyer_nip": {"type": "string", "pattern": "^[0-9]{10}$"},
+    "buyer_name": {"type": "string"},
+    "invoice_number": {"type": "string"},
+    "issue_date": {"type": "string", "format": "date"},
+    "sale_date": {"type": ["string", "null"], "format": "date"},
+    "due_date": {"type": ["string", "null"], "format": "date"},
+    "currency": {"type": "string", "enum": ["PLN", "EUR", "USD"]},
+    "total_net": {"type": "number"},
+    "total_vat": {"type": "number"},
+    "total_gross": {"type": "number"},
+    "line_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["description", "quantity", "unit_price_net", "vat_rate", "net_amount", "gross_amount"],
+        "properties": {
+          "description": {"type": "string"},
+          "quantity": {"type": "number"},
+          "unit_price_net": {"type": "number"},
+          "vat_rate": {"type": "number", "enum": [0, 5, 8, 23]},
+          "net_amount": {"type": "number"},
+          "gross_amount": {"type": "number"}
+        }
+      },
+      "minItems": 1
+    }
+  }
+}

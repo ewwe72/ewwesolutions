@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.venv/
+*.egg-info/
+.env
+# generated outputs — re-run produces fresh ones
+results/*.jsonl
+site/data.json

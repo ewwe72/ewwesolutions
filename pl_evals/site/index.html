@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pl_evals — polski leaderboard LLM dla developerów</title>
+
+  <meta name="description" content="Pierwszy publiczny leaderboard LLM-ów na zadaniach produkcyjnych istotnych dla polskiego SaaS-u. Zamknięte i otwarte modele obok siebie, polska jakość językowa jako oddzielny wymiar.">
+  <meta name="author" content="Ewwe Solutions">
+
+  <meta property="og:title" content="pl_evals — polski leaderboard LLM dla developerów">
+  <meta property="og:description" content="Który model wybrać do feature'a po polsku — w produkcji, w przyszłym tygodniu.">
+  <meta property="og:url" content="https://leaderboard.ewwesolutions.work/">
+  <meta property="og:locale" content="pl_PL">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23e8dcc4'/%3E%3Ctext x='32' y='48' font-family='Impact,sans-serif' font-size='42' font-weight='900' text-anchor='middle' fill='%239b2c2c'%3E§%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Same type stack as studio apex: Bebas (poster display) +
+       EB Garamond (italic body) + JetBrains Mono (numerals). -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Bebas Neue"', 'Anton', 'Impact', 'sans-serif'],
+            body:    ['"EB Garamond"', 'Georgia', 'serif'],
+            mono:    ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+          },
+          colors: {
+            paper:   { DEFAULT: '#e8dcc4', light: '#f0e6ce', dark: '#d9c8a3', deeper: '#cdb98f' },
+            ink:     { DEFAULT: '#1a1612', 2: '#3a342a', 3: '#6b5e4b', 4: '#9c8e75' },
+            oxblood: { DEFAULT: '#9b2c2c', dark: '#6e1b1b', wash: '#c45151' },
+            mustard: { DEFAULT: '#b8861a', dark: '#8a6510', wash: '#dba945' },
+            forest:  { DEFAULT: '#2b4d3e', dark: '#1b3329' },
+          },
+          letterSpacing: {
+            'tightest': '-0.03em',
+            'tight-1':  '-0.015em',
+            'wide-1':   '0.05em',
+            'wide-2':   '0.12em',
+            'wide-3':   '0.22em',
+            'wider-4':  '0.32em',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'EB Garamond', Georgia, serif;
+      background: #e8dcc4;
+      color: #1a1612;
+      font-feature-settings: "kern", "liga", "onum";
+    }
+
+    /* === Paper grain — subtle SVG noise overlay glued to body. === */
+    body::before {
+      content: "";
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+      pointer-events: none;
+      mix-blend-mode: multiply;
+      z-index: 1;
+      opacity: 0.6;
+    }
+    body > * { position: relative; z-index: 2; }
+
+    /* === Type === */
+    .display-tight  { font-family: 'Bebas Neue', Anton, Impact, sans-serif; letter-spacing: -0.005em; }
+    .display-wide   { font-family: 'Bebas Neue', Anton, Impact, sans-serif; letter-spacing: 0.02em; }
+    em.editorial { font-style: italic; font-family: 'EB Garamond', Georgia, serif; }
+
+    /* === Stamps (lifted from studio apex) === */
+    .stamp {
+      display: inline-flex; align-items: center; gap: 0.4em;
+      padding: 3px 9px 2px 9px;
+      border: 1.5px solid currentColor;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 9.5px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.16em;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .stamp-tilted { transform: rotate(-3deg); }
+    .stamp-tilted-r { transform: rotate(2deg); }
+
+    /* === Rules === */
+    .hr-ink { border-bottom: 1.5px solid #1a1612; }
+    .hr-ink-soft { border-color: rgba(26, 22, 18, 0.18); }
+    .hr-ink-double {
+      border-bottom: 1.5px solid #1a1612;
+      box-shadow: 0 4px 0 -2px #1a1612;
+      padding-bottom: 4px;
+    }
+
+    /* === Masthead strip === */
+    .masthead {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #6b5e4b;
+      background: #f0e6ce;
+      border-bottom: 1px solid rgba(26, 22, 18, 0.2);
+      padding: 7px 0;
+    }
+
+    /* === Hero pilcrow watermark === */
+    .pilcrow-mark {
+      font-family: 'Bebas Neue', Anton, Impact, sans-serif;
+      font-size: 280px;
+      line-height: 0.8;
+      color: #9b2c2c;
+      opacity: 0.14;
+      position: absolute;
+      top: -30px;
+      right: -20px;
+      pointer-events: none;
+      user-select: none;
+    }
+    @media (min-width: 1024px) {
+      .pilcrow-mark { font-size: 460px; top: -80px; right: -30px; }
+    }
+
+    /* === Podium card (#1, #2, #3) === */
+    .podium-card {
+      position: relative;
+      padding: 24px 20px 18px 20px;
+      border: 1.5px solid #1a1612;
+      background: #f0e6ce;
+      transition: transform 0.4s cubic-bezier(.2,.7,.3,1.1);
+    }
+    .podium-card:hover { transform: translateY(-3px); }
+    .podium-card-1 {
+      background: #1a1612;
+      color: #e8dcc4;
+      border-color: #1a1612;
+      padding: 32px 28px 24px 28px;
+    }
+    .podium-card-1 .composite-mega {
+      color: #dba945;
+    }
+    .podium-card-1 .model-name { color: #f0e6ce; }
+    .podium-card-1 .model-vendor { color: #cdb98f; }
+
+    .composite-mega {
+      font-family: 'Bebas Neue', Anton, Impact, sans-serif;
+      font-size: 84px;
+      line-height: 0.85;
+      letter-spacing: -0.02em;
+      color: #1a1612;
+      font-variant-numeric: tabular-nums;
+    }
+    @media (min-width: 1024px) {
+      .podium-card-1 .composite-mega { font-size: 128px; }
+      .composite-mega { font-size: 96px; }
+    }
+    .composite-decimal {
+      font-size: 0.55em;
+      opacity: 0.55;
+      vertical-align: text-top;
+    }
+
+    .rank-medallion {
+      font-family: 'Bebas Neue', Anton, Impact, sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.18em;
+      color: #9b2c2c;
+      border-bottom: 1.5px solid #9b2c2c;
+      padding-bottom: 2px;
+      display: inline-block;
+    }
+    .podium-card-1 .rank-medallion {
+      color: #dba945;
+      border-color: #dba945;
+      font-size: 28px;
+    }
+
+    /* === Ledger row === */
+    .ledger-row {
+      display: grid;
+      grid-template-columns: 36px 1fr 90px 90px 90px 70px 70px 50px;
+      gap: 12px;
+      align-items: baseline;
+      padding: 14px 8px;
+      border-bottom: 1px solid rgba(26, 22, 18, 0.18);
+      transition: background 0.15s ease, border-left-color 0.15s ease, padding-left 0.15s ease;
+      border-left: 3px solid transparent;
+    }
+    .ledger-row:hover {
+      background: #f0e6ce;
+      border-left-color: #9b2c2c;
+      padding-left: 11px;
+    }
+    .ledger-row.is-error:hover {
+      border-left-color: #b8861a;
+    }
+    .ledger-row .col-num {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-variant-numeric: tabular-nums;
+      font-size: 14.5px;
+      text-align: right;
+    }
+    .ledger-row .col-rank {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 13px;
+      color: #6b5e4b;
+      letter-spacing: 0.08em;
+    }
+    .ledger-row .col-model {
+      font-family: 'Bebas Neue', Anton, Impact, sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.01em;
+      line-height: 1;
+    }
+    .ledger-row .col-model .vendor-prefix {
+      color: #6b5e4b;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+    }
+    .ledger-row .col-composite {
+      font-family: 'Bebas Neue', Anton, Impact, sans-serif;
+      font-size: 26px;
+      letter-spacing: -0.005em;
+      color: #1a1612;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+    }
+    .ledger-row.is-error .col-composite { color: #9c8e75; }
+
+    @media (max-width: 800px) {
+      .ledger-row {
+        grid-template-columns: 28px 1fr 70px;
+        gap: 8px;
+        row-gap: 4px;
+      }
+      .ledger-row .col-field,
+      .ledger-row .col-schema,
+      .ledger-row .col-lat,
+      .ledger-row .col-cost,
+      .ledger-row .col-err { display: none; }
+    }
+
+    /* === Header row of the ledger === */
+    .ledger-head {
+      display: grid;
+      grid-template-columns: 36px 1fr 90px 90px 90px 70px 70px 50px;
+      gap: 12px;
+      padding: 8px;
+      border-bottom: 2px solid #1a1612;
+      border-top: 1.5px solid #1a1612;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #6b5e4b;
+    }
+    .ledger-head .col-composite { text-align: right; color: #1a1612; }
+    .ledger-head .col-num { text-align: right; }
+    @media (max-width: 800px) {
+      .ledger-head { grid-template-columns: 28px 1fr 70px; }
+      .ledger-head .col-field, .ledger-head .col-schema,
+      .ledger-head .col-lat, .ledger-head .col-cost, .ledger-head .col-err { display: none; }
+    }
+
+    /* === Marginal annotations for error rows === */
+    .marginalia {
+      grid-column: 2 / -1;
+      font-family: 'EB Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 14px;
+      color: #8a6510;
+      padding-top: 3px;
+      padding-bottom: 0;
+    }
+
+    /* === LIVE indicator pulse === */
+    .live-pulse {
+      display: inline-block;
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #2b4d3e;
+      margin-right: 6px;
+      vertical-align: middle;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(43, 77, 62, 0.6); }
+      50%      { box-shadow: 0 0 0 8px rgba(43, 77, 62, 0); }
+    }
+    .live-pulse.stale {
+      background: #9c8e75;
+      animation: none;
+    }
+
+    /* === Weight badges in methodology === */
+    .weight-tile {
+      border: 1.5px solid #1a1612;
+      padding: 16px 14px;
+      background: #f0e6ce;
+      position: relative;
+    }
+    .weight-tile .w-label {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #6b5e4b;
+    }
+    .weight-tile .w-num {
+      font-family: 'Bebas Neue', Anton, Impact, sans-serif;
+      font-size: 56px;
+      line-height: 1;
+      color: #9b2c2c;
+      font-variant-numeric: tabular-nums;
+    }
+    .weight-tile .w-desc {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 14.5px;
+      color: #3a342a;
+      margin-top: 6px;
+      line-height: 1.35;
+    }
+
+    /* === Page-load stagger reveal === */
+    .reveal { opacity: 0; transform: translateY(8px); animation: reveal 0.7s cubic-bezier(.2,.7,.3,1) forwards; }
+    @keyframes reveal {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* === Subtle link === */
+    a.ink-link { color: #9b2c2c; text-decoration: none; border-bottom: 1px solid currentColor; transition: color 0.15s; }
+    a.ink-link:hover { color: #6e1b1b; }
+
+    /* === Loading-state skeleton === */
+    .skeleton-line {
+      height: 18px;
+      background: linear-gradient(90deg, rgba(26,22,18,0.06) 0%, rgba(26,22,18,0.12) 50%, rgba(26,22,18,0.06) 100%);
+      background-size: 200% 100%;
+      animation: shimmer 1.6s linear infinite;
+      border-radius: 2px;
+    }
+    @keyframes shimmer {
+      0% { background-position: 100% 0; }
+      100% { background-position: -100% 0; }
+    }
+  </style>
+</head>
+<body class="font-body">
+
+  <!-- ===================== Masthead strip ===================== -->
+  <div class="masthead">
+    <div class="max-w-[1180px] mx-auto px-5 lg:px-8 flex items-center justify-between gap-4">
+      <span><a href="https://ewwesolutions.work" class="ink-link" style="border:none; color:#6b5e4b;">EWWESOLUTIONS.WORK</a> &nbsp;·&nbsp; STUDIO</span>
+      <span class="hidden sm:inline">POLSKI&nbsp;LEADERBOARD&nbsp;LLM</span>
+      <span><span class="live-pulse" id="live-dot"></span><span id="masthead-date">2026-05-20</span></span>
+    </div>
+  </div>
+
+  <!-- ===================== Hero ===================== -->
+  <header class="relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none">
+      <span class="pilcrow-mark">§</span>
+    </div>
+    <div class="max-w-[1180px] mx-auto px-5 lg:px-8 pt-12 pb-14 lg:pt-20 lg:pb-24 relative">
+      <div class="reveal" style="animation-delay: 0ms;">
+        <div class="font-mono uppercase tracking-wide-3 text-[11px] text-oxblood mb-3">§ — edycja Nº 001</div>
+      </div>
+      <div class="reveal" style="animation-delay: 80ms;">
+        <h1 class="display-tight text-[64px] sm:text-[96px] lg:text-[156px] leading-[0.85] tracking-tightest text-ink">
+          POLSKI<br>LEADERBOARD<br><span class="text-oxblood">LLM</span>
+        </h1>
+      </div>
+      <div class="grid grid-cols-12 gap-4 lg:gap-8 mt-8 lg:mt-12">
+        <div class="col-span-12 lg:col-span-8 reveal" style="animation-delay: 200ms;">
+          <p class="text-[20px] lg:text-[24px] leading-snug text-ink-2 max-w-[40ch]">
+            Który model wybrać do feature'a <em class="editorial">po polsku</em>, w produkcji,
+            w przyszłym tygodniu. Zamknięte i otwarte modele obok siebie, scoring na
+            zadaniach które naprawdę zarabiają — nie akademickim MCQ.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="stamp text-oxblood" id="stamp-cases">— PRZYPADKÓW</span>
+            <span class="stamp text-ink" id="stamp-models">— MODELI</span>
+            <span class="stamp text-forest" id="stamp-generated">EDYCJA —</span>
+            <span class="stamp text-mustard-dark">V0 · OBIEKTYWNE</span>
+          </div>
+        </div>
+        <aside class="col-span-12 lg:col-span-4 lg:col-start-9 lg:pl-6 lg:border-l-2 lg:border-ink reveal" style="animation-delay: 320ms;">
+          <div class="font-mono text-[10.5px] uppercase tracking-wide-3 text-ink-3 mb-4">Spis treści</div>
+          <ul class="space-y-2 text-[14.5px] font-body">
+            <li class="flex items-baseline gap-3"><span class="display-wide text-[16px] text-oxblood leading-none">01</span><a href="#wyniki" class="uppercase tracking-wide-1 ink-link" style="border:none;">Wyniki — kto wygrywa</a></li>
+            <li class="flex items-baseline gap-3"><span class="display-wide text-[16px] text-oxblood leading-none">02</span><a href="#pelna" class="uppercase tracking-wide-1 ink-link" style="border:none;">Pełna tabela</a></li>
+            <li class="flex items-baseline gap-3"><span class="display-wide text-[16px] text-oxblood leading-none">03</span><a href="#metoda" class="uppercase tracking-wide-1 ink-link" style="border:none;">Metoda — jak liczymy</a></li>
+            <li class="flex items-baseline gap-3"><span class="display-wide text-[16px] text-oxblood leading-none">04</span><a href="#kontekst" class="uppercase tracking-wide-1 ink-link" style="border:none;">Kontekst i zastrzeżenia</a></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== § 01 — Wyniki / Podium ===================== -->
+  <section id="wyniki" class="border-t-[1.5px] border-ink bg-paper-light">
+    <div class="max-w-[1180px] mx-auto px-5 lg:px-8 py-14 lg:py-20">
+      <div class="flex items-baseline gap-4 mb-10">
+        <div class="display-wide text-[80px] lg:text-[120px] leading-none text-oxblood">01</div>
+        <div class="font-mono uppercase tracking-wide-3 text-[12px] text-ink-2">§ wyniki — zadanie: ekstrakcja faktury vat</div>
+      </div>
+
+      <!-- Podium grid: #1 dominant, #2/#3 flanking. Falls back to single column on narrow. -->
+      <div id="podium" class="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-7">
+        <!-- Populated by JS. Skeleton fallback while loading. -->
+        <div class="lg:col-span-7 podium-card podium-card-1">
+          <div class="skeleton-line w-24"></div>
+          <div class="skeleton-line w-3/4 mt-6" style="height: 36px;"></div>
+          <div class="skeleton-line w-1/2 mt-8" style="height: 96px;"></div>
+        </div>
+        <div class="lg:col-span-5 grid grid-rows-2 gap-5">
+          <div class="podium-card"><div class="skeleton-line w-1/2"></div></div>
+          <div class="podium-card"><div class="skeleton-line w-1/2"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== § 02 — Pełna tabela ===================== -->
+  <section id="pelna" class="border-t-[1.5px] border-ink">
+    <div class="max-w-[1180px] mx-auto px-5 lg:px-8 py-14 lg:py-20">
+      <div class="flex items-baseline gap-4 mb-8">
+        <div class="display-wide text-[80px] lg:text-[120px] leading-none text-oxblood">02</div>
+        <div class="font-mono uppercase tracking-wide-3 text-[12px] text-ink-2">§ pełna tabela — wszyscy startujący</div>
+      </div>
+
+      <p class="text-[16.5px] text-ink-2 max-w-[60ch] italic mb-8">
+        Każdy wiersz to jeden model na tym zadaniu. Composite = ważona suma czterech
+        wymiarów obiektywnych (patrz <a href="#metoda" class="ink-link">§ 03</a>).
+        Najedź wierszem żeby zobaczyć kontekst.
+      </p>
+
+      <div class="ledger-head">
+        <div class="col-num">№</div>
+        <div>Model</div>
+        <div class="col-composite">Composite</div>
+        <div class="col-field text-right">Field acc.</div>
+        <div class="col-schema text-right">Schema</div>
+        <div class="col-lat text-right">Lat. p50</div>
+        <div class="col-cost text-right">Cost/1k</div>
+        <div class="col-err text-right">Err.</div>
+      </div>
+      <div id="ledger"></div>
+    </div>
+  </section>
+
+  <!-- ===================== § 03 — Metoda ===================== -->
+  <section id="metoda" class="border-t-[1.5px] border-ink bg-paper-light">
+    <div class="max-w-[1180px] mx-auto px-5 lg:px-8 py-14 lg:py-20">
+      <div class="flex items-baseline gap-4 mb-10">
+        <div class="display-wide text-[80px] lg:text-[120px] leading-none text-oxblood">03</div>
+        <div class="font-mono uppercase tracking-wide-3 text-[12px] text-ink-2">§ metoda — co składa się na composite</div>
+      </div>
+
+      <div class="grid grid-cols-12 gap-6 lg:gap-8">
+        <div class="col-span-12 lg:col-span-8 grid grid-cols-2 lg:grid-cols-4 gap-3">
+          <div class="weight-tile">
+            <div class="w-label">Field acc.</div>
+            <div class="w-num">.70</div>
+            <div class="w-desc">Frakcja pól zgodnych z ground&nbsp;truth. Numeryki w&nbsp;tolerancji ±0.01. Listy (line items) matchowane content-equality bez kolejności.</div>
+          </div>
+          <div class="weight-tile">
+            <div class="w-label">Schema</div>
+            <div class="w-num">.20</div>
+            <div class="w-desc">Odsetek odpowiedzi które parsują się jako JSON i&nbsp;przechodzą JSON&nbsp;Schema dla JPK_FA.</div>
+          </div>
+          <div class="weight-tile">
+            <div class="w-label">Lat. p50</div>
+            <div class="w-num">.05</div>
+            <div class="w-desc">Mediana czasu odpowiedzi provider-side. Normalizacja capowana na 30s.</div>
+          </div>
+          <div class="weight-tile">
+            <div class="w-label">Cost/1k</div>
+            <div class="w-num">.05</div>
+            <div class="w-desc">Cena za 1000 calli przy obserwowanym zużyciu tokenów × cennik z task.yaml.</div>
+          </div>
+        </div>
+        <aside class="col-span-12 lg:col-span-4 lg:pl-6 lg:border-l-2 lg:border-ink">
+          <div class="font-mono text-[10.5px] uppercase tracking-wide-3 text-ink-3 mb-3">Czego v0 NIE mierzy</div>
+          <ul class="text-[15px] text-ink-2 leading-snug space-y-3 mb-6">
+            <li><em class="editorial">Polskiej jakości tekstu</em> — LLM-as-judge ląduje w v0.5 z osobno publikowanym rubrykiem.</li>
+            <li><em class="editorial">Multi-task ranking</em> — jedno zadanie na razie. Drugie po launchu.</li>
+            <li><em class="editorial">Contamination detection</em>, fine-tuning headroom — poza scope.</li>
+          </ul>
+          <a href="methodology.html" class="stamp text-oxblood">PEŁNA METODOLOGIA →</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== § 04 — Kontekst ===================== -->
+  <section id="kontekst" class="border-t-[1.5px] border-ink">
+    <div class="max-w-[1180px] mx-auto px-5 lg:px-8 py-14 lg:py-20">
+      <div class="flex items-baseline gap-4 mb-10">
+        <div class="display-wide text-[80px] lg:text-[120px] leading-none text-oxblood">04</div>
+        <div class="font-mono uppercase tracking-wide-3 text-[12px] text-ink-2">§ kontekst — komu to służy, gdzie to ma luki</div>
+      </div>
+
+      <div class="grid grid-cols-12 gap-6 lg:gap-10">
+        <div class="col-span-12 lg:col-span-8">
+          <p class="text-[19px] leading-snug text-ink-2 mb-5">
+            Istniejące benchmarki PL — <em class="editorial">KLEJ, PolEval, PL-MMLU</em> — mierzą
+            akademickie NLP. Świetne dla researcherów, milczą dla developerów. Ten
+            leaderboard odpowiada na pytanie które naprawdę zadajemy:
+            <strong>„który model wybrać do ficzera po polsku w przyszłym tygodniu w produkcji"</strong>.
+          </p>
+          <p class="text-[17px] leading-snug text-ink-2 italic mb-8">
+            Zadania budujemy na bazie produktów które wysłaliśmy do realnych klientów
+            (<a href="https://faktomat.ewwesolutions.work" class="ink-link">Faktomat</a>,
+            <a href="https://fiszkomat.ewwesolutions.work" class="ink-link">Fiszkomat</a>) —
+            mirror prawdziwych workloadów, nie syntetyk. Kod publikujemy razem z launch-em.
+          </p>
+
+          <!-- Limitations ledger -->
+          <div class="hr-ink-double mb-2"></div>
+          <div class="font-mono text-[10.5px] uppercase tracking-wide-3 text-ink-3 mb-4 mt-4">Znane ograniczenia v0</div>
+          <ul class="space-y-3 text-[15px] text-ink-2">
+            <li class="flex gap-3 items-baseline">
+              <span class="stamp text-mustard-dark stamp-tilted">DANE</span>
+              <span><strong>10 syntetyków pokrywających matrycę VAT (0/5/8/23%), mixed-rate, foreign currency, missing fields, rounding, OCR artifacts.</strong> v0.1 zastąpi je realnymi fakturami z weryfikacją operatorską — to jest credibility anchor który obiecujemy.</span>
+            </li>
+            <li class="flex gap-3 items-baseline">
+              <span class="stamp text-mustard-dark stamp-tilted">HF</span>
+              <span><strong>Bielik via HF Inference free tier</strong> ma cold-startów 20-60s — latency dla tego modelu jest zaszumiona. Self-hosting na Together w v0.5.</span>
+            </li>
+            <li class="flex gap-3 items-baseline">
+              <span class="stamp text-mustard-dark stamp-tilted">SĘDZIA</span>
+              <span><strong>Brak LLM-as-judge dla polskiej jakości tekstu</strong> — v0 mierzy tylko obiektywne (pole/schema/lat/cost). Judge ląduje w v0.5 z rubrykiem i 20% human-validation sample.</span>
+            </li>
+          </ul>
+        </div>
+
+        <aside class="col-span-12 lg:col-span-4 lg:pl-6 lg:border-l-2 lg:border-ink">
+          <div class="font-mono text-[10.5px] uppercase tracking-wide-3 text-ink-3 mb-3">Reprodukcja</div>
+          <p class="text-[15px] text-ink-2 italic leading-snug mb-4">
+            Po launchu cały kod, dane, raw JSONL i wyniki publikujemy razem ze zmigrowanym repo
+            na <code class="bg-paper-light px-1.5 py-0.5 not-italic" style="font-family: 'JetBrains Mono', monospace; font-size: 0.85em;">ewwesolutions</code>.
+            <em class="editorial">Pull requesty z nowymi modelami / zadaniami mile widziane wtedy.</em>
+          </p>
+          <div class="font-mono text-[11.5px] bg-ink text-paper p-4 leading-relaxed">
+            git clone &lt;repo&gt;<br>
+            cd pl_evals<br>
+            cp .env.example .env<br>
+            # add OPENROUTER_API_KEY,<br>
+            # GROQ_API_KEY, HF_TOKEN<br>
+            pip install -e ".[dev]"<br>
+            pl-evals run \<br>
+            &nbsp;&nbsp;tasks/invoice_<br>
+            &nbsp;&nbsp;extraction/<br>
+            &nbsp;&nbsp;task.yaml
+          </div>
+          <div class="mt-6">
+            <span class="stamp text-ink-3">REPO LINK · WKRÓTCE</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Footer ledger ===================== -->
+  <footer class="border-t-[1.5px] border-ink bg-ink text-paper">
+    <div class="max-w-[1180px] mx-auto px-5 lg:px-8 py-10">
+      <div class="grid grid-cols-12 gap-4 items-baseline">
+        <div class="col-span-12 lg:col-span-5">
+          <div class="display-wide text-[40px] leading-none mb-1">pl_evals</div>
+          <p class="text-[14px] text-paper-deeper italic">Polski leaderboard LLM dla developerów. Edycja v0 — 2026.</p>
+        </div>
+        <div class="col-span-6 lg:col-span-3 font-mono text-[11px] uppercase tracking-wide-2 text-paper-deeper">
+          <div class="text-paper mb-1">STUDIO</div>
+          <a href="https://ewwesolutions.work" class="block text-paper-deeper hover:text-mustard-wash">ewwesolutions.work →</a>
+          <a href="https://faktomat.ewwesolutions.work" class="block text-paper-deeper hover:text-mustard-wash">Faktomat →</a>
+          <a href="https://fiszkomat.ewwesolutions.work" class="block text-paper-deeper hover:text-mustard-wash">Fiszkomat →</a>
+        </div>
+        <div class="col-span-6 lg:col-span-4 font-mono text-[11px] uppercase tracking-wide-2 text-paper-deeper">
+          <div class="text-paper mb-1">EDYCJA</div>
+          <div id="foot-meta">— przypadków · — modeli · — wygenerowano</div>
+          <div class="mt-2 italic text-paper-deeper" style="font-family: 'EB Garamond', serif; text-transform: none; letter-spacing: 0;">
+            Bez fancy frameworków. Vanilla JS, statyczny HTML, dane w&nbsp;data.json.
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== Data wiring ===================== -->
+  <script>
+    // === Provider → human-readable label + color class ===
+    const PROVIDER_LABEL = {
+      'openrouter': 'OpenRouter',
+      'groq': 'Groq',
+      'hf_inference': 'HF Inference',
+    };
+    const PROVIDER_STAMP = {
+      'openrouter': 'text-oxblood',
+      'groq': 'text-forest',
+      'hf_inference': 'text-mustard-dark',
+    };
+    const PROVIDER_KIND = {
+      'openrouter': 'CLOSED',
+      'groq': 'OPEN',
+      'hf_inference': 'PL · OPEN',
+    };
+
+    // === Split "anthropic/claude-sonnet-4-6" → {vendor, name} ===
+    function splitModelId(id) {
+      const slash = id.indexOf('/');
+      if (slash === -1) return {vendor: '', name: id};
+      return {vendor: id.slice(0, slash), name: id.slice(slash + 1)};
+    }
+
+    // === Animate a number from 0 to target over duration ms ===
+    function countUp(el, target, decimals=3, duration=900) {
+      const start = performance.now();
+      const step = (now) => {
+        const t = Math.min(1, (now - start) / duration);
+        // ease-out cubic
+        const eased = 1 - Math.pow(1 - t, 3);
+        const v = target * eased;
+        el.textContent = v.toFixed(decimals);
+        if (t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+
+    // === Render number with decimal half-opacity (e.g. "0.929" → 0 then ".929" smaller) ===
+    function renderComposite(value) {
+      const v = value.toFixed(3);
+      const dot = v.indexOf('.');
+      return `<span>${v.slice(0, dot)}</span><span class="composite-decimal">${v.slice(dot)}</span>`;
+    }
+
+    // === Marginalia text for error rows ===
+    function errorNote(model) {
+      if (model.provider === 'hf_inference') {
+        return 'Brak <code>HF_TOKEN</code> w środowisku albo cold-start przekroczył timeout. Dodaj klucz lub przełącz na self-hosted (Together, Modal).';
+      }
+      if (model.provider === 'groq') {
+        return 'Brak <code>GROQ_API_KEY</code>. Free tier wystarcza, klucz na console.groq.com.';
+      }
+      return 'Brak klucza API albo provider odrzucił request. Sprawdź <code>.env</code> i logi.';
+    }
+
+    // === Build one podium card ===
+    function podiumCard(model, rank, isHero) {
+      const {vendor, name} = splitModelId(model.model_id);
+      const rankLabel = `№ ${String(rank).padStart(2, '0')}`;
+      const tilt = rank === 1 ? 'stamp-tilted' : '';
+      const cardClass = isHero
+        ? 'lg:col-span-7 podium-card podium-card-1'
+        : 'podium-card';
+      const stampColor = isHero ? 'text-mustard-wash' : PROVIDER_STAMP[model.provider] || 'text-ink';
+      const kindStampColor = isHero ? 'text-mustard-wash' : 'text-ink-3';
+
+      return `
+        <div class="${cardClass}">
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <span class="rank-medallion">${rankLabel}</span>
+            <span class="stamp ${stampColor} ${tilt}">${PROVIDER_LABEL[model.provider] || model.provider}</span>
+          </div>
+          <div class="model-name display-wide text-[28px] ${isHero ? 'lg:text-[44px]' : 'lg:text-[28px]'} leading-none mt-2">
+            ${name}
+          </div>
+          <div class="model-vendor font-mono text-[11px] uppercase tracking-wide-2 mt-1 ${isHero ? 'text-paper-deeper' : 'text-ink-3'}">
+            ${vendor} · ${PROVIDER_KIND[model.provider] || ''}
+          </div>
+          <div class="composite-mega mt-6" data-target="${model.composite}">
+            ${renderComposite(0)}
+          </div>
+          <div class="grid grid-cols-3 gap-3 mt-5 font-mono text-[11px] uppercase tracking-wide-2 ${isHero ? 'text-paper-deeper' : 'text-ink-3'}">
+            <div>
+              <div class="${isHero ? 'text-paper' : 'text-ink'} text-[16px] font-mono normal-case tracking-normal" style="letter-spacing: 0;">${model.field_accuracy.toFixed(3)}</div>
+              <div>Field acc.</div>
+            </div>
+            <div>
+              <div class="${isHero ? 'text-paper' : 'text-ink'} text-[16px] font-mono normal-case tracking-normal" style="letter-spacing: 0;">${model.schema_validity.toFixed(3)}</div>
+              <div>Schema</div>
+            </div>
+            <div>
+              <div class="${isHero ? 'text-paper' : 'text-ink'} text-[16px] font-mono normal-case tracking-normal" style="letter-spacing: 0;">${model.latency_p50}ms</div>
+              <div>Lat. p50</div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // === Build the podium block ===
+    function renderPodium(models) {
+      const root = document.getElementById('podium');
+      const top3 = models.slice(0, 3);
+      if (top3.length === 0) { root.innerHTML = ''; return; }
+      const hero = podiumCard(top3[0], 1, true);
+      const rest = top3.slice(1).map((m, i) => podiumCard(m, i + 2, false)).join('');
+      root.innerHTML = `
+        ${hero}
+        <div class="lg:col-span-5 grid grid-rows-2 gap-5">
+          ${rest || ''}
+        </div>
+      `;
+      // Trigger count-up on composite-mega
+      setTimeout(() => {
+        document.querySelectorAll('.composite-mega').forEach((el, idx) => {
+          const target = parseFloat(el.dataset.target);
+          el.innerHTML = renderComposite(target);  // final HTML structure
+          // Now find the integer span and animate it
+          const ints = el.querySelector('span:first-child');
+          const decs = el.querySelector('.composite-decimal');
+          if (ints && decs) {
+            // Animate by overwriting both spans together via a temp div
+            const tmpInt = ints.textContent; const tmpDec = decs.textContent;
+            ints.textContent = '0'; decs.textContent = '.000';
+            const start = performance.now();
+            const step = (now) => {
+              const t = Math.min(1, (now - start) / 1000);
+              const eased = 1 - Math.pow(1 - t, 3);
+              const v = (target * eased).toFixed(3);
+              const dot = v.indexOf('.');
+              ints.textContent = v.slice(0, dot);
+              decs.textContent = v.slice(dot);
+              if (t < 1) requestAnimationFrame(step);
+            };
+            setTimeout(() => requestAnimationFrame(step), idx * 120);
+          }
+        });
+      }, 100);
+    }
+
+    // === Build the full ledger ===
+    function renderLedger(models) {
+      const root = document.getElementById('ledger');
+      root.innerHTML = models.map((m, i) => {
+        const {vendor, name} = splitModelId(m.model_id);
+        const rank = i + 1;
+        const isErr = m.errors > 0 && m.composite === 0;
+        const rowClass = isErr ? 'ledger-row is-error' : 'ledger-row';
+        const stampColor = PROVIDER_STAMP[m.provider] || 'text-ink';
+        const marginalia = isErr ? `<div class="marginalia">${errorNote(m)}</div>` : '';
+        return `
+          <div class="${rowClass}" style="animation: reveal 0.55s cubic-bezier(.2,.7,.3,1) both; animation-delay: ${i * 60}ms;">
+            <div class="col-num col-rank">№${String(rank).padStart(2,'0')}</div>
+            <div class="col-model">
+              <span class="vendor-prefix">${vendor}/</span><strong>${name}</strong>
+              <span class="ml-2 stamp ${stampColor}" style="vertical-align: middle;">${PROVIDER_KIND[m.provider] || ''}</span>
+            </div>
+            <div class="col-composite">${m.composite.toFixed(3)}</div>
+            <div class="col-num col-field">${m.field_accuracy.toFixed(3)}</div>
+            <div class="col-num col-schema">${m.schema_validity.toFixed(3)}</div>
+            <div class="col-num col-lat">${m.latency_p50}ms</div>
+            <div class="col-num col-cost">$${m.cost_per_1k.toFixed(2)}</div>
+            <div class="col-num col-err" style="${m.errors > 0 ? 'color:#9b2c2c; font-weight:600;' : ''}">${m.errors}</div>
+            ${marginalia}
+          </div>
+        `;
+      }).join('');
+    }
+
+    // === Header masthead bits ===
+    function renderMeta(data) {
+      document.getElementById('masthead-date').textContent = data.generated_at;
+      document.getElementById('foot-meta').textContent =
+        `${data.n_cases} przypadków · ${data.models.length} modeli · ${data.generated_at}`;
+      document.getElementById('stamp-cases').textContent = `${data.n_cases} PRZYPADKÓW`;
+      document.getElementById('stamp-models').textContent = `${data.models.length} MODELI`;
+      document.getElementById('stamp-generated').textContent = `EDYCJA ${data.generated_at.slice(0, 10)}`;
+
+      // LIVE indicator: green pulse if generated within last 7 days, else stale
+      try {
+        const ts = new Date(data.generated_at.replace(' (DEMO data — not a real run)', ''));
+        const ageDays = (Date.now() - ts.getTime()) / 86400000;
+        if (ageDays > 7) document.getElementById('live-dot').classList.add('stale');
+      } catch (e) { /* ignore parse */ }
+    }
+
+    // === Error state when data.json missing ===
+    function renderEmpty() {
+      const podium = document.getElementById('podium');
+      const ledger = document.getElementById('ledger');
+      podium.innerHTML = `
+        <div class="lg:col-span-12 podium-card podium-card-1 text-center" style="padding: 60px 40px;">
+          <div class="rank-medallion" style="color:#dba945; border-color:#dba945;">№ —</div>
+          <div class="display-wide text-[40px] lg:text-[64px] leading-none mt-4">BRAK DANYCH</div>
+          <p class="font-mono text-[12px] uppercase tracking-wide-2 mt-5 text-paper-deeper">
+            data.json nie istnieje. Wpisz w terminalu:
+          </p>
+          <pre class="font-mono text-[13px] mt-3 text-mustard-wash">pl-evals run tasks/invoice_extraction/task.yaml
+pl-evals aggregate tasks/invoice_extraction/task.yaml \\
+  results/&lt;najnowszy&gt;.jsonl</pre>
+        </div>
+      `;
+      ledger.innerHTML = '';
+    }
+
+    // === Boot ===
+    fetch('data.json')
+      .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(data => {
+        renderMeta(data);
+        renderPodium(data.models);
+        renderLedger(data.models);
+      })
+      .catch(() => renderEmpty());
+  </script>
+
+</body>
+</html>

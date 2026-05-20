@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pl_evals — metodologia</title>
+  <meta name="description" content="Pełna metodologia pl_evals: jak liczymy field accuracy, schema validity, latency, cost. Co znaczy composite. Czego v0 nie mierzy i kiedy mierzymy.">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23e8dcc4'/%3E%3Ctext x='32' y='48' font-family='Impact,sans-serif' font-size='42' font-weight='900' text-anchor='middle' fill='%239b2c2c'%3E§%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        fontFamily: {
+          display: ['"Bebas Neue"', 'Anton', 'Impact', 'sans-serif'],
+          body:    ['"EB Garamond"', 'Georgia', 'serif'],
+          mono:    ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+        },
+        colors: {
+          paper:   { DEFAULT: '#e8dcc4', light: '#f0e6ce', dark: '#d9c8a3', deeper: '#cdb98f' },
+          ink:     { DEFAULT: '#1a1612', 2: '#3a342a', 3: '#6b5e4b', 4: '#9c8e75' },
+          oxblood: { DEFAULT: '#9b2c2c', dark: '#6e1b1b', wash: '#c45151' },
+          mustard: { DEFAULT: '#b8861a', dark: '#8a6510', wash: '#dba945' },
+          forest:  { DEFAULT: '#2b4d3e', dark: '#1b3329' },
+        },
+        letterSpacing: {
+          'tightest':'-0.03em','tight-1':'-0.015em',
+          'wide-1':'0.05em','wide-2':'0.12em','wide-3':'0.22em','wider-4':'0.32em',
+        },
+      } }
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'EB Garamond', Georgia, serif;
+      background: #e8dcc4; color: #1a1612;
+      font-feature-settings: "kern", "liga", "onum";
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+      pointer-events: none; mix-blend-mode: multiply; z-index: 1; opacity: 0.6;
+    }
+    body > * { position: relative; z-index: 2; }
+
+    .display-tight { font-family: 'Bebas Neue', Anton, Impact, sans-serif; letter-spacing: -0.005em; }
+    .display-wide  { font-family: 'Bebas Neue', Anton, Impact, sans-serif; letter-spacing: 0.02em; }
+    em.editorial { font-style: italic; font-family: 'EB Garamond', Georgia, serif; }
+
+    .stamp {
+      display: inline-flex; align-items: center; gap: 0.4em;
+      padding: 3px 9px 2px 9px;
+      border: 1.5px solid currentColor;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 9.5px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.16em;
+      line-height: 1; white-space: nowrap;
+    }
+
+    .masthead {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10.5px; letter-spacing: 0.18em;
+      text-transform: uppercase; color: #6b5e4b;
+      background: #f0e6ce;
+      border-bottom: 1px solid rgba(26, 22, 18, 0.2);
+      padding: 7px 0;
+    }
+
+    .article {
+      max-width: 720px;
+      font-size: 19px;
+      line-height: 1.55;
+      color: #1a1612;
+    }
+    .article p { margin: 0 0 1.1em; }
+    .article p.lede {
+      font-size: 23px;
+      line-height: 1.4;
+      color: #3a342a;
+      font-style: italic;
+      margin-bottom: 1.5em;
+    }
+    .article h3 {
+      font-family: 'Bebas Neue', Anton, Impact, sans-serif;
+      font-size: 38px;
+      letter-spacing: 0.005em;
+      line-height: 1;
+      margin: 2.5em 0 0.6em;
+      color: #1a1612;
+      border-bottom: 1.5px solid #1a1612;
+      padding-bottom: 8px;
+    }
+    .article h3 + p { margin-top: 0.5em; }
+
+    .pullquote {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 22px;
+      line-height: 1.35;
+      color: #6e1b1b;
+      padding: 18px 22px;
+      border-left: 4px solid #9b2c2c;
+      background: rgba(155, 44, 44, 0.05);
+      margin: 1.5em 0;
+    }
+
+    code, pre { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+    .article code {
+      background: #f0e6ce;
+      padding: 1px 6px;
+      border-radius: 2px;
+      font-size: 0.85em;
+      border: 1px solid rgba(26, 22, 18, 0.15);
+    }
+    .formula {
+      display: block;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 16px;
+      padding: 14px 18px;
+      background: #1a1612;
+      color: #e8dcc4;
+      margin: 1.2em 0;
+      overflow-x: auto;
+      line-height: 1.7;
+    }
+    .formula .red { color: #dba945; }
+
+    .article > p:first-of-type::first-letter {
+      font-family: 'Bebas Neue', Anton, Impact, sans-serif;
+      font-size: 64px;
+      float: left;
+      line-height: 0.85;
+      margin: 6px 8px 0 0;
+      color: #9b2c2c;
+    }
+
+    a.ink-link { color: #9b2c2c; text-decoration: none; border-bottom: 1px solid currentColor; transition: color 0.15s; }
+    a.ink-link:hover { color: #6e1b1b; }
+
+    .reveal { opacity: 0; transform: translateY(8px); animation: reveal 0.7s cubic-bezier(.2,.7,.3,1) forwards; }
+    @keyframes reveal { to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body class="font-body">
+
+  <div class="masthead">
+    <div class="max-w-[1180px] mx-auto px-5 lg:px-8 flex items-center justify-between gap-4">
+      <span><a href="index.html" class="text-ink-3 hover:text-oxblood" style="text-decoration:none;">← LEADERBOARD</a></span>
+      <span class="hidden sm:inline">PL_EVALS · METODOLOGIA</span>
+      <span class="text-ink-3">v0 · 2026-05-20</span>
+    </div>
+  </div>
+
+  <header class="relative overflow-hidden">
+    <div class="max-w-[1180px] mx-auto px-5 lg:px-8 pt-10 pb-8 lg:pt-16 lg:pb-12 reveal">
+      <div class="font-mono uppercase tracking-wide-3 text-[11px] text-oxblood mb-3">§ METODA</div>
+      <h1 class="display-tight text-[56px] sm:text-[88px] lg:text-[128px] leading-[0.85] tracking-tightest">
+        JAK <span class="text-oxblood">LICZYMY</span>,<br>CO MIERZYMY,<br>CZEGO NIE.
+      </h1>
+    </div>
+  </header>
+
+  <main class="border-t-[1.5px] border-ink">
+    <div class="max-w-[1180px] mx-auto px-5 lg:px-8 py-14 lg:py-20">
+      <div class="grid grid-cols-12 gap-6 lg:gap-12">
+
+        <article class="col-span-12 lg:col-span-8 article reveal">
+          <p class="lede">
+            Każdy benchmark publikuje liczby. Ten dokument tłumaczy <em class="editorial">jak</em>
+            te liczby powstają, <em class="editorial">co</em> celowo zostawiamy na boku,
+            i <em class="editorial">gdzie</em> trzeba czytać z dystansem.
+          </p>
+
+          <h3>Composite — jak agregujemy</h3>
+          <p>
+            Każdy model dostaje cztery liczby z każdego pełnego runa: <code>field_accuracy</code>,
+            <code>schema_validity</code>, <code>latency_p50</code>, <code>cost_per_1k</code>. Composite
+            score to ważona suma — wagi siedzą w <code>task.yaml</code> i można je dostosować przy
+            własnym przebiegu. Dla v0:
+          </p>
+          <div class="formula">composite = <span class="red">0.70</span> · field_accuracy
+                       + <span class="red">0.20</span> · schema_validity
+                       + <span class="red">0.05</span> · latency_norm
+                       + <span class="red">0.05</span> · cost_norm</div>
+          <p>
+            Latency i cost są normalizowane do [0,1] tylko gdy ich waga jest niezerowa (cap odpowiednio
+            30s i $10/1k calli). Dlaczego tak małe wagi? Bo dla 80% real-world use case'ów developer
+            i&nbsp;tak najpierw filtruje "który model robi to <em class="editorial">dobrze</em>", potem
+            patrzy na latency/cost.
+          </p>
+
+          <h3>Field accuracy</h3>
+          <p>
+            Per case: liczymy ile pól ground&nbsp;truth model trafił prawidłowo, dzielimy przez liczbę
+            pól. Średnia po wszystkich case-ach. Trzy subtelne reguły:
+          </p>
+          <ul class="list-none space-y-3 my-4 pl-0">
+            <li class="flex gap-3 items-baseline">
+              <span class="stamp text-ink shrink-0">±0.01</span>
+              <span>Numeryki w tolerancji 0.01 PLN. <code>2460.00</code> i <code>2460.005</code> matchują się — model nie traci punktów za rounding na pół grosza.</span>
+            </li>
+            <li class="flex gap-3 items-baseline">
+              <span class="stamp text-ink shrink-0">ORDER&nbsp;⊥</span>
+              <span><code>line_items</code> matchowane content-equality <em class="editorial">bez kolejności</em>. Faktura z dwoma pozycjami liczy się tak samo bez względu na to czy model wypisał je w&nbsp;kolejności wystawiania, czy alfabetycznie.</span>
+            </li>
+            <li class="flex gap-3 items-baseline">
+              <span class="stamp text-ink shrink-0">STRINGI</span>
+              <span>Stringi porównywane strict. <code>"1234567890"</code> ≠ <code>"123-456-78-90"</code>. Schema mówi "10 cyfr bez separatorów", model który nie czyta schemy traci pole NIP.</span>
+            </li>
+          </ul>
+
+          <h3>Schema validity</h3>
+          <p>
+            Odsetek odpowiedzi które (a) parsują się jako JSON i (b) walidują się przeciw
+            <code>schema.json</code>. Model który zwraca <code>"Tu jest twoja faktura: { ... }"</code>
+            albo zaczyna fence-em <code>```json</code> dostaje zero — schema validity wymaga czystego
+            JSON object'a na wejście.
+          </p>
+          <div class="pullquote">
+            Schema 0.20 to dyscyplina dla developera: jeśli wrzucasz model do produkcji, musisz móc
+            <code>json.loads(response)</code> bez try/except przy każdym wywołaniu.
+          </div>
+
+          <h3>Latency &amp; cost — czemu tak nisko ważone</h3>
+          <p>
+            Latency p50 (mediana z provider-side timing) i cost-per-1k (na bazie cennika z task.yaml ×
+            średnie zużycie tokenów) dostają po 0.05 wagi — sygnał, nie rozstrzygający czynnik.
+          </p>
+          <p>
+            Powód: koszty i czasy zmieniają się szybciej niż quality. Opus potania o&nbsp;30% za pół
+            roku, Llama 4 będzie znowu szybsza, nowy model uderzy raz na kwartał. Trzymanie quality
+            wysoko ważonego oznacza że ranking nie zmienia się znacząco na każdej zmianie cennika.
+          </p>
+
+          <h3>Dane v0 — i czego v0 NIE robi</h3>
+          <p>
+            <strong>10 ręcznie zbudowanych syntetyków</strong> pokrywających matrycę: VAT
+            0%/5%/8%/23%, mixed-rate, foreign currency (EUR/USD), missing optional fields, rounding
+            edge cases, OCR-style artifacts. Każdy case jest arytmetycznie spójny —
+            <code>quantity × unit_price = net_amount</code> w tolerancji 0.01.
+          </p>
+          <p>
+            <strong>Bez prawdziwych faktur klientów.</strong> v0 ships na syntetykach dlatego że
+            tooling musiał działać end-to-end zanim sięgnęliśmy do operatora po prawdziwy korpus.
+            <em class="editorial">v0.1 to zastąpi</em> — pull z operatorskiego inboxa, klasyfikacja
+            (gmail to "pies z budą"), ground truth zasiany przez Faktomat (Claude Opus na Bedrocku),
+            potem operator robi verify-pass per case. Po tym pierwszy publiczny run będzie na
+            operator-verified real-data — i to jest ten credibility anchor o którym mówimy.
+          </p>
+
+          <h3>Modele — czemu ten zestaw na start</h3>
+          <p>
+            5 modeli w v0, wszystkie z półki frontier: <strong>trzy closed flagówki</strong>
+            (Claude Opus 4.7, GPT-5, Gemini 2.5 Pro) przez OpenRouter — jeden klucz API.
+            <strong>Jedna flagowa open</strong> (Llama 3.3 70B) przez Groq. <strong>Jedna
+            polska</strong> (Bielik 11B v2.3) przez HuggingFace Inference.
+          </p>
+          <p>
+            Ograniczenie do 5 to <em class="editorial">cost ceiling decision</em>: pełny run kosztuje
+            ~$4-12 za jedno przejście (Opus dominuje budżet), weekly cron mieści się w&nbsp;$30/mies.
+            Rozszerzenie zestawu (Sonnet, DeepSeek, PLLuM) ląduje w&nbsp;v0.5 razem z LLM-as-judge
+            dla polskiej jakości.
+          </p>
+
+          <h3>HF Inference — gdzie liczby są zaszumione</h3>
+          <p>
+            Bielik (i każdy inny model PL via HF Inference free tier) ma <strong>cold-startów 20–60s</strong>.
+            Pierwszy call po dłuższej przerwie pokazuje latency rzędu 30000ms — co po normalizacji
+            zabija jego latency_norm score, nawet jeśli quality jest dobry.
+          </p>
+          <p>
+            Czytaj liczby HF z dystansem dopóki nie przeniesiemy Bielika i&nbsp;PLLuM-a na Together AI
+            albo Modal w v0.5. To jest świadome ograniczenie, nie błąd metodologii.
+          </p>
+
+          <h3>Reprodukcja</h3>
+          <p>
+            Cały kod, dane, raw JSONL i wyniki publikujemy razem ze zmigrowanym repo na
+            <code>ewwesolutions</code> — przy launchu zamienimy ten paragraf na link. Idea:
+            klonujesz, dodajesz klucze do <code>.env</code>, odpalasz <code>pl-evals run</code>,
+            zobaczysz swoje liczby na tej samej tabeli.
+          </p>
+          <p>
+            Pull requesty z&nbsp;nowymi zadaniami i&nbsp;modelami mile widziane. Schema task-u jest
+            w&nbsp;<code>tasks/&lt;nazwa&gt;/task.yaml</code> — kopiujesz katalog
+            <code>invoice_extraction/</code>, podmieniasz schemę / prompt / cases, gotowe.
+          </p>
+
+          <h3>Co z bias-em sędziego (v0.5+)</h3>
+          <p>
+            Gdy w v0.5 dorzucamy LLM-as-judge dla polskiej jakości, sędzia <strong>nie może</strong>
+            być modelem który jest jednocześnie subject-em. Opus 4.7 jest w tej edycji subject-em,
+            więc judge ląduje na GPT-5 albo Gemini 2.5 Pro (decyzja w v0.5 launch). Prompt sędziego
+            będzie <em class="editorial">wersjonowany</em> w <code>judges/polish_quality.md</code> —
+            możesz odpalić runner z innym sędzią i porównać.
+          </p>
+          <ul class="list-none space-y-3 my-4 pl-0">
+            <li class="flex gap-3 items-baseline">
+              <span class="stamp text-forest shrink-0">REPRO</span>
+              <span>Judge prompt + run ID publikowane przy każdej edycji. Reproduce z innym judge = porównujesz oba ratingi.</span>
+            </li>
+            <li class="flex gap-3 items-baseline">
+              <span class="stamp text-forest shrink-0">κ</span>
+              <span>20% próbka jest ręcznie ocenianym anchor-em. Jeśli judge-vs-human Cohen's κ spadnie poniżej 0.6 na którymkolwiek runie, wyniki dostają tag "low-confidence" na stronie.</span>
+            </li>
+          </ul>
+        </article>
+
+        <aside class="col-span-12 lg:col-span-4 lg:pl-6 lg:border-l-2 lg:border-ink reveal" style="animation-delay: 200ms;">
+          <div class="font-mono text-[10.5px] uppercase tracking-wide-3 text-ink-3 mb-3">W tym dokumencie</div>
+          <ul class="space-y-2 text-[14.5px]">
+            <li><a href="#composite" class="ink-link" style="border:none;">→ Composite — jak agregujemy</a></li>
+            <li><a href="#field-acc" class="ink-link" style="border:none;">→ Field accuracy</a></li>
+            <li><a href="#schema" class="ink-link" style="border:none;">→ Schema validity</a></li>
+            <li><a href="#latcost" class="ink-link" style="border:none;">→ Latency &amp; cost</a></li>
+            <li><a href="#dane" class="ink-link" style="border:none;">→ Dane v0</a></li>
+            <li><a href="#modele" class="ink-link" style="border:none;">→ Modele</a></li>
+            <li><a href="#hf" class="ink-link" style="border:none;">→ HF Inference</a></li>
+            <li><a href="#repro" class="ink-link" style="border:none;">→ Reprodukcja</a></li>
+            <li><a href="#judge" class="ink-link" style="border:none;">→ Bias sędziego (v0.5)</a></li>
+          </ul>
+
+          <div class="mt-10 mb-4 font-mono text-[10.5px] uppercase tracking-wide-3 text-ink-3">Status v0</div>
+          <div class="border-l-4 border-oxblood pl-4 text-[15px] italic text-ink-2">
+            Ship date: 2026-05-20. 5 modeli frontier (Opus 4.7, GPT-5, Gemini 2.5 Pro, Llama 70B, Bielik 11B),
+            1 zadanie, scoring obiektywne.
+          </div>
+
+          <div class="mt-8 mb-4 font-mono text-[10.5px] uppercase tracking-wide-3 text-ink-3">Sąsiednie projekty</div>
+          <ul class="space-y-2 text-[14.5px]">
+            <li><a href="https://ewwesolutions.work" class="ink-link" style="border:none;">→ Studio (ewwesolutions.work)</a></li>
+            <li><a href="https://faktomat.ewwesolutions.work" class="ink-link" style="border:none;">→ Faktomat — ekstrakcja FA(3)/JPK_FA</a></li>
+            <li><a href="https://fiszkomat.ewwesolutions.work" class="ink-link" style="border:none;">→ Fiszkomat — PDF → Anki</a></li>
+          </ul>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="border-t-[1.5px] border-ink bg-ink text-paper">
+    <div class="max-w-[1180px] mx-auto px-5 lg:px-8 py-10">
+      <div class="flex flex-wrap items-baseline justify-between gap-4">
+        <div class="display-wide text-[40px] leading-none">pl_evals</div>
+        <a href="index.html" class="stamp text-mustard-wash">← LEADERBOARD</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

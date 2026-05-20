@@ -1,0 +1,16 @@
+name: sample
+description: test task
+version: 1
+schema: sample_schema.json
+prompt: sample_prompt.md
+cases: sample_cases.jsonl
+scoring:
+  field_accuracy: 0.8
+  schema_validity: 0.2
+  latency_p50: 0.0
+  cost_per_1k: 0.0
+models:
+  - id: test/model-1
+    provider: openrouter
+    cost_per_1m_in: 1.0
+    cost_per_1m_out: 2.0
