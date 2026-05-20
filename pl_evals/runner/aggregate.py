@@ -1,5 +1,6 @@
 from __future__ import annotations
 import json
+import re
 import statistics
 import time
 from dataclasses import dataclass, asdict
@@ -21,9 +22,21 @@ class ModelScore:
     composite: float
 
 
+_FENCE_RE = re.compile(r"^\s*```[A-Za-z0-9_-]*\s*\n(.*?)\n```\s*$", re.DOTALL)
+
+
+def _strip_markdown_fence(text: str) -> str:
+    """Strip a leading ```json / ```yaml / ``` and trailing ``` if the
+    entire payload is wrapped in a single markdown code fence — standard
+    production cleanup before json.loads. Conservative: only strips if the
+    whole string matches; partial fences are left for parser to fail on."""
+    m = _FENCE_RE.match(text)
+    return m.group(1) if m else text
+
+
 def _safe_parse_json(text: str) -> dict[str, Any] | None:
     try:
-        return json.loads(text)
+        return json.loads(_strip_markdown_fence(text))
     except (json.JSONDecodeError, TypeError):
         return None
 

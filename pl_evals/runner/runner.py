@@ -117,6 +117,16 @@ async def run_task(cfg: TaskConfig, out_path: Path) -> None:
                     })
                 except ProviderError as e:
                     rec["error"] = {"message": str(e), "retryable": e.retryable}
+                except Exception as e:
+                    # Catch-all. Some libraries (httpx, anthropic, openai) echo the
+                    # full failing header / request body into their exception messages
+                    # — including Authorization bearer tokens. Refuse to let that
+                    # text reach stdout/stderr or a JSONL field. Record only the
+                    # exception class name; the value, if any, never leaves this block.
+                    rec["error"] = {
+                        "message": f"unhandled: {type(e).__name__}",
+                        "retryable": False,
+                    }
                 f.write(json.dumps(rec, ensure_ascii=False) + "\n")
 
 

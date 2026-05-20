@@ -14,7 +14,7 @@ scoring:
   cost_per_1k: 0.05
 
 models:
-  # OpenRouter — closed frontier flagships (one per provider for v0)
+  # OpenRouter — frontier closed (Anthropic / OpenAI / Google / xAI)
   - id: anthropic/claude-opus-4-7
     provider: openrouter
     cost_per_1m_in: 15.0
@@ -27,13 +27,20 @@ models:
     provider: openrouter
     cost_per_1m_in: 2.5
     cost_per_1m_out: 10.0
-  # Groq — open flagship
+  - id: x-ai/grok-4
+    provider: openrouter
+    cost_per_1m_in: 5.0
+    cost_per_1m_out: 15.0
+  # OpenRouter — frontier open (Chinese / Meta)
+  - id: deepseek/deepseek-chat-v3.1
+    provider: openrouter
+    cost_per_1m_in: 0.27
+    cost_per_1m_out: 1.10
+  # Groq — fast open flagship (Meta Llama)
   - id: llama-3.3-70b-versatile
     provider: groq
     cost_per_1m_in: 0.0
     cost_per_1m_out: 0.0
-  # HF Inference — PL flagship
-  - id: speakleash/Bielik-11B-v2.3-Instruct
-    provider: hf_inference
-    cost_per_1m_in: 0.0
-    cost_per_1m_out: 0.0
+  # PL flagships (Bielik, PLLuM) ląduje w v0.5 po self-hosted setup
+  # na Together AI / Modal — HF Inference free tier daje cold-starty
+  # 20-60s, co zaszumia latency niezgodnie z metryką.

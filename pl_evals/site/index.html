@@ -359,10 +359,14 @@
 
   <!-- ===================== Masthead strip ===================== -->
   <div class="masthead">
-    <div class="max-w-[1180px] mx-auto px-5 lg:px-8 flex items-center justify-between gap-4">
-      <span><a href="https://ewwesolutions.work" class="ink-link" style="border:none; color:#6b5e4b;">EWWESOLUTIONS.WORK</a> &nbsp;·&nbsp; STUDIO</span>
-      <span class="hidden sm:inline">POLSKI&nbsp;LEADERBOARD&nbsp;LLM</span>
-      <span><span class="live-pulse" id="live-dot"></span><span id="masthead-date">2026-05-20</span></span>
+    <div class="max-w-[1180px] mx-auto px-5 lg:px-8 flex items-center justify-between gap-4 flex-wrap">
+      <span><a href="https://ewwesolutions.work" style="text-decoration:none; color:#6b5e4b;">EWWESOLUTIONS.WORK</a> &nbsp;·&nbsp; STUDIO</span>
+      <span class="hidden md:inline">POLSKI&nbsp;LEADERBOARD&nbsp;LLM</span>
+      <span class="flex items-center gap-4">
+        <a href="methodology.html" style="text-decoration:none; color:#6b5e4b;">METODA</a>
+        <a href="https://github.com/ewwe72/ewwesolutions/tree/main/pl_evals" style="text-decoration:none; color:#9b2c2c;">KOD ↗</a>
+        <span><span class="live-pulse" id="live-dot"></span><span id="masthead-date">2026-05-20</span></span>
+      </span>
     </div>
   </div>
 
@@ -535,8 +539,8 @@
               <span><strong>10 syntetyków pokrywających matrycę VAT (0/5/8/23%), mixed-rate, foreign currency, missing fields, rounding, OCR artifacts.</strong> v0.1 zastąpi je realnymi fakturami z weryfikacją operatorską — to jest credibility anchor który obiecujemy.</span>
             </li>
             <li class="flex gap-3 items-baseline">
-              <span class="stamp text-mustard-dark stamp-tilted">HF</span>
-              <span><strong>Bielik via HF Inference free tier</strong> ma cold-startów 20-60s — latency dla tego modelu jest zaszumiona. Self-hosting na Together w v0.5.</span>
+              <span class="stamp text-mustard-dark stamp-tilted">PL</span>
+              <span><strong>Brak polskich flagówek (Bielik, PLLuM) w v0.</strong> HF Inference free tier daje cold-startów 20–60s, które zaszumiają latency niezgodnie z metryką. Self-hosting na Together AI / Modal i&nbsp;dedykowana edycja "PL native" lądują w&nbsp;v0.5.</span>
             </li>
             <li class="flex gap-3 items-baseline">
               <span class="stamp text-mustard-dark stamp-tilted">SĘDZIA</span>
@@ -548,13 +552,13 @@
         <aside class="col-span-12 lg:col-span-4 lg:pl-6 lg:border-l-2 lg:border-ink">
           <div class="font-mono text-[10.5px] uppercase tracking-wide-3 text-ink-3 mb-3">Reprodukcja</div>
           <p class="text-[15px] text-ink-2 italic leading-snug mb-4">
-            Po launchu cały kod, dane, raw JSONL i wyniki publikujemy razem ze zmigrowanym repo
-            na <code class="bg-paper-light px-1.5 py-0.5 not-italic" style="font-family: 'JetBrains Mono', monospace; font-size: 0.85em;">ewwesolutions</code>.
-            <em class="editorial">Pull requesty z nowymi modelami / zadaniami mile widziane wtedy.</em>
+            Cały kod, dane, raw JSONL i wyniki są publiczne w&nbsp;<code class="bg-paper-light px-1.5 py-0.5 not-italic" style="font-family: 'JetBrains Mono', monospace; font-size: 0.85em;">ewwe72/ewwesolutions</code>
+            pod MIT. <em class="editorial">Pull requesty z nowymi modelami / zadaniami mile widziane.</em>
           </p>
           <div class="font-mono text-[11.5px] bg-ink text-paper p-4 leading-relaxed">
-            git clone &lt;repo&gt;<br>
-            cd pl_evals<br>
+            git clone gh.com/ewwe72/<br>
+            ewwesolutions<br>
+            cd ewwesolutions/pl_evals<br>
             cp .env.example .env<br>
             # add OPENROUTER_API_KEY,<br>
             # GROQ_API_KEY, HF_TOKEN<br>
@@ -565,7 +569,7 @@
             &nbsp;&nbsp;task.yaml
           </div>
           <div class="mt-6">
-            <span class="stamp text-ink-3">REPO LINK · WKRÓTCE</span>
+            <a href="https://github.com/ewwe72/ewwesolutions/tree/main/pl_evals" class="stamp text-ink">GITHUB · KOD →</a>
           </div>
         </aside>
       </div>
@@ -644,15 +648,18 @@
       return `<span>${v.slice(0, dot)}</span><span class="composite-decimal">${v.slice(dot)}</span>`;
     }
 
-    // === Marginalia text for error rows ===
+    // === Marginalia text for error rows — editorial register ===
     function errorNote(model) {
       if (model.provider === 'hf_inference') {
-        return 'Brak <code>HF_TOKEN</code> w środowisku albo cold-start przekroczył timeout. Dodaj klucz lub przełącz na self-hosted (Together, Modal).';
+        return 'HuggingFace Inference free tier daje cold-startów 20–60s, co nie pozwala porównywać latency uczciwie. Polskie flagówki (Bielik, PLLuM) wracają w&nbsp;v0.5 po self-hosting na Together AI. <a href="methodology.html#hf" class="ink-link" style="border:none;">Szczegóły metodologii →</a>';
       }
       if (model.provider === 'groq') {
-        return 'Brak <code>GROQ_API_KEY</code>. Free tier wystarcza, klucz na console.groq.com.';
+        return 'Provider nie zwrócił odpowiedzi w tej edycji. Llama via Groq zwykle leci poniżej 1s — możliwe że klucz nie sponsorował tej edycji.';
       }
-      return 'Brak klucza API albo provider odrzucił request. Sprawdź <code>.env</code> i logi.';
+      if (model.provider === 'openrouter') {
+        return 'OpenRouter zwrócił błąd dla tego modelu (najczęściej: model_id zmienił się po stronie providera). Zaktualizujemy w&nbsp;kolejnej edycji.';
+      }
+      return 'Provider zwrócił błąd — model nie ukończył edycji.';
     }
 
     // === Build one podium card ===
