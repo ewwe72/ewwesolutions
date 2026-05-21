@@ -25,10 +25,11 @@ pl-evals aggregate tasks/invoice_extraction/task.yaml results/<run>.jsonl
 
 Produces `site/data.json`. Serve `site/` statically to view the leaderboard.
 
-## Repo location
+## Repo & site
 
-Currently lives in the private `random` monorepo. Will move to public
-`ewwe72/ewwesolutions/pl_evals/` after operator review.
+- Public source: [github.com/ewwe72/ewwesolutions/tree/main/pl_evals](https://github.com/ewwe72/ewwesolutions/tree/main/pl_evals)
+- Live leaderboard: [leaderboard.ewwesolutions.work](https://leaderboard.ewwesolutions.work)
+- License: MIT
 
 ## Adding a model or task
 
