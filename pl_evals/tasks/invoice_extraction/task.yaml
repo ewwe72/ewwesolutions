@@ -27,7 +27,7 @@ models:
     provider: openrouter
     cost_per_1m_in: 2.5
     cost_per_1m_out: 10.0
-  - id: x-ai/grok-4
+  - id: x-ai/grok-4.3
     provider: openrouter
     cost_per_1m_in: 5.0
     cost_per_1m_out: 15.0
