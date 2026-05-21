@@ -3,25 +3,29 @@
 Per spec §0: "no test data may leak into prompts, no future-dated
 information can appear in extracted output". These are cheap guards
 against subtle bugs the rest of the test suite would miss.
+
+The list of forbidden real-customer strings lives in the `.env` under
+`TEST_FORBIDDEN_STRINGS` (comma-separated). Keeping these in env keeps
+the canaries out of source — the canary file used to leak the very
+data it was guarding. When the env var is unset (CI without secrets,
+fresh clone), the data-leak tests self-skip so the rest of the suite
+still runs green.
 """
 
 from __future__ import annotations
 
+import os
 import re
+
+import pytest
 
 from src.pipeline.extraction.anthropic_provider import PROMPT_PATH, TOOL_SCHEMA
 from src.pipeline.extraction.bedrock_provider import BEDROCK_MODEL_MAP
 
-# Real-customer data from the eval set that must NEVER appear in shipped prompts.
-# Add new entries when new high-value seeds are introduced.
-LEAKED_DATA_FORBIDDEN_IN_PROMPT = [
-    "5981250614",         # ebratek seller NIP
-    "266/5/2026/BL",      # ebratek invoice number
-    "Jolanta Bratkowska",
-    "Patryk Popenda",
-    "thorgal7295",        # operator's gmail handle
-    "stefanini.com",      # operator's work-email domain
-]
+
+def _forbidden_strings() -> list[str]:
+    raw = os.environ.get("TEST_FORBIDDEN_STRINGS", "")
+    return [s.strip() for s in raw.split(",") if s.strip()]
 
 
 def _prompt() -> str:
@@ -29,8 +33,11 @@ def _prompt() -> str:
 
 
 def test_prompt_contains_no_real_customer_data() -> None:
+    needles = _forbidden_strings()
+    if not needles:
+        pytest.skip("TEST_FORBIDDEN_STRINGS not set in env — canary list empty")
     text = _prompt()
-    for needle in LEAKED_DATA_FORBIDDEN_IN_PROMPT:
+    for needle in needles:
         assert needle not in text, f"Real-data leak in prompt: {needle!r}"
 
 
@@ -72,6 +79,9 @@ def test_bedrock_model_map_uses_eu_inference_profile() -> None:
 def test_tool_schema_has_no_test_data() -> None:
     """Descriptions / examples in the tool schema must be generic."""
     import json
+    needles = _forbidden_strings()
+    if not needles:
+        pytest.skip("TEST_FORBIDDEN_STRINGS not set in env — canary list empty")
     serialised = json.dumps(TOOL_SCHEMA, ensure_ascii=False)
-    for needle in LEAKED_DATA_FORBIDDEN_IN_PROMPT:
+    for needle in needles:
         assert needle not in serialised, f"Real-data leak in TOOL_SCHEMA: {needle!r}"

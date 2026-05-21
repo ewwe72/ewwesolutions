@@ -80,7 +80,7 @@ async def test_settings_post_persists_and_audits(
         "/app/ustawienia",
         data={
             "csrf_token": csrf,
-            "name": "Stefanini sp. z o.o.",
+            "name": "Test Org sp. z o.o.",
             "nip": "PL 123-456-78-19",
             "regon": "",
             "kod_urzedu": "0202",
@@ -91,7 +91,7 @@ async def test_settings_post_persists_and_audits(
 
     org = await _org_for(db_session, email)
     await db_session.refresh(org)
-    assert org.name == "Stefanini sp. z o.o."
+    assert org.name == "Test Org sp. z o.o."
     assert org.nip == "1234567819"  # normalised
     assert org.regon is None
     assert org.kod_urzedu == "0202"
