@@ -89,9 +89,8 @@ Standard secrets hygiene:
   state.
 - Build caches: `__pycache__`, `.mypy_cache`, `node_modules`, `dist`.
 
-A pre-commit hook (`scripts/audit_secrets.py`) scans staged content
-against a set of secret + PII regex markers and refuses the commit
-on a hit. Repo-wide audit: `python scripts/audit_secrets.py`.
+Credential-leak prevention is delegated to GitHub Push Protection +
+secret scanning on the remote.
 
 ---
 
