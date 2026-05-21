@@ -23,7 +23,7 @@ Ministry of Finance schema, plus JSON and CSV. Pay-as-you-go,
 0,50 PLN per invoice, no subscription. AWS Frankfurt; data stays in
 the EU.
 
-Stack: Python · FastAPI · Postgres · Anthropic SDK (Bedrock) ·
+Stack: Python · FastAPI · Postgres · Anthropic SDK (Bedrock)
 Stripe · arq worker · Cloudflare tunnel (cloudflared in-VM).
 
 ### [fiszkomat](fiszkomat/) — Polish-medical skrypt → Anki
@@ -116,6 +116,5 @@ npm run dev
 
 ## Contact
 
-[kontakt@ewwesolutions.work](mailto:kontakt@ewwesolutions.work) ·
-[ewwesolutions.work](https://ewwesolutions.work) ·
-[Founder CV](cv.pdf)
+[kontakt@ewwesolutions.work](mailto:kontakt@ewwesolutions.work)
+[ewwesolutions.work](https://ewwesolutions.work)
